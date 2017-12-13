@@ -13,4 +13,11 @@ class TiendaController extends Controller
   public function index(request $request){
     return view('Tienda/inicio');
   }
+
+  public function contacto(request $request){
+    return view('Tienda/contactenos');
+  }
+
+
+
 }
