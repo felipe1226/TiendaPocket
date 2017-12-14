@@ -42,16 +42,8 @@
 
     -->
 
-
-
-
-
-
-
-
       <script src="https://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
       <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script>
-
 
 <script>
 // ajax para verificar que el usuario esté logueado y así no dejar ver la página
@@ -138,7 +130,6 @@
 {!!Html::script('javascripts/menu/bootstrap-submenu.min.js')!!}
 
 <!-- ascrip y css de menu -->
-
 
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
   </head>
