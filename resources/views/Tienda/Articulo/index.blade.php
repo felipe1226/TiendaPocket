@@ -939,15 +939,16 @@ param_product_url = '#';
           </div>
           <div class="content_product_list hide-productdes hide-coloroption hide-stockinfo   "  data-class=" col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
             <ul class="product_list row grid">
-
+						@if(isset($articulos))
+						 @foreach($articulos as $articulo)
               <li class="ajax_block_product  col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
 			          <div class="product-container" itemscope itemtype="http://schema.org/Product">
 				          <div class="left-block">
                     <div class="product-image-container">
 
 						          <div class="product-image">
-												<a href="sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html" title="Peberkas tongue" itemprop="url" >
-									        <img class="img_1" src="http://prestashop.flytheme.net/sp_market/56-home_default/faded-short-sleeves-tshirt.jpg"  alt="Peberkas tongue"/>
+												<a href="sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html" itemprop="url" >
+									        <img  height="220" class="img_1" src="imgArticulos/{{$articulo->imagen}}"/>
 												</a>
                       </div>
                       <div class="label-box">
@@ -959,9 +960,12 @@ param_product_url = '#';
                     </div>
                   </div>
                   <div class="right-block">
-					          <h5 itemprop="nombre" class="product-name">
-											<a href="sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html" itemprop="url" >
-							          Peberkas tongue
+					          <h4 itemprop="nombre" class="product-name">
+											<a href="sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html" itemprop="url" >Articulo: {{$articulo->nombre}}
+						          </a>
+					          </h4>
+										<h5 itemprop="marca" class="product-name">
+											<a href="sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html" itemprop="url" >Marca: {{$articulo->marca}}
 						          </a>
 					          </h5>
 										<div class="color-list-container"><ul class="color_to_pick_list clearfix">
@@ -1013,6 +1017,8 @@ param_product_url = '#';
 				           </div>
                 </div><!-- .product-container> -->
 		           </li>
+							 @endforeach
+							 @endif
             </ul>
           </div>
           <div class="content_sortPagiBar_top">

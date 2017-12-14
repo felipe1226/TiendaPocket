@@ -5,6 +5,7 @@ namespace PocketByR\Http\Controllers;
 use Illuminate\Http\Request;
 use PocketByR\Http\Requests;
 use PocketByR\Http\Controllers\Controller;
+
 use PocketByR\Articulo;
 use Laracasts\Flash\Flash;
 use Auth;
@@ -18,7 +19,8 @@ class ArticuloController extends Controller
   }
 
   public function index(Request $Request0){
-    return view('Tienda/Articulo/index');
+    $articulos = Articulo::all();
+    return view('Tienda/Articulo/index')->with(['articulos' => $articulos]);
   }
 
   public function store(Request $request){
@@ -33,7 +35,7 @@ class ArticuloController extends Controller
     $img = $request->file('imagenArticulo');
 
     $file_route = time().'_'.$img->getClientOriginalName();
-    Storage::disk('imgArts')->put($file_route, file_get_contents( $img->getRealPath()));
+    Storage::disk('imgArticulos')->put($file_route, file_get_contents( $img->getRealPath()));
 
     $articulo->imagen = $file_route;
     $articulo->save();

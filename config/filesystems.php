@@ -44,9 +44,9 @@ return [
     'disks' => [
 
 
-        'imgArts' => [
+        'imgArticulos' => [
             'driver' => 'local',
-            'root' =>  public_path('imgArts'),
+            'root' =>  public_path('imgArticulos'),
         ],
 
         'local' => [
