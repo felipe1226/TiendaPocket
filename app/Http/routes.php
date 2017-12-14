@@ -117,8 +117,8 @@ Route::get('Tutorial' , ['uses' => 'UsuariosController@tutorial', 'as' => 'usuar
 Route::resource('/usuario', 'MensajeController@store');
 Route::resource('/usuario', 'MensajeController');
 
-Route::resource('/RegistrarArticulo', 'ArticuloController@store');
-Route::resource('/RegistrarArticulo', 'ArticuloController');
+
+Route::resource('Tienda/RegistrarArticulo', 'ArticuloController');
 Route::resource('/RegistrarArticulo', 'TiendaController@registrarArticulo');
 
 Route::resource('/Contactenos', 'TiendaController@contacto');

@@ -43,6 +43,12 @@ return [
 
     'disks' => [
 
+
+        'imgArts' => [
+            'driver' => 'local',
+            'root' =>  public_path('imgArts'),
+        ],
+
         'local' => [
             'driver' => 'local',
             'root' =>  public_path().'/images/admins',

@@ -8,6 +8,7 @@ use PocketByR\Http\Controllers\Controller;
 use PocketByR\Articulo;
 use Laracasts\Flash\Flash;
 use Auth;
+use Storage;
 
 class ArticuloController extends Controller
 {
@@ -23,14 +24,16 @@ class ArticuloController extends Controller
     $articulo->categoria = $request->categoria;
     $articulo->marca = $request->marca;
     $articulo->descripcion = $request->descripcion;
-    $file = $request->file('imagenArticulo');
-    $nombre = $file->getClientOriginalName();
-    //indicamos que queremos guardar un nuevo archivo en el disco local
-    \Storage::disk('local')->put($nombre,  \File::get($file));
-    $articulo->imagen = $nombre;
 
+
+    $img = $request->file('imagenArticulo');
+
+    $file_route = time().'_'.$img->getClientOriginalName();
+    Storage::disk('imgArts')->put($file_route, file_get_contents( $img->getRealPath()));
+
+    $articulo->imagen = $file_route;
     $articulo->save();
-
-    return redirect()->route('Articulo.registrarArticulo');
+    Flash::success("El articulo se ha registrado satisfactoriamente")->important();
+    return redirect('RegistrarArticulo/');
   }
 }

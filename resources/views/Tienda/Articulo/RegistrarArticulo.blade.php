@@ -598,40 +598,42 @@
                			  var map = new google.maps.Map(document.getElementById("map"), myOptions);
                		// ]]></script>
                	</div>
-               	<div class="contact-content">
-               		<!--{!! Form::open(['method' => 'POST', 'action' => 'ArticuloController@store']) !!}-->
+               	<div class="contact-content col-md-8 col-sm-12">
+									@include('flash::message')
+									{!!Form::open(array('url'=>'Tienda/RegistrarArticulo','method'=>'POST','enctype' => 'multipart/form-data'))!!}
+									{{Form::token()}}
                			<fieldset>
                				<h2 class="title">Informacion del articulo</h2>
                				<div class="row">
                					<div class="col-md-7 col-sm-7">
                						<div class="form-group selector1">
-               							<label for="id_contact">Categoria</label>
+               							<label for="categoria">Categoria</label>
                								<select class="form-control" name="categoria">
                								         <option value="0">---CATEGORIA---</option>
-               																	<option value="1">PocketClub</option>
-               																	<option value="2">Tecnologia</option>
-                                                <option value="3">Licores</option>
-               																	<option value="4">Cervezas</option>
-                                                <option value="5">Utencilios</option>
-               																	<option value="6">Promociones</option>
-                                                <option value="7">Mercadotecnia</option>
+               																	<option value="PocketClub">PocketClub</option>
+               																	<option value="Tecnologia">Tecnologia</option>
+                                                <option value="Licores">Licores</option>
+               																	<option value="Cervezas">Cervezas</option>
+                                                <option value="Utencilios">Utencilios</option>
+               																	<option value="Promociones">Promociones</option>
+                                                <option value="Mercadotecnia">Mercadotecnia</option>
                						    </select>
                						</div>
                               <div class="form-group" style="margin:0;">
-                   							<label for="message">Imagen</label>
+                   							<label for="imagenArticulo">Imagen</label>
                    						</div>
                               <input type="hidden" name="MAX_FILE_SIZE" value="2097152000" />
-                              <input type="file" name="fileUpload" id="imagenArticulo" class="form-control" />
+                              <input type="file" name="imagenArticulo" class="form-control" />
                    					</div>
                           <div class="col-md-7 col-sm-7">
-                 						<div class="form-group" style="margin:0;">
+                 						<div class="form-group">
                               <label for="nombre">Nombre</label>
-                 								<input class="form-control grey" type="text" id="nombre"/>
+                 								<input class="form-control grey" type="text" name="nombre"/>
                  					</div>
 
-               							<div class="form-group selector1">
-               								<label>Marca</label>
-               									<input class="form-control grey" type="text" id="marca"/>
+               							<div class="form-group">
+               								<label for="marca">Marca</label>
+               									<input class="form-control grey" type="text" name="marca"/>
                							</div>
                											<!--																						<p class="form-group">
                								<label for="fileUpload">Adjuntar Archivos</label>
@@ -643,15 +645,16 @@
                						<div class="form-group" style="margin:0;">
                							<label for="descripcion">Descripcion</label>
                						</div>
-               						<textarea class="form-control" id="descripcion"></textarea>
+               						<textarea class="form-control" name="descripcion"></textarea>
                					</div>
                				</div>
                				<div class="submit">
-               					<button type="submit"class="button btn btn-default button-medium">
-               						Registrar
+               					<button type="submit" class="button btn btn-default button-medium">Registrar
                					</button>
                				</div>
                			</fieldset>
+										{!!Form::close()!!}
+
        	        </div>
               </div>
             </div>
