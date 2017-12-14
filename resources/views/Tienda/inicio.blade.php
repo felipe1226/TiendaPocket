@@ -276,13 +276,13 @@
 										</button>
 										<h2 class="cat-title">Todas categorias</h2>
 									</div>
-									<a href="{{url('AllArticulos/')}}"><div id="sp-vermegamenu" class=" sp-vermegamenu clearfix">
+									<a href="#"><div id="sp-vermegamenu" class=" sp-vermegamenu clearfix">
 									<span id="remove-vermegamenu" class="fa fa-remove"></span>
 									<h2 class="cat-title">Todas categorias</h2></a>
 									<div class="sp-verticalmenu-container">
 										<ul class="nav navbar-nav  menu sp_lesp level-1">
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>PocketClub</a>
+												<a href="{{url('Articulos/')}}"><i class="icon-v1"></i>PocketClub</a>
 											</li>
 											<li class="item-1 mega_type type1 parent group"  >
 												<a href="153-healthy-beauty.html"><i class="icon-v2"></i>Tecnologias</a>
@@ -1310,127 +1310,3 @@
 							</div>
 	</div>
     </div>
-<div id="sp-cpanel" class="sp-delay">
-	<form action="http://prestashop.flytheme.net/sp_market/" method="get" class="no-margin">
-	<h2 class="sp-cpanel-title"> Demo Options <span class="sp-cpanel-close"> <i class="fa fa-close"> </i></span></h2>
-	<div id="sp-cpanel_settings">
-
-		<div class="panel-group">
-			<label class="title">Select Demo </label>
-			<div class="group-boxed">
-				<div class="demo demo-1">
-					<label>Demo 1</label>
-					<div class="bg_demo bg_demo1">
-						<a href="index7061.html?SP_cplthemesColors=%23f4a137&amp;SP_cpllayoutStyle=layout-full&amp;SP_cplheaderStyle=header-v1&amp;SP_cplcontentStyle=content-v1&amp;SP_cplbody_bg_pattern=none&amp;SP_cplApply=Apply" class="select-demo demo1" title="Demo 1">
-							<img src="../themes/sp_market/img/demo1.jpg" alt=""/>
-						</a>
-					</div>
-				</div>
-				<div class="demo demo-2">
-					<label>Demo 2</label>
-					<div class="bg_demo bg_demo2">
-						<a href="indexb116.html?SP_cplthemesColors=%23f4a137&amp;SP_cpllayoutStyle=layout-full&amp;SP_cplheaderStyle=header-v2&amp;SP_cplcontentStyle=content-v2&amp;SP_cplbody_bg_pattern=none&amp;SP_cplApply=Apply" class="select-demo demo2" title="Demo 2">
-							<img src="../themes/sp_market/img/demo2.jpg" alt=""/>
-						</a>
-					</div>
-				</div>
-				<div class="demo demo-3">
-					<label>Demo 3</label>
-					<div class="bg_demo bg_demo3">
-						<a href="indexad8a.html?SP_cplthemesColors=%23f4a137&amp;SP_cpllayoutStyle=layout-full&amp;SP_cplheaderStyle=header-v3&amp;SP_cplcontentStyle=content-v3&amp;SP_cplbody_bg_pattern=none&amp;SP_cplApply=Apply" class="select-demo demo3" title="Demo 3">
-							<img src="../themes/sp_market/img/demo3.jpg" alt=""/>
-						</a>
-					</div>
-				</div>
-				<div class="demo demo-4">
-					<label>Demo 4</label>
-					<div class="bg_demo bg_demo4">
-						<a href="index308a.html?SP_cplthemesColors=%23f4a137&amp;SP_cpllayoutStyle=layout-full&amp;SP_cplheaderStyle=header-v4&amp;SP_cplcontentStyle=content-v4&amp;SP_cplbody_bg_pattern=none&amp;SP_cplApply=Apply" class="select-demo demo3" title="Demo 4">
-							<img src="../themes/sp_market/img/demo4.jpg" alt=""/>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="panel-group ">
-			<label class="title">Select Theme Color</label>
-			<div class="group-schemes" >
-				<input id="spcpl_themesColors" name="SP_cplthemesColors" class="form-control minicolors minicolors-input" type="text" value="#f4a137" />
-				<script type="text/javascript">
-					(function($){
-						$("#spcpl_themesColors").minicolors({
-							position: "bottom right",
-							changeDelay: 200,
-							theme: "bootstrap"
-						});
-					})(jQuery)
-				</script>
-
-			 </div>
-
-		</div>
-
-		<div class="panel-group hidden-device">
-			<label class="title">Select Menu</label>
-			<div class="group-boxed">
-				<div class="selectbox">
-					<select name="SP_cplkeepMenuTop">
-						<option   selected="selected" value="0">Menu Scroll</option>
-						<option value="1">Menu On Top</option>
-					</select>
-				</div>
-			</div>
-		</div>
-
-		 <div class="panel-group">
-			<label class="title">Select Product Effect</label>
-			<div class="group-boxed">
-				<div class="selectbox">
-					<select name="SP_cplsecondimg">
-						<option   selected="selected" value="0">One Image Product</option>
-						<option value="1">Two Images Product</option>
-					</select>
-				</div>
-			</div>
-		</div>
-
-		<div class="panel-group hidden-device">
-			<label class="title">Select Layout Style</label>
-			<div class="group-boxed">
-				<div class="selectbox">
-					<select name="SP_cpllayoutStyle">
-						<option    selected="selected" value="layout-full">Full Width</option>
-						<option value="layout-boxed">Boxed</option>
-						<option value="layout-framed">Framed</option>
-						<option value="layout-rounded">Rounded</option>
-					</select>
-				</div>
-			</div>
-		</div>
-
-        <div class="panel-group hidden-device">
-			<label class="title">Select Body Image</label>
-			<div class="group-boxed">
-				<input type="hidden" name="SP_cplbody_bg_pattern" value="none" />
-				<div data-pattern="none" class="img-pattern pattern_none   active "><span></span></div>
-									<div data-pattern="1" class="img-pattern pattern_1 "><span></span></div>
-									<div data-pattern="2" class="img-pattern pattern_2 "><span></span></div>
-									<div data-pattern="3" class="img-pattern pattern_3 "><span></span></div>
-									<div data-pattern="4" class="img-pattern pattern_4 "><span></span></div>
-									<div data-pattern="5" class="img-pattern pattern_5 "><span></span></div>
-							</div>
-
-
-		</div>
-
-		<div class="reset-group">
-		    <input type="submit" class="btn btn-default" value="Reset" name="SP_cplReset"/>
-			<input type="submit" class="btn btn-success" value="Apply" name="SP_cplApply"/>
-		</div>
-
-
-
-	</div>
-	</form>
-</div>

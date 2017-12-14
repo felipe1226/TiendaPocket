@@ -17,6 +17,10 @@ class ArticuloController extends Controller
 
   }
 
+  public function index(Request $Request0){
+    return view('Tienda/Articulo/index');
+  }
+
   public function store(Request $request){
     $articulo = new Articulo;
     $articulo->id_proveedor = Auth::user()->id;

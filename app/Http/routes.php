@@ -112,15 +112,18 @@ Route::get('RegistroLogin/{id}', 'RegistroLoginController@show');// registrar el
 
 Route::get('Tutorial' , ['uses' => 'UsuariosController@tutorial', 'as' => 'usuarios.tutorial']);
 
-
-
 Route::resource('/usuario', 'MensajeController@store');
+
 Route::resource('/usuario', 'MensajeController');
 
+Route::resource('Salario','SalarioController');
+
+Route::resource('Tienda', 'TiendaController');
+
+Route::resource('/Articulos','ArticuloController');
 
 Route::resource('Tienda/RegistrarArticulo', 'ArticuloController');
+
 Route::resource('/RegistrarArticulo', 'TiendaController@registrarArticulo');
 
 Route::resource('/Contactenos', 'TiendaController@contacto');
-Route::resource('Tienda', 'TiendaController');
-Route::resource('Salario','SalarioController');
