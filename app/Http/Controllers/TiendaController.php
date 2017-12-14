@@ -3,7 +3,8 @@
 namespace PocketByR\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use PocketByR\User;
+use Auth;
 use PocketByR\Http\Requests;
 use PocketByR\Http\Controllers\Controller;
 
@@ -18,6 +19,8 @@ class TiendaController extends Controller
     return view('Tienda/contactenos');
   }
 
-
+  public function registrarArticulo(request $request){
+    return view('Tienda/Articulo/RegistrarArticulo');
+  }
 
 }

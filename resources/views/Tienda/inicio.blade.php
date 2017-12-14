@@ -82,6 +82,20 @@
 					<img  src="img/sp-g3shop-logo-1472003784.jpg" alt="SP Market" width="250" height="70">
 				</a>
 			</div>
+
+			<div class="col-sm-8">
+				<div class="shop-menu pull-right">
+					<ul class="nav navbar-nav">
+						<li ><a>
+						 <?php
+								echo 'Bienvenido - '.Auth::user()->nombrePersona;
+							?>
+						</a></li>
+						<li ><a href="../Principales/cuenta.php" target="principal"><i class="fa fa-user"></i> Cuenta</a></li>
+						<li ><a href="{{url('RegistrarArticulo/')}}"><i class="fa fa-bookmark-o"></i> Administrar</a></li>
+					</ul>
+			</div>
+		</div>
 			<div id="header_search" class="col-lg-7 col-md-6 col-sm-6 col-xs-12 hidden-xs">
         <div class="sp_searchpro ">
 					<div id="sp_search_pro_1" class="spr-container spr-preload">
@@ -115,14 +129,18 @@
 					</div>
         </div>
 			</div>
+
 			<div id="header_cart" class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
 						<!-- MODULE Block cart -->
+
 				<div class="blockcart clearfix">
 					<div class="shopping_cart clearfix">
 						<div class="icon-cart">
 						</div>
 							<a href="order.html" rel="nofollow">
-										<span class="text-cart">Carrito</span>
+										<?php
+											echo '<span class="text-cart">CARRITO('.Auth::user()->id.')</span>';
+										?>
 										<span class="text-cart4">Carrito</span>
 										<span class="line line4"> - </span>
 										<span class="ajax_cart_empty">0</span>
@@ -258,9 +276,9 @@
 										</button>
 										<h2 class="cat-title">Todas categorias</h2>
 									</div>
-									<div id="sp-vermegamenu" class=" sp-vermegamenu clearfix">
+									<a href="{{url('AllArticulos/')}}"><div id="sp-vermegamenu" class=" sp-vermegamenu clearfix">
 									<span id="remove-vermegamenu" class="fa fa-remove"></span>
-									<h2 class="cat-title">Todas categorias</h2>
+									<h2 class="cat-title">Todas categorias</h2></a>
 									<div class="sp-verticalmenu-container">
 										<ul class="nav navbar-nav  menu sp_lesp level-1">
 											<li class="item-1 vertical-cat"  >

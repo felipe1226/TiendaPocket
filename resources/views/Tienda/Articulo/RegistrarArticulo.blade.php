@@ -1,5 +1,6 @@
 
 @section('content')
+
 <!DOCTYPE HTML>
 					<link href="themes/sp_market/css/fonts/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
 							<link rel="stylesheet" href="themes/sp_market/css/global.css" type="text/css" media="all" />
@@ -81,6 +82,20 @@
 					<img  src="img/sp-g3shop-logo-1472003784.jpg" alt="SP Market" width="250" height="70">
 				</a>
 			</div>
+
+			<div class="col-sm-8">
+				<div class="shop-menu pull-right">
+					<ul class="nav navbar-nav">
+						<li ><a>
+						 <?php
+								echo 'Bienvenido - '.Auth::user()->nombrePersona;
+							?>
+						</a></li>
+						<li ><a href="../Principales/cuenta.php" target="principal"><i class="fa fa-user"></i> Cuenta</a></li>
+						<li ><a href="{{url('RegistrarArticulo/')}}"><i class="fa fa-bookmark-o"></i> Administrar</a></li>
+					</ul>
+			</div>
+		</div>
 			<div id="header_search" class="col-lg-7 col-md-6 col-sm-6 col-xs-12 hidden-xs">
         <div class="sp_searchpro ">
 					<div id="sp_search_pro_1" class="spr-container spr-preload">
@@ -114,14 +129,18 @@
 					</div>
         </div>
 			</div>
+
 			<div id="header_cart" class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
 						<!-- MODULE Block cart -->
+
 				<div class="blockcart clearfix">
 					<div class="shopping_cart clearfix">
 						<div class="icon-cart">
 						</div>
 							<a href="order.html" rel="nofollow">
-										<span class="text-cart">Carrito</span>
+										<?php
+											echo '<span class="text-cart">CARRITO('.Auth::user()->id.')</span>';
+										?>
 										<span class="text-cart4">Carrito</span>
 										<span class="line line4"> - </span>
 										<span class="ajax_cart_empty">0</span>
@@ -257,9 +276,9 @@
 										</button>
 										<h2 class="cat-title">Todas categorias</h2>
 									</div>
-									<div id="sp-vermegamenu" class=" sp-vermegamenu clearfix">
+									<a href="{{url('AllArticulos/')}}"><div id="sp-vermegamenu" class=" sp-vermegamenu clearfix">
 									<span id="remove-vermegamenu" class="fa fa-remove"></span>
-									<h2 class="cat-title">Todas categorias</h2>
+									<h2 class="cat-title">Todas categorias</h2></a>
 									<div class="sp-verticalmenu-container">
 										<ul class="nav navbar-nav  menu sp_lesp level-1">
 											<li class="item-1 vertical-cat"  >
@@ -534,267 +553,215 @@
 			 <!-- End of Header -->
 
 
+       			<!-- Breadcrumb Column -->
+    <div class="breadcrumb-container">
+      <div class="container">
+
+       <!-- Breadcrumb -->
+       <div class="breadcrumb clearfix">
+       	<ul>
+       		<li class="home"><a href="{{url('Tienda/')}}" title="Ir al inicio">Inicio</a></li>Registro de articulo
+       	</ul>
+
+       </div>
+       <!-- /Breadcrumb -->
+
+      </div>
+    </div>
+       						<!-- End Breadcrumb Column -->
+
+       			<!-- Columns -->
+    <div class="columns-container">
+      <div id="columns" class="container">
+       	<div class="row">
+
+       						<!-- Center Column -->
+       		<div id="center_column" class="column col-sm-12">
 
 
+       	<!--<h1 class="page-heading bottom-indent">
+       	Contact us</h1>-->
+       	    <div class="contact-form">
+       				<div class="contact-wrap row">
+       	        <div class="gmap col-sm-12">
+       		         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+       		          <div id="map">&nbsp;</div>
+       		           <script type="text/javascript">// <![CDATA[
 
-			<!-- Breadcrumb Column -->
-							 <div class="breadcrumb-container">
-					<div class="container">
+               			  var myOptions = {
+               				 zoom: 15,
+               				 scrollwheel: false,
+               				 center: new google.maps.LatLng(4.075526,-76.19952769999998),
+               				 mapTypeId: google.maps.MapTypeId.ROADMAP
+               			  };
 
-<!-- Breadcrumb -->
-<div class="breadcrumb clearfix">
-	<ul>
-		<li class="home"><a href="http://prestashop.flytheme.net/sp_market/" title="Return to Home">Home</a></li>
-									Contacto
-						</ul>
+               			  var map = new google.maps.Map(document.getElementById("map"), myOptions);
+               		// ]]></script>
+               	</div>
+               	<div class="contact-content">
+               		<!--{!! Form::open(['method' => 'POST', 'action' => 'ArticuloController@store']) !!}-->
+               			<fieldset>
+               				<h2 class="title">Informacion del articulo</h2>
+               				<div class="row">
+               					<div class="col-md-7 col-sm-7">
+               						<div class="form-group selector1">
+               							<label for="id_contact">Categoria</label>
+               								<select class="form-control" name="categoria">
+               								         <option value="0">---CATEGORIA---</option>
+               																	<option value="1">PocketClub</option>
+               																	<option value="2">Tecnologia</option>
+                                                <option value="3">Licores</option>
+               																	<option value="4">Cervezas</option>
+                                                <option value="5">Utencilios</option>
+               																	<option value="6">Promociones</option>
+                                                <option value="7">Mercadotecnia</option>
+               						    </select>
+               						</div>
+                              <div class="form-group" style="margin:0;">
+                   							<label for="message">Imagen</label>
+                   						</div>
+                              <input type="hidden" name="MAX_FILE_SIZE" value="2097152000" />
+                              <input type="file" name="fileUpload" id="imagenArticulo" class="form-control" />
+                   					</div>
+                          <div class="col-md-7 col-sm-7">
+                 						<div class="form-group" style="margin:0;">
+                              <label for="nombre">Nombre</label>
+                 								<input class="form-control grey" type="text" id="nombre"/>
+                 					</div>
 
-</div>
-<!-- /Breadcrumb -->
+               							<div class="form-group selector1">
+               								<label>Marca</label>
+               									<input class="form-control grey" type="text" id="marca"/>
+               							</div>
+               											<!--																						<p class="form-group">
+               								<label for="fileUpload">Adjuntar Archivos</label>
+               								<input type="hidden" name="MAX_FILE_SIZE" value="2097152000" />
+               								<input type="file" name="fileUpload" id="fileUpload" class="form-control" />
+               							</p>-->
+               					</div>
+               					<div class="col-md-12 col-sm-12">
+               						<div class="form-group" style="margin:0;">
+               							<label for="descripcion">Descripcion</label>
+               						</div>
+               						<textarea class="form-control" id="descripcion"></textarea>
+               					</div>
+               				</div>
+               				<div class="submit">
+               					<button type="submit"class="button btn btn-default button-medium">
+               						Registrar
+               					</button>
+               				</div>
+               			</fieldset>
+       	        </div>
+              </div>
+            </div>
+          </div><!-- #center_column -->
+       	</div><!-- .row -->
+       </div><!-- #columns -->
+     </div><!-- .columns-container -->
+       							<!-- Footer -->
+       				<div class="footer-container">
+       					<footer id="footer"  class="container">
+       						<div class="footer-content">
+       							<div class="row">
 
-					</div>
-				</div>
-						<!-- End Breadcrumb Column -->
+       <!-- SP Custom Html -->
 
-			<!-- Columns -->
-			<div class="columns-container">
-				<div id="columns" class="container">
-					<div class="row">
-
-														 <!-- Sidebar -->
-								<div id="sidebar" class="column hidden">
-
-								</div>
-								 <!-- End of Sidebar -->
-
-
-
-
-
-						<!-- Center Column -->
-						<div id="center_column" class="column col-sm-12">
-
-
-	<!--<h1 class="page-heading bottom-indent">
-	Contact us</h1>-->
-
-
-	<div class="contact-form">
-					    			<div class="contact-wrap row">
-	<div class="gmap col-sm-12">
-		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-		<div id="map">&nbsp;</div>
-		<script type="text/javascript">// <![CDATA[
-
-			  var myOptions = {
-				 zoom: 15,
-				 scrollwheel: false,
-				 center: new google.maps.LatLng(4.075526,-76.19952769999998),
-				 mapTypeId: google.maps.MapTypeId.ROADMAP
-			  };
-
-			  var map = new google.maps.Map(document.getElementById("map"), myOptions);
-		// ]]></script>
-	</div>
-	<div class="contact-content">
-		<div class="contact-info col-md-4 col-sm-7">
-			<h2 class="title">Contactenos</h2>
-			<p class="pre-text">
-				Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam <br>
-				Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat sed do eiusmod tempor incididunt ut labore
-			</p>
-			<div class="info">
-				<ul>
-					<li class="address">
-						<label class="icon"><i class="fa fa-home"></i></label>
-						<span>Ranelagh Place, Liverpool, L3 5UL, England</span>
-					</li>
-					<li class="hotline">
-						<label class="icon"><i class="fa fa-phone"></i></label>
-						<span>8 (395) 989—20—11</span>
-					</li>
-					<li class="email">
-						<label class="icon"><i class="fa fa-envelope"></i></label>
-						<span><a href="#">contact@gmail.com</a></span>
-					</li>
-
-				</ul>
-			</div>
-			<div class="social">
-				<a href="#"><i class="fa fa-facebook"></i></a>
-				<a href="#"><i class="fa fa-twitter"></i></a>
-				<a href="#"><i class="fa fa-google-plus"></i></a>
-				<a href="#"><i class="fa fa-flickr"></i></a>
-				<a href="#"><i class="fa fa-pinterest"></i></a>
-				<a href="#"><i class="fa fa-linkedin"></i></a>
-			</div>
-		</div>
-		<form action="http://prestashop.flytheme.net/sp_market/es/contact-us" method="post" class="contact-form-box col-md-8 col-sm-12" enctype="multipart/form-data">
-			<fieldset>
-				<h2 class="title">Envíe sus comentarios</h2>
-				<div class="row">
-					<div class="col-md-7 col-sm-7">
-						<div class="form-group selector1">
-							<label for="id_contact">Titulo del Asunto</label>
-														<select id="id_contact" class="form-control" name="id_contact">
-								<option value="0">Escoger</option>
-																	<option value="2">Servicio al Cliente</option>
-																	<option value="1">Webmaster</option>
-						  </select>
-						</div>
-							<!--<p id="desc_contact0" class="desc_contact">&nbsp;</p>
-															<p id="desc_contact2" class="desc_contact contact-title unvisible">
-									For any question about a product, an order
-								</p>
-															<p id="desc_contact1" class="desc_contact contact-title unvisible">
-									If a technical problem occurs on this website
-								</p>
-							-->
-												<p class="form-group">
-							<label for="email">Correo Electronico</label>
-															<input class="form-control grey validate" type="text" id="email" name="from" data-validate="isEmail" value="" />
-													</p>
-																					<div class="form-group selector1">
-									<label>Referencia de Pedido</label>
-																			<input class="form-control grey" type="text" name="id_order" id="id_order" value="" />
-																	</div>
-																																	<p class="form-group">
-								<label for="fileUpload">Adjuntar Archivos</label>
-								<input type="hidden" name="MAX_FILE_SIZE" value="2097152000" />
-								<input type="file" name="fileUpload" id="fileUpload" class="form-control" />
-							</p>
-											</div>
-					<div class="col-md-12 col-sm-12">
-						<div class="form-group" style="margin:0;">
-							<label for="message">Mensaje</label>
-						</div>
-						<textarea class="form-control" id="message" name="message"></textarea>
-					</div>
-				</div>
-				<div class="submit">
-					<button type="submit" name="submitMessage" id="submitMessage" class="button btn btn-default button-medium">
-						Send Email </span>
-					</button>
-				</div>
-			</fieldset>
-		</form>
-	</div>
-</div>
+                               <div class="sp_customhtml_4_1506213927448556702
+       		box-footer col-sm-3 spcustom_html">
 
 
-			</div>
+                         <div class="footer-links">
+       								<div class="title-box">About Market</div>
+       								<ul class="links">
+       								<li><a href="#">About Us</a></li>
+       								<li><a href="#">Market Reviews</a></li>
+       								<li><a href="#">Terms of Use</a></li>
+       								<li><a href="#">Privacy Policy</a></li>
+       								<li><a href="#">Site Map</a></li>
+       								</ul>
+       								</div>
+
+                           </div>
+
+                               <div class="sp_customhtml_5_1506213927364178018
+       		box-footer col-sm-3 spcustom_html">
 
 
+                         <div class="footer-links">
+       								<div class="title-box">Customer Service</div>
+       								<ul class="links">
+       								<li><a href="#">Shipping Policy</a></li>
+       								<li><a href="#">Compensation First</a></li>
+       								<li><a href="#">My Account</a></li>
+       								<li><a href="#">Return Policy</a></li>
+       								<li><a href="#">Contact Us</a></li>
+       								</ul>
+       								</div>
 
-					</div><!-- #center_column -->
-					</div><!-- .row -->
-				</div><!-- #columns -->
+                           </div>
 
-
-
-			</div><!-- .columns-container -->
-							<!-- Footer -->
-				<div class="footer-container">
-					<footer id="footer"  class="container">
-						<div class="footer-content">
-							<div class="row">
-
-<!-- SP Custom Html -->
-
-                        <div class="sp_customhtml_4_1506213927448556702
-		box-footer col-sm-3 spcustom_html">
+                               <div class="sp_customhtml_6_15062139271460080684
+       		box-footer col-sm-3 spcustom_html">
 
 
-                  <div class="footer-links">
-								<div class="title-box">About Market</div>
-								<ul class="links">
-								<li><a href="#">About Us</a></li>
-								<li><a href="#">Market Reviews</a></li>
-								<li><a href="#">Terms of Use</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-								<li><a href="#">Site Map</a></li>
-								</ul>
-								</div>
+                         <div class="footer-links">
+       								<div class="title-box">Payment & Shipping</div>
+       								<ul class="links">
+       								<li><a href="#">Terms of Use</a></li>
+       								<li><a href="#">Payment Methods</a></li>
+       								<li><a href="#">Shipping Guide</a></li>
+       								<li><a href="#">Locations We Ship To</a></li>
+       								<li><a href="#">Estimated Delivery Time</a></li>
+       								</ul>
+       								</div>
 
-                    </div>
-
-                        <div class="sp_customhtml_5_1506213927364178018
-		box-footer col-sm-3 spcustom_html">
+                           </div>
+           <!-- /SP Custom Html -->
 
 
-                  <div class="footer-links">
-								<div class="title-box">Customer Service</div>
-								<ul class="links">
-								<li><a href="#">Shipping Policy</a></li>
-								<li><a href="#">Compensation First</a></li>
-								<li><a href="#">My Account</a></li>
-								<li><a href="#">Return Policy</a></li>
-								<li><a href="#">Contact Us</a></li>
-								</ul>
-								</div>
+       <!-- MODULE Block contact infos -->
+       <section id="block_contact_infos" class="contact-infos box-footer col-md-3 col-sm-12">
 
-                    </div>
+       	<div class="title-box">Contacte con nosotros</div>
+       	<ul class="list-contact">
 
-                        <div class="sp_customhtml_6_15062139271460080684
-		box-footer col-sm-3 spcustom_html">
+       					<li class="address">
+       				<span class="icon"><i class="fa fa-map-marker"></i></span>
+       				<label>Address: No 40 Baria Sreet 133/2 NewYork City,
+       NY, United States</label>
+       			</li>
+       							<li class="email">
+       				<span class="icon"><i class="fa fa-envelope"></i></span>
+       				<label>Email: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;%63%6f%6e%74%61%63%74@%6d%61%72%6b%65%74.%63%6f%6d" >&#x63;&#x6f;&#x6e;&#x74;&#x61;&#x63;&#x74;&#x40;&#x6d;&#x61;&#x72;&#x6b;&#x65;&#x74;&#x2e;&#x63;&#x6f;&#x6d;</a></label>
+       			</li>
+       							<li class="phone">
+       				<span class="icon"><i class="fa fa-mobile"></i></span>
+       				<label>Phone: 0123456789</label>
+       			</li>
+       			</ul>
 
+       </section>
+       										<div class="footer-bottom">
+       						<div class="container">
+       							<div class="row">
+       								<div class="col-sm-8">
+       									<div class="copyright">&copy; 2016 Prestashop Themes Demo Store. All Rights Reserved.  Designed By <a target="_blank" title="Visit MagenTech!" href="http://magentech.com/">MagenTech.Com</a></div>								</div>
+       								<div class="col-sm-4">
+       									<div class="footer-payment">
+       <img src="../modules/spthemeconfigurator/patterns/payments-1-1.png" alt="payment logos" >
+       </div>
 
-                  <div class="footer-links">
-								<div class="title-box">Payment & Shipping</div>
-								<ul class="links">
-								<li><a href="#">Terms of Use</a></li>
-								<li><a href="#">Payment Methods</a></li>
-								<li><a href="#">Shipping Guide</a></li>
-								<li><a href="#">Locations We Ship To</a></li>
-								<li><a href="#">Estimated Delivery Time</a></li>
-								</ul>
-								</div>
+       								</div>
+       							</div>
+       						</div>
+       					</div>
 
-                    </div>
-    <!-- /SP Custom Html -->
+       					<div class="backtop">
+       						<a id="sp-totop" class="backtotop" href="#" title="Back to top">
+       							<i class="fa fa-arrow-up"></i>
+       						</a>
+       					</div>
 
-
-<!-- MODULE Block contact infos -->
-<section id="block_contact_infos" class="contact-infos box-footer col-md-3 col-sm-12">
-
-	<div class="title-box">Contacte con nosotros</div>
-	<ul class="list-contact">
-
-					<li class="address">
-				<span class="icon"><i class="fa fa-map-marker"></i></span>
-				<label>Address: No 40 Baria Sreet 133/2 NewYork City,
-NY, United States</label>
-			</li>
-							<li class="email">
-				<span class="icon"><i class="fa fa-envelope"></i></span>
-				<label>Email: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;%63%6f%6e%74%61%63%74@%6d%61%72%6b%65%74.%63%6f%6d" >&#x63;&#x6f;&#x6e;&#x74;&#x61;&#x63;&#x74;&#x40;&#x6d;&#x61;&#x72;&#x6b;&#x65;&#x74;&#x2e;&#x63;&#x6f;&#x6d;</a></label>
-			</li>
-							<li class="phone">
-				<span class="icon"><i class="fa fa-mobile"></i></span>
-				<label>Phone: 0123456789</label>
-			</li>
-			</ul>
-
-</section>
-										<div class="footer-bottom">
-						<div class="container">
-							<div class="row">
-								<div class="col-sm-8">
-									<div class="copyright">&copy; 2017 Pocket SmartBar. All Rights Reserved. <a target="_blank" title="Visit MagenTech!" href="http://magentech.com/">MagenTech.Com</a></div>								</div>
-								<div class="col-sm-4">
-									<div class="footer-payment">
-<img src="../modules/spthemeconfigurator/patterns/payments-1-1.png" alt="payment logos" >
-</div>
-
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="backtop">
-						<a id="sp-totop" class="backtotop" href="#" title="Back to top">
-							<i class="fa fa-arrow-up"></i>
-						</a>
-					</div>
-
-				</div><!-- #footer -->
-					</div><!-- #page -->
+       				</div><!-- #footer -->
+       					</div><!-- #page -->
