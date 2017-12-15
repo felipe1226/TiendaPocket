@@ -128,3 +128,6 @@ Route::resource('Tienda/RegistrarArticulo', 'ArticuloController');
 Route::resource('/RegistrarArticulo', 'TiendaController@registrarArticulo');
 
 Route::resource('/Contactenos', 'TiendaController@contacto');
+
+
+Route::resource('Tienda/Contactenos','ContactenosController');
