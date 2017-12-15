@@ -668,17 +668,24 @@ param_product_url = '#';
 																							<input type="checkbox" class="checkbox" name="layered_manufacturer_7" id="layered_manufacturer_7" value="7" />
 																						</span>
 											<label for="layered_manufacturer_7">
-																								<a href="http://prestashop.flytheme.net/sp_market/es/153-healthy-beauty#fabricante-puma" data-rel="nofollow">Puma<span> (1)</span></a>
+																								<a href="http://prestashop.flytheme.net/sp_market/es/153-healthy-beauty#fabricante-puma" data-rel="nofollow">Nike<span> (1)</span></a>
 																							</label>
 										</li>
 																																															</ul>
 					</div>
-																											
+																											<div class="layered_filter">
+						                        <div class="layered_subtitle_heading">
+
+						</div>
+
+					</div>
+												</div>
+
 																																																																																																																																		</form>
 	</div>
 	<div id="layered_ajax_loader" style="display: none;">
 		<p style="text-align:center;padding:15px;">
-			<img src="sp_market/img/loader.gif" alt="" />
+			<img src="http://prestashop.flytheme.net/sp_market/img/loader.gif" alt="" />
 			<br />Cargando...
 		</p>
 	</div>
@@ -689,6 +696,7 @@ param_product_url = '#';
 <div id="best-sellers_block_right" class="block products_block">
 	<h3 class="title_block">
     	MEJOR VENTA
+
     </h3>
 	<div class="block_content products-block">
 			 <ul class="products">
