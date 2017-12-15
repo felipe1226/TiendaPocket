@@ -120,7 +120,9 @@ Route::resource('Salario','SalarioController');
 
 Route::resource('Tienda', 'TiendaController');
 
-Route::resource('/Articulos','ArticuloController');
+Route::get('Articulos/{categoria}','ArticuloController@ArtsxCategoria');
+
+Route::resource('Articulos/','ArticuloController');
 
 Route::resource('Tienda/RegistrarArticulo', 'ArticuloController');
 

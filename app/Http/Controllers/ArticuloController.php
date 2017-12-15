@@ -15,13 +15,7 @@ class ArticuloController extends Controller
 {
   public function __construct()
   {
-
-  }
-
-  public function index(Request $Request0){
-    $articulos = Articulo::all();
-    return view('Tienda/Articulo/index')->with(['articulos' => $articulos]);
-  }
+ }
 
   public function store(Request $request){
     $articulo = new Articulo;
@@ -42,4 +36,11 @@ class ArticuloController extends Controller
     Flash::success("El articulo se ha registrado satisfactoriamente")->important();
     return redirect('RegistrarArticulo/');
   }
+
+  public function ArtsxCategoria($categoria){
+    $articulos = Articulo::BuscarxCategoria($categoria)->get();
+    
+    return view('Tienda/Articulo/index')->with(['articulos' => $articulos]);
+  }
+
 }

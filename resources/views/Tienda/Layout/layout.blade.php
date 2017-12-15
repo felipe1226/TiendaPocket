@@ -1,7 +1,15 @@
+<html>
+  <head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>
+      SMARTSHOP
+    </title>
+    <link rel="shortcut icon" href={{ asset('images/icon.png') }}>
+		<link href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700" media="all" rel="stylesheet" type="text/css">
 
-@section('content')
+      <script src="https://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
+      <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script>
 
-<!DOCTYPE HTML>
 					<link href="themes/sp_market/css/fonts/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
 							<link rel="stylesheet" href="themes/sp_market/css/global.css" type="text/css" media="all" />
 							<link rel="stylesheet" href="themes/sp_market/css/autoload/jquery.mCustomScrollbar.css" type="text/css" media="all" />
@@ -74,6 +82,9 @@
 							<script type="text/javascript" src="themes/sp_market/js/index.js"></script>
 							<script type="text/javascript" src="modules/statsdata/js/plugindetect.js"></script>
 
+							<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+							  </head>
+							  <body class="page-header-fixed bg-1">
 <div class="header-center">
 	<div class="container">
 		<div class="row">
@@ -276,16 +287,16 @@
 										</button>
 										<h2 class="cat-title">Todas categorias</h2>
 									</div>
-									<a href="{{url('AllArticulos/')}}"><div id="sp-vermegamenu" class=" sp-vermegamenu clearfix">
+									<a href="#"><div id="sp-vermegamenu" class=" sp-vermegamenu clearfix">
 									<span id="remove-vermegamenu" class="fa fa-remove"></span>
 									<h2 class="cat-title">Todas categorias</h2></a>
 									<div class="sp-verticalmenu-container">
 										<ul class="nav navbar-nav  menu sp_lesp level-1">
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>PocketClub</a>
+												<a href="{{url('Articulos/PocketClub')}}"><i class="icon-v1"></i>PocketClub</a>
 											</li>
 											<li class="item-1 mega_type type1 parent group"  >
-												<a href="153-healthy-beauty.html"><i class="icon-v2"></i>Tecnologias</a>
+												<a href="{{url('Articulos/Tecnologias')}}"><i class="icon-v2"></i>Tecnologias</a>
 												<div class="dropdown-menu" style="width:200px">
 													<ul class="level-2">
 														<li class="item-2 sub-cate group parent" style="width:100%" >
@@ -320,19 +331,19 @@
 												</div>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Licores</a>
+												<a href="{{url('Articulos/Licores')}}"><i class="icon-v1"></i>Licores</a>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Cervezas</a>
+												<a href="{{url('Articulos/Cervezas')}}"><i class="icon-v1"></i>Cervezas</a>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Utencilios</a>
+												<a href="{{url('Articulos/Utencilios')}}"><i class="icon-v1"></i>Utencilios</a>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Promociones</a>
+												<a href="{{url('Articulos/Promociones')}}"><i class="icon-v1"></i>Promociones</a>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Mercadotecnia</a>
+												<a href="{{url('Articulos/Mercadotecnia')}}"><i class="icon-v1"></i>Mercadotecnia</a>
 											</li>
 										</ul>
 									</div>
@@ -551,220 +562,10 @@
 			</div>
 		</div>
 			 <!-- End of Header -->
-
-
-       			<!-- Breadcrumb Column -->
-    <div class="breadcrumb-container">
-      <div class="container">
-
-       <!-- Breadcrumb -->
-       <div class="breadcrumb clearfix">
-       	<ul>
-       		<li class="home"><a href="{{url('Tienda/')}}" title="Ir al inicio">Inicio</a></li>Registro de articulo
-       	</ul>
-
-       </div>
-       <!-- /Breadcrumb -->
-
-      </div>
-    </div>
-       						<!-- End Breadcrumb Column -->
-
-       			<!-- Columns -->
-    <div class="columns-container">
-      <div id="columns" class="container">
-       	<div class="row">
-
-       						<!-- Center Column -->
-       		<div id="center_column" class="column col-sm-12">
-
-
-       	<!--<h1 class="page-heading bottom-indent">
-       	Contact us</h1>-->
-       	    <div class="contact-form">
-       				<div class="contact-wrap row">
-       	        <div class="gmap col-sm-12">
-       		         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-       		          <div id="map">&nbsp;</div>
-       		           <script type="text/javascript">// <![CDATA[
-
-               			  var myOptions = {
-               				 zoom: 15,
-               				 scrollwheel: false,
-               				 center: new google.maps.LatLng(4.075526,-76.19952769999998),
-               				 mapTypeId: google.maps.MapTypeId.ROADMAP
-               			  };
-
-               			  var map = new google.maps.Map(document.getElementById("map"), myOptions);
-               		// ]]></script>
-               	</div>
-               	<div class="contact-content col-md-8 col-sm-12">
-									@include('flash::message')
-									{!!Form::open(array('url'=>'Tienda/RegistrarArticulo','method'=>'POST','enctype' => 'multipart/form-data'))!!}
-									{{Form::token()}}
-               			<fieldset>
-               				<h2 class="title">Informacion del articulo</h2>
-               				<div class="row">
-               					<div class="col-md-7 col-sm-7">
-               						<div class="form-group selector1">
-               							<label for="categoria">Categoria</label>
-               								<select class="form-control" name="categoria">
-               								         <option value="0">---CATEGORIA---</option>
-               																	<option value="PocketClub">PocketClub</option>
-               																	<option value="Tecnologias">Tecnologia</option>
-                                                <option value="Licores">Licores</option>
-               																	<option value="Cervezas">Cervezas</option>
-                                                <option value="Utencilios">Utencilios</option>
-               																	<option value="Promociones">Promociones</option>
-                                                <option value="Mercadotecnia">Mercadotecnia</option>
-               						    </select>
-               						</div>
-                              <div class="form-group" style="margin:0;">
-                   							<label for="imagenArticulo">Imagen</label>
-                   						</div>
-                              <input type="hidden" name="MAX_FILE_SIZE" value="2097152000" />
-                              <input type="file" name="imagenArticulo" class="form-control" />
-                   					</div>
-                          <div class="col-md-7 col-sm-7">
-                 						<div class="form-group">
-                              <label for="nombre">Nombre</label>
-                 								<input class="form-control grey" type="text" name="nombre"/>
-                 					</div>
-
-               							<div class="form-group">
-               								<label for="marca">Marca</label>
-               									<input class="form-control grey" type="text" name="marca"/>
-               							</div>
-               											<!--																						<p class="form-group">
-               								<label for="fileUpload">Adjuntar Archivos</label>
-               								<input type="hidden" name="MAX_FILE_SIZE" value="2097152000" />
-               								<input type="file" name="fileUpload" id="fileUpload" class="form-control" />
-               							</p>-->
-               					</div>
-               					<div class="col-md-12 col-sm-12">
-               						<div class="form-group" style="margin:0;">
-               							<label for="descripcion">Descripcion</label>
-               						</div>
-               						<textarea class="form-control" name="descripcion"></textarea>
-               					</div>
-               				</div>
-               				<div class="submit">
-               					<button type="submit" class="button btn btn-default button-medium">Registrar
-               					</button>
-               				</div>
-               			</fieldset>
-										{!!Form::close()!!}
-
-       	        </div>
-              </div>
-            </div>
-          </div><!-- #center_column -->
-       	</div><!-- .row -->
-       </div><!-- #columns -->
-     </div><!-- .columns-container -->
-       							<!-- Footer -->
-       				<div class="footer-container">
-       					<footer id="footer"  class="container">
-       						<div class="footer-content">
-       							<div class="row">
-
-       <!-- SP Custom Html -->
-
-                               <div class="sp_customhtml_4_1506213927448556702
-       		box-footer col-sm-3 spcustom_html">
-
-
-                         <div class="footer-links">
-       								<div class="title-box">About Market</div>
-       								<ul class="links">
-       								<li><a href="#">About Us</a></li>
-       								<li><a href="#">Market Reviews</a></li>
-       								<li><a href="#">Terms of Use</a></li>
-       								<li><a href="#">Privacy Policy</a></li>
-       								<li><a href="#">Site Map</a></li>
-       								</ul>
-       								</div>
-
-                           </div>
-
-                               <div class="sp_customhtml_5_1506213927364178018
-       		box-footer col-sm-3 spcustom_html">
-
-
-                         <div class="footer-links">
-       								<div class="title-box">Customer Service</div>
-       								<ul class="links">
-       								<li><a href="#">Shipping Policy</a></li>
-       								<li><a href="#">Compensation First</a></li>
-       								<li><a href="#">My Account</a></li>
-       								<li><a href="#">Return Policy</a></li>
-       								<li><a href="#">Contact Us</a></li>
-       								</ul>
-       								</div>
-
-                           </div>
-
-                               <div class="sp_customhtml_6_15062139271460080684
-       		box-footer col-sm-3 spcustom_html">
-
-
-                         <div class="footer-links">
-       								<div class="title-box">Payment & Shipping</div>
-       								<ul class="links">
-       								<li><a href="#">Terms of Use</a></li>
-       								<li><a href="#">Payment Methods</a></li>
-       								<li><a href="#">Shipping Guide</a></li>
-       								<li><a href="#">Locations We Ship To</a></li>
-       								<li><a href="#">Estimated Delivery Time</a></li>
-       								</ul>
-       								</div>
-
-                           </div>
-           <!-- /SP Custom Html -->
-
-
-       <!-- MODULE Block contact infos -->
-       <section id="block_contact_infos" class="contact-infos box-footer col-md-3 col-sm-12">
-
-       	<div class="title-box">Contacte con nosotros</div>
-       	<ul class="list-contact">
-
-       					<li class="address">
-       				<span class="icon"><i class="fa fa-map-marker"></i></span>
-       				<label>Address: No 40 Baria Sreet 133/2 NewYork City,
-       NY, United States</label>
-       			</li>
-       							<li class="email">
-       				<span class="icon"><i class="fa fa-envelope"></i></span>
-       				<label>Email: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;%63%6f%6e%74%61%63%74@%6d%61%72%6b%65%74.%63%6f%6d" >&#x63;&#x6f;&#x6e;&#x74;&#x61;&#x63;&#x74;&#x40;&#x6d;&#x61;&#x72;&#x6b;&#x65;&#x74;&#x2e;&#x63;&#x6f;&#x6d;</a></label>
-       			</li>
-       							<li class="phone">
-       				<span class="icon"><i class="fa fa-mobile"></i></span>
-       				<label>Phone: 0123456789</label>
-       			</li>
-       			</ul>
-
-       </section>
-       										<div class="footer-bottom">
-       						<div class="container">
-       							<div class="row">
-       								<div class="col-sm-8">
-       									<div class="copyright">&copy; 2016 Prestashop Themes Demo Store. All Rights Reserved.  Designed By <a target="_blank" title="Visit MagenTech!" href="http://magentech.com/">MagenTech.Com</a></div>								</div>
-       								<div class="col-sm-4">
-       									<div class="footer-payment">
-       <img src="../modules/spthemeconfigurator/patterns/payments-1-1.png" alt="payment logos" >
-       </div>
-
-       								</div>
-       							</div>
-       						</div>
-       					</div>
-
-       					<div class="backtop">
-       						<a id="sp-totop" class="backtotop" href="#" title="Back to top">
-       							<i class="fa fa-arrow-up"></i>
-       						</a>
-       					</div>
-
-       				</div><!-- #footer -->
-       					</div><!-- #page -->
+			 <div class="">
+			 	@yield('contentido')
+			 </div>
+			 <div class="footer">
+			 </div>
+  </body>
+	</html>

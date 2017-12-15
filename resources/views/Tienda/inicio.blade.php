@@ -282,10 +282,10 @@
 									<div class="sp-verticalmenu-container">
 										<ul class="nav navbar-nav  menu sp_lesp level-1">
 											<li class="item-1 vertical-cat"  >
-												<a href="{{url('Articulos/')}}"><i class="icon-v1"></i>PocketClub</a>
+												<a href="{{url('Articulos/PocketClub')}}"><i class="icon-v1"></i>PocketClub</a>
 											</li>
 											<li class="item-1 mega_type type1 parent group"  >
-												<a href="153-healthy-beauty.html"><i class="icon-v2"></i>Tecnologias</a>
+												<a href="{{url('Articulos/Tecnologias')}}"><i class="icon-v2"></i>Tecnologias</a>
 												<div class="dropdown-menu" style="width:200px">
 													<ul class="level-2">
 														<li class="item-2 sub-cate group parent" style="width:100%" >
@@ -320,19 +320,19 @@
 												</div>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Licores</a>
+												<a href="{{url('Articulos/Licores')}}"><i class="icon-v1"></i>Licores</a>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Cervezas</a>
+												<a href="{{url('Articulos/Cervezas')}}"><i class="icon-v1"></i>Cervezas</a>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Utencilios</a>
+												<a href="{{url('Articulos/Utencilios')}}"><i class="icon-v1"></i>Utencilios</a>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Promociones</a>
+												<a href="{{url('Articulos/Promociones')}}"><i class="icon-v1"></i>Promociones</a>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Mercadotecnia</a>
+												<a href="{{url('Articulos/Mercadotecnia')}}"><i class="icon-v1"></i>Mercadotecnia</a>
 											</li>
 										</ul>
 									</div>
