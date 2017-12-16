@@ -10,12 +10,20 @@ use PocketByR\Articulo;
 use Laracasts\Flash\Flash;
 use Auth;
 use Storage;
-
 class ArticuloController extends Controller
 {
   public function __construct()
   {
+<<<<<<< HEAD
  }
+=======
+
+  }
+  public function index(Request $Request0){
+    return view('Tienda/Articulo/index');
+  }
+>>>>>>> origin/master
+
 
   public function store(Request $request){
     $articulo = new Articulo;
@@ -24,8 +32,6 @@ class ArticuloController extends Controller
     $articulo->categoria = $request->categoria;
     $articulo->marca = $request->marca;
     $articulo->descripcion = $request->descripcion;
-
-
     $img = $request->file('imagenArticulo');
 
     $file_route = time().'_'.$img->getClientOriginalName();

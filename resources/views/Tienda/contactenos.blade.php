@@ -173,7 +173,7 @@
 										<h3 id="layer_cart_product_title" class="product-name"></h3>
 										<span id="layer_cart_product_attributes"></span>
 								<div id="layer_cart_product_quantity_wrap" class="hidden">
-											<span class="layer_cart_label">Quantity</span>
+											<span class="layer_cart_label">Cantidad</span>
 											<span id="layer_cart_product_quantity"></span>
 								</div>
 								<div id="layer_cart_product_price_wrap" class="hidden">
@@ -183,22 +183,22 @@
 							</div>
 						</div>
 
-						<div id="pro_added_success" class="alert alert-success">Product successfully added to your shopping cart
+						<div id="pro_added_success" class="alert alert-success">Producto agregado exitosamente a su carrito de compras
 						</div>
 						<div class="layer_details">
 							<div class="layer_cart_row">
 										<!-- Plural Case [both cases are needed because page may be updated in Javascript] -->
 											<span class="ajax_cart_product_txt_s  unvisible">
-												There are <span class="ajax_cart_quantity">0</span> items in your cart.
+												Existen <span class="ajax_cart_quantity">0</span> Objetos en tu carrito de compras.
 											</span>
 										<!-- Singular Case [both cases are needed because page may be updated in Javascript] -->
 											<span class="ajax_cart_product_txt ">
-												There is 1 item in your cart.
+												Hay 1 artículo en su carrito.
 											</span>
 							</div>
 							<div id="layer_cart_ajax_block_products_total" class="layer_cart_row hidden">
 											<span class="layer_cart_label">
-												Total products
+												Total productos
 																		(tax excl.)
 											</span>
 											<span class="ajax_block_products_total">
@@ -223,10 +223,10 @@
 							</div>
 							<div class="button-container clearfix">
 											<span class="continue button pull-left" title="Continue shopping">
-												Continue shopping
+												Seguir comprando
 											</span>
 											<a class="button pull-right" href="order.html" title="Proceed to checkout" rel="nofollow">
-												Proceed to checkout
+												Pasar por la compra.
 											</a>
 							</div>
 						</div>
@@ -628,56 +628,51 @@
 				<a href="#"><i class="fa fa-linkedin"></i></a>
 			</div>
 		</div>
-		<form action="http://prestashop.flytheme.net/sp_market/es/contact-us" method="post" class="contact-form-box col-md-8 col-sm-12" enctype="multipart/form-data">
+		<div class="contact-form-box col-md-8 col-sm-12">
+			@include('flash::message')
+			{!!Form::open(array('url'=>'Tienda/Contactenos','method'=>'POST','enctype' => 'multipart/form-data'))!!}
+			{{Form::token()}}
 			<fieldset>
 				<h2 class="title">Envíe sus comentarios</h2>
 				<div class="row">
 					<div class="col-md-7 col-sm-7">
-						<div class="form-group selector1">
-							<label for="id_contact">Titulo del Asunto</label>
-														<select id="id_contact" class="form-control" name="id_contact">
-								<option value="0">Escoger</option>
-																	<option value="2">Servicio al Cliente</option>
-																	<option value="1">Webmaster</option>
-						  </select>
+						<div class="form-group">
+							<div class="form-group selector1">
+								<label for="titulo">Titulo del Asunto</label>
+															<select class="form-control" name="titulo">
+																<option value="0">Escoger</option>
+																<option value="2">Servicio al Cliente</option>
+																<option value="1">Webmaster</option>
+															</select>
+							</div>
 						</div>
-							<!--<p id="desc_contact0" class="desc_contact">&nbsp;</p>
-															<p id="desc_contact2" class="desc_contact contact-title unvisible">
-									For any question about a product, an order
-								</p>
-															<p id="desc_contact1" class="desc_contact contact-title unvisible">
-									If a technical problem occurs on this website
-								</p>
-							-->
-												<p class="form-group">
-							<label for="email">Correo Electronico</label>
-															<input class="form-control grey validate" type="text" id="email" name="from" data-validate="isEmail" value="" />
-													</p>
-																					<div class="form-group selector1">
-									<label>Referencia de Pedido</label>
-																			<input class="form-control grey" type="text" name="id_order" id="id_order" value="" />
-																	</div>
-																																	<p class="form-group">
-								<label for="fileUpload">Adjuntar Archivos</label>
-								<input type="hidden" name="MAX_FILE_SIZE" value="2097152000" />
-								<input type="file" name="fileUpload" id="fileUpload" class="form-control" />
-							</p>
-											</div>
+												<div class="form-group">
+													<label for="email">Correo Electronico</label>
+													<input class="form-control grey validate" type="text" name="email" data-validate="isEmail" value="" />
+												</div>
+												<div class="form-group">
+													<div class="form-group selector1">
+														<label for="referencia_pedido">Referencia de Pedido</label>
+														<input class="form-control grey" type="text" name="referencia_pedido"  value="" />
+													</div>
+												</div>
+
+
+					</div>
 					<div class="col-md-12 col-sm-12">
 						<div class="form-group" style="margin:0;">
-							<label for="message">Mensaje</label>
+							<label for="mensaje">Mensaje</label>
 						</div>
-						<textarea class="form-control" id="message" name="message"></textarea>
+						<textarea class="form-control" name="mensaje"></textarea>
 					</div>
 				</div>
 				<div class="submit">
 					<button type="submit" name="submitMessage" id="submitMessage" class="button btn btn-default button-medium">
-						Send Email </span>
+						Enviar Correo Electronico </span>
 					</button>
 				</div>
 			</fieldset>
-		</form>
-	</div>
+		</div>
 </div>
 
 
