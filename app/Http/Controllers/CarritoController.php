@@ -25,6 +25,7 @@ class CarritoController extends Controller
       $carrito->cantidad = 1;
 
       $carrito->save();
+      Flash::success("Se ha guardado el articulo en el carrito satisfactoriamente!")->important();
       return redirect('Articulos/'.$request->categoria);
     }
 
