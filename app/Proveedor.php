@@ -8,8 +8,8 @@ class Proveedor extends Model
 {
     protected $table = 'proveedor';
 
-    public function Articulos(){
-      return $this->hasmany('PocketByR\Articulo', 'id', 'id_Empresa');
+    public function surte(){
+      return $this->hasmany('PocketByR\Articulo', 'id_proveedor', 'id_Empresa');
     }
 
     public function scopeSearch($query, $arreglo){
@@ -20,5 +20,5 @@ class Proveedor extends Model
     	               orderBy('nombre','ASC');
     }
 
-    
+
 }

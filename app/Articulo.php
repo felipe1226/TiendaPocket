@@ -8,14 +8,7 @@ class Articulo extends Model
 {
     protected $table = 'articulo';
 
-    protected $fillable = ['id', 'id_proveedor', 'nombre', 'categoria', 'marca', 'imagen',  'descripcion'];
-
-
-    public function Proveedor(){
-      return $this->belongsTo('PocketByR\Proveedor', 'idEmpresa', 'id');
-    }
-
-
+    protected $fillable = ['id', 'id_proveedor', 'nombre', 'categoria', 'marca', 'cantidad', 'precio', 'impuesto', 'imagen',  'descripcion'];
 
 
     public function scopeBuscarxCategoria($query, $categoria){

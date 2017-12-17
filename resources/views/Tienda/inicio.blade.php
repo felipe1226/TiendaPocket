@@ -87,9 +87,7 @@
 				<div class="shop-menu pull-right">
 					<ul class="nav navbar-nav">
 						<li ><a>
-						 <?php
-								echo 'Bienvenido - '.Auth::user()->nombrePersona;
-							?>
+							Bienvenido - {{Auth::user()->nombrePersona}}
 						</a></li>
 						<li ><a href="../Principales/cuenta.php" target="principal"><i class="fa fa-user"></i> Cuenta</a></li>
 						<li ><a href="{{url('RegistrarArticulo/')}}"><i class="fa fa-bookmark-o"></i> Administrar</a></li>
@@ -102,21 +100,21 @@
 						<form class="sprsearch-form  show-box" method="get" action="http://prestashop.flytheme.net/sp_market/es/module/spsearchpro/catesearch">
 							<div class="spr_selector">
 								<select class="spr_select">
-											<option>Categorias</option>
+											<option>--- Categorias ---</option>
 
-											<option value="PocketClub">--- PocketClub ---</option>
+											<option value="PocketClub">PocketClub</option>
 
-											<option value="tecnologia">--- Tecnologia ---</option>
+											<option value="tecnologia">Tecnologia</option>
 
-											<option value="licores">--- Licores ---</option>
+											<option value="licores">Licores</option>
 
-											<option value="cervezas">--- Cervezas ---</option>
+											<option value="cervezas">Cervezas</option>
 
-											<option value="utencilios">--- Utencilios ---</option>
+											<option value="utencilios">Utencilios</option>
 
-											<option value="promociones">--- Promociones ---</option>
+											<option value="promociones">Promociones</option>
 
-											<option value="mercadotecnia">--- Mercadotecnia ---</option>
+											<option value="mercadotecnia">Mercadotecnia</option>
 								</select>
 							</div>
 							<div class="text-search">
@@ -138,19 +136,16 @@
 						<div class="icon-cart">
 						</div>
 							<a href="order.html" rel="nofollow">
-										<?php
-											echo '<span class="text-cart">CARRITO('.Auth::user()->id.')</span>';
-										?>
+
+										<span class="text-cart">CARRITO</span>
+
 										<span class="text-cart4">Carrito</span>
 										<span class="line line4"> - </span>
-										<span class="ajax_cart_empty">0</span>
-										<span class="ajax_cart_quantity">0</span>
+										<span class="ajax_cart_quantity">{{count($carritos)}}</span>
 										<span class="ajax_cart_quantity_text">Articulos</span>
 										<span class="line line4 arrow"><i class="fa fa-caret-down"></i></span>
 										<span class="line"> - </span>
-										<span class="ajax_cart_total">
-											$0.00
-										</span>
+										<span class="ajax_cart_total">$100000</span>
 
 							</a>
 							<div class="cart_block block exclusive">
@@ -158,23 +153,42 @@
 											<!-- block list of products -->
 									<div class="cart_block_list">
 												<p class="recent_items ">Articulos <span>Precio</span></p>
-												<p class="cart_block_no_products">
-														No tienes articulos en tu carrito
-												</p>
-										<div class="list-products mCustomScrollbar">
-													<dl class="products hide"></dl>
-										</div>
-										<div class="cart-prices">
-											<div class="price-total titleFont">
-													<span class="price_text">Total : </span>
-													<span class="price cart_block_total ajax_block_cart_total">
+												@if(count($carritos) == 0)
+													<p class="cart_block_no_products">
+															No tienes articulos en tu carrito
+													</p>
+												@else
+													@foreach($carritos as $carrito)
+														<div class="list-products mCustomScrollbar">
+															<dl class="products ">
+																<dt data-id="cart_block_product_1_1_23" class="first_item">
+																	<a class="cart-images" href="#"><img height="50" width="50" src="imgArticulos/{{$carrito->almacena->imagen}}" /></a>
+																	<div class="cart-info">
+																		<div class="product-name titleFont">
+																			<a class="cart_block_product_name" href="#">{{$carrito->almacena->nombre}}</a>
+																		</div>
+																		<span class="price">$66.04</span>
+																		<span class="quantity-formated titleFont">Cantidad: {{$carrito->cantidad}}</span>
+																	</div>
+																	<span class="remove_link">
+																		<a class="ajax_cart_block_remove_link" href="sp_market/es/cart?delete%3D1%26id_product%3D%7B%24product_id_product%7D%26ipa%3D%7B%24product_id_product_attribute%7D%26id_address_delivery%3D%7B%24product_id_address_delivery%7D%26token%3D%7B%24static_token%7D=" rel="nofollow" title="Borrar"><i class="fa fa-trash"></i></a>
+																	</span>
+																</dt>
+															</dl>
+														</div>
+													@endforeach
+												@endif
+									<div class="cart-prices">
+										<div class="price-total titleFont">
+											<span class="price_text">Total : </span>
+												<span class="price cart_block_total ajax_block_cart_total">
 																							$ 0.00
-													</span>
-											</div>
-											<div class="buttons">
-													<a id="button_order_cart" class="btn btn-default button button-small titleFont" href="order.html" rel="nofollow">
+												</span>
+										</div>
+										<div class="buttons">
+												<a id="button_order_cart" class="btn btn-default button button-small titleFont" href="{{url('Carrito/')}}" rel="nofollow">
 														Ver carrito
-													</a>
+												</a>
 											</div>
 										</div>
 									</div>
@@ -182,6 +196,8 @@
 							</div>
 					</div>
 				</div>
+
+
 				<div id="layer_cart" class="layer_box">
 					<div class="layer_inner_box">
 						<div class="layer_product clearfix mar_b10">

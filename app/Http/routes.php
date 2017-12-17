@@ -114,22 +114,22 @@ Route::get('Tutorial' , ['uses' => 'UsuariosController@tutorial', 'as' => 'usuar
 
 
 Route::resource('/usuario', 'MensajeController@store');
-
 Route::resource('/usuario', 'MensajeController');
 
 Route::resource('Salario','SalarioController');
 
 Route::resource('Tienda', 'TiendaController');
 
+
 Route::get('Articulos/{categoria}','ArticuloController@ArtsxCategoria');
 
-Route::resource('Articulos/','ArticuloController');
 
-Route::resource('Tienda/RegistrarArticulo', 'ArticuloController');
 
 Route::resource('/RegistrarArticulo', 'TiendaController@registrarArticulo');
+Route::resource('/Contactenos', 'TiendaController@contactenos');
 
-Route::resource('/Contactenos', 'TiendaController@contacto');
-
-
+Route::resource('Tienda/RegistrarArticulo', 'ArticuloController');
 Route::resource('Tienda/Contactenos','ContactenosController');
+Route::resource('Tienda/Carrito', 'CarritoController');
+
+Route::get('Carrito/','CarritoController@ListarCarrito');

@@ -276,16 +276,16 @@
 										</button>
 										<h2 class="cat-title">Todas categorias</h2>
 									</div>
-									<a href="{{url('AllArticulos/')}}"><div id="sp-vermegamenu" class=" sp-vermegamenu clearfix">
+									<a href="#"><div id="sp-vermegamenu" class=" sp-vermegamenu clearfix">
 									<span id="remove-vermegamenu" class="fa fa-remove"></span>
 									<h2 class="cat-title">Todas categorias</h2></a>
 									<div class="sp-verticalmenu-container">
 										<ul class="nav navbar-nav  menu sp_lesp level-1">
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>PocketClub</a>
+												<a href="{{url('Articulos/PocketClub')}}"><i class="icon-v1"></i>PocketClub</a>
 											</li>
 											<li class="item-1 mega_type type1 parent group"  >
-												<a href="153-healthy-beauty.html"><i class="icon-v2"></i>Tecnologias</a>
+												<a href="{{url('Articulos/Tecnologias')}}"><i class="icon-v2"></i>Tecnologias</a>
 												<div class="dropdown-menu" style="width:200px">
 													<ul class="level-2">
 														<li class="item-2 sub-cate group parent" style="width:100%" >
@@ -320,19 +320,19 @@
 												</div>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Licores</a>
+												<a href="{{url('Articulos/Licores')}}"><i class="icon-v1"></i>Licores</a>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Cervezas</a>
+												<a href="{{url('Articulos/Cervezas')}}"><i class="icon-v1"></i>Cervezas</a>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Utencilios</a>
+												<a href="{{url('Articulos/Utencilios')}}"><i class="icon-v1"></i>Utencilios</a>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Promociones</a>
+												<a href="{{url('Articulos/Promociones')}}"><i class="icon-v1"></i>Promociones</a>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Mercadotecnia</a>
+												<a href="{{url('Articulos/Mercadotecnia')}}"><i class="icon-v1"></i>Mercadotecnia</a>
 											</li>
 										</ul>
 									</div>
@@ -552,228 +552,326 @@
 		</div>
 			 <!-- End of Header -->
 
+			<!-- Breadcrumb Column -->
+							 <div class="breadcrumb-container">
+					<div class="container">
 
-       			<!-- Breadcrumb Column -->
-    <div class="breadcrumb-container">
-      <div class="container">
+<!-- Breadcrumb -->
+<div class="breadcrumb clearfix">
+	<ul>
+		<li class="home"><a href="{{url('Tienda/')}}">Inicio</a></li>
+									Carrito
+						</ul>
 
-       <!-- Breadcrumb -->
-       <div class="breadcrumb clearfix">
-       	<ul>
-       		<li class="home"><a href="{{url('Tienda/')}}" title="Ir al inicio">Inicio</a></li>Registro de articulo
-       	</ul>
+</div>
+<!-- /Breadcrumb -->
 
-       </div>
-       <!-- /Breadcrumb -->
+					</div>
+				</div>
+						<!-- End Breadcrumb Column -->
 
-      </div>
-    </div>
-       						<!-- End Breadcrumb Column -->
+			<!-- Columns -->
+			<div class="columns-container">
+				<div id="columns" class="container">
+					<div class="row">
 
-       			<!-- Columns -->
-    <div class="columns-container">
-      <div id="columns" class="container">
-       	<div class="row">
+														 <!-- Sidebar -->
+								<div id="sidebar" class="column hidden">
 
-       						<!-- Center Column -->
-       		<div id="center_column" class="column col-sm-12">
+								</div>
+								 <!-- End of Sidebar -->
 
+						<!-- Center Column -->
+						<div id="center_column" class="column col-sm-12">
 
-       	<!--<h1 class="page-heading bottom-indent">
-       	Contact us</h1>-->
-       	    <div class="contact-form">
-       				<div class="contact-wrap row">
-       	        <div class="gmap col-sm-12">
-       		         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-       		          <div id="map">&nbsp;</div>
-       		           <script type="text/javascript">// <![CDATA[
+<h1 id="cart_title" class="page-heading">Resumen de Compras	</h1>
 
-               			  var myOptions = {
-               				 zoom: 15,
-               				 scrollwheel: false,
-               				 center: new google.maps.LatLng(4.075526,-76.19952769999998),
-               				 mapTypeId: google.maps.MapTypeId.ROADMAP
-               			  };
+<!-- Steps -->
+<ul class="step clearfix" id="order_step">
+	<li class="step_current  first">
+					<span><em>01.</em> Resumen</span>
+			</li>
 
-               			  var map = new google.maps.Map(document.getElementById("map"), myOptions);
-               		// ]]></script>
-               	</div>
-               	<div class="contact-content col-md-8 col-sm-12">
-									@include('flash::message')
-									{!!Form::open(array('url'=>'Tienda/RegistrarArticulo','method'=>'POST','enctype' => 'multipart/form-data'))!!}
-									{{Form::token()}}
-               			<fieldset>
-               				<h2 class="title">Informacion del articulo</h2>
-               				<div class="row">
-               					<div class="col-md-7 col-sm-7">
-               						<div class="form-group selector1">
-               							<label for="categoria">Categoria</label>
-               								<select class="form-control" name="categoria">
-               								         <option value="0">---CATEGORIA---</option>
-               																	<option value="PocketClub">PocketClub</option>
-               																	<option value="Tecnologias">Tecnologia</option>
-                                                <option value="Licores">Licores</option>
-               																	<option value="Cervezas">Cervezas</option>
-                                                <option value="Utencilios">Utencilios</option>
-               																	<option value="Promociones">Promociones</option>
-                                                <option value="Mercadotecnia">Mercadotecnia</option>
-               						    </select>
-               						</div>
-                              <div class="form-group" style="margin:0;">
-                   							<label for="imagenArticulo">Imagen</label>
-                   						</div>
-                              <input type="hidden" name="MAX_FILE_SIZE" value="2097152000" />
-                              <input type="file" name="imagenArticulo" class="form-control" />
-                   					</div>
-                          <div class="col-md-7 col-sm-7">
-                 						<div class="form-group">
-                              <label for="nombre">Nombre</label>
-                 								<input class="form-control grey" type="text" name="nombre"/>
-                 					</div>
+	<li class="step_todo third">
+					<span><em>03.</em> Dirección</span>
+			</li>
+	<li class="step_todo four">
+					<span><em>04.</em> Envio</span>
+			</li>
+	<li id="step_end" class="step_todo last">
+		<span><em>05.</em> Pago</span>
+	</li>
+</ul>
 
-               							<div class="form-group">
-               								<label for="marca">Marca</label>
-               									<input class="form-control grey" type="text" name="marca"/>
-               							</div>
+<!-- /Steps -->
 
-														<div class="form-group">
-               								<label for="precio">Precio</label>
-               									<input class="form-control grey" type="text" name="precio"/>
-               							</div>
+@if(isset($carritos))
+	@if(count($carritos) == 0)
+		<p class="alert alert-warning">Su carrito de compras está vacio.</p>
+	@else
+		<div id="order-detail-content" class="table_block table-responsive">
+			<table id="cart_summary" class="table table-bordered stock-management-on">
+				<thead>
+					<tr>
+						<th class="cart_product first_item">Articulo</th>
+						<th class="cart_description item">Descripcion</th>
+						<th class="cart_avail item text-center">Disponibilidad</th>
+						<th class="cart_unit item text-right">Precio unitario</th>
+						<th class="cart_quantity item text-center">Cantidad</th>
+						<th class="cart_delete last_item">&nbsp;</th>
+						<th class="cart_total item text-right">Total</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr class="cart_total_price">
+						<td rowspan="4" colspan="3" id="cart_voucher" class="cart_voucher"></td>
+						<td colspan="3" class="text-right">Total carrito</td>
+						<td colspan="2" class="price" id="total_product">$57.51</td>
+					</tr>
+					<tr style="display: none;">
+						<td colspan="3" class="text-right">Total gift-wrapping cost</td>
+						<td colspan="2" class="price-discount price" id="total_wrapping">$0.00</td>
+					</tr>
+					<tr class="cart_total_delivery">
+						<td colspan="3" class="text-right">Costo de envio</td>
+						<td colspan="2" class="price" id="total_shipping" >$2.00</td>
+					</tr>
+					<tr class="cart_total_voucher unvisible">
+						<td colspan="3" class="text-right">Total vouchers</td>
+						<td colspan="2" class="price-discount price" id="total_discount">$0.00</td>
+					</tr>
+					<tr class="cart_total_price">
+						<td colspan="3" class="total_price_container text-right">
+							<span>Total</span>
+	            <div id="hookDisplayProductPriceBlock-price">
+							</div>
+						</td>
+						<td colspan="2" class="price" id="total_price_container">
+							<span id="total_price">$59.51</span>
+						</td>
+					</tr>
+				</tfoot>
+				<tbody>
+					@foreach($carritos as $carrito)
+						<tr id="product_17_108_0_0" class="cart_item first_item address_0 odd">
+							<td class="cart_product">
+								<a href=""><img src="imgArticulos/{{$carrito->almacena->imagen}}" width="110" height="110"  /></a>
+							</td>
+							<td class="cart_description">
+								<h5 class="product-name">
+									<h3><a href="sp_market/es/smartphones-tablets/17-faded-short-sleeves-tshirt.html#/size-s/color-orange">{{$carrito->almacena->nombre}}</a></h3
+								</h5>
+								<small class="cart_ref">{{$carrito->almacena->categoria}}</small>
+								<small><a href="#">Marca: {{$carrito->almacena->marca}}</a></small>
+							</td>
+							<td class="cart_avail">
+								<span class="label label-success">In stock</span>
+							</td>
+							<td class="cart_unit" data-title="Unit price">
+								<ul class="price text-right" id="product_price_17_108_0">
+					        <li class="price">${{$carrito->almacena->precio}}</li>
+								</ul>
+							</td>
 
-														<div class="form-group">
-               								<label for="impuesto">Impuesto</label>
-               									<input class="form-control grey" type="text" name="impuesto"/>
-               							</div>
-														<div class="form-group">
-               								<label for="cantidad">Cantidad</label>
-               									<input class="form-control grey" type="text" name="cantidad"/>
-               							</div>
-               					</div>
-               					<div class="col-md-12 col-sm-12">
-               						<div class="form-group" style="margin:0;">
-               							<label for="descripcion">Descripcion</label>
-               						</div>
-               						<textarea class="form-control" name="descripcion"></textarea>
-               					</div>
-               				</div>
-               				<div class="submit">
-               					<button type="submit" class="button btn btn-default button-medium">Registrar
-               					</button>
-               				</div>
-               			</fieldset>
-										{!!Form::close()!!}
+							<td class="cart_quantity text-center" data-title="Quantity">
 
-       	        </div>
-              </div>
-            </div>
-          </div><!-- #center_column -->
-       	</div><!-- .row -->
-       </div><!-- #columns -->
-     </div><!-- .columns-container -->
-       							<!-- Footer -->
-       				<div class="footer-container">
-       					<footer id="footer"  class="container">
-       						<div class="footer-content">
-       							<div class="row">
+								<input type="hidden" value="1" name="quantity_17_108_0_0_hidden" />
+								<input size="2" type="text" autocomplete="off" class="cart_quantity_input form-control grey" value="{{$carrito->cantidad}}"  name="quantity_17_108_0_0" />
+								<div class="cart_quantity_button clearfix">
+									<a rel="nofollow" class="cart_quantity_down btn btn-default button-minus" id="cart_quantity_down_17_108_0_0" href="http://prestashop.flytheme.net/sp_market/es/cart?add=1&amp;id_product=17&amp;ipa=108&amp;id_address_delivery=0&amp;op=down&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f" title="Sustraer">
+										<span>
+											<i class="fa fa-minus"></i>
+										</span>
+									</a>
+									<a rel="nofollow" class="cart_quantity_up btn btn-default button-plus" id="cart_quantity_up_17_108_0_0" href="http://prestashop.flytheme.net/sp_market/es/cart?add=1&amp;id_product=17&amp;ipa=108&amp;id_address_delivery=0&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f" title="Agregar"><span><i class="fa fa-plus"></i></span></a>
+								</div>
+							</td>
 
-       <!-- SP Custom Html -->
-
-                               <div class="sp_customhtml_4_1506213927448556702
-       		box-footer col-sm-3 spcustom_html">
-
-
-                         <div class="footer-links">
-       								<div class="title-box">About Market</div>
-       								<ul class="links">
-       								<li><a href="#">About Us</a></li>
-       								<li><a href="#">Market Reviews</a></li>
-       								<li><a href="#">Terms of Use</a></li>
-       								<li><a href="#">Privacy Policy</a></li>
-       								<li><a href="#">Site Map</a></li>
-       								</ul>
-       								</div>
-
-                           </div>
-
-                               <div class="sp_customhtml_5_1506213927364178018
-       		box-footer col-sm-3 spcustom_html">
-
-
-                         <div class="footer-links">
-       								<div class="title-box">Customer Service</div>
-       								<ul class="links">
-       								<li><a href="#">Shipping Policy</a></li>
-       								<li><a href="#">Compensation First</a></li>
-       								<li><a href="#">My Account</a></li>
-       								<li><a href="#">Return Policy</a></li>
-       								<li><a href="#">Contact Us</a></li>
-       								</ul>
-       								</div>
-
-                           </div>
-
-                               <div class="sp_customhtml_6_15062139271460080684
-       		box-footer col-sm-3 spcustom_html">
+							<td class="cart_delete text-center" data-title="Delete">
+								<div>
+									<a rel="nofollow" title="Borrar del carrito" class="cart_quantity_delete" id="17_108_0_0" href="http://prestashop.flytheme.net/sp_market/es/cart?delete=1&amp;id_product=17&amp;ipa=108&amp;id_address_delivery=0&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f"><i class="fa fa-trash"></i></a>
+								</div>
+							</td>
+							<td class="cart_total" data-title="Total">
+								<span class="price" id="total_product_price_17_108_0">$30.51</span>
+							</td>
+						</tr>
+						@endforeach
+				</tbody>
+			</table>
+		</div> <!-- end order-detail-content -->
+		@endif
+	@endif
 
 
-                         <div class="footer-links">
-       								<div class="title-box">Payment & Shipping</div>
-       								<ul class="links">
-       								<li><a href="#">Terms of Use</a></li>
-       								<li><a href="#">Payment Methods</a></li>
-       								<li><a href="#">Shipping Guide</a></li>
-       								<li><a href="#">Locations We Ship To</a></li>
-       								<li><a href="#">Estimated Delivery Time</a></li>
-       								</ul>
-       								</div>
 
-                           </div>
-           <!-- /SP Custom Html -->
+			<div class="order_delivery clearfix row">
+												<div class="col-xs-12 col-sm-6">
+						<ul class="address first_item item box">
+							<li>
+								<h3 class="page-subheading">
+																			Delivery address
+																												<span class="address_alias">(Principal)</span>
+																	</h3>
+							</li>
+																																																																																<li><span class="address_name">
+																				Felipe
+																																																															Bedoya
+																												</span></li>
+																																																																																																	<li><span class="address_company">
+																				Pocket
+																												</span></li>
+																																																																																																	<li><span class="address_address1">
+																				tranv 9 #22-42
+																																																															diag 23
+																												</span></li>
+																																																																																																	<li><span class="address_city">
+																				Tulua,
+																																																															Washington
+																																																															12345
+																												</span></li>
+																																																																																																	<li><span class="">
+																				United States
+																												</span></li>
+																																																																																																	<li><span class="address_phone">
+																				2305539
+																												</span></li>
+																																																																																																	<li><span class="address_phone_mobile">
+																				3156624815
+																												</span></li>
+																														</ul>
+					</div>
+
+									</div>
+		<div id="HOOK_SHOPPING_CART"></div>
+	<p class="cart_navigation clearfix">
+
+		<a href="{{url('Tienda/')}}" class="button-exclusive btn btn-default">
+			<i class="fa fa-chevron-left left"></i>Regresar
+		</a>
+					<a  href="http://prestashop.flytheme.net/sp_market/es/order?step=1" class="button btn btn-default standard-checkout button-medium">
+				<span>Proceder con la compra<i class="fa fa-chevron-right right"></i></span>
+			</a>
+			</p>
+	<div class="clear"></div>
+	<div class="cart_navigation_extra">
+		<div id="HOOK_SHOPPING_CART_EXTRA"></div>
+	</div>
+
+					</div><!-- #center_column -->
+					</div><!-- .row -->
+				</div><!-- #columns -->
 
 
-       <!-- MODULE Block contact infos -->
-       <section id="block_contact_infos" class="contact-infos box-footer col-md-3 col-sm-12">
 
-       	<div class="title-box">Contacte con nosotros</div>
-       	<ul class="list-contact">
+			</div><!-- .columns-container -->
+							<!-- Footer -->
+				<div class="footer-container">
+					<footer id="footer"  class="container">
+						<div class="footer-content">
+							<div class="row">
 
-       					<li class="address">
-       				<span class="icon"><i class="fa fa-map-marker"></i></span>
-       				<label>Address: No 40 Baria Sreet 133/2 NewYork City,
-       NY, United States</label>
-       			</li>
-       							<li class="email">
-       				<span class="icon"><i class="fa fa-envelope"></i></span>
-       				<label>Email: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;%63%6f%6e%74%61%63%74@%6d%61%72%6b%65%74.%63%6f%6d" >&#x63;&#x6f;&#x6e;&#x74;&#x61;&#x63;&#x74;&#x40;&#x6d;&#x61;&#x72;&#x6b;&#x65;&#x74;&#x2e;&#x63;&#x6f;&#x6d;</a></label>
-       			</li>
-       							<li class="phone">
-       				<span class="icon"><i class="fa fa-mobile"></i></span>
-       				<label>Phone: 0123456789</label>
-       			</li>
-       			</ul>
+<!-- SP Custom Html -->
 
-       </section>
-       										<div class="footer-bottom">
-       						<div class="container">
-       							<div class="row">
-       								<div class="col-sm-8">
-       									<div class="copyright">&copy; 2016 Prestashop Themes Demo Store. All Rights Reserved.  Designed By <a target="_blank" title="Visit MagenTech!" href="http://magentech.com/">MagenTech.Com</a></div>								</div>
-       								<div class="col-sm-4">
-       									<div class="footer-payment">
-       <img src="../modules/spthemeconfigurator/patterns/payments-1-1.png" alt="payment logos" >
-       </div>
+                        <div class="sp_customhtml_4_15134908981504070297
+		box-footer col-sm-3 spcustom_html">
 
-       								</div>
-       							</div>
-       						</div>
-       					</div>
 
-       					<div class="backtop">
-       						<a id="sp-totop" class="backtotop" href="#" title="Back to top">
-       							<i class="fa fa-arrow-up"></i>
-       						</a>
-       					</div>
+                  <div class="footer-links">
+								<div class="title-box">About Market</div>
+								<ul class="links">
+								<li><a href="#">About Us</a></li>
+								<li><a href="#">Market Reviews</a></li>
+								<li><a href="#">Terms of Use</a></li>
+								<li><a href="#">Privacy Policy</a></li>
+								<li><a href="#">Site Map</a></li>
+								</ul>
+								</div>
 
-       				</div><!-- #footer -->
-       					</div><!-- #page -->
+                    </div>
+
+                        <div class="sp_customhtml_5_1513490898992837243
+		box-footer col-sm-3 spcustom_html">
+
+
+                  <div class="footer-links">
+								<div class="title-box">Customer Service</div>
+								<ul class="links">
+								<li><a href="#">Shipping Policy</a></li>
+								<li><a href="#">Compensation First</a></li>
+								<li><a href="#">My Account</a></li>
+								<li><a href="#">Return Policy</a></li>
+								<li><a href="#">Contact Us</a></li>
+								</ul>
+								</div>
+
+                    </div>
+
+                        <div class="sp_customhtml_6_15134908981897986225
+		box-footer col-sm-3 spcustom_html">
+
+
+                  <div class="footer-links">
+								<div class="title-box">Payment & Shipping</div>
+								<ul class="links">
+								<li><a href="#">Terms of Use</a></li>
+								<li><a href="#">Payment Methods</a></li>
+								<li><a href="#">Shipping Guide</a></li>
+								<li><a href="#">Locations We Ship To</a></li>
+								<li><a href="#">Estimated Delivery Time</a></li>
+								</ul>
+								</div>
+
+                    </div>
+    <!-- /SP Custom Html -->
+
+
+<!-- MODULE Block contact infos -->
+<section id="block_contact_infos" class="contact-infos box-footer col-md-3 col-sm-12">
+
+	<div class="title-box">Contacte con nosotros</div>
+	<ul class="list-contact">
+
+					<li class="address">
+				<span class="icon"><i class="fa fa-map-marker"></i></span>
+				<label>Address: No 40 Baria Sreet 133/2 NewYork City,
+NY, United States</label>
+			</li>
+							<li class="email">
+				<span class="icon"><i class="fa fa-envelope"></i></span>
+				<label>Email: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;%63%6f%6e%74%61%63%74@%6d%61%72%6b%65%74.%63%6f%6d" >&#x63;&#x6f;&#x6e;&#x74;&#x61;&#x63;&#x74;&#x40;&#x6d;&#x61;&#x72;&#x6b;&#x65;&#x74;&#x2e;&#x63;&#x6f;&#x6d;</a></label>
+			</li>
+							<li class="phone">
+				<span class="icon"><i class="fa fa-mobile"></i></span>
+				<label>Phone: 0123456789</label>
+			</li>
+			</ul>
+
+</section>
+							</div>
+						</div>
+					</footer>
+
+
+										<div class="footer-bottom">
+						<div class="container">
+							<div class="row">
+								<div class="col-sm-8">
+									<div class="copyright">&copy; 2017 Pocket SmartBar. All Rights Reserved.  Designed By <a target="_blank" title="Visit MagenTech!" href="http://magentech.com/">MagenTech.Com</a></div>								</div>
+								<div class="col-sm-4">
+									<div class="footer-payment">
+										<img src="http://prestashop.flytheme.net/sp_market/modules/spthemeconfigurator/patterns/payments-1-1.png" alt="payment logos" >
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="backtop">
+						<a id="sp-totop" class="backtotop" href="#" title="Top de la pagina">
+							<i class="fa fa-arrow-up"></i>
+						</a>
+					</div>
+				</div><!-- #footer -->
+					</div><!-- #page -->

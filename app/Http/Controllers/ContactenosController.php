@@ -16,9 +16,10 @@ class ContactenosController extends Controller
     {
 
     }
-    public function index(Request $Request0){
-      return view('Tienda/Contactenos');
+    public function index(Request $Request){
+      return view('Tienda/Contactenos/index');
     }
+
     public function store(Request $request){
       $contactenos = new Contactenos;
       $contactenos->titulo = $request->titulo;
@@ -26,7 +27,7 @@ class ContactenosController extends Controller
       $contactenos->referencia_pedido = $request->referencia_pedido;
       $contactenos->mensaje = $request->mensaje;
       $contactenos->save();
-      Flash::success("Sus comentarios se han registrado satisfactoriamente")->important();
+      Flash::success("Su comentario se ha enviado satisfactoriamente!")->important();
       return redirect('Contactenos/');
     }
 }

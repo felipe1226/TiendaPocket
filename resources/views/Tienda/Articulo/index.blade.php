@@ -857,146 +857,165 @@ param_product_url = '#';
 
 
 				<div id="center_column" class="column col-sm-8 col-md-9 col-lg-9">
+				@include('flash::message')
+				@if(isset($articulos))
+					@if(count($articulos) == 0)
 
-					<div class="content_sortPagiBar_top">
-            <form id="productsSortForm" action="sp_market/es/153-healthy-beauty" class="productsSortForm ">
-	            <div class="select selector1">
-		            <label for="selectProductSort">Ordenar</label>
-		              <select id="selectProductSort" class="selectProductSort form-control">
-			              <option value="name:asc" >Nombre: A to Z</option>
-			              <option value="name:desc" >Nombre: Z to A</option>
-							      <option value="price:asc" >Mayor precio</option>
-				            <option value="price:desc" >Menor precio</option>
-							      <option value="quantity:desc" >Product In Stock</option>
-			              <option value="reference:asc" >Lowest Reference</option>
-			              <option value="reference:desc" >Highest Reference</option>
-		              </select>
-	            </div>
-            </form>
-          </div>
-          <div class="content_product_list hide-productdes hide-coloroption hide-stockinfo   "  data-class=" col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
-            <ul class="product_list row grid">
-						@if(isset($articulos))
-						 @foreach($articulos as $articulo)
-              <li class="ajax_block_product  col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
-			          <div class="product-container" itemscope itemtype="http://schema.org/Product">
-				          <div class="left-block">
-                    <div class="product-image-container">
+							<p class="alert alert-warning">No hay productos de esta categoria en este momento.</p>
+					@else
 
-						          <div class="product-image">
-												<a href="sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html" itemprop="url" >
-									        <img  height="220" class="img_1" src="../imgArticulos/{{$articulo->imagen}}"/>
-												</a>
-                      </div>
-                      <div class="label-box">
-												<span class="new-box">Nuevo</span>
-                        <span class="sale-box">Agotado!</span>
-											</div>
-							        <a class="quick-view" href="sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html" data-rel="sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html">Ver detalles
-							        </a>
-                    </div>
-                  </div>
-                  <div class="right-block">
-					          <h4 itemprop="nombre" class="product-name">
-											<a href="sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html" itemprop="url" >Articulo: {{$articulo->nombre}}
-						          </a>
-					          </h4>
-										<h5 itemprop="marca" class="product-name">
-											<a href="sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html" itemprop="url" >Marca: {{$articulo->marca}}
-						          </a>
-					          </h5>
-										<div class="color-list-container"><ul class="color_to_pick_list clearfix">
-									    <li>
-				                <a href="sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html#/size-m/color-orange" id="color_65" class="color_pick" style="background:#F39C11;">
-									      </a>
-			                </li>
-											<li>
-				                <a href="sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html#/size-s/color-blue" id="color_64" class="color_pick" style="background:#5D9CEC;">
-									      </a>
-			                </li>
-			                </ul>
-                    </div>
+						<div class="content_sortPagiBar_top">
+	            <form id="productsSortForm" action="sp_market/es/153-healthy-beauty" class="productsSortForm ">
+		            <div class="select selector1">
+			            <label for="selectProductSort">Ordenar</label>
+			              <select id="selectProductSort" class="selectProductSort form-control">
+				              <option value="name:asc" >Nombre: A to Z</option>
+				              <option value="name:desc" >Nombre: Z to A</option>
+								      <option value="price:asc" >Mayor precio</option>
+					            <option value="price:desc" >Menor precio</option>
+								      <option value="quantity:desc" >Product In Stock</option>
+				              <option value="reference:asc" >Lowest Reference</option>
+				              <option value="reference:desc" >Highest Reference</option>
+			              </select>
+		            </div>
+	            </form>
+	          </div>
+	          <div class="content_product_list hide-productdes hide-coloroption hide-stockinfo   "  data-class=" col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
+	            <ul class="product_list row grid">
+							 @foreach($articulos as $articulo)
 
-							      <div class="comments_note" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-		                  <div class="star_content">
-												<div class="star"></div>
-												  <div class="star"></div>
-													<div class="star"></div>
-													<div class="star"></div>
-													<div class="star"></div>
-							            <meta itemprop="worstRating" content = "0" />
-                          <meta itemprop="ratingValue" content = "0" />
-                          <meta itemprop="bestRating" content = "5" />
-		                    </div>
-		                    <span class="nb-comments">
-                          <span itemprop="reviewCount">0
-                          </span> Comentario(s)
-                        </span>
+	              <li class="ajax_block_product  col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
+				          <div class="product-container" itemscope itemtype="http://schema.org/Product">
+					          <div class="left-block">
+	                    <div class="product-image-container">
+
+							          <div class="product-image">
+													<a href="sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html" itemprop="url" >
+										        <img  height="220" class="img_1" src="../imgArticulos/{{$articulo->imagen}}"/>
+													</a>
+	                      </div>
+	                      <div class="label-box">
+													<span class="new-box">Nuevo</span>
+													<?php
+														if($articulo->cantidad == 0){
+														  echo '<span class="sale-box">Agotado!</span>';
+														}
+													?>
+												</div>
+								        <a class="quick-view" href="sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html" data-rel="sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html">Ver detalles
+								        </a>
 	                    </div>
-                      <div itemprop="offers" class="price-box">
-													<span itemprop="price" class="price product-price">$30.51
-                          </span>
-                      </div>
+	                  </div>
+	                  <div class="right-block">
+							          <h4 itemprop="nombre" class="product-name">
+													<a href="sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html" itemprop="url" >Articulo: {{$articulo->nombre}}
+								          </a>
+							          </h4>
+											<h5 itemprop="marca" class="product-name">
+												<a href="sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html" itemprop="url" >Marca: {{$articulo->marca}}
+							          </a>
+						          </h5>
+											<div class="color-list-container"><ul class="color_to_pick_list clearfix">
+										    <li>
+					                <a href="sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html#/size-m/color-orange" id="color_65" class="color_pick" style="background:#F39C11;">
+										      </a>
+				                </li>
+												<li>
+					                <a href="sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html#/size-s/color-blue" id="color_64" class="color_pick" style="background:#5D9CEC;">
+										      </a>
+				                </li>
+				                </ul>
+	                    </div>
 
-                      <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="availability">
-												<span class="available-now">
-											  <i class="fa fa-check"></i>
-											  <link itemprop="availability" href="http://schema.org/InStock" />In stock</span>
-											</div>
-                      <div class="button-container">
-                        <a class="cart_button ajax_add_to_cart_button" href="sp_market/es/cart?add=1&amp;id_product=11&amp;token=37dab0cd8f57363d790bac16e0dd0e45" rel="nofollow"  title="Añadir al carro" data-id-product="11">
-											Carro
-										    </a>
-                        <a class="addToWishlist wishlistProd_11" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '11', false, 1); return false;">
-                          <i class="fa fa-heart"></i>
-	                      </a>
-						          </div>
-				           </div>
-                </div><!-- .product-container> -->
-		           </li>
-							 @endforeach
-							 @endif
-            </ul>
-          </div>
-          <div class="content_sortPagiBar_top">
-            <form id="productsSortForm" action="sp_market/es/153-healthy-beauty" class="productsSortForm ">
-	            <div class="select selector1">
-		            <label for="selectProductSort">Ordenar</label>
-		              <select id="selectProductSort" class="selectProductSort form-control">
-			              <option value="name:asc" >Nombre: A to Z</option>
-			              <option value="name:desc" >Nombre: Z to A</option>
-							      <option value="price:asc" >Mayor precio</option>
-				            <option value="price:desc" >Menor precio</option>
-							      <option value="quantity:desc" >Product In Stock</option>
-			              <option value="reference:asc" >Lowest Reference</option>
-			              <option value="reference:desc" >Highest Reference</option>
-		              </select>
-	            </div>
-            </form>
-            <div id="pagination_bottom" class="pagination clearfix">
-  					  <ul class="pagination">
-                <li class="active current">
-  							<span>
-  								<span>1</span>
-  							</span>
-  						</li>
-  						<li>
-  							<a  href="/sp_market/es/153-healthy-beauty?p=2">
-  								<span>2</span>
-  							</a>
-  						</li>
-              <li>
-  							<a  href="/sp_market/es/153-healthy-beauty?p=3">
-  								<span>3</span>
-  							</a>
-  						</li>
-              <li id="pagination_next_bottom" class="pagination_next">
-  						<a  href="/sp_market/es/153-healthy-beauty?p=2">
-  							<i class="fa fa-angle-right" aria-hidden="true"></i>
-  						</a>
-  					</li>
-  				</ul>
-        </div>
+								      <div class="comments_note" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+			                  <div class="star_content">
+													<div class="star"></div>
+													  <div class="star"></div>
+														<div class="star"></div>
+														<div class="star"></div>
+														<div class="star"></div>
+								            <meta itemprop="worstRating" content = "0" />
+	                          <meta itemprop="ratingValue" content = "0" />
+	                          <meta itemprop="bestRating" content = "5" />
+			                    </div>
+			                    <span class="nb-comments">
+	                          <span itemprop="reviewCount">0
+	                          </span> Comentario(s)
+	                        </span>
+		                    </div>
+	                      <div itemprop="offers" class="price-box">
+														<span itemprop="price" class="price product-price">{{$articulo->precio}}
+	                          </span>
+	                      </div>
+
+	                      <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="availability">
+													<span class="available-now">
+												  <i class="fa fa-check"></i>
+												  <link itemprop="availability" href="http://schema.org/InStock" />In stock</span>
+												</div>
+												{!!Form::open(array('url'=>'Tienda/Carrito','method'=>'POST',))!!}
+												<div class="form-group">
+													<input class="form-control grey" type="hidden" name="id_articulo" value="{{$articulo->id}}"/>
+												</div>
+												<div class="form-group">
+													<input class="form-control grey" type="hidden" name="categoria" value="{{$articulo->categoria}}" hidden />
+												</div>
+	                      <div class="button-container">
+													<button  class="cart_button" type="submit" >
+														Carro
+												</button>
+	                        <a class="addToWishlist wishlistProd_11" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '11', false, 1); return false;">
+	                          <i class="fa fa-heart"></i>
+		                      </a>
+							          </div>
+												{!!Form::close()!!}
+					           </div>
+	                </div><!-- .product-container> -->
+			           </li>
+								 @endforeach
+	            </ul>
+	          </div>
+	          <div class="content_sortPagiBar_top">
+	            <form id="productsSortForm" action="sp_market/es/153-healthy-beauty" class="productsSortForm ">
+		            <div class="select selector1">
+			            <label for="selectProductSort">Ordenar</label>
+			              <select id="selectProductSort" class="selectProductSort form-control">
+				              <option value="name:asc" >Nombre: A to Z</option>
+				              <option value="name:desc" >Nombre: Z to A</option>
+								      <option value="price:asc" >Mayor precio</option>
+					            <option value="price:desc" >Menor precio</option>
+								      <option value="quantity:desc" >Product In Stock</option>
+				              <option value="reference:asc" >Lowest Reference</option>
+				              <option value="reference:desc" >Highest Reference</option>
+			              </select>
+		            </div>
+	            </form>
+	            <div id="pagination_bottom" class="pagination clearfix">
+	  					  <ul class="pagination">
+	                <li class="active current">
+	  							<span>
+	  								<span>1</span>
+	  							</span>
+	  						</li>
+	  						<li>
+	  							<a  href="/sp_market/es/153-healthy-beauty?p=2">
+	  								<span>2</span>
+	  							</a>
+	  						</li>
+	              <li>
+	  							<a  href="/sp_market/es/153-healthy-beauty?p=3">
+	  								<span>3</span>
+	  							</a>
+	  						</li>
+	              <li id="pagination_next_bottom" class="pagination_next">
+	  						<a  href="/sp_market/es/153-healthy-beauty?p=2">
+	  							<i class="fa fa-angle-right" aria-hidden="true"></i>
+	  						</a>
+	  					</li>
+	  				</ul>
+	        </div>
+					@endif
+				@endif
       </div>
     </div>
   </div><!-- #center_column -->
