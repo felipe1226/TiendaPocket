@@ -10,7 +10,7 @@
 							<link rel="stylesheet" href="modules/spthemeconfigurator/views/css/front/sp-cpanel.css" type="text/css" media="all" />
 							<link rel="stylesheet" href="themes/sp_market/css/bootstrap/bootstrap.min.css" type="text/css" media="all" />
 							<link rel="stylesheet" href="modules/spthemeconfigurator/views/css/front/configCss-1.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="themes/sp_market/css/theme-f4a137.css" type="text/css" media="all" />
+							<link rel="stylesheet" href="themes/sp_market/css/theme-2f0033.css" type="text/css" media="all" />
 							<link rel="stylesheet" href="themes/sp_market/css/responsive.css" type="text/css" media="all" />
 							<link rel="stylesheet" href="themes/sp_market/css/modules/blocktags/blocktags.css" type="text/css" media="all" />
 							<link rel="stylesheet" href="themes/sp_market/css/modules/blockwishlist/blockwishlist.css" type="text/css" media="all" />
@@ -73,6 +73,9 @@
 							<script type="text/javascript" src="modules/spblocknewsletter/jquery.cookie.min.js"></script>
 							<script type="text/javascript" src="themes/sp_market/js/index.js"></script>
 							<script type="text/javascript" src="modules/statsdata/js/plugindetect.js"></script>
+							<script type="text/javascript" src="themes/sp_market/js/carrito.js"></script>
+
+
 
 <div class="header-center">
 	<div class="container">
@@ -604,7 +607,7 @@
 </ul>
 
 <!-- /Steps -->
-
+@include('flash::message')
 @if(isset($carritos))
 	@if(count($carritos) == 0)
 		<p class="alert alert-warning">Su carrito de compras está vacio.</p>
@@ -622,11 +625,76 @@
 						<th class="cart_total item text-right">Total</th>
 					</tr>
 				</thead>
+
+				<tbody>
+					@foreach($carritos as $carrito)
+						<tr id="product_17_108_0_0" class="cart_item first_item address_0 odd">
+							<td class="cart_product">
+								<a href=""><img src="imgArticulos/{{$carrito->almacena->imagen}}" width="110" height="110"  /></a>
+							</td>
+							<td class="cart_description">
+								<h5 class="product-name">
+									<h3><a href="sp_market/es/smartphones-tablets/17-faded-short-sleeves-tshirt.html#/size-s/color-orange">{{$carrito->almacena->nombre}}</a></h3
+								</h5>
+								<small class="cart_ref">Marca: {{$carrito->almacena->marca}}</small>
+								<small class="cart_ref">{{$carrito->almacena->categoria}}</small>
+
+							</td>
+							<td class="cart_avail">
+								<span class="label label-success">In stock</span>
+							</td>
+							<td class="cart_unit" data-title="Unit price">
+								<ul class="price text-right" id="cantidad">
+					        <li class="price">${{$carrito->almacena->precio}}</li>
+								</ul>
+							</td>
+
+							<td class="cart_quantity text-center" data-title="Quantity">
+
+								<input type="hidden" value="1" name="quantity_17_108_0_0_hidden" />
+								<input id="cantidad{{$carrito->id}}" size="2"  type="text" autocomplete="off" class="cart_quantity_input form-control grey" value="{{$carrito->cantidad}}" name="quantity_17_108_0_0" onBlur="perdidaFocus({{$carrito->almacena->precio}},{{$carrito->id}})"/>
+
+								<div class="cart_quantity_button clearfix">
+									<a class="cart_quantity_down btn btn-default button-minus" href="javascript:void(0);" title="Sustraer" onclick="disminuirCantidad({{$carrito->almacena->precio}},{{$carrito->id}})">
+										<span>
+											<i class="fa fa-minus"></i>
+										</span>
+									</a>
+									<a  class="cart_quantity_up btn btn-default button-plus" href="javascript:void(0);" title="Agregar" onclick="aumentarCantidad({{$carrito->almacena->precio}},{{$carrito->id}})"><span><i class="fa fa-plus"></i></span></a>
+								</div>
+							</td>
+
+							<td class="cart_delete text-center" data-title="Delete">
+								<div>
+									<a rel="nofollow" title="Borrar del carrito" class="cart_quantity_delete" id="17_108_0_0" href="sp_market/es/cart?delete=1&amp;id_product=17&amp;ipa=108&amp;id_address_delivery=0&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f"><i class="fa fa-trash"></i></a>
+								</div>
+							</td>
+							<td class="cart_total" data-title="Total">
+								<span>$</span>
+								<?php
+
+									echo '<input readonly="readonly" style="border:0" class="price" id="cantidadTotal'.$carrito->id.'" value="'.$carrito->almacena->precio * $carrito->cantidad.'"/>';
+								 ?>
+
+							</td>
+						</tr>
+						@endforeach
+				</tbody>
 				<tfoot>
 					<tr class="cart_total_price">
 						<td rowspan="4" colspan="3" id="cart_voucher" class="cart_voucher"></td>
 						<td colspan="3" class="text-right">Total carrito</td>
-						<td colspan="2" class="price" id="total_product">$57.51</td>
+							<?php
+								$totalArticulos = 0;
+								foreach($carritos as $carrito){
+									$totalArticulos += $carrito->cantidad * $carrito->almacena->precio;
+								}
+
+									echo '<td colspan="2" class="price"><span>$</span>
+									<input readonly="readonly" style="border:0" class="price" id="totalArticulos" value="'.$totalArticulos.'"/>
+									</td>';
+
+							?>
 					</tr>
 					<tr style="display: none;">
 						<td colspan="3" class="text-right">Total gift-wrapping cost</td>
@@ -647,62 +715,39 @@
 							</div>
 						</td>
 						<td colspan="2" class="price" id="total_price_container">
-							<span id="total_price">$59.51</span>
+							<span>$</span>
+							<?php
+								$totalArticulos = 0;
+								foreach($carritos as $carrito){
+									$totalArticulos += $carrito->cantidad * $carrito->almacena->precio;
+								}
+								$totalArticulos += 2;
+
+									echo '<input readonly="readonly" style="border:0" class="total_price" id="totalCarrito" value="'.$totalArticulos.'"/>';
+							?>
+
 						</td>
 					</tr>
 				</tfoot>
-				<tbody>
-					@foreach($carritos as $carrito)
-						<tr id="product_17_108_0_0" class="cart_item first_item address_0 odd">
-							<td class="cart_product">
-								<a href=""><img src="imgArticulos/{{$carrito->almacena->imagen}}" width="110" height="110"  /></a>
-							</td>
-							<td class="cart_description">
-								<h5 class="product-name">
-									<h3><a href="sp_market/es/smartphones-tablets/17-faded-short-sleeves-tshirt.html#/size-s/color-orange">{{$carrito->almacena->nombre}}</a></h3
-								</h5>
-								<small class="cart_ref">{{$carrito->almacena->categoria}}</small>
-								<small><a href="#">Marca: {{$carrito->almacena->marca}}</a></small>
-							</td>
-							<td class="cart_avail">
-								<span class="label label-success">In stock</span>
-							</td>
-							<td class="cart_unit" data-title="Unit price">
-								<ul class="price text-right" id="product_price_17_108_0">
-					        <li class="price">${{$carrito->almacena->precio}}</li>
-								</ul>
-							</td>
-
-							<td class="cart_quantity text-center" data-title="Quantity">
-
-								<input type="hidden" value="1" name="quantity_17_108_0_0_hidden" />
-								<input size="2" type="text" autocomplete="off" class="cart_quantity_input form-control grey" value="{{$carrito->cantidad}}"  name="quantity_17_108_0_0" />
-								<div class="cart_quantity_button clearfix">
-									<a rel="nofollow" class="cart_quantity_down btn btn-default button-minus" id="cart_quantity_down_17_108_0_0" href="http://prestashop.flytheme.net/sp_market/es/cart?add=1&amp;id_product=17&amp;ipa=108&amp;id_address_delivery=0&amp;op=down&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f" title="Sustraer">
-										<span>
-											<i class="fa fa-minus"></i>
-										</span>
-									</a>
-									<a rel="nofollow" class="cart_quantity_up btn btn-default button-plus" id="cart_quantity_up_17_108_0_0" href="http://prestashop.flytheme.net/sp_market/es/cart?add=1&amp;id_product=17&amp;ipa=108&amp;id_address_delivery=0&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f" title="Agregar"><span><i class="fa fa-plus"></i></span></a>
-								</div>
-							</td>
-
-							<td class="cart_delete text-center" data-title="Delete">
-								<div>
-									<a rel="nofollow" title="Borrar del carrito" class="cart_quantity_delete" id="17_108_0_0" href="http://prestashop.flytheme.net/sp_market/es/cart?delete=1&amp;id_product=17&amp;ipa=108&amp;id_address_delivery=0&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f"><i class="fa fa-trash"></i></a>
-								</div>
-							</td>
-							<td class="cart_total" data-title="Total">
-								<span class="price" id="total_product_price_17_108_0">$30.51</span>
-							</td>
-						</tr>
-						@endforeach
-				</tbody>
 			</table>
 		</div> <!-- end order-detail-content -->
 		@endif
 	@endif
 
+	{!!Form::open(array('url'=>'Tienda/Carrito','method'=>'POST',))!!}
+
+	<div class="form-group">
+		<input class="form-control grey" type="hidden" name="id_articulo" value=""/>
+	</div>
+	<div class="form-group">
+		<input class="form-control grey" type="hidden" name="vista" value="carrito" hidden />
+	</div>
+	<div class="button-container">
+		<button  class="cart_button" type="submit" >
+			Actualizar
+	</button>
+	</div>
+	{!!Form::close()!!}
 
 
 			<div class="order_delivery clearfix row">

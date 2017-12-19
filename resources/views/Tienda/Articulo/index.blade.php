@@ -10,7 +10,7 @@
 							<link rel="stylesheet" href="../modules/spthemeconfigurator/views/css/front/sp-cpanel.css" type="text/css" media="all" />
 							<link rel="stylesheet" href="../themes/sp_market/css/bootstrap/bootstrap.min.css" type="text/css" media="all" />
 							<link rel="stylesheet" href="../modules/spthemeconfigurator/views/css/front/configCss-1.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../themes/sp_market/css/theme-f4a137.css" type="text/css" media="all" />
+							<link rel="stylesheet" href="../themes/sp_market/css/theme-2f0033.css" type="text/css" media="all" />
 							<link rel="stylesheet" href="../themes/sp_market/css/responsive.css" type="text/css" media="all" />
 							<link rel="stylesheet" href="../themes/sp_market/css/modules/blocktags/blocktags.css" type="text/css" media="all" />
 							<link rel="stylesheet" href="../themes/sp_market/css/modules/blockwishlist/blockwishlist.css" type="text/css" media="all" />
@@ -954,6 +954,9 @@ param_product_url = '#';
 												  <link itemprop="availability" href="http://schema.org/InStock" />In stock</span>
 												</div>
 												{!!Form::open(array('url'=>'Tienda/Carrito','method'=>'POST',))!!}
+												<div class="form-group">
+													<input class="form-control grey" type="hidden" name="vista" value="articulos"/>
+												</div>
 												<div class="form-group">
 													<input class="form-control grey" type="hidden" name="id_articulo" value="{{$articulo->id}}"/>
 												</div>

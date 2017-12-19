@@ -19,14 +19,37 @@ class CarritoController extends Controller
     }
 
     public function store(Request $request){
-      $carrito = new Carrito;
-      $carrito->id_empresa = Auth::user()->idEmpresa;
-      $carrito->id_articulo = $request->id_articulo;
-      $carrito->cantidad = 1;
+      $existe = Carrito::where('id_articulo', $request->id_articulo)->get();
+      if(isset($existe)){
+        $cant = 0;
+        $cant = $existe[0]->cantidad + 1;
+        $carrito = Carrito::find($existe[0]->id);
+        $carrito -> fill([
+            // Empaquetamos los Datos  y los envamos al Insert
+            'cantidad' => $cant
+            ]);
+        $carrito -> save();
 
-      $carrito->save();
-      Flash::success("Se ha guardado el articulo en el carrito satisfactoriamente!")->important();
-      return redirect('Articulos/'.$request->categoria);
+      }
+      else{
+        $carrito = new Carrito;
+        $carrito->id_empresa = Auth::user()->idEmpresa;
+        $carrito->id_articulo = $request->id_articulo;
+        $carrito->cantidad = 1;
+
+        $carrito->save();
+
+      }
+      if($request->vista == "articulos"){
+        Flash::success("Se ha guardado el articulo en el carrito satisfactoriamente!")->important();
+        return redirect('Articulos/'.$request->categoria);
+
+      }
+      else{
+        flash::success('Carrito actualizado!')->important();
+        return redirect('Carrito/');
+      }
+
     }
 
 

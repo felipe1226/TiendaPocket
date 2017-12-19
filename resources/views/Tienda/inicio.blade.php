@@ -10,7 +10,7 @@
 							<link rel="stylesheet" href="modules/spthemeconfigurator/views/css/front/sp-cpanel.css" type="text/css" media="all" />
 							<link rel="stylesheet" href="themes/sp_market/css/bootstrap/bootstrap.min.css" type="text/css" media="all" />
 							<link rel="stylesheet" href="modules/spthemeconfigurator/views/css/front/configCss-1.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="themes/sp_market/css/theme-f4a137.css" type="text/css" media="all" />
+							<link rel="stylesheet" href="themes/sp_market/css/theme-2f0033.css" type="text/css" media="all" />
 							<link rel="stylesheet" href="themes/sp_market/css/responsive.css" type="text/css" media="all" />
 							<link rel="stylesheet" href="themes/sp_market/css/modules/blocktags/blocktags.css" type="text/css" media="all" />
 							<link rel="stylesheet" href="themes/sp_market/css/modules/blockwishlist/blockwishlist.css" type="text/css" media="all" />
@@ -145,46 +145,53 @@
 										<span class="ajax_cart_quantity_text">Articulos</span>
 										<span class="line line4 arrow"><i class="fa fa-caret-down"></i></span>
 										<span class="line"> - </span>
-										<span class="ajax_cart_total">$100000</span>
+										<?php
+										$totalCarrito = 0;
+										foreach($carritos as $carrito){
+											$totalCarrito += $carrito->cantidad * $carrito->almacena->precio;
+										}
+
+											echo '<span class="ajax_cart_total">$'.$totalCarrito.'</span>
 
 							</a>
 							<div class="cart_block block exclusive">
 								<div class="block_content">
 											<!-- block list of products -->
 									<div class="cart_block_list">
-												<p class="recent_items ">Articulos <span>Precio</span></p>
-												@if(count($carritos) == 0)
-													<p class="cart_block_no_products">
+												<p class="recent_items ">Articulos <span>Precio</span></p>';
+												if(count($carritos) == 0){
+													echo '<p class="cart_block_no_products">
 															No tienes articulos en tu carrito
-													</p>
-												@else
-													@foreach($carritos as $carrito)
-														<div class="list-products mCustomScrollbar">
+													</p>';
+												}
+												else{
+													foreach($carritos as $carrito){
+														echo '<div class="list-products mCustomScrollbar">
 															<dl class="products ">
 																<dt data-id="cart_block_product_1_1_23" class="first_item">
-																	<a class="cart-images" href="#"><img height="50" width="50" src="imgArticulos/{{$carrito->almacena->imagen}}" /></a>
+																	<a class="cart-images" href="#"><img height="50" width="50" src="imgArticulos/'.$carrito->almacena->imagen.'" /></a>
 																	<div class="cart-info">
 																		<div class="product-name titleFont">
-																			<a class="cart_block_product_name" href="#">{{$carrito->almacena->nombre}}</a>
+																			<a class="cart_block_product_name" href="#">'.$carrito->almacena->nombre.'</a>
 																		</div>
-																		<span class="price">$66.04</span>
-																		<span class="quantity-formated titleFont">Cantidad: {{$carrito->cantidad}}</span>
+																		<span class="price">$'.$carrito->almacena->precio * $carrito->cantidad.'</span>
+																		<span class="quantity-formated titleFont">Cantidad: '.$carrito->cantidad.'</span>
 																	</div>
 																	<span class="remove_link">
-																		<a class="ajax_cart_block_remove_link" href="sp_market/es/cart?delete%3D1%26id_product%3D%7B%24product_id_product%7D%26ipa%3D%7B%24product_id_product_attribute%7D%26id_address_delivery%3D%7B%24product_id_address_delivery%7D%26token%3D%7B%24static_token%7D=" rel="nofollow" title="Borrar"><i class="fa fa-trash"></i></a>
+																		<a class="ajax_cart_block_remove_link" href="#" rel="nofollow" title="Borrar del carrito"><i class="fa fa-trash"></i></a>
 																	</span>
 																</dt>
 															</dl>
-														</div>
-													@endforeach
-												@endif
-									<div class="cart-prices">
+														</div>';
+													}
+												}
+									echo '<div class="cart-prices">
 										<div class="price-total titleFont">
 											<span class="price_text">Total : </span>
-												<span class="price cart_block_total ajax_block_cart_total">
-																							$ 0.00
+												<span class="price cart_block_total ajax_block_cart_total">$'.$totalCarrito.'
 												</span>
-										</div>
+										</div>';
+										?>
 										<div class="buttons">
 												<a id="button_order_cart" class="btn btn-default button button-small titleFont" href="{{url('Carrito/')}}" rel="nofollow">
 														Ver carrito
