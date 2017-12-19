@@ -33,6 +33,7 @@
 
 	 	var valores = valor *  document.getElementById("cantidad"+id).value;
 
+		document.getElementById("cantidadTotal"+id).value = valores;
 		document.getElementById("totalArticulos").value = eval(eval(document.getElementById("totalArticulos").value) + valor);
 		document.getElementById("totalCarrito").value = eval(eval(document.getElementById("totalCarrito").value) + valor);
 }
@@ -47,5 +48,23 @@ console.log(document.getElementById("cantidad"+id).value)
 			 document.getElementById("cantidad"+id).value = eval(valor2 - 1)
 		 }
 	var valores = valor *  document.getElementById("cantidad"+id).value;
+	document.getElementById("cantidadTotal"+id).value = valores;
+	document.getElementById("totalArticulos").value = eval(eval(document.getElementById("totalArticulos").value) - valor);
+	document.getElementById("totalCarrito").value = eval(eval(document.getElementById("totalCarrito").value) - valor);
+}
 
+function perdidaFocus(valor, id)
+{
+	console.log(document.getElementById("cantidad"+id).value)
+
+     var valor2 = eval(document.getElementById("cantidad"+id).value);
+		 if(valor2 > 0){
+			 var valores = valor *  document.getElementById("cantidad"+id).value;
+		 }
+		 else{
+			 var valores = valor;
+			 document.getElementById("cantidad"+id).value = eval(1);
+		 }
+
+		 document.getElementById("cantidadTotal"+id).value = valores;
 }
