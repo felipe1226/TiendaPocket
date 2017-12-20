@@ -79,7 +79,7 @@
 		<div class="row">
 			<div id="header_logo" class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 				<a class="logo" href="http://prestashop.flytheme.net/sp_market/">
-					<img  src="img/sp-g3shop-logo-1472003784.jpg" alt="SP Market" width="250" height="70">
+					<img  src="../img/sp-g3shop-logo-1472003784.jpg" alt="SP Market" width="250" height="70">
 				</a>
 			</div>
 
@@ -87,9 +87,7 @@
 				<div class="shop-menu pull-right">
 					<ul class="nav navbar-nav">
 						<li ><a>
-						 <?php
-								echo 'Bienvenido - '.Auth::user()->nombrePersona;
-							?>
+							Bienvenido - {{Auth::user()->nombrePersona}}
 						</a></li>
 						<li ><a href="../Principales/cuenta.php" target="principal"><i class="fa fa-user"></i> Cuenta</a></li>
 						<li ><a href="{{url('RegistrarArticulo/')}}"><i class="fa fa-bookmark-o"></i> Administrar</a></li>
@@ -99,24 +97,24 @@
 			<div id="header_search" class="col-lg-7 col-md-6 col-sm-6 col-xs-12 hidden-xs">
         <div class="sp_searchpro ">
 					<div id="sp_search_pro_1" class="spr-container spr-preload">
-						<form class="sprsearch-form  show-box" method="get" action="http://prestashop.flytheme.net/sp_market/es/module/spsearchpro/catesearch">
+						<form class="sprsearch-form  show-box" method="get" action="sp_market/es/module/spsearchpro/catesearch">
 							<div class="spr_selector">
 								<select class="spr_select">
-											<option>Categorias</option>
+											<option>--- Categorias ---</option>
 
-											<option value="PocketClub">--- PocketClub ---</option>
+											<option value="PocketClub">PocketClub</option>
 
-											<option value="tecnologia">--- Tecnologia ---</option>
+											<option value="tecnologia">Tecnologia</option>
 
-											<option value="licores">--- Licores ---</option>
+											<option value="licores">Licores</option>
 
-											<option value="cervezas">--- Cervezas ---</option>
+											<option value="cervezas">Cervezas</option>
 
-											<option value="utencilios">--- Utencilios ---</option>
+											<option value="utencilios">Utencilios</option>
 
-											<option value="promociones">--- Promociones ---</option>
+											<option value="promociones">Promociones</option>
 
-											<option value="mercadotecnia">--- Mercadotecnia ---</option>
+											<option value="mercadotecnia">Mercadotecnia</option>
 								</select>
 							</div>
 							<div class="text-search">
@@ -138,43 +136,66 @@
 						<div class="icon-cart">
 						</div>
 							<a href="order.html" rel="nofollow">
-										<?php
-											echo '<span class="text-cart">CARRITO('.Auth::user()->id.')</span>';
-										?>
+
+										<span class="text-cart">CARRITO</span>
+
 										<span class="text-cart4">Carrito</span>
 										<span class="line line4"> - </span>
-										<span class="ajax_cart_empty">0</span>
-										<span class="ajax_cart_quantity">0</span>
+										<span class="ajax_cart_quantity">{{count($carritos)}}</span>
 										<span class="ajax_cart_quantity_text">Articulos</span>
 										<span class="line line4 arrow"><i class="fa fa-caret-down"></i></span>
 										<span class="line"> - </span>
-										<span class="ajax_cart_total">
-											$0.00
-										</span>
+										<?php
+										$totalCarrito = 0;
+										foreach($carritos as $carrito){
+											$totalCarrito += $carrito->cantidad * $carrito->almacena->precio;
+										}
+
+											echo '<span class="ajax_cart_total">$'.$totalCarrito.'</span>
 
 							</a>
 							<div class="cart_block block exclusive">
 								<div class="block_content">
 											<!-- block list of products -->
 									<div class="cart_block_list">
-												<p class="recent_items ">Articulos <span>Precio</span></p>
-												<p class="cart_block_no_products">
-														No tienes articulos en tu carrito
-												</p>
-										<div class="list-products mCustomScrollbar">
-													<dl class="products hide"></dl>
-										</div>
-										<div class="cart-prices">
-											<div class="price-total titleFont">
-													<span class="price_text">Total : </span>
-													<span class="price cart_block_total ajax_block_cart_total">
-																							$ 0.00
-													</span>
-											</div>
-											<div class="buttons">
-													<a id="button_order_cart" class="btn btn-default button button-small titleFont" href="order.html" rel="nofollow">
+												<p class="recent_items ">Articulos <span>Precio</span></p>';
+												if(count($carritos) == 0){
+													echo '<p class="cart_block_no_products">
+															No tienes articulos en tu carrito
+													</p>';
+												}
+												else{
+													foreach($carritos as $carrito){
+														echo '<div class="list-products mCustomScrollbar">
+															<dl class="products ">
+																<dt data-id="cart_block_product_1_1_23" class="first_item">
+																	<a class="cart-images" href="#"><img height="50" width="50" src="../imgArticulos/'.$carrito->almacena->imagen.'" /></a>
+																	<div class="cart-info">
+																		<div class="product-name titleFont">
+																			<a class="cart_block_product_name" href="#">'.$carrito->almacena->nombre.'</a>
+																		</div>
+																		<span class="price">$'.$carrito->almacena->precio * $carrito->cantidad.'</span>
+																		<span class="quantity-formated titleFont">Cantidad: '.$carrito->cantidad.'</span>
+																	</div>
+																	<span class="remove_link">
+																		<a class="ajax_cart_block_remove_link" href="#" rel="nofollow" title="Borrar del carrito"><i class="fa fa-trash"></i></a>
+																	</span>
+																</dt>
+															</dl>
+														</div>';
+													}
+												}
+									echo '<div class="cart-prices">
+										<div class="price-total titleFont">
+											<span class="price_text">Total : </span>
+												<span class="price cart_block_total ajax_block_cart_total">$'.$totalCarrito.'
+												</span>
+										</div>';
+										?>
+										<div class="buttons">
+												<a id="button_order_cart" class="btn btn-default button button-small titleFont" href="{{url('Carrito/')}}" rel="nofollow">
 														Ver carrito
-													</a>
+												</a>
 											</div>
 										</div>
 									</div>
@@ -182,6 +203,8 @@
 							</div>
 					</div>
 				</div>
+
+
 				<div id="layer_cart" class="layer_box">
 					<div class="layer_inner_box">
 						<div class="layer_product clearfix mar_b10">
@@ -276,16 +299,16 @@
 										</button>
 										<h2 class="cat-title">Todas categorias</h2>
 									</div>
-									<a href="{{url('AllArticulos/')}}"><div id="sp-vermegamenu" class=" sp-vermegamenu clearfix">
+									<a href="#"><div id="sp-vermegamenu" class=" sp-vermegamenu clearfix">
 									<span id="remove-vermegamenu" class="fa fa-remove"></span>
 									<h2 class="cat-title">Todas categorias</h2></a>
 									<div class="sp-verticalmenu-container">
 										<ul class="nav navbar-nav  menu sp_lesp level-1">
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>PocketClub</a>
+												<a href="{{url('Articulos/PocketClub')}}"><i class="icon-v1"></i>PocketClub</a>
 											</li>
 											<li class="item-1 mega_type type1 parent group"  >
-												<a href="153-healthy-beauty.html"><i class="icon-v2"></i>Tecnologias</a>
+												<a href="{{url('Articulos/Tecnologias')}}"><i class="icon-v2"></i>Tecnologias</a>
 												<div class="dropdown-menu" style="width:200px">
 													<ul class="level-2">
 														<li class="item-2 sub-cate group parent" style="width:100%" >
@@ -320,139 +343,26 @@
 												</div>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Licores</a>
+												<a href="{{url('Articulos/Licores')}}"><i class="icon-v1"></i>Licores</a>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Cervezas</a>
+												<a href="{{url('Articulos/Cervezas')}}"><i class="icon-v1"></i>Cervezas</a>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Utencilios</a>
+												<a href="{{url('Articulos/Utencilios')}}"><i class="icon-v1"></i>Utencilios</a>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Promociones</a>
+												<a href="{{url('Articulos/Promociones')}}"><i class="icon-v1"></i>Promociones</a>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Mercadotecnia</a>
+												<a href="{{url('Articulos/Mercadotecnia')}}"><i class="icon-v1"></i>Mercadotecnia</a>
 											</li>
 										</ul>
 									</div>
 								</div>
 							</nav>
 						</div>
-						<script type="text/javascript">
 
-							$(document).ready(function() {
-								var wd_width = $(window).width();
-								if(wd_width > 992){
-									offtogglevermegamenu();
-									renderWidthSubmenu();
-								}
-								if(wd_width >= 1400)
-									var limit = 13 -1 ;
-								else if(wd_width >= 1200 && wd_width<1400)
-									var limit = 13 -1 ;
-								else if(wd_width >= 768 && wd_width<1200)
-									var limit = 11 -1 ;
-
-								$('#sp-vermegamenu .sp-verticalmenu-container >ul').append('<div class="more-wrap"><span class="more-view">More Categories</span></div>');
-								$('#sp-vermegamenu .item-1').each(function(i){
-									if(i>limit)
-										$(this).css('display', 'none');
-									else
-										$(this).css('display', 'block');
-								});
-
-								$('#sp-vermegamenu .more-wrap').click(function(){
-									if($(this).hasClass('open')){
-										$('#sp-vermegamenu .item-1').each(function(i){
-											if(i>limit){
-												$(this).slideUp(200);
-											}
-										});
-										$(this).removeClass('open');
-										$('.more-wrap').html('<span class="more-view">More Categories</span>');
-									}else{
-										$('#sp-vermegamenu .item-1').each(function(i){
-											if(i>limit){
-												$(this).slideDown(200);
-											}
-										});
-										$(this).addClass('open');
-										$('.more-wrap').html('<span class="more-view">Less Categories</span>');
-									}
-								});
-
-									$(window).resize(function() {
-
-										var sp_width = $( window ).width();
-										if(sp_width >= 1400)
-											var sp_limit = 13 -1 ;
-										else if(sp_width >= 1200 && sp_width<1400)
-											var sp_limit = 13 -1 ;
-										else if(sp_width >= 768 && sp_width<1200)
-											var sp_limit = 11 -1 ;
-										$('#sp-vermegamenu .item-1').each(function(i){
-											if(i>sp_limit)
-												$(this).css('display', 'none');
-											else
-												$(this).css('display', 'block');
-										});
-
-										if(sp_width > 992){
-											offtogglevermegamenu();
-											renderWidthSubmenu();
-										}
-
-									});
-
-									$("#sp-vermegamenu  li.parent  .grower").click(function(){
-											if($(this).hasClass('close'))
-												$(this).addClass('open').removeClass('close');
-											else
-												$(this).addClass('close').removeClass('open');
-
-											$('.dropdown-menu',$(this).parent()).first().toggle(300);
-
-									});
-
-							});
-
-							$('#show-vermegamenu').click(function() {
-								if($('.sp-vermegamenu').hasClass('sp-vermegamenu-active'))
-									$('.sp-vermegamenu').removeClass('sp-vermegamenu-active');
-								else
-									$('.sp-vermegamenu').addClass('sp-vermegamenu-active');
-						        return false;
-						    });
-
-							$('#remove-vermegamenu').click(function() {
-						        $('.sp-vermegamenu').removeClass('sp-vermegamenu-active');
-						        return false;
-						    });
-
-
-							function offtogglevermegamenu()
-							{
-								$('#sp-vermegamenu li.parent .dropdown-menu').css('display','');
-								$('#sp-vermegamenu').removeClass('sp-vermegamenu-active');
-								$("#sp-vermegamenu  li.parent  .grower").removeClass('open').addClass('close');
-							}
-
-							function renderWidthSubmenu()
-							{
-								$('#sp-vermegamenu  li.parent').each(function(){
-									value = $(this).data("subwidth");
-									if(value){
-										var container_width = $('.container').width();
-										var vertical_width = $('#sp-vermegamenu').width();
-										var full_width = container_width - vertical_width;
-										var width_submenu = (full_width*value)/100;
-										$('> .dropdown-menu',this).css('width',width_submenu+'px');
-									}
-								});
-							}
-
-						</script>
 					</div>
 					<div class="col-md-9 col-sm-8 col-xs-12">
 						<div class="spmegamenu">
@@ -489,69 +399,11 @@
 								</div>
 							</nav>
 						</div>
-						<script type="text/javascript">
-
-						$(document).ready(function() {
-
-							$("#sp-megamenu  li.parent  .grower").click(function(){
-								if($(this).hasClass('close'))
-									$(this).addClass('open').removeClass('close');
-								else
-									$(this).addClass('close').removeClass('open');
-
-								$('.dropdown-menu',$(this).parent()).first().toggle(300);
-
-							});
-							$("#sp-megamenu  .home  .grower").click(function(){
-								if($(this).hasClass('close'))
-									$(this).addClass('open').removeClass('close');
-								else
-									$(this).addClass('close').removeClass('open');
-
-								$('.dropdown-menu',$(this).parent()).first().toggle(300);
-							});
-
-							var wd_width = $(window).width();
-							var wd_height = $(window).height();
-							if(wd_width > 992)
-								offtogglemegamenu();
-
-							$(window).resize(function() {
-								var sp_width = $( window ).width();
-								if(sp_width > 992)
-									offtogglemegamenu();
-							});
-						});
-
-						$('#show-megamenu').click(function() {
-							if($('.sp-megamenu').hasClass('sp-megamenu-active'))
-								$('.sp-megamenu').removeClass('sp-megamenu-active');
-							else
-								$('.sp-megamenu').addClass('sp-megamenu-active');
-					        return false;
-					    });
-						$('#remove-megamenu').click(function() {
-					        $('.sp-megamenu').removeClass('sp-megamenu-active');
-					        return false;
-					    });
-
-
-						function offtogglemegamenu()
-						{
-							$('#sp-megamenu li.parent .dropdown-menu').css('display','');
-							$('#sp-megamenu').removeClass('sp-megamenu-active');
-							$("#sp-megamenu  li.parent  .grower").removeClass('open').addClass('close');
-							$('#sp-megamenu .home .dropdown-menu').css('display','');
-							$('#sp-megamenu').removeClass('sp-megamenu-active');
-							$("#sp-megamenu .home  .grower").removeClass('open').addClass('close');
-						}
-						</script>
 					</div>
 				</div>
 			</div>
 		</div>
 			 <!-- End of Header -->
-
 <div class="breadcrumb-container">
 					<div class="container">
 
@@ -559,7 +411,7 @@
 <div class="breadcrumb clearfix">
 	<ul>
 		<li class="home"><a href="http://prestashop.flytheme.net/sp_market/" title="Return to Home">Home</a></li>
-									<a href="http://prestashop.flytheme.net/sp_market/es/152-shop" title="Shop" data-gg="">Shop</a><span class="navigation-pipe">></span>Healthy &amp; beauty
+									 <b>>  {{$categoria}}</b>
 						</ul>
 
 </div>
@@ -908,12 +760,12 @@ param_product_url = '#';
 	                  </div>
 	                  <div class="right-block">
 							          <h4 itemprop="nombre" class="product-name">
-													<a href="sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html" itemprop="url" >Articulo: {{$articulo->nombre}}
+													<a href="sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html" itemprop="url" >{{$articulo->nombre}}
 								          </a>
 							          </h4>
 											<h5 itemprop="marca" class="product-name">
-												<a href="sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html" itemprop="url" >Marca: {{$articulo->marca}}
-							          </a>
+												<b>Marca: {{$articulo->marca}}
+							          </b>
 						          </h5>
 											<div class="color-list-container"><ul class="color_to_pick_list clearfix">
 										    <li>
@@ -944,7 +796,7 @@ param_product_url = '#';
 	                        </span>
 		                    </div>
 	                      <div itemprop="offers" class="price-box">
-														<span itemprop="price" class="price product-price">{{$articulo->precio}}
+														<span itemprop="price" class="price product-price">${{$articulo->precio}}
 	                          </span>
 	                      </div>
 
@@ -1025,7 +877,8 @@ param_product_url = '#';
 </div><!-- .row -->
 </div><!-- #columns -->
 </div><!-- .columns-container -->
-							<!-- Footer -->
+
+<!-- Footer -->
 <div class="footer-container">
 	<footer id="footer"  class="container">
 		<div class="footer-content">
@@ -1108,159 +961,7 @@ NY, United States</label>
 						</div>
 					</footer>
 
-																<div class="footer-middle">
-							<div class="container">
-
-<!-- SP Custom Html -->
-
-                        <div class="sp_customhtml_7_1513265942130747151
-		 spcustom_html">
-
-
-                  <div class="footer-toplinks">
-								<div class="topstore"><label>Top Stores : </label>
-								<ul>
-								<li><a href="#">Brand Directory</a></li>
-								<li class="last"><a href="#">Store Directory</a></li>
-								</ul>
-								</div>
-								<div class="toplinks">
-								<div class="links"><label>MOST SEARCHED FOR ON MARKET:</label>
-								<ul>
-								<li><a href="#">Xiaomi Mi3</a></li>
-								<li><a href="#">Digiflip Pro XT 712 Tablet</a></li>
-								<li><a href="#">Mi 3 Phones</a></li>
-								<li class="last"><a href="#">View all</a></li>
-								</ul>
-								</div>
-								<div class="links"><label>MOBILES:</label>
-								<ul>
-								<li><a href="#">Moto E</a></li>
-								<li><a href="#">Samsung Mobile</a></li>
-								<li><a href="#">Micromax Mobile</a></li>
-								<li><a href="#">Nokia Mobile</a></li>
-								<li><a href="#">HTC Mobile</a></li>
-								<li><a href="#">Sony Mobile</a></li>
-								<li><a href="#">Apple Mobile</a></li>
-								<li><a href="#">LG Mobile</a></li>
-								<li><a href="#">Karbonn Mobile</a></li>
-								<li class="last"><a href="#">View all</a></li>
-								</ul>
-								</div>
-								<div class="links"><label>CAMERA:</label>
-								<ul>
-								<li><a href="#">Nikon Camera</a></li>
-								<li><a href="#">Canon Camera</a></li>
-								<li><a href="#">Sony Camera</a></li>
-								<li><a href="#">Samsung Camera</a></li>
-								<li><a href="#">Point shoot camera</a></li>
-								<li><a href="#">Camera Lens</a></li>
-								<li><a href="#">Camera Tripod</a></li>
-								<li><a href="#">Camera Bag</a></li>
-								<li class="last"><a href="#">View all</a></li>
-								</ul>
-								</div>
-								<div class="links"><label>LAPTOPS:</label>
-								<ul>
-								<li><a href="#">Apple Laptop</a></li>
-								<li><a href="#">Acer Laptop</a></li>
-								<li><a href="#">Samsung Laptop</a></li>
-								<li><a href="#">Lenovo Laptop</a></li>
-								<li><a href="#">Sony Laptop</a></li>
-								<li><a href="#">Dell Laptop</a></li>
-								<li><a href="#">Asus Laptop</a></li>
-								<li><a href="#">Toshiba Laptop</a></li>
-								<li><a href="#">LG Laptop</a></li>
-								<li><a href="#">HP Laptop</a></li>
-								<li><a href="#">Notebook</a></li>
-								<li class="last"><a href="#">View all</a></li>
-								</ul>
-								</div>
-								<div class="links"><label>TVS:</label>
-								<ul>
-								<li><a href="#">Sony TV</a></li>
-								<li><a href="#">Samsung TV</a></li>
-								<li><a href="#">LG TV</a></li>
-								<li><a href="#">Panasonic TV</a></li>
-								<li><a href="#">Onida TV</a></li>
-								<li><a href="#">Toshiba TV</a></li>
-								<li><a href="#">Philips TV</a></li>
-								<li><a href="#">Micromax TV</a></li>
-								<li><a href="#">LED TV</a></li>
-								<li><a href="#">LCD TV</a></li>
-								<li><a href="#">Plasma TV</a></li>
-								<li><a href="#">3D TV</a></li>
-								<li><a href="#">Smart TV</a></li>
-								<li class="last"><a href="#">View all</a></li>
-								</ul>
-								</div>
-								<div class="links"><label>TABLETS:</label>
-								<ul>
-								<li><a href="#">Micromax Tablets</a></li>
-								<li><a href="#">HCL Tablets</a></li>
-								<li><a href="#">Samsung Tablets</a></li>
-								<li><a href="#">Lenovo Tablets</a></li>
-								<li><a href="#">Karbonn Tablets</a></li>
-								<li><a href="#">Asus Tablets</a></li>
-								<li><a href="#">Apple Tablets</a></li>
-								<li class="last"><a href="#">View all</a></li>
-								</ul>
-								</div>
-								<div class="links"><label>WATCHES:</label>
-								<ul>
-								<li><a href="#">FCUK Watches</a></li>
-								<li><a href="#">Titan Watches</a></li>
-								<li><a href="#">Casio Watches</a></li>
-								<li><a href="#">Fastrack Watches</a></li>
-								<li><a href="#">Timex Watches</a></li>
-								<li><a href="#">Fossil Watches</a></li>
-								<li><a href="#">Diesel Watches</a></li>
-								<li><a href="#">Luxury Watches</a></li>
-								<li class="last"><a href="#">View all</a></li>
-								</ul>
-								</div>
-								<div class="links"><label>CLOTHING:</label>
-								<ul>
-								<li><a href="#">Shirts</a></li>
-								<li><a href="#">Jeans</a></li>
-								<li><a href="#">T shirts</a></li>
-								<li><a href="#">Kurtis</a></li>
-								<li><a href="#">Sarees</a></li>
-								<li><a href="#">Levis Jeans</a></li>
-								<li><a href="#">Killer Jeans</a></li>
-								<li><a href="#">Pepe Jeans</a></li>
-								<li><a href="#">Arrow Shirts</a></li>
-								<li><a href="#">Ethnic Wear</a></li>
-								<li><a href="#">Formal Shirts</a></li>
-								<li><a href="#">Peter England Shirts</a></li>
-								<li class="last"><a href="#">View all</a></li>
-								</ul>
-								</div>
-								<div class="links"><label>FOOTWEAR:</label>
-								<ul>
-								<li><a href="#">Shoes</a></li>
-								<li><a href="#">Casual Shoes</a></li>
-								<li><a href="#">Sports Shoes</a></li>
-								<li><a href="#">Formal Shoes</a></li>
-								<li><a href="#">Adidas Shoes</a></li>
-								<li><a href="#">Gas Shoes</a></li>
-								<li><a href="#">Puma Shoes</a></li>
-								<li><a href="#">Reebok Shoes</a></li>
-								<li><a href="#">Woodland Shoes</a></li>
-								<li><a href="#">Red tape Shoes</a></li>
-								<li><a href="#">Nike Shoes </a></li>
-								<li class="last"><a href="#">View all</a></li>
-								</ul>
-								</div>
-								</div>
-								</div>
-
-                    </div>
-    <!-- /SP Custom Html -->
-
-
-							</div>
-						</div>
+															
 										<div class="footer-bottom">
 						<div class="container">
 							<div class="row">

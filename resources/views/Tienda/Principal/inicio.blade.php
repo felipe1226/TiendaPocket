@@ -362,120 +362,7 @@
 								</div>
 							</nav>
 						</div>
-						<script type="text/javascript">
 
-							$(document).ready(function() {
-								var wd_width = $(window).width();
-								if(wd_width > 992){
-									offtogglevermegamenu();
-									renderWidthSubmenu();
-								}
-								if(wd_width >= 1400)
-									var limit = 13 -1 ;
-								else if(wd_width >= 1200 && wd_width<1400)
-									var limit = 13 -1 ;
-								else if(wd_width >= 768 && wd_width<1200)
-									var limit = 11 -1 ;
-
-								$('#sp-vermegamenu .sp-verticalmenu-container >ul').append('<div class="more-wrap"><span class="more-view">More Categories</span></div>');
-								$('#sp-vermegamenu .item-1').each(function(i){
-									if(i>limit)
-										$(this).css('display', 'none');
-									else
-										$(this).css('display', 'block');
-								});
-
-								$('#sp-vermegamenu .more-wrap').click(function(){
-									if($(this).hasClass('open')){
-										$('#sp-vermegamenu .item-1').each(function(i){
-											if(i>limit){
-												$(this).slideUp(200);
-											}
-										});
-										$(this).removeClass('open');
-										$('.more-wrap').html('<span class="more-view">More Categories</span>');
-									}else{
-										$('#sp-vermegamenu .item-1').each(function(i){
-											if(i>limit){
-												$(this).slideDown(200);
-											}
-										});
-										$(this).addClass('open');
-										$('.more-wrap').html('<span class="more-view">Less Categories</span>');
-									}
-								});
-
-									$(window).resize(function() {
-
-										var sp_width = $( window ).width();
-										if(sp_width >= 1400)
-											var sp_limit = 13 -1 ;
-										else if(sp_width >= 1200 && sp_width<1400)
-											var sp_limit = 13 -1 ;
-										else if(sp_width >= 768 && sp_width<1200)
-											var sp_limit = 11 -1 ;
-										$('#sp-vermegamenu .item-1').each(function(i){
-											if(i>sp_limit)
-												$(this).css('display', 'none');
-											else
-												$(this).css('display', 'block');
-										});
-
-										if(sp_width > 992){
-											offtogglevermegamenu();
-											renderWidthSubmenu();
-										}
-
-									});
-
-									$("#sp-vermegamenu  li.parent  .grower").click(function(){
-											if($(this).hasClass('close'))
-												$(this).addClass('open').removeClass('close');
-											else
-												$(this).addClass('close').removeClass('open');
-
-											$('.dropdown-menu',$(this).parent()).first().toggle(300);
-
-									});
-
-							});
-
-							$('#show-vermegamenu').click(function() {
-								if($('.sp-vermegamenu').hasClass('sp-vermegamenu-active'))
-									$('.sp-vermegamenu').removeClass('sp-vermegamenu-active');
-								else
-									$('.sp-vermegamenu').addClass('sp-vermegamenu-active');
-						        return false;
-						    });
-
-							$('#remove-vermegamenu').click(function() {
-						        $('.sp-vermegamenu').removeClass('sp-vermegamenu-active');
-						        return false;
-						    });
-
-
-							function offtogglevermegamenu()
-							{
-								$('#sp-vermegamenu li.parent .dropdown-menu').css('display','');
-								$('#sp-vermegamenu').removeClass('sp-vermegamenu-active');
-								$("#sp-vermegamenu  li.parent  .grower").removeClass('open').addClass('close');
-							}
-
-							function renderWidthSubmenu()
-							{
-								$('#sp-vermegamenu  li.parent').each(function(){
-									value = $(this).data("subwidth");
-									if(value){
-										var container_width = $('.container').width();
-										var vertical_width = $('#sp-vermegamenu').width();
-										var full_width = container_width - vertical_width;
-										var width_submenu = (full_width*value)/100;
-										$('> .dropdown-menu',this).css('width',width_submenu+'px');
-									}
-								});
-							}
-
-						</script>
 					</div>
 					<div class="col-md-9 col-sm-8 col-xs-12">
 						<div class="spmegamenu">
@@ -512,63 +399,6 @@
 								</div>
 							</nav>
 						</div>
-						<script type="text/javascript">
-
-						$(document).ready(function() {
-
-							$("#sp-megamenu  li.parent  .grower").click(function(){
-								if($(this).hasClass('close'))
-									$(this).addClass('open').removeClass('close');
-								else
-									$(this).addClass('close').removeClass('open');
-
-								$('.dropdown-menu',$(this).parent()).first().toggle(300);
-
-							});
-							$("#sp-megamenu  .home  .grower").click(function(){
-								if($(this).hasClass('close'))
-									$(this).addClass('open').removeClass('close');
-								else
-									$(this).addClass('close').removeClass('open');
-
-								$('.dropdown-menu',$(this).parent()).first().toggle(300);
-							});
-
-							var wd_width = $(window).width();
-							var wd_height = $(window).height();
-							if(wd_width > 992)
-								offtogglemegamenu();
-
-							$(window).resize(function() {
-								var sp_width = $( window ).width();
-								if(sp_width > 992)
-									offtogglemegamenu();
-							});
-						});
-
-						$('#show-megamenu').click(function() {
-							if($('.sp-megamenu').hasClass('sp-megamenu-active'))
-								$('.sp-megamenu').removeClass('sp-megamenu-active');
-							else
-								$('.sp-megamenu').addClass('sp-megamenu-active');
-					        return false;
-					    });
-						$('#remove-megamenu').click(function() {
-					        $('.sp-megamenu').removeClass('sp-megamenu-active');
-					        return false;
-					    });
-
-
-						function offtogglemegamenu()
-						{
-							$('#sp-megamenu li.parent .dropdown-menu').css('display','');
-							$('#sp-megamenu').removeClass('sp-megamenu-active');
-							$("#sp-megamenu  li.parent  .grower").removeClass('open').addClass('close');
-							$('#sp-megamenu .home .dropdown-menu').css('display','');
-							$('#sp-megamenu').removeClass('sp-megamenu-active');
-							$("#sp-megamenu .home  .grower").removeClass('open').addClass('close');
-						}
-						</script>
 					</div>
 				</div>
 			</div>
@@ -1318,18 +1148,110 @@
 
 			</div><!-- .product-container> -->
 
+			<!-- Footer -->
+			<div class="footer-container">
+				<footer id="footer"  class="container">
+					<div class="footer-content">
+						<div class="row">
+			        <div class="sp_customhtml_4_15132659381470326636box-footer col-sm-3 spcustom_html">
 
-<div class="footer-bottom">
-	<div class="container">
-							<div class="row">
-								<div class="col-sm-8">
-									<div class="copyright">&copy; 2017 Pocket SmartBart. All Rights Reserved.</div>								</div>
-								<div class="col-sm-4">
-									<div class="footer-payment">
-<img src="../modules/spthemeconfigurator/patterns/payments-1-1.png" alt="payment logos" >
-</div>
 
+			                  <div class="footer-links">
+											<div class="title-box">About Market</div>
+											<ul class="links">
+											<li><a href="#">About Us</a></li>
+											<li><a href="#">Market Reviews</a></li>
+											<li><a href="#">Terms of Use</a></li>
+											<li><a href="#">Privacy Policy</a></li>
+											<li><a href="#">Site Map</a></li>
+											</ul>
+											</div>
+
+			                    </div>
+
+			                        <div class="sp_customhtml_5_15132659381359856899
+					box-footer col-sm-3 spcustom_html">
+
+
+			                  <div class="footer-links">
+											<div class="title-box">Customer Service</div>
+											<ul class="links">
+											<li><a href="#">Shipping Policy</a></li>
+											<li><a href="#">Compensation First</a></li>
+											<li><a href="#">My Account</a></li>
+											<li><a href="#">Return Policy</a></li>
+											<li><a href="#">Contact Us</a></li>
+											</ul>
+											</div>
+
+			                    </div>
+
+			                        <div class="sp_customhtml_6_1513265938238401174
+					box-footer col-sm-3 spcustom_html">
+
+
+			                  <div class="footer-links">
+											<div class="title-box">Payment & Shipping</div>
+											<ul class="links">
+											<li><a href="#">Terms of Use</a></li>
+											<li><a href="#">Payment Methods</a></li>
+											<li><a href="#">Shipping Guide</a></li>
+											<li><a href="#">Locations We Ship To</a></li>
+											<li><a href="#">Estimated Delivery Time</a></li>
+											</ul>
+											</div>
+
+			                    </div>
+			    <!-- /SP Custom Html -->
+
+
+			<!-- MODULE Block contact infos -->
+			<section id="block_contact_infos" class="contact-infos box-footer col-md-3 col-sm-12">
+
+				<div class="title-box">Contacte con nosotros</div>
+				<ul class="list-contact">
+
+								<li class="address">
+							<span class="icon"><i class="fa fa-map-marker"></i></span>
+							<label>Address: No 40 Baria Sreet 133/2 NewYork City,
+			NY, United States</label>
+						</li>
+										<li class="email">
+							<span class="icon"><i class="fa fa-envelope"></i></span>
+							<label>Email: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;%63%6f%6e%74%61%63%74@%6d%61%72%6b%65%74.%63%6f%6d" >&#x63;&#x6f;&#x6e;&#x74;&#x61;&#x63;&#x74;&#x40;&#x6d;&#x61;&#x72;&#x6b;&#x65;&#x74;&#x2e;&#x63;&#x6f;&#x6d;</a></label>
+						</li>
+										<li class="phone">
+							<span class="icon"><i class="fa fa-mobile"></i></span>
+							<label>Phone: 0123456789</label>
+						</li>
+						</ul>
+
+			</section>
+										</div>
+									</div>
+								</footer>
+
+
+													<div class="footer-bottom">
+									<div class="container">
+										<div class="row">
+											<div class="col-sm-8">
+												<div class="copyright">&copy; 2016 Prestashop Themes Demo Store. All Rights Reserved.  Designed By <a target="_blank" title="Visit MagenTech!" href="http://magentech.com/">MagenTech.Com</a></div>								</div>
+											<div class="col-sm-4">
+												<div class="footer-payment">
+			<img src="http://prestashop.flytheme.net/sp_market/modules/spthemeconfigurator/patterns/payments-1-1.png" alt="payment logos" >
+			</div>
+
+											</div>
+										</div>
+									</div>
 								</div>
-							</div>
-	</div>
-    </div>
+
+								<div class="backtop">
+									<a id="sp-totop" class="backtotop" href="#" title="Back to top">
+										<i class="fa fa-arrow-up"></i>
+									</a>
+								</div>
+
+							</div><!-- #footer -->
+								</div><!-- #page -->

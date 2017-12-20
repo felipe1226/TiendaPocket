@@ -123,6 +123,8 @@ Route::resource('Tienda', 'TiendaController');
 
 Route::get('Articulos/{categoria}','ArticuloController@ArtsxCategoria');
 
+Route::resource('Tienda/Articulos/Detalles/','ArticuloController@verArticulo');
+
 
 
 Route::resource('/RegistrarArticulo', 'TiendaController@registrarArticulo');

@@ -2,7 +2,7 @@
 @section('content')
 
 <!DOCTYPE HTML>
-					<link href="themes/sp_market/css/fonts/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
+					<link href="../themes/sp_market/css/fonts/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
 							<link rel="stylesheet" href="themes/sp_market/css/global.css" type="text/css" media="all" />
 							<link rel="stylesheet" href="themes/sp_market/css/autoload/jquery.mCustomScrollbar.css" type="text/css" media="all" />
 							<link rel="stylesheet" href="themes/sp_market/css/autoload/uniform.default.css" type="text/css" media="all" />
@@ -87,9 +87,7 @@
 				<div class="shop-menu pull-right">
 					<ul class="nav navbar-nav">
 						<li ><a>
-						 <?php
-								echo 'Bienvenido - '.Auth::user()->nombrePersona;
-							?>
+							Bienvenido - {{Auth::user()->nombrePersona}}
 						</a></li>
 						<li ><a href="../Principales/cuenta.php" target="principal"><i class="fa fa-user"></i> Cuenta</a></li>
 						<li ><a href="{{url('RegistrarArticulo/')}}"><i class="fa fa-bookmark-o"></i> Administrar</a></li>
@@ -102,21 +100,21 @@
 						<form class="sprsearch-form  show-box" method="get" action="http://prestashop.flytheme.net/sp_market/es/module/spsearchpro/catesearch">
 							<div class="spr_selector">
 								<select class="spr_select">
-											<option>Categorias</option>
+											<option>--- Categorias ---</option>
 
-											<option value="PocketClub">--- PocketClub ---</option>
+											<option value="PocketClub">PocketClub</option>
 
-											<option value="tecnologia">--- Tecnologia ---</option>
+											<option value="tecnologia">Tecnologia</option>
 
-											<option value="licores">--- Licores ---</option>
+											<option value="licores">Licores</option>
 
-											<option value="cervezas">--- Cervezas ---</option>
+											<option value="cervezas">Cervezas</option>
 
-											<option value="utencilios">--- Utencilios ---</option>
+											<option value="utencilios">Utencilios</option>
 
-											<option value="promociones">--- Promociones ---</option>
+											<option value="promociones">Promociones</option>
 
-											<option value="mercadotecnia">--- Mercadotecnia ---</option>
+											<option value="mercadotecnia">Mercadotecnia</option>
 								</select>
 							</div>
 							<div class="text-search">
@@ -138,43 +136,66 @@
 						<div class="icon-cart">
 						</div>
 							<a href="order.html" rel="nofollow">
-										<?php
-											echo '<span class="text-cart">CARRITO('.Auth::user()->id.')</span>';
-										?>
+
+										<span class="text-cart">CARRITO</span>
+
 										<span class="text-cart4">Carrito</span>
 										<span class="line line4"> - </span>
-										<span class="ajax_cart_empty">0</span>
-										<span class="ajax_cart_quantity">0</span>
+										<span class="ajax_cart_quantity">{{count($carritos)}}</span>
 										<span class="ajax_cart_quantity_text">Articulos</span>
 										<span class="line line4 arrow"><i class="fa fa-caret-down"></i></span>
 										<span class="line"> - </span>
-										<span class="ajax_cart_total">
-											$0.00
-										</span>
+										<?php
+										$totalCarrito = 0;
+										foreach($carritos as $carrito){
+											$totalCarrito += $carrito->cantidad * $carrito->almacena->precio;
+										}
+
+											echo '<span class="ajax_cart_total">$'.$totalCarrito.'</span>
 
 							</a>
 							<div class="cart_block block exclusive">
 								<div class="block_content">
 											<!-- block list of products -->
 									<div class="cart_block_list">
-												<p class="recent_items ">Articulos <span>Precio</span></p>
-												<p class="cart_block_no_products">
-														No tienes articulos en tu carrito
-												</p>
-										<div class="list-products mCustomScrollbar">
-													<dl class="products hide"></dl>
-										</div>
-										<div class="cart-prices">
-											<div class="price-total titleFont">
-													<span class="price_text">Total : </span>
-													<span class="price cart_block_total ajax_block_cart_total">
-																							$ 0.00
-													</span>
-											</div>
-											<div class="buttons">
-													<a id="button_order_cart" class="btn btn-default button button-small titleFont" href="order.html" rel="nofollow">
+												<p class="recent_items ">Articulos <span>Precio</span></p>';
+												if(count($carritos) == 0){
+													echo '<p class="cart_block_no_products">
+															No tienes articulos en tu carrito
+													</p>';
+												}
+												else{
+													foreach($carritos as $carrito){
+														echo '<div class="list-products mCustomScrollbar">
+															<dl class="products ">
+																<dt data-id="cart_block_product_1_1_23" class="first_item">
+																	<a class="cart-images" href="#"><img height="50" width="50" src="imgArticulos/'.$carrito->almacena->imagen.'" /></a>
+																	<div class="cart-info">
+																		<div class="product-name titleFont">
+																			<a class="cart_block_product_name" href="#">'.$carrito->almacena->nombre.'</a>
+																		</div>
+																		<span class="price">$'.$carrito->almacena->precio * $carrito->cantidad.'</span>
+																		<span class="quantity-formated titleFont">Cantidad: '.$carrito->cantidad.'</span>
+																	</div>
+																	<span class="remove_link">
+																		<a class="ajax_cart_block_remove_link" href="#" rel="nofollow" title="Borrar del carrito"><i class="fa fa-trash"></i></a>
+																	</span>
+																</dt>
+															</dl>
+														</div>';
+													}
+												}
+									echo '<div class="cart-prices">
+										<div class="price-total titleFont">
+											<span class="price_text">Total : </span>
+												<span class="price cart_block_total ajax_block_cart_total">$'.$totalCarrito.'
+												</span>
+										</div>';
+										?>
+										<div class="buttons">
+												<a id="button_order_cart" class="btn btn-default button button-small titleFont" href="{{url('Carrito/')}}" rel="nofollow">
 														Ver carrito
-													</a>
+												</a>
 											</div>
 										</div>
 									</div>
@@ -182,6 +203,8 @@
 							</div>
 					</div>
 				</div>
+
+
 				<div id="layer_cart" class="layer_box">
 					<div class="layer_inner_box">
 						<div class="layer_product clearfix mar_b10">
@@ -276,16 +299,16 @@
 										</button>
 										<h2 class="cat-title">Todas categorias</h2>
 									</div>
-									<a href="{{url('AllArticulos/')}}"><div id="sp-vermegamenu" class=" sp-vermegamenu clearfix">
+									<a href="#"><div id="sp-vermegamenu" class=" sp-vermegamenu clearfix">
 									<span id="remove-vermegamenu" class="fa fa-remove"></span>
 									<h2 class="cat-title">Todas categorias</h2></a>
 									<div class="sp-verticalmenu-container">
 										<ul class="nav navbar-nav  menu sp_lesp level-1">
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>PocketClub</a>
+												<a href="{{url('Articulos/PocketClub')}}"><i class="icon-v1"></i>PocketClub</a>
 											</li>
 											<li class="item-1 mega_type type1 parent group"  >
-												<a href="153-healthy-beauty.html"><i class="icon-v2"></i>Tecnologias</a>
+												<a href="{{url('Articulos/Tecnologias')}}"><i class="icon-v2"></i>Tecnologias</a>
 												<div class="dropdown-menu" style="width:200px">
 													<ul class="level-2">
 														<li class="item-2 sub-cate group parent" style="width:100%" >
@@ -320,139 +343,26 @@
 												</div>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Licores</a>
+												<a href="{{url('Articulos/Licores')}}"><i class="icon-v1"></i>Licores</a>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Cervezas</a>
+												<a href="{{url('Articulos/Cervezas')}}"><i class="icon-v1"></i>Cervezas</a>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Utencilios</a>
+												<a href="{{url('Articulos/Utencilios')}}"><i class="icon-v1"></i>Utencilios</a>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Promociones</a>
+												<a href="{{url('Articulos/Promociones')}}"><i class="icon-v1"></i>Promociones</a>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Mercadotecnia</a>
+												<a href="{{url('Articulos/Mercadotecnia')}}"><i class="icon-v1"></i>Mercadotecnia</a>
 											</li>
 										</ul>
 									</div>
 								</div>
 							</nav>
 						</div>
-						<script type="text/javascript">
 
-							$(document).ready(function() {
-								var wd_width = $(window).width();
-								if(wd_width > 992){
-									offtogglevermegamenu();
-									renderWidthSubmenu();
-								}
-								if(wd_width >= 1400)
-									var limit = 13 -1 ;
-								else if(wd_width >= 1200 && wd_width<1400)
-									var limit = 13 -1 ;
-								else if(wd_width >= 768 && wd_width<1200)
-									var limit = 11 -1 ;
-
-								$('#sp-vermegamenu .sp-verticalmenu-container >ul').append('<div class="more-wrap"><span class="more-view">More Categories</span></div>');
-								$('#sp-vermegamenu .item-1').each(function(i){
-									if(i>limit)
-										$(this).css('display', 'none');
-									else
-										$(this).css('display', 'block');
-								});
-
-								$('#sp-vermegamenu .more-wrap').click(function(){
-									if($(this).hasClass('open')){
-										$('#sp-vermegamenu .item-1').each(function(i){
-											if(i>limit){
-												$(this).slideUp(200);
-											}
-										});
-										$(this).removeClass('open');
-										$('.more-wrap').html('<span class="more-view">More Categories</span>');
-									}else{
-										$('#sp-vermegamenu .item-1').each(function(i){
-											if(i>limit){
-												$(this).slideDown(200);
-											}
-										});
-										$(this).addClass('open');
-										$('.more-wrap').html('<span class="more-view">Less Categories</span>');
-									}
-								});
-
-									$(window).resize(function() {
-
-										var sp_width = $( window ).width();
-										if(sp_width >= 1400)
-											var sp_limit = 13 -1 ;
-										else if(sp_width >= 1200 && sp_width<1400)
-											var sp_limit = 13 -1 ;
-										else if(sp_width >= 768 && sp_width<1200)
-											var sp_limit = 11 -1 ;
-										$('#sp-vermegamenu .item-1').each(function(i){
-											if(i>sp_limit)
-												$(this).css('display', 'none');
-											else
-												$(this).css('display', 'block');
-										});
-
-										if(sp_width > 992){
-											offtogglevermegamenu();
-											renderWidthSubmenu();
-										}
-
-									});
-
-									$("#sp-vermegamenu  li.parent  .grower").click(function(){
-											if($(this).hasClass('close'))
-												$(this).addClass('open').removeClass('close');
-											else
-												$(this).addClass('close').removeClass('open');
-
-											$('.dropdown-menu',$(this).parent()).first().toggle(300);
-
-									});
-
-							});
-
-							$('#show-vermegamenu').click(function() {
-								if($('.sp-vermegamenu').hasClass('sp-vermegamenu-active'))
-									$('.sp-vermegamenu').removeClass('sp-vermegamenu-active');
-								else
-									$('.sp-vermegamenu').addClass('sp-vermegamenu-active');
-						        return false;
-						    });
-
-							$('#remove-vermegamenu').click(function() {
-						        $('.sp-vermegamenu').removeClass('sp-vermegamenu-active');
-						        return false;
-						    });
-
-
-							function offtogglevermegamenu()
-							{
-								$('#sp-vermegamenu li.parent .dropdown-menu').css('display','');
-								$('#sp-vermegamenu').removeClass('sp-vermegamenu-active');
-								$("#sp-vermegamenu  li.parent  .grower").removeClass('open').addClass('close');
-							}
-
-							function renderWidthSubmenu()
-							{
-								$('#sp-vermegamenu  li.parent').each(function(){
-									value = $(this).data("subwidth");
-									if(value){
-										var container_width = $('.container').width();
-										var vertical_width = $('#sp-vermegamenu').width();
-										var full_width = container_width - vertical_width;
-										var width_submenu = (full_width*value)/100;
-										$('> .dropdown-menu',this).css('width',width_submenu+'px');
-									}
-								});
-							}
-
-						</script>
 					</div>
 					<div class="col-md-9 col-sm-8 col-xs-12">
 						<div class="spmegamenu">
@@ -489,63 +399,6 @@
 								</div>
 							</nav>
 						</div>
-						<script type="text/javascript">
-
-						$(document).ready(function() {
-
-							$("#sp-megamenu  li.parent  .grower").click(function(){
-								if($(this).hasClass('close'))
-									$(this).addClass('open').removeClass('close');
-								else
-									$(this).addClass('close').removeClass('open');
-
-								$('.dropdown-menu',$(this).parent()).first().toggle(300);
-
-							});
-							$("#sp-megamenu  .home  .grower").click(function(){
-								if($(this).hasClass('close'))
-									$(this).addClass('open').removeClass('close');
-								else
-									$(this).addClass('close').removeClass('open');
-
-								$('.dropdown-menu',$(this).parent()).first().toggle(300);
-							});
-
-							var wd_width = $(window).width();
-							var wd_height = $(window).height();
-							if(wd_width > 992)
-								offtogglemegamenu();
-
-							$(window).resize(function() {
-								var sp_width = $( window ).width();
-								if(sp_width > 992)
-									offtogglemegamenu();
-							});
-						});
-
-						$('#show-megamenu').click(function() {
-							if($('.sp-megamenu').hasClass('sp-megamenu-active'))
-								$('.sp-megamenu').removeClass('sp-megamenu-active');
-							else
-								$('.sp-megamenu').addClass('sp-megamenu-active');
-					        return false;
-					    });
-						$('#remove-megamenu').click(function() {
-					        $('.sp-megamenu').removeClass('sp-megamenu-active');
-					        return false;
-					    });
-
-
-						function offtogglemegamenu()
-						{
-							$('#sp-megamenu li.parent .dropdown-menu').css('display','');
-							$('#sp-megamenu').removeClass('sp-megamenu-active');
-							$("#sp-megamenu  li.parent  .grower").removeClass('open').addClass('close');
-							$('#sp-megamenu .home .dropdown-menu').css('display','');
-							$('#sp-megamenu').removeClass('sp-megamenu-active');
-							$("#sp-megamenu .home  .grower").removeClass('open').addClass('close');
-						}
-						</script>
 					</div>
 				</div>
 			</div>
@@ -560,7 +413,7 @@
        <!-- Breadcrumb -->
        <div class="breadcrumb clearfix">
        	<ul>
-       		<li class="home"><a href="{{url('Tienda/')}}" title="Ir al inicio">Inicio</a></li>Registro de articulo
+       		<li class="home"><a href="{{url('Tienda/')}}" title="Ir al inicio">Inicio</a></li><b>>  Registro de articulo</b>
        	</ul>
 
        </div>

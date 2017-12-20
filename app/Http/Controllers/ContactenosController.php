@@ -4,6 +4,7 @@ namespace PocketByR\Http\Controllers;
 use Illuminate\Http\Request;
 use PocketByR\Http\Requests;
 use PocketByR\Contactenos;
+use PocketByR\Carrito;
 use PocketByR\Http\Controllers\Controller;
 use Laracasts\Flash\Flash;
 
@@ -15,9 +16,6 @@ class ContactenosController extends Controller
     public function __construct()
     {
 
-    }
-    public function index(Request $Request){
-      return view('Tienda/Contactenos/index');
     }
 
     public function store(Request $request){
