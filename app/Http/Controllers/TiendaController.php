@@ -25,4 +25,8 @@ class TiendaController extends Controller
     return view('Tienda/Articulo/RegistrarArticulo');
   }
 
+  public function MiCuenta(request $request){
+    return view('Tienda/Cuenta/MiCuenta');
+  }
+
 }

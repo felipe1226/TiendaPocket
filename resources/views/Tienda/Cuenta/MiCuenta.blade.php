@@ -1,6 +1,9 @@
+
+@section('content')
+
 <!DOCTYPE HTML>
 
-<html lang="es">
+<!--<html lang="es">
 	<head>
 		<title>My account - SP Market</title>
 
@@ -14,7 +17,7 @@
 				 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 
 		<meta name="apple-mobile-web-app-capable" content="YES" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" /> -->
 
 					<link href="http://prestashop.flytheme.net/sp_market/themes/sp_market/css/fonts/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
 							<link rel="stylesheet" href="/sp_market/themes/sp_market/css/global.css" type="text/css" media="all" />
@@ -52,6 +55,7 @@
 							<link rel="stylesheet" href="/sp_market/themes/sp_market/css/modules/spcustomhtml/views/css/style.css" type="text/css" media="all" />
 
 					<script type="text/javascript">
+
 var CUSTOMIZE_TEXTFIELD = 1;
 var FancyboxI18nClose = 'Close';
 var FancyboxI18nNext = 'Next';

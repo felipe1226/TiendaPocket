@@ -125,8 +125,6 @@ Route::get('Articulos/{categoria}','ArticuloController@ArtsxCategoria');
 
 Route::resource('Tienda/Articulos/Detalles/','ArticuloController@verArticulo');
 
-
-
 Route::resource('/RegistrarArticulo', 'TiendaController@registrarArticulo');
 Route::resource('/Contactenos', 'TiendaController@contactenos');
 
@@ -134,4 +132,5 @@ Route::resource('Tienda/RegistrarArticulo', 'ArticuloController');
 Route::resource('Tienda/Contactenos','ContactenosController');
 Route::resource('Tienda/Carrito', 'CarritoController');
 
+Route::resource('Cuenta/MiCuenta', 'TiendaController@MiCuenta');
 Route::get('Carrito/','CarritoController@ListarCarrito');
