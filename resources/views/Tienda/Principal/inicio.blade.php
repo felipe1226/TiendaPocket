@@ -152,8 +152,7 @@
 						<div id="user_infoblock-top" class="header_user_info">
 							<ul>
 								<li class="account">
-								<a href="../Cuenta/MiCuenta" title="Mi cuenta" rel="nofollow"> 
-								 	<-- <a href="{{url('Cuenta/MiCuenta')}}" title="Mi cuenta" -->
+									<a href="{{url('Cuenta/MiCuenta')}}" title="Mi cuenta" rel="nofollow">
 									<!-- <a href="Cuenta/MiCuenta" title="Mi cuenta" -->
 								<!--<a href="http://prestashop.flytheme.net/sp_market/es/my-account" title="Mi cuenta" -->
 										<span>Mi cuenta</span>
