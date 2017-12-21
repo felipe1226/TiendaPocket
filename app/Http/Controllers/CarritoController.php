@@ -59,8 +59,6 @@ class CarritoController extends Controller
       $carritos = Carrito::ConsultaCarrito($id_empresa)->get();
 
       return view('Tienda/Carrito/index')->with(['carritos' => $carritos]);
-
-
     }
 
 }

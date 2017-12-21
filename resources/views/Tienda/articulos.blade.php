@@ -1,3 +1,4 @@
+@extends('Tienda.Layout.app')
 @section('content')
 
 <!DOCTYPE HTML>

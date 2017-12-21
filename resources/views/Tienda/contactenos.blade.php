@@ -1,4 +1,4 @@
-
+@extends('Tienda.Layout.app')
 @section('content')
 <!DOCTYPE HTML>
 					<link href="themes/sp_market/css/fonts/font-awesome.css" rel="stylesheet" type="text/css" media="all" />

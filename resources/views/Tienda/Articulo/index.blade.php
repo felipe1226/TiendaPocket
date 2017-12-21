@@ -1,35 +1,5 @@
+@extends('Tienda.Layout.app')
 @section('content')
-
-	<!DOCTYPE HTML>
-
-	<html lang="es">
-
-	<!-- Mirrored from prestashop.flytheme.net/sp_market/es/new-products by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 24 Sep 2017 01:40:29 GMT -->
-	<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
-	<head>
-			<title>New products - SP Market</title>
-
-						<meta name="description" content="Our new products" />
-
-
-
-			<meta charset="utf-8" />
-	        <meta name="generator" content="PrestaShop" />
-			<meta name="format-detection" content="telephone=no">
-			<meta name="robots" content="index,follow" />
-			<link rel="icon" type="image/vnd.microsoft.icon" href="http://prestashop.flytheme.net/sp_market/img/favicon.ico?1474943838" />
-			<link rel="shortcut icon" type="image/x-icon" href="http://prestashop.flytheme.net/sp_market/img/favicon.ico?1474943838" />
-
-
-
-					 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-
-
-
-
-			<meta name="apple-mobile-web-app-capable" content="YES" />
-	        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
 
 					<link href="../themes/sp_market/css/fonts/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
 						<link rel="stylesheet" href="../themes/sp_market/css/global.css" type="text/css" media="all" />
@@ -184,7 +154,7 @@
 		<div class="row">
 			<div id="header_logo" class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 				<a class="logo" href="http://prestashop.flytheme.net/sp_market/">
-					<img  src="img/sp-g3shop-logo-1472003784.jpg" alt="SP Market" width="250" height="70">
+					<img  src="../img/sp-g3shop-logo-1472003784.jpg" alt="SP Market" width="250" height="70">
 				</a>
 			</div>
 
@@ -192,9 +162,7 @@
 				<div class="shop-menu pull-right">
 					<ul class="nav navbar-nav">
 						<li ><a>
-						 <?php
-								echo 'Bienvenido - '.Auth::user()->nombrePersona;
-							?>
+							Bienvenido - {{Auth::user()->nombrePersona}}
 						</a></li>
 						<li ><a href="../Principales/cuenta.php" target="principal"><i class="fa fa-user"></i> Cuenta</a></li>
 						<li ><a href="{{url('RegistrarArticulo/')}}"><i class="fa fa-bookmark-o"></i> Administrar</a></li>
@@ -204,24 +172,24 @@
 			<div id="header_search" class="col-lg-7 col-md-6 col-sm-6 col-xs-12 hidden-xs">
         <div class="sp_searchpro ">
 					<div id="sp_search_pro_1" class="spr-container spr-preload">
-						<form class="sprsearch-form  show-box" method="get" action="http://prestashop.flytheme.net/sp_market/es/module/spsearchpro/catesearch">
+						<form class="sprsearch-form  show-box" method="get" action="sp_market/es/module/spsearchpro/catesearch">
 							<div class="spr_selector">
 								<select class="spr_select">
-											<option>Categorias</option>
+											<option>--- Categorias ---</option>
 
-											<option value="PocketClub">--- PocketClub ---</option>
+											<option value="PocketClub">PocketClub</option>
 
-											<option value="tecnologia">--- Tecnologia ---</option>
+											<option value="tecnologia">Tecnologia</option>
 
-											<option value="licores">--- Licores ---</option>
+											<option value="licores">Licores</option>
 
-											<option value="cervezas">--- Cervezas ---</option>
+											<option value="cervezas">Cervezas</option>
 
-											<option value="utencilios">--- Utencilios ---</option>
+											<option value="utencilios">Utencilios</option>
 
-											<option value="promociones">--- Promociones ---</option>
+											<option value="promociones">Promociones</option>
 
-											<option value="mercadotecnia">--- Mercadotecnia ---</option>
+											<option value="mercadotecnia">Mercadotecnia</option>
 								</select>
 							</div>
 							<div class="text-search">
@@ -243,43 +211,66 @@
 						<div class="icon-cart">
 						</div>
 							<a href="order.html" rel="nofollow">
-										<?php
-											echo '<span class="text-cart">CARRITO('.Auth::user()->id.')</span>';
-										?>
+
+										<span class="text-cart">CARRITO</span>
+
 										<span class="text-cart4">Carrito</span>
 										<span class="line line4"> - </span>
-										<span class="ajax_cart_empty">0</span>
-										<span class="ajax_cart_quantity">0</span>
+										<span class="ajax_cart_quantity">{{count($carritos)}}</span>
 										<span class="ajax_cart_quantity_text">Articulos</span>
 										<span class="line line4 arrow"><i class="fa fa-caret-down"></i></span>
 										<span class="line"> - </span>
-										<span class="ajax_cart_total">
-											$0.00
-										</span>
+										<?php
+										$totalCarrito = 0;
+										foreach($carritos as $carrito){
+											$totalCarrito += $carrito->cantidad * $carrito->almacena->precio;
+										}
+
+											echo '<span class="ajax_cart_total">$'.$totalCarrito.'</span>
 
 							</a>
 							<div class="cart_block block exclusive">
 								<div class="block_content">
 											<!-- block list of products -->
 									<div class="cart_block_list">
-												<p class="recent_items ">Articulos <span>Precio</span></p>
-												<p class="cart_block_no_products">
-														No tienes articulos en tu carrito
-												</p>
-										<div class="list-products mCustomScrollbar">
-													<dl class="products hide"></dl>
-										</div>
-										<div class="cart-prices">
-											<div class="price-total titleFont">
-													<span class="price_text">Total : </span>
-													<span class="price cart_block_total ajax_block_cart_total">
-																							$ 0.00
-													</span>
-											</div>
-											<div class="buttons">
-													<a id="button_order_cart" class="btn btn-default button button-small titleFont" href="order.html" rel="nofollow">
+												<p class="recent_items ">Articulos <span>Precio</span></p>';
+												if(count($carritos) == 0){
+													echo '<p class="cart_block_no_products">
+															No tienes articulos en tu carrito
+													</p>';
+												}
+												else{
+													foreach($carritos as $carrito){
+														echo '<div class="list-products mCustomScrollbar">
+															<dl class="products ">
+																<dt data-id="cart_block_product_1_1_23" class="first_item">
+																	<a class="cart-images" href="#"><img height="50" width="50" src="../imgArticulos/'.$carrito->almacena->imagen.'" /></a>
+																	<div class="cart-info">
+																		<div class="product-name titleFont">
+																			<a class="cart_block_product_name" href="#">'.$carrito->almacena->nombre.'</a>
+																		</div>
+																		<span class="price">$'.$carrito->almacena->precio * $carrito->cantidad.'</span>
+																		<span class="quantity-formated titleFont">Cantidad: '.$carrito->cantidad.'</span>
+																	</div>
+																	<span class="remove_link">
+																		<a class="ajax_cart_block_remove_link" href="#" rel="nofollow" title="Borrar del carrito"><i class="fa fa-trash"></i></a>
+																	</span>
+																</dt>
+															</dl>
+														</div>';
+													}
+												}
+									echo '<div class="cart-prices">
+										<div class="price-total titleFont">
+											<span class="price_text">Total : </span>
+												<span class="price cart_block_total ajax_block_cart_total">$'.$totalCarrito.'
+												</span>
+										</div>';
+										?>
+										<div class="buttons">
+												<a id="button_order_cart" class="btn btn-default button button-small titleFont" href="{{url('Carrito/')}}" rel="nofollow">
 														Ver carrito
-													</a>
+												</a>
 											</div>
 										</div>
 									</div>
@@ -287,6 +278,8 @@
 							</div>
 					</div>
 				</div>
+
+
 				<div id="layer_cart" class="layer_box">
 					<div class="layer_inner_box">
 						<div class="layer_product clearfix mar_b10">
@@ -381,16 +374,16 @@
 										</button>
 										<h2 class="cat-title">Todas categorias</h2>
 									</div>
-									<a href="{{url('AllArticulos/')}}"><div id="sp-vermegamenu" class=" sp-vermegamenu clearfix">
+									<a href="#"><div id="sp-vermegamenu" class=" sp-vermegamenu clearfix">
 									<span id="remove-vermegamenu" class="fa fa-remove"></span>
 									<h2 class="cat-title">Todas categorias</h2></a>
 									<div class="sp-verticalmenu-container">
 										<ul class="nav navbar-nav  menu sp_lesp level-1">
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>PocketClub</a>
+												<a href="{{url('Articulos/PocketClub')}}"><i class="icon-v1"></i>PocketClub</a>
 											</li>
 											<li class="item-1 mega_type type1 parent group"  >
-												<a href="153-healthy-beauty.html"><i class="icon-v2"></i>Tecnologias</a>
+												<a href="{{url('Articulos/Tecnologias')}}"><i class="icon-v2"></i>Tecnologias</a>
 												<div class="dropdown-menu" style="width:200px">
 													<ul class="level-2">
 														<li class="item-2 sub-cate group parent" style="width:100%" >
@@ -425,139 +418,26 @@
 												</div>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Licores</a>
+												<a href="{{url('Articulos/Licores')}}"><i class="icon-v1"></i>Licores</a>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Cervezas</a>
+												<a href="{{url('Articulos/Cervezas')}}"><i class="icon-v1"></i>Cervezas</a>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Utencilios</a>
+												<a href="{{url('Articulos/Utencilios')}}"><i class="icon-v1"></i>Utencilios</a>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Promociones</a>
+												<a href="{{url('Articulos/Promociones')}}"><i class="icon-v1"></i>Promociones</a>
 											</li>
 											<li class="item-1 vertical-cat"  >
-												<a href="3-electronics.html"><i class="icon-v1"></i>Mercadotecnia</a>
+												<a href="{{url('Articulos/Mercadotecnia')}}"><i class="icon-v1"></i>Mercadotecnia</a>
 											</li>
 										</ul>
 									</div>
 								</div>
 							</nav>
 						</div>
-						<script type="text/javascript">
 
-							$(document).ready(function() {
-								var wd_width = $(window).width();
-								if(wd_width > 992){
-									offtogglevermegamenu();
-									renderWidthSubmenu();
-								}
-								if(wd_width >= 1400)
-									var limit = 13 -1 ;
-								else if(wd_width >= 1200 && wd_width<1400)
-									var limit = 13 -1 ;
-								else if(wd_width >= 768 && wd_width<1200)
-									var limit = 11 -1 ;
-
-								$('#sp-vermegamenu .sp-verticalmenu-container >ul').append('<div class="more-wrap"><span class="more-view">More Categories</span></div>');
-								$('#sp-vermegamenu .item-1').each(function(i){
-									if(i>limit)
-										$(this).css('display', 'none');
-									else
-										$(this).css('display', 'block');
-								});
-
-								$('#sp-vermegamenu .more-wrap').click(function(){
-									if($(this).hasClass('open')){
-										$('#sp-vermegamenu .item-1').each(function(i){
-											if(i>limit){
-												$(this).slideUp(200);
-											}
-										});
-										$(this).removeClass('open');
-										$('.more-wrap').html('<span class="more-view">More Categories</span>');
-									}else{
-										$('#sp-vermegamenu .item-1').each(function(i){
-											if(i>limit){
-												$(this).slideDown(200);
-											}
-										});
-										$(this).addClass('open');
-										$('.more-wrap').html('<span class="more-view">Less Categories</span>');
-									}
-								});
-
-									$(window).resize(function() {
-
-										var sp_width = $( window ).width();
-										if(sp_width >= 1400)
-											var sp_limit = 13 -1 ;
-										else if(sp_width >= 1200 && sp_width<1400)
-											var sp_limit = 13 -1 ;
-										else if(sp_width >= 768 && sp_width<1200)
-											var sp_limit = 11 -1 ;
-										$('#sp-vermegamenu .item-1').each(function(i){
-											if(i>sp_limit)
-												$(this).css('display', 'none');
-											else
-												$(this).css('display', 'block');
-										});
-
-										if(sp_width > 992){
-											offtogglevermegamenu();
-											renderWidthSubmenu();
-										}
-
-									});
-
-									$("#sp-vermegamenu  li.parent  .grower").click(function(){
-											if($(this).hasClass('close'))
-												$(this).addClass('open').removeClass('close');
-											else
-												$(this).addClass('close').removeClass('open');
-
-											$('.dropdown-menu',$(this).parent()).first().toggle(300);
-
-									});
-
-							});
-
-							$('#show-vermegamenu').click(function() {
-								if($('.sp-vermegamenu').hasClass('sp-vermegamenu-active'))
-									$('.sp-vermegamenu').removeClass('sp-vermegamenu-active');
-								else
-									$('.sp-vermegamenu').addClass('sp-vermegamenu-active');
-						        return false;
-						    });
-
-							$('#remove-vermegamenu').click(function() {
-						        $('.sp-vermegamenu').removeClass('sp-vermegamenu-active');
-						        return false;
-						    });
-
-
-							function offtogglevermegamenu()
-							{
-								$('#sp-vermegamenu li.parent .dropdown-menu').css('display','');
-								$('#sp-vermegamenu').removeClass('sp-vermegamenu-active');
-								$("#sp-vermegamenu  li.parent  .grower").removeClass('open').addClass('close');
-							}
-
-							function renderWidthSubmenu()
-							{
-								$('#sp-vermegamenu  li.parent').each(function(){
-									value = $(this).data("subwidth");
-									if(value){
-										var container_width = $('.container').width();
-										var vertical_width = $('#sp-vermegamenu').width();
-										var full_width = container_width - vertical_width;
-										var width_submenu = (full_width*value)/100;
-										$('> .dropdown-menu',this).css('width',width_submenu+'px');
-									}
-								});
-							}
-
-						</script>
 					</div>
 					<div class="col-md-9 col-sm-8 col-xs-12">
 						<div class="spmegamenu">
@@ -594,69 +474,11 @@
 								</div>
 							</nav>
 						</div>
-						<script type="text/javascript">
-
-						$(document).ready(function() {
-
-							$("#sp-megamenu  li.parent  .grower").click(function(){
-								if($(this).hasClass('close'))
-									$(this).addClass('open').removeClass('close');
-								else
-									$(this).addClass('close').removeClass('open');
-
-								$('.dropdown-menu',$(this).parent()).first().toggle(300);
-
-							});
-							$("#sp-megamenu  .home  .grower").click(function(){
-								if($(this).hasClass('close'))
-									$(this).addClass('open').removeClass('close');
-								else
-									$(this).addClass('close').removeClass('open');
-
-								$('.dropdown-menu',$(this).parent()).first().toggle(300);
-							});
-
-							var wd_width = $(window).width();
-							var wd_height = $(window).height();
-							if(wd_width > 992)
-								offtogglemegamenu();
-
-							$(window).resize(function() {
-								var sp_width = $( window ).width();
-								if(sp_width > 992)
-									offtogglemegamenu();
-							});
-						});
-
-						$('#show-megamenu').click(function() {
-							if($('.sp-megamenu').hasClass('sp-megamenu-active'))
-								$('.sp-megamenu').removeClass('sp-megamenu-active');
-							else
-								$('.sp-megamenu').addClass('sp-megamenu-active');
-					        return false;
-					    });
-						$('#remove-megamenu').click(function() {
-					        $('.sp-megamenu').removeClass('sp-megamenu-active');
-					        return false;
-					    });
-
-
-						function offtogglemegamenu()
-						{
-							$('#sp-megamenu li.parent .dropdown-menu').css('display','');
-							$('#sp-megamenu').removeClass('sp-megamenu-active');
-							$("#sp-megamenu  li.parent  .grower").removeClass('open').addClass('close');
-							$('#sp-megamenu .home .dropdown-menu').css('display','');
-							$('#sp-megamenu').removeClass('sp-megamenu-active');
-							$("#sp-megamenu .home  .grower").removeClass('open').addClass('close');
-						}
-						</script>
 					</div>
 				</div>
 			</div>
 		</div>
 			 <!-- End of Header -->
-
 <div class="breadcrumb-container">
 					<div class="container">
 
@@ -664,7 +486,7 @@
 <div class="breadcrumb clearfix">
 	<ul>
 		<li class="home"><a href="http://prestashop.flytheme.net/sp_market/" title="Return to Home">Home</a></li>
-									<a href="http://prestashop.flytheme.net/sp_market/es/152-shop" title="Shop" data-gg="">Shop</a><span class="navigation-pipe">></span>Healthy &amp; beauty
+									 <b>>  {{$categoria}}</b>
 						</ul>
 
 </div>
@@ -1013,13 +835,17 @@ param_product_url = '#';
 	                    </div>
 	                  </div>
 	                  <div class="right-block">
-							          <h4 itemprop="nombre" class="product-name">
-													<a href="sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html" itemprop="url" >Articulo: {{$articulo->nombre}}
+											<?php
+											echo $articulo->nombre.'- '.$articulo->id;
+							          echo '<h4 itemprop="nombre" class="product-name">
+
+													<a href="'.$articulo->id.'/Detalles" itemprop="url" >'.$articulo->nombre.'
 								          </a>
-							          </h4>
+							          </h4>';
+												?>
 											<h5 itemprop="marca" class="product-name">
-												<a href="sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html" itemprop="url" >Marca: {{$articulo->marca}}
-							          </a>
+												<b>Marca: {{$articulo->marca}}
+							          </b>
 						          </h5>
 											<div class="color-list-container"><ul class="color_to_pick_list clearfix">
 										    <li>
@@ -1050,7 +876,7 @@ param_product_url = '#';
 	                        </span>
 		                    </div>
 	                      <div itemprop="offers" class="price-box">
-														<span itemprop="price" class="price product-price">{{$articulo->precio}}
+														<span itemprop="price" class="price product-price">${{$articulo->precio}}
 	                          </span>
 	                      </div>
 
@@ -1131,262 +957,5 @@ param_product_url = '#';
 </div><!-- .row -->
 </div><!-- #columns -->
 </div><!-- .columns-container -->
-							<!-- Footer -->
-<div class="footer-container">
-	<footer id="footer"  class="container">
-		<div class="footer-content">
-			<div class="row">
-        <div class="sp_customhtml_4_15132659381470326636box-footer col-sm-3 spcustom_html">
 
-
-                  <div class="footer-links">
-								<div class="title-box">About Market</div>
-								<ul class="links">
-								<li><a href="#">About Us</a></li>
-								<li><a href="#">Market Reviews</a></li>
-								<li><a href="#">Terms of Use</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-								<li><a href="#">Site Map</a></li>
-								</ul>
-								</div>
-
-                    </div>
-
-                        <div class="sp_customhtml_5_15132659381359856899
-		box-footer col-sm-3 spcustom_html">
-
-
-                  <div class="footer-links">
-								<div class="title-box">Customer Service</div>
-								<ul class="links">
-								<li><a href="#">Shipping Policy</a></li>
-								<li><a href="#">Compensation First</a></li>
-								<li><a href="#">My Account</a></li>
-								<li><a href="#">Return Policy</a></li>
-								<li><a href="#">Contact Us</a></li>
-								</ul>
-								</div>
-
-                    </div>
-
-                        <div class="sp_customhtml_6_1513265938238401174
-		box-footer col-sm-3 spcustom_html">
-
-
-                  <div class="footer-links">
-								<div class="title-box">Payment & Shipping</div>
-								<ul class="links">
-								<li><a href="#">Terms of Use</a></li>
-								<li><a href="#">Payment Methods</a></li>
-								<li><a href="#">Shipping Guide</a></li>
-								<li><a href="#">Locations We Ship To</a></li>
-								<li><a href="#">Estimated Delivery Time</a></li>
-								</ul>
-								</div>
-
-                    </div>
-    <!-- /SP Custom Html -->
-
-
-<!-- MODULE Block contact infos -->
-<section id="block_contact_infos" class="contact-infos box-footer col-md-3 col-sm-12">
-
-	<div class="title-box">Contacte con nosotros</div>
-	<ul class="list-contact">
-
-					<li class="address">
-				<span class="icon"><i class="fa fa-map-marker"></i></span>
-				<label>Address: No 40 Baria Sreet 133/2 NewYork City,
-NY, United States</label>
-			</li>
-							<li class="email">
-				<span class="icon"><i class="fa fa-envelope"></i></span>
-				<label>Email: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;%63%6f%6e%74%61%63%74@%6d%61%72%6b%65%74.%63%6f%6d" >&#x63;&#x6f;&#x6e;&#x74;&#x61;&#x63;&#x74;&#x40;&#x6d;&#x61;&#x72;&#x6b;&#x65;&#x74;&#x2e;&#x63;&#x6f;&#x6d;</a></label>
-			</li>
-							<li class="phone">
-				<span class="icon"><i class="fa fa-mobile"></i></span>
-				<label>Phone: 0123456789</label>
-			</li>
-			</ul>
-
-</section>
-							</div>
-						</div>
-					</footer>
-
-																<div class="footer-middle">
-							<div class="container">
-
-<!-- SP Custom Html -->
-
-                        <div class="sp_customhtml_7_1513265942130747151
-		 spcustom_html">
-
-
-                  <div class="footer-toplinks">
-								<div class="topstore"><label>Top Stores : </label>
-								<ul>
-								<li><a href="#">Brand Directory</a></li>
-								<li class="last"><a href="#">Store Directory</a></li>
-								</ul>
-								</div>
-								<div class="toplinks">
-								<div class="links"><label>MOST SEARCHED FOR ON MARKET:</label>
-								<ul>
-								<li><a href="#">Xiaomi Mi3</a></li>
-								<li><a href="#">Digiflip Pro XT 712 Tablet</a></li>
-								<li><a href="#">Mi 3 Phones</a></li>
-								<li class="last"><a href="#">View all</a></li>
-								</ul>
-								</div>
-								<div class="links"><label>MOBILES:</label>
-								<ul>
-								<li><a href="#">Moto E</a></li>
-								<li><a href="#">Samsung Mobile</a></li>
-								<li><a href="#">Micromax Mobile</a></li>
-								<li><a href="#">Nokia Mobile</a></li>
-								<li><a href="#">HTC Mobile</a></li>
-								<li><a href="#">Sony Mobile</a></li>
-								<li><a href="#">Apple Mobile</a></li>
-								<li><a href="#">LG Mobile</a></li>
-								<li><a href="#">Karbonn Mobile</a></li>
-								<li class="last"><a href="#">View all</a></li>
-								</ul>
-								</div>
-								<div class="links"><label>CAMERA:</label>
-								<ul>
-								<li><a href="#">Nikon Camera</a></li>
-								<li><a href="#">Canon Camera</a></li>
-								<li><a href="#">Sony Camera</a></li>
-								<li><a href="#">Samsung Camera</a></li>
-								<li><a href="#">Point shoot camera</a></li>
-								<li><a href="#">Camera Lens</a></li>
-								<li><a href="#">Camera Tripod</a></li>
-								<li><a href="#">Camera Bag</a></li>
-								<li class="last"><a href="#">View all</a></li>
-								</ul>
-								</div>
-								<div class="links"><label>LAPTOPS:</label>
-								<ul>
-								<li><a href="#">Apple Laptop</a></li>
-								<li><a href="#">Acer Laptop</a></li>
-								<li><a href="#">Samsung Laptop</a></li>
-								<li><a href="#">Lenovo Laptop</a></li>
-								<li><a href="#">Sony Laptop</a></li>
-								<li><a href="#">Dell Laptop</a></li>
-								<li><a href="#">Asus Laptop</a></li>
-								<li><a href="#">Toshiba Laptop</a></li>
-								<li><a href="#">LG Laptop</a></li>
-								<li><a href="#">HP Laptop</a></li>
-								<li><a href="#">Notebook</a></li>
-								<li class="last"><a href="#">View all</a></li>
-								</ul>
-								</div>
-								<div class="links"><label>TVS:</label>
-								<ul>
-								<li><a href="#">Sony TV</a></li>
-								<li><a href="#">Samsung TV</a></li>
-								<li><a href="#">LG TV</a></li>
-								<li><a href="#">Panasonic TV</a></li>
-								<li><a href="#">Onida TV</a></li>
-								<li><a href="#">Toshiba TV</a></li>
-								<li><a href="#">Philips TV</a></li>
-								<li><a href="#">Micromax TV</a></li>
-								<li><a href="#">LED TV</a></li>
-								<li><a href="#">LCD TV</a></li>
-								<li><a href="#">Plasma TV</a></li>
-								<li><a href="#">3D TV</a></li>
-								<li><a href="#">Smart TV</a></li>
-								<li class="last"><a href="#">View all</a></li>
-								</ul>
-								</div>
-								<div class="links"><label>TABLETS:</label>
-								<ul>
-								<li><a href="#">Micromax Tablets</a></li>
-								<li><a href="#">HCL Tablets</a></li>
-								<li><a href="#">Samsung Tablets</a></li>
-								<li><a href="#">Lenovo Tablets</a></li>
-								<li><a href="#">Karbonn Tablets</a></li>
-								<li><a href="#">Asus Tablets</a></li>
-								<li><a href="#">Apple Tablets</a></li>
-								<li class="last"><a href="#">View all</a></li>
-								</ul>
-								</div>
-								<div class="links"><label>WATCHES:</label>
-								<ul>
-								<li><a href="#">FCUK Watches</a></li>
-								<li><a href="#">Titan Watches</a></li>
-								<li><a href="#">Casio Watches</a></li>
-								<li><a href="#">Fastrack Watches</a></li>
-								<li><a href="#">Timex Watches</a></li>
-								<li><a href="#">Fossil Watches</a></li>
-								<li><a href="#">Diesel Watches</a></li>
-								<li><a href="#">Luxury Watches</a></li>
-								<li class="last"><a href="#">View all</a></li>
-								</ul>
-								</div>
-								<div class="links"><label>CLOTHING:</label>
-								<ul>
-								<li><a href="#">Shirts</a></li>
-								<li><a href="#">Jeans</a></li>
-								<li><a href="#">T shirts</a></li>
-								<li><a href="#">Kurtis</a></li>
-								<li><a href="#">Sarees</a></li>
-								<li><a href="#">Levis Jeans</a></li>
-								<li><a href="#">Killer Jeans</a></li>
-								<li><a href="#">Pepe Jeans</a></li>
-								<li><a href="#">Arrow Shirts</a></li>
-								<li><a href="#">Ethnic Wear</a></li>
-								<li><a href="#">Formal Shirts</a></li>
-								<li><a href="#">Peter England Shirts</a></li>
-								<li class="last"><a href="#">View all</a></li>
-								</ul>
-								</div>
-								<div class="links"><label>FOOTWEAR:</label>
-								<ul>
-								<li><a href="#">Shoes</a></li>
-								<li><a href="#">Casual Shoes</a></li>
-								<li><a href="#">Sports Shoes</a></li>
-								<li><a href="#">Formal Shoes</a></li>
-								<li><a href="#">Adidas Shoes</a></li>
-								<li><a href="#">Gas Shoes</a></li>
-								<li><a href="#">Puma Shoes</a></li>
-								<li><a href="#">Reebok Shoes</a></li>
-								<li><a href="#">Woodland Shoes</a></li>
-								<li><a href="#">Red tape Shoes</a></li>
-								<li><a href="#">Nike Shoes </a></li>
-								<li class="last"><a href="#">View all</a></li>
-								</ul>
-								</div>
-								</div>
-								</div>
-
-                    </div>
-    <!-- /SP Custom Html -->
-
-
-							</div>
-						</div>
-										<div class="footer-bottom">
-						<div class="container">
-							<div class="row">
-								<div class="col-sm-8">
-									<div class="copyright">&copy; 2016 Prestashop Themes Demo Store. All Rights Reserved.  Designed By <a target="_blank" title="Visit MagenTech!" href="http://magentech.com/">MagenTech.Com</a></div>								</div>
-								<div class="col-sm-4">
-									<div class="footer-payment">
-<img src="http://prestashop.flytheme.net/sp_market/modules/spthemeconfigurator/patterns/payments-1-1.png" alt="payment logos" >
-</div>
-
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="backtop">
-						<a id="sp-totop" class="backtotop" href="#" title="Back to top">
-							<i class="fa fa-arrow-up"></i>
-						</a>
-					</div>
-
-				</div><!-- #footer -->
-					</div><!-- #page -->
+@endsection
