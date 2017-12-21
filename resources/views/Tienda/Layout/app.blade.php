@@ -138,9 +138,112 @@
 
 	<body id="product" class="blog-small_image content-v1  product   lang_es patternnone layout-full slider-imgpr-0  secondImage-0" data-content="content-v1">
 		<div id="wrapper" >
-			 <!-- Header -->
-			<div class="header-container">
-				<header id="header" class="header_v1">
+									 <!-- Header -->
+									 <div class="header-container">
+															<header id="header" class="header_v1">
+							<div class="header-top clearfix">
+								<div class="container">
+									<div class="row">
+										<div id="block_left" class="col-sm-6 col-xs-6">
+											<!-- Block languages module -->
+
+
+							<div id="languages-block-top" class="languages-block">
+																														<div class="current">
+											<img src="http://prestashop.flytheme.net/sp_market/img/l/4.jpg" alt="es" />
+											<span>Español</span>
+										</div>
+													<ul id="first-languages" class="languages-block_ul toogle_content">
+													<li >
+																										<a href="http://prestashop.flytheme.net/sp_market/en/my-account" title="English">
+																					<span><img src="http://prestashop.flytheme.net/sp_market/img/l/1.jpg" alt="en"  />
+												English</span>
+															</a>
+														</li>
+													<li >
+																										<a href="http://prestashop.flytheme.net/sp_market/ar/my-account" title="Arabic">
+																					<span><img src="http://prestashop.flytheme.net/sp_market/img/l/2.jpg" alt="ar"  />
+												Arabic</span>
+															</a>
+														</li>
+													<li >
+																										<a href="http://prestashop.flytheme.net/sp_market/fr/my-account" title="Français">
+																					<span><img src="http://prestashop.flytheme.net/sp_market/img/l/3.jpg" alt="fr"  />
+												Français</span>
+															</a>
+														</li>
+													<li class="selected">
+																<span><img src="http://prestashop.flytheme.net/sp_market/img/l/4.jpg" alt="es"  />
+												Español</span>
+														</li>
+											</ul>
+							</div>
+						<!-- /Block languages module -->
+
+						<!-- Block currencies module -->
+							<div id="currencies-block-top">
+								<form id="setCurrency" action="/sp_market/es/my-account" method="post">
+									<div class="current">
+										<input type="hidden" name="id_currency" id="id_currency" value=""/>
+										<input type="hidden" name="SubmitCurrency" value="" />
+										<!--<span class="cur-label">Currency :</span>-->
+																								<span><!--$--> USD</span>							</div>
+									<ul id="first-currencies" class="currencies_ul toogle_content">
+																					<li>
+													<a href="javascript:setCurrency(2);" rel="nofollow" title="EUR">
+														EUR
+													</a>
+												</li>
+
+																					<li class="selected">
+													<span>
+														USD
+													</span>
+												</li>
+
+													</ul>
+								</form>
+							</div>
+						<!-- /Block currencies module -->
+										</div>
+
+										<div id="block_right" class="col-sm-6 col-xs-6">
+											<!-- SP Block user information module NAV  -->
+
+						<div id="user_infoblock-top" class="header_user_info">
+							<ul>
+								<li class="account">
+								 	<a href="{{url('Cuenta')}}" title="Mi cuenta" -->
+										<span>Mi cuenta</span>
+									</a>
+								</li>
+
+								<li class="wishlist">
+									<a href="http://prestashop.flytheme.net/sp_market/es/module/blockwishlist/mywishlist" title="Mi deseos" rel="nofollow">
+										<span>Mi deseos</span>
+									</a>
+								</li>
+
+								<li class="checkout">
+									<a href="http://prestashop.flytheme.net/sp_market/es/order" title="Revisa" >
+										<span>Revisa</span>
+									</a>
+								</li>
+
+											<li class="logout">
+										<a href="http://prestashop.flytheme.net/sp_market/es/?mylogout=" rel="nofollow" title="Cerrar sesión">
+											<span>Desconectar</span>
+										</a>
+									</li>
+									</ul>
+						</div>
+
+						<!-- /SP Block usmodule NAV -->
+
+										</div>
+									</div>
+								</div>
+							</div>
 					<div class="header-center">
 						<div class="container">
 							<div class="row">

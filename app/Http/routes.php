@@ -129,4 +129,6 @@ Route::resource('Contactenos', 'ContactenosController');
 
 Route::resource('RegistrarArticulo', 'ArticuloController@registrarArticulo');
 
+Route::resource('Cuenta', 'TiendaController@MiCuenta');
+
 Route::get('Carrito/','CarritoController@ListarCarrito');
