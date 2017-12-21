@@ -7,6 +7,7 @@ use PocketByR\Contactenos;
 use PocketByR\Carrito;
 use PocketByR\Http\Controllers\Controller;
 use Laracasts\Flash\Flash;
+use Auth;
 
 
 use Storage;
@@ -18,6 +19,11 @@ class ContactenosController extends Controller
 
     }
 
+    public function index(request $request){
+      $carritos = Carrito::where('id_empresa',Auth::user()->idEmpresa)->get();
+      return view('Tienda/Contactenos/index')->with('carritos', $carritos);
+    }
+
     public function store(Request $request){
       $contactenos = new Contactenos;
       $contactenos->titulo = $request->titulo;
@@ -27,5 +33,9 @@ class ContactenosController extends Controller
       $contactenos->save();
       Flash::success("Su comentario se ha enviado satisfactoriamente!")->important();
       return redirect('Contactenos/');
+    }
+
+    public function show(){
+
     }
 }

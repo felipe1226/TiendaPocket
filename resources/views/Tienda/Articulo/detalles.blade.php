@@ -1,579 +1,199 @@
-
+@extends('Tienda.Layout.app')
 @section('content')
 
-<!DOCTYPE HTML>
-					<link href="../../themes/sp_market/css/fonts/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../themes/sp_market/css/global.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../themes/sp_market/css/autoload/jquery.mCustomScrollbar.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../themes/sp_market/css/autoload/uniform.default.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../js/jquery/plugins/fancybox/jquery.fancybox.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../modules/spthemeconfigurator/views/css/front/sp-cpanel.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../themes/sp_market/css/bootstrap/bootstrap.min.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../modules/spthemeconfigurator/views/css/front/configCss-1.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../themes/sp_market/css/theme-2f0033.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../themes/sp_market/css/responsive.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../themes/sp_market/css/modules/blocktags/blocktags.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../themes/sp_market/css/modules/blockwishlist/blockwishlist.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../themes/sp_market/css/modules/productcomments/productcomments.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../themes/sp_market/css/modules/spblockcurrencies/css/spblockcurrencies.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../themes/sp_market/css/modules/spblocklanguages/css/spblocklanguages.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../modules/smartblog/css/smartblogstyle.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../themes/sp_market/css/modules/blockcategories/blockcategories.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../themes/sp_market/css/modules/spmegamenu/css/spmegamenu.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../themes/sp_market/css/modules/spextraslider/views/css/style.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../modules/spextraslider/views/css/owl.carousel.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../themes/sp_market/css/modules/splistingtabs/views/css/sp-listing-tabs.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../modules/splistingtabs/views/css/owl.carousel.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../themes/sp_market/css/modules/spblockuserinfo/css/spblockuserinfo.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../themes/sp_market/css/modules/spdeal/views/css/styles.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../themes/sp_market/css/modules/spverticalmenu/css/spverticalmenu.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../themes/sp_market/css/modules/spcategories/views/css/sp-categories.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../themes/sp_market/css/modules/spsearchpro/views/css/style.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../themes/sp_market/css/modules/spblockcart/css/spblockcart.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../js/jquery/plugins/bxslider/jquery.bxslider.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../themes/sp_market/css/modules/sphomeslider/css/sphomeslider.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../modules/sphomeslider/css/animate.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../modules/sphomeslider/css/owl.carousel.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../themes/sp_market/css/modules/spblocknewsletter/spblocknewsletter.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../../themes/sp_market/css/modules/spcustomhtml/views/css/style.css" type="text/css" media="all" />
+<link href="../themes/sp_market/css/fonts/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
+		<link rel="stylesheet" href="../themes/sp_market/css/global.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../themes/sp_market/css/autoload/jquery.mCustomScrollbar.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../themes/sp_market/css/autoload/uniform.default.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../js/jquery/plugins/fancybox/jquery.fancybox.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../modules/spthemeconfigurator/views/css/front/sp-cpanel.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../themes/sp_market/css/bootstrap/bootstrap.min.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../modules/spthemeconfigurator/views/css/front/configCss-1.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../themes/sp_market/css/theme-2f0033.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../themes/sp_market/css/responsive.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../themes/sp_market/css/modules/blocktags/blocktags.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../themes/sp_market/css/modules/blockwishlist/blockwishlist.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../themes/sp_market/css/modules/productcomments/productcomments.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../themes/sp_market/css/modules/spblockcurrencies/css/spblockcurrencies.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../themes/sp_market/css/modules/spblocklanguages/css/spblocklanguages.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../modules/smartblog/css/smartblogstyle.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../themes/sp_market/css/modules/blockcategories/blockcategories.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../themes/sp_market/css/modules/spmegamenu/css/spmegamenu.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../themes/sp_market/css/modules/spextraslider/views/css/style.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../modules/spextraslider/views/css/owl.carousel.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../themes/sp_market/css/modules/splistingtabs/views/css/sp-listing-tabs.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../modules/splistingtabs/views/css/owl.carousel.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../themes/sp_market/css/modules/spblockuserinfo/css/spblockuserinfo.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../themes/sp_market/css/modules/spdeal/views/css/styles.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../themes/sp_market/css/modules/spverticalmenu/css/spverticalmenu.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../themes/sp_market/css/modules/spcategories/views/css/sp-categories.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../themes/sp_market/css/modules/spsearchpro/views/css/style.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../themes/sp_market/css/modules/spblockcart/css/spblockcart.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../js/jquery/plugins/bxslider/jquery.bxslider.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../themes/sp_market/css/modules/sphomeslider/css/sphomeslider.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../modules/sphomeslider/css/animate.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../modules/sphomeslider/css/owl.carousel.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../themes/sp_market/css/modules/spblocknewsletter/spblocknewsletter.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="../themes/sp_market/css/modules/spcustomhtml/views/css/style.css" type="text/css" media="all" />
+
+
 
 					<script type="text/javascript">
+var CUSTOMIZE_TEXTFIELD = 1;
+var FancyboxI18nClose = 'Close';
+var FancyboxI18nNext = 'Next';
+var FancyboxI18nPrev = 'Previous';
+var PS_CATALOG_MODE = false;
+var add_compare_item = 'Product successfully added to the product comparison';
+var added_to_wishlist = 'El producto se ha añadido con éxito a su lista de deseos.';
+var ajax_allowed = true;
+var ajaxsearch = true;
+var allowBuyWhenOutOfStock = false;
+var attribute_anchor_separator = '-';
+var attributesCombinations = [{"id_attribute":"1","id_attribute_group":"1","attribute":"s","group":"size"},{"id_attribute":"13","id_attribute_group":"3","attribute":"orange","group":"color"},{"id_attribute":"14","id_attribute_group":"3","attribute":"blue","group":"color"},{"id_attribute":"2","id_attribute_group":"1","attribute":"m","group":"size"},{"id_attribute":"3","id_attribute_group":"1","attribute":"l","group":"size"}];
+var availableLaterValue = '';
+var availableNowValue = 'In stock';
+var baseDir = '../';
+var baseUri = '../';
+var combinationImages = {"1":[{"id_image":"6","id_product_attribute":"1","legend":"Aliquam Leberkas"},{"id_image":"7","id_product_attribute":"1","legend":"Aliquam Leberkas"}],"2":[{"id_image":"8","id_product_attribute":"2","legend":"Aliquam Leberkas"},{"id_image":"9","id_product_attribute":"2","legend":"Aliquam Leberkas"},{"id_image":"10","id_product_attribute":"2","legend":"Aliquam Leberkas"}]};
+var combinations = {"2":{"attributes_values":{"1":"S","3":"Blue"},"attributes":[1,14],"price":0,"specific_price":false,"ecotax":0,"weight":0,"quantity":300,"reference":null,"unit_impact":0,"minimal_quantity":"1","date_formatted":"","available_date":"","id_image":8,"list":"'1','14'"},"1":{"attributes_values":{"1":"S","3":"Orange"},"attributes":[1,13],"price":0,"specific_price":false,"ecotax":0,"weight":0,"quantity":296,"reference":null,"unit_impact":0,"minimal_quantity":"1","date_formatted":"","available_date":"","id_image":6,"list":"'1','13'"},"3":{"attributes_values":{"1":"M","3":"Orange"},"attributes":[2,13],"price":0,"specific_price":false,"ecotax":0,"weight":0,"quantity":300,"reference":null,"unit_impact":0,"minimal_quantity":"1","date_formatted":"","available_date":"","id_image":-1,"list":"'2','13'"},"4":{"attributes_values":{"1":"M","3":"Blue"},"attributes":[2,14],"price":0,"specific_price":false,"ecotax":0,"weight":0,"quantity":300,"reference":null,"unit_impact":0,"minimal_quantity":"1","date_formatted":"","available_date":"","id_image":-1,"list":"'2','14'"},"6":{"attributes_values":{"1":"L","3":"Blue"},"attributes":[3,14],"price":0,"specific_price":false,"ecotax":0,"weight":0,"quantity":300,"reference":null,"unit_impact":0,"minimal_quantity":"1","date_formatted":"","available_date":"","id_image":-1,"list":"'3','14'"},"5":{"attributes_values":{"1":"L","3":"Orange"},"attributes":[3,13],"price":0,"specific_price":false,"ecotax":0,"weight":0,"quantity":300,"reference":null,"unit_impact":0,"minimal_quantity":"1","date_formatted":"","available_date":"","id_image":-1,"list":"'3','13'"}};
+var combinationsFromController = {"2":{"attributes_values":{"1":"S","3":"Blue"},"attributes":[1,14],"price":0,"specific_price":false,"ecotax":0,"weight":0,"quantity":300,"reference":null,"unit_impact":0,"minimal_quantity":"1","date_formatted":"","available_date":"","id_image":8,"list":"'1','14'"},"1":{"attributes_values":{"1":"S","3":"Orange"},"attributes":[1,13],"price":0,"specific_price":false,"ecotax":0,"weight":0,"quantity":296,"reference":null,"unit_impact":0,"minimal_quantity":"1","date_formatted":"","available_date":"","id_image":6,"list":"'1','13'"},"3":{"attributes_values":{"1":"M","3":"Orange"},"attributes":[2,13],"price":0,"specific_price":false,"ecotax":0,"weight":0,"quantity":300,"reference":null,"unit_impact":0,"minimal_quantity":"1","date_formatted":"","available_date":"","id_image":-1,"list":"'2','13'"},"4":{"attributes_values":{"1":"M","3":"Blue"},"attributes":[2,14],"price":0,"specific_price":false,"ecotax":0,"weight":0,"quantity":300,"reference":null,"unit_impact":0,"minimal_quantity":"1","date_formatted":"","available_date":"","id_image":-1,"list":"'2','14'"},"6":{"attributes_values":{"1":"L","3":"Blue"},"attributes":[3,14],"price":0,"specific_price":false,"ecotax":0,"weight":0,"quantity":300,"reference":null,"unit_impact":0,"minimal_quantity":"1","date_formatted":"","available_date":"","id_image":-1,"list":"'3','14'"},"5":{"attributes_values":{"1":"L","3":"Orange"},"attributes":[3,13],"price":0,"specific_price":false,"ecotax":0,"weight":0,"quantity":300,"reference":null,"unit_impact":0,"minimal_quantity":"1","date_formatted":"","available_date":"","id_image":-1,"list":"'3','13'"}};
+var comparator_max_item = 3;
+var comparedProductsIds = [];
+var contentOnly = false;
+var currency = {"id":1,"name":"USD","iso_code":"USD","iso_code_num":"840","sign":"$","blank":"0","conversion_rate":"1.000000","deleted":"0","format":"1","decimals":"1","active":"1","prefix":"$ ","suffix":"","id_shop_list":null,"force_id":false};
+var currencyBlank = 0;
+var currencyFormat = 1;
+var currencyRate = 1;
+var currencySign = '$';
+var currentDate = '2017-09-23 20:45:39';
+var customerGroupWithoutTax = true;
+var customizationFields = false;
+var customizationIdMessage = 'Customization #';
+var default_eco_tax = 0;
+var delete_txt = 'Delete';
+var displayDiscountPrice = '0';
+var displayList = false;
+var displayPrice = 1;
+var doesntExist = 'This combination does not exist for this product. Please select another combination.';
+var doesntExistNoMore = 'This product is no longer in stock';
+var doesntExistNoMoreBut = 'with those attributes but is available with others.';
+var ecotaxTax_rate = 0;
+var fieldRequired = 'Please fill in all the required fields before saving your customization.';
+var freeProductTranslation = 'Free!';
+var freeShippingTranslation = 'Free shipping!';
+var generated_date = 1506213940;
+var group_reduction = 0;
+var idDefaultImage = 6;
+var id_lang = 4;
+var id_product = 1;
+var img_dir = '../../img/';
+var img_prod_dir = 'http://prestashop.flytheme.net/sp_market/img/p/';
+var img_ps_dir = '../../img/';
+var instantsearch = false;
+var isGuest = 0;
+var isLogged = 0;
+var isMobile = false;
+var jqZoomEnabled = false;
+var loggin_required = 'Debe identificarse para administrar su lista de deseos.';
+var maxQuantityToAllowDisplayOfLastQuantityMessage = 3;
+var max_item = 'You cannot add more than 3 product(s) to the product comparison';
+var min_item = 'Please select at least one product';
+var minimalQuantity = 1;
+var mywishlist_url = '../loginf896.html';
+var noTaxForThisProduct = true;
+var oosHookJsCodeFunctions = [];
+var page_name = 'product';
+var priceDisplayMethod = 1;
+var priceDisplayPrecision = 2;
+var productAvailableForOrder = true;
+var productBasePriceTaxExcl = 16.51;
+var productBasePriceTaxExcluded = 16.51;
+var productHasAttributes = true;
+var productPrice = 16.51;
+var productPriceTaxExcluded = 16.51;
+var productPriceWithoutReduction = 16.51;
+var productReference = 'demo_1';
+var productShowPrice = true;
+var productUnitPriceRatio = 0;
+var product_fileButtonHtml = 'Choose File';
+var product_fileDefaultHtml = 'No file selected';
+var product_specific_price = [];
+var quantitiesDisplayAllowed = true;
+var quantityAvailable = 1796;
+var quickView = true;
+var reduction_percent = 0;
+var reduction_price = 0;
+var remove_compare_item = 'Product successfully removed from the product comparison';
+var removingLinkText = 'remove this product from my cart';
+var roundMode = 2;
+var specific_currency = false;
+var specific_price = 0;
+var static_token = 'c4995744c9bff2e8158c3c8bf59fbd5f';
+var stf_msg_error = 'Su email no ha podido ser enviado. Por favor, compruebe la dirección de correo electrónico e inténtelo de nuevo.';
+var stf_msg_required = 'No ha rellenado los campos obligatorios';
+var stf_msg_success = 'Tu e-mail ha sido enviado con éxito';
+var stf_msg_title = 'Enviar a un amigo';
+var stf_secure_key = '4792763e910ab6172b2ab16d7d8044df';
+var stock_management = 1;
+var taxRate = 0;
+var token = 'c4995744c9bff2e8158c3c8bf59fbd5f';
+var upToTxt = 'Up to';
+var uploading_in_progress = 'Uploading in progress, please be patient.';
+var usingSecureMode = false;
+var wishlistProductsIds = false;
+</script>
 
-							<script type="text/javascript" src="../../js/jquery/jquery-1.11.0.min.js"></script>
-							<script type="text/javascript" src="../../js/jquery/jquery-migrate-1.2.1.min.js"></script>
-							<script type="text/javascript" src="../../js/jquery/plugins/jquery.easing.js"></script>
-							<script type="text/javascript" src="../../js/tools.js"></script>
-							<script type="text/javascript" src="../../themes/sp_market/js/global.js"></script>
-							<script type="text/javascript" src="../../themes/sp_market/js/autoload/10-bootstrap.min.js"></script>
-							<script type="text/javascript" src="../../themes/sp_market/js/autoload/15-jquery.total-storage.min.js"></script>
-							<script type="text/javascript" src="../../themes/sp_market/js/autoload/15-jquery.uniform-modified.js"></script>
-							<script type="text/javascript" src="../../themes/sp_market/js/autoload/jquery.mCustomScrollbar.concat.min.js"></script>
-							<script type="text/javascript" src="../../themes/sp_market/js/autoload/slick.min.js"></script>
-							<script type="text/javascript" src="../../js/jquery/plugins/fancybox/jquery.fancybox.js"></script>
-							<script type="text/javascript" src="../../themes/sp_market/js/products-comparison.js"></script>
-							<script type="text/javascript" src="../../modules/spthemeconfigurator/views/js/front/jquery.miniColors.min.js"></script>
-							<script type="text/javascript" src="../../modules/spthemeconfigurator/views/js/front/sp-cpanel.js"></script>
-							<script type="text/javascript" src="../../themes/sp_market/js/sp_lib/jquery.backtotop.js"></script>
-							<script type="text/javascript" src="../../themes/sp_market/js/sp_lib/jquery.global.js"></script>
-							<script type="text/javascript" src="../../themes/sp_market/js/sp_lib/jquery.ui.touch-punch.min.js"></script>
-							<script type="text/javascript" src="../../themes/sp_market/js/sp_lib/jquery.elevatezoom.js"></script>
-							<script type="text/javascript" src="../../themes/sp_market/js/modules/blockwishlist/js/ajax-wishlist.js"></script>
-							<script type="text/javascript" src="../../themes/sp_market/js/tools/treeManagement.js"></script>
-							<script type="text/javascript" src="../../modules/spextraslider/views/js/owl.carousel.js"></script>
-							<script type="text/javascript" src="../../modules/spdeal/views/js/deal.js"></script>
-							<script type="text/javascript" src="../../modules/spdeal/views/js/jquery.cj-swipe.js"></script>
-							<script type="text/javascript" src="../../modules/spcategories/views/js/jquery.imagesloaded.js"></script>
-							<script type="text/javascript" src="../../modules/spcategories/views/js/jquery.sj_accordion.js"></script>
-							<script type="text/javascript" src="../../modules/spsearchpro/views/js/jquery.autocomplete.js"></script>
-							<script type="text/javascript" src="../../themes/sp_market/js/modules/spblockcart/ajax-cart.js"></script>
-							<script type="text/javascript" src="../../js/jquery/plugins/jquery.scrollTo.js"></script>
-							<script type="text/javascript" src="../../js/jquery/plugins/jquery.serialScroll.js"></script>
-							<script type="text/javascript" src="../../js/jquery/plugins/bxslider/jquery.bxslider.js"></script>
-							<script type="text/javascript" src="../../modules/sphomeslider/js/owl.carousel.js"></script>
-							<script type="text/javascript" src="../../modules/spblocknewsletter/jquery.cookie.min.js"></script>
-							<script type="text/javascript" src="../../themes/sp_market/js/index.js"></script>
-							<script type="text/javascript" src="../../modules/statsdata/js/plugindetect.js"></script>
-
-<div class="header-center">
-	<div class="container">
-		<div class="row">
-			<div id="header_logo" class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-				<a class="logo" href="http://prestashop.flytheme.net/sp_market/">
-					<img  src="../../img/sp-g3shop-logo-1472003784.jpg" alt="SP Market" width="250" height="70">
-				</a>
-			</div>
-
-			<div class="col-sm-8">
-				<div class="shop-menu pull-right">
-					<ul class="nav navbar-nav">
-						<li ><a>
-							Bienvenido - {{Auth::user()->nombrePersona}}
-						</a></li>
-						<li ><a href="../Principales/cuenta.php" target="principal"><i class="fa fa-user"></i> Cuenta</a></li>
-						<li ><a href="{{url('RegistrarArticulo/')}}"><i class="fa fa-bookmark-o"></i> Administrar</a></li>
-					</ul>
-			</div>
-		</div>
-			<div id="header_search" class="col-lg-7 col-md-6 col-sm-6 col-xs-12 hidden-xs">
-        <div class="sp_searchpro ">
-					<div id="sp_search_pro_1" class="spr-container spr-preload">
-						<form class="sprsearch-form  show-box" method="get" action="http://prestashop.flytheme.net/sp_market/es/module/spsearchpro/catesearch">
-							<div class="spr_selector">
-								<select class="spr_select">
-											<option>--- Categorias ---</option>
-
-											<option value="PocketClub">PocketClub</option>
-
-											<option value="tecnologia">Tecnologia</option>
-
-											<option value="licores">Licores</option>
-
-											<option value="cervezas">Cervezas</option>
-
-											<option value="utencilios">Utencilios</option>
-
-											<option value="promociones">Promociones</option>
-
-											<option value="mercadotecnia">Mercadotecnia</option>
-								</select>
-							</div>
-							<div class="text-search">
-								<input class="spr-query" type="text" name="search_query" value="" placeholder="¿Que buscas?"/>
-							</div>
-							<button value="Buscar" class="spr-search-button" type="submit" name="spr_submit_search">
-								<i class="fa fa-search" aria-hidden="true"></i>
-							</button>
-						</form>
-					</div>
-        </div>
-			</div>
-
-			<div id="header_cart" class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
-						<!-- MODULE Block cart -->
-
-				<div class="blockcart clearfix">
-					<div class="shopping_cart clearfix">
-						<div class="icon-cart">
-						</div>
-							<a href="order.html" rel="nofollow">
-
-										<span class="text-cart">CARRITO</span>
-
-										<span class="text-cart4">Carrito</span>
-										<span class="line line4"> - </span>
-										<span class="ajax_cart_quantity">{{count($carritos)}}</span>
-										<span class="ajax_cart_quantity_text">Articulos</span>
-										<span class="line line4 arrow"><i class="fa fa-caret-down"></i></span>
-										<span class="line"> - </span>
-										<?php
-										$totalCarrito = 0;
-										foreach($carritos as $carrito){
-											$totalCarrito += $carrito->cantidad * $carrito->almacena->precio;
-										}
-
-											echo '<span class="ajax_cart_total">$'.$totalCarrito.'</span>
-
-							</a>
-							<div class="cart_block block exclusive">
-								<div class="block_content">
-											<!-- block list of products -->
-									<div class="cart_block_list">
-												<p class="recent_items ">Articulos <span>Precio</span></p>';
-												if(count($carritos) == 0){
-													echo '<p class="cart_block_no_products">
-															No tienes articulos en tu carrito
-													</p>';
-												}
-												else{
-													foreach($carritos as $carrito){
-														echo '<div class="list-products mCustomScrollbar">
-															<dl class="products ">
-																<dt data-id="cart_block_product_1_1_23" class="first_item">
-																	<a class="cart-images" href="#"><img height="50" width="50" src="../../imgArticulos/'.$carrito->almacena->imagen.'" /></a>
-																	<div class="cart-info">
-																		<div class="product-name titleFont">
-																			<a class="cart_block_product_name" href="#">'.$carrito->almacena->nombre.'</a>
-																		</div>
-																		<span class="price">$'.$carrito->almacena->precio * $carrito->cantidad.'</span>
-																		<span class="quantity-formated titleFont">Cantidad: '.$carrito->cantidad.'</span>
-																	</div>
-																	<span class="remove_link">
-																		<a class="ajax_cart_block_remove_link" href="#" rel="nofollow" title="Borrar del carrito"><i class="fa fa-trash"></i></a>
-																	</span>
-																</dt>
-															</dl>
-														</div>';
-													}
-												}
-									echo '<div class="cart-prices">
-										<div class="price-total titleFont">
-											<span class="price_text">Total : </span>
-												<span class="price cart_block_total ajax_block_cart_total">$'.$totalCarrito.'
-												</span>
-										</div>';
-										?>
-										<div class="buttons">
-												<a id="button_order_cart" class="btn btn-default button button-small titleFont" href="{{url('Carrito/')}}" rel="nofollow">
-														Ver carrito
-												</a>
-											</div>
-										</div>
-									</div>
-								</div><!-- .cart_block -->
-							</div>
-					</div>
-				</div>
+<script type="text/javascript" src="../js/jquery/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="../js/jquery/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="../js/jquery/plugins/jquery.easing.js"></script>
+<script type="text/javascript" src="../js/tools.js"></script>
+<script type="text/javascript" src="../themes/sp_market/js/global.js"></script>
+<script type="text/javascript" src="../themes/sp_market/js/autoload/10-bootstrap.min.js"></script>
+<script type="text/javascript" src="../themes/sp_market/js/autoload/15-jquery.total-storage.min.js"></script>
+<script type="text/javascript" src="../themes/sp_market/js/autoload/15-jquery.uniform-modified.js"></script>
+<script type="text/javascript" src="../themes/sp_market/js/autoload/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="../themes/sp_market/js/autoload/slick.min.js"></script>
+<script type="text/javascript" src="../js/jquery/plugins/fancybox/jquery.fancybox.js"></script>
+<script type="text/javascript" src="../themes/sp_market/js/products-comparison.js"></script>
+<script type="text/javascript" src="../modules/spthemeconfigurator/views/js/front/jquery.miniColors.min.js"></script>
+<script type="text/javascript" src="../modules/spthemeconfigurator/views/js/front/sp-cpanel.js"></script>
+<script type="text/javascript" src="../themes/sp_market/js/sp_lib/jquery.backtotop.js"></script>
+<script type="text/javascript" src="../themes/sp_market/js/sp_lib/jquery.global.js"></script>
+<script type="text/javascript" src="../themes/sp_market/js/sp_lib/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="../themes/sp_market/js/sp_lib/jquery.elevatezoom.js"></script>
+<script type="text/javascript" src="../themes/sp_market/js/modules/blockwishlist/js/ajax-wishlist.js"></script>
+<script type="text/javascript" src="../themes/sp_market/js/tools/treeManagement.js"></script>
+<script type="text/javascript" src="../modules/spextraslider/views/js/owl.carousel.js"></script>
+<script type="text/javascript" src="../modules/spdeal/views/js/deal.js"></script>
+<script type="text/javascript" src="../modules/spdeal/views/js/jquery.cj-swipe.js"></script>
+<script type="text/javascript" src="../modules/spcategories/views/js/jquery.imagesloaded.js"></script>
+<script type="text/javascript" src="../modules/spcategories/views/js/jquery.sj_accordion.js"></script>
+<script type="text/javascript" src="../modules/spsearchpro/views/js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="../themes/sp_market/js/modules/spblockcart/ajax-cart.js"></script>
+<script type="text/javascript" src="../js/jquery/plugins/jquery.scrollTo.js"></script>
+<script type="text/javascript" src="../js/jquery/plugins/jquery.serialScroll.js"></script>
+<script type="text/javascript" src="../js/jquery/plugins/bxslider/jquery.bxslider.js"></script>
+<script type="text/javascript" src="../modules/sphomeslider/js/owl.carousel.js"></script>
+<script type="text/javascript" src="../modules/spblocknewsletter/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="../themes/sp_market/js/index.js"></script>
+<script type="text/javascript" src="../modules/statsdata/js/plugindetect.js"></script>
 
 
-				<div id="layer_cart" class="layer_box">
-					<div class="layer_inner_box">
-						<div class="layer_product clearfix mar_b10">
-									<span class="cross" title="Close window"></span>
-							<div class="product-image-container layer_cart_img">
-							</div>
-							<div class="layer_product_info">
-										<h3 id="layer_cart_product_title" class="product-name"></h3>
-										<span id="layer_cart_product_attributes"></span>
-								<div id="layer_cart_product_quantity_wrap" class="hidden">
-											<span class="layer_cart_label">Quantity</span>
-											<span id="layer_cart_product_quantity"></span>
-								</div>
-								<div id="layer_cart_product_price_wrap" class="hidden">
-											<span class="layer_cart_label">Total</span>
-											<span id="layer_cart_product_price"></span>
-								</div>
-							</div>
-						</div>
-
-						<div id="pro_added_success" class="alert alert-success">Product successfully added to your shopping cart
-						</div>
-						<div class="layer_details">
-							<div class="layer_cart_row">
-										<!-- Plural Case [both cases are needed because page may be updated in Javascript] -->
-											<span class="ajax_cart_product_txt_s  unvisible">
-												There are <span class="ajax_cart_quantity">0</span> items in your cart.
-											</span>
-										<!-- Singular Case [both cases are needed because page may be updated in Javascript] -->
-											<span class="ajax_cart_product_txt ">
-												There is 1 item in your cart.
-											</span>
-							</div>
-							<div id="layer_cart_ajax_block_products_total" class="layer_cart_row hidden">
-											<span class="layer_cart_label">
-												Total products
-																		(tax excl.)
-											</span>
-											<span class="ajax_block_products_total">
-											</span>
-							</div>
-
-							<div id="layer_cart_ajax_cart_shipping_cost" class="layer_cart_row hidden">
-											<span class="layer_cart_label">
-												Total shipping&nbsp;(tax excl.)
-											</span>
-											<span class="ajax_cart_shipping_cost">
-												Free shipping!
-											</span>
-							</div>
-							<div id="layer_cart_ajax_block_cart_total" class="layer_cart_row">
-											<span class="layer_cart_label">
-												Total
-																		(tax excl.)
-											</span>
-											<span class="ajax_block_cart_total price">
-											</span>
-							</div>
-							<div class="button-container clearfix">
-											<span class="continue button pull-left" title="Continue shopping">
-												Continue shopping
-											</span>
-											<a class="button pull-right" href="order.html" title="Proceed to checkout" rel="nofollow">
-												Proceed to checkout
-											</a>
-							</div>
-						</div>
-					</div>
-					<div class="crossseling">
-					</div>
-				</div> <!-- #layer_cart -->
-				<div class="layer_cart_overlay">
-				</div>
-
-<!-- /MODULE Block cart -->
-			</div>
-		</div>
-	</div>
-</div>
+<script type="text/javascript">
+    //<![CDATA[
+    var listdeal = [];
+    //]]>
+</script>
 
 
-<!--MENU DE CATEGORIAS-->
-			<div class="header-menu">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-3 col-sm-4 col-xs-12">
-							<div class="spverticalmenu ">
-								<nav class="navbar-default" role="navigation">
-									<div class="navbar-header">
-										<button type="button" id="show-vermegamenu" data-toggle="collapse" data-target="#sp-vermegamenu" class="navbar-toggle">
-											Todas categorias
-										</button>
-										<h2 class="cat-title">Todas categorias</h2>
-									</div>
-									<a href="#"><div id="sp-vermegamenu" class=" sp-vermegamenu clearfix">
-									<span id="remove-vermegamenu" class="fa fa-remove"></span>
-									<h2 class="cat-title">Todas categorias</h2></a>
-									<div class="sp-verticalmenu-container">
-										<ul class="nav navbar-nav  menu sp_lesp level-1">
-											<li class="item-1 vertical-cat"  >
-												<a href="{{url('Articulos/PocketClub')}}"><i class="icon-v1"></i>PocketClub</a>
-											</li>
-											<li class="item-1 mega_type type1 parent group"  >
-												<a href="{{url('Articulos/Tecnologias')}}"><i class="icon-v2"></i>Tecnologias</a>
-												<div class="dropdown-menu" style="width:200px">
-													<ul class="level-2">
-														<li class="item-2 sub-cate group parent" style="width:100%" >
-															<a href="72-subcat1.html" title="Subcat1">Subcat1</a>
-															<div class="dropdown-menu">
-																<ul>
-																	<li class=" parent"  ><a href="68-hiking-gear.html">Hiking Gear</a>
-																		<div class="dropdown-menu">
-																			<ul>
-																				<li class=""  >
-																					<a href="97-hammock.html">Hammock</a>
-																				</li>
-																				<li class="">
-																					<a href="98-telescope.html">Telescope</a>
-																				</li>
-																				<li class=""  >
-																					<a href="99-hat.html">Hat</a>
-																				</li>
-																				<li class="">
-																					<a href="100-tent.html">Tent</a>
-																				</li>
-																				<li class="">
-																					<a href="101-sleeping-bag.html">Sleeping Bag</a>
-																				</li>
-																			</ul>
-																		</div>
-																	</li>
-																</ul>
-															</div>
-														</li>
-													</ul>
-												</div>
-											</li>
-											<li class="item-1 vertical-cat"  >
-												<a href="{{url('Articulos/Licores')}}"><i class="icon-v1"></i>Licores</a>
-											</li>
-											<li class="item-1 vertical-cat"  >
-												<a href="{{url('Articulos/Cervezas')}}"><i class="icon-v1"></i>Cervezas</a>
-											</li>
-											<li class="item-1 vertical-cat"  >
-												<a href="{{url('Articulos/Utencilios')}}"><i class="icon-v1"></i>Utencilios</a>
-											</li>
-											<li class="item-1 vertical-cat"  >
-												<a href="{{url('Articulos/Promociones')}}"><i class="icon-v1"></i>Promociones</a>
-											</li>
-											<li class="item-1 vertical-cat"  >
-												<a href="{{url('Articulos/Mercadotecnia')}}"><i class="icon-v1"></i>Mercadotecnia</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</nav>
-						</div>
-						<script type="text/javascript">
-
-							$(document).ready(function() {
-								var wd_width = $(window).width();
-								if(wd_width > 992){
-									offtogglevermegamenu();
-									renderWidthSubmenu();
-								}
-								if(wd_width >= 1400)
-									var limit = 13 -1 ;
-								else if(wd_width >= 1200 && wd_width<1400)
-									var limit = 13 -1 ;
-								else if(wd_width >= 768 && wd_width<1200)
-									var limit = 11 -1 ;
-
-								$('#sp-vermegamenu .sp-verticalmenu-container >ul').append('<div class="more-wrap"><span class="more-view">More Categories</span></div>');
-								$('#sp-vermegamenu .item-1').each(function(i){
-									if(i>limit)
-										$(this).css('display', 'none');
-									else
-										$(this).css('display', 'block');
-								});
-
-								$('#sp-vermegamenu .more-wrap').click(function(){
-									if($(this).hasClass('open')){
-										$('#sp-vermegamenu .item-1').each(function(i){
-											if(i>limit){
-												$(this).slideUp(200);
-											}
-										});
-										$(this).removeClass('open');
-										$('.more-wrap').html('<span class="more-view">More Categories</span>');
-									}else{
-										$('#sp-vermegamenu .item-1').each(function(i){
-											if(i>limit){
-												$(this).slideDown(200);
-											}
-										});
-										$(this).addClass('open');
-										$('.more-wrap').html('<span class="more-view">Less Categories</span>');
-									}
-								});
-
-									$(window).resize(function() {
-
-										var sp_width = $( window ).width();
-										if(sp_width >= 1400)
-											var sp_limit = 13 -1 ;
-										else if(sp_width >= 1200 && sp_width<1400)
-											var sp_limit = 13 -1 ;
-										else if(sp_width >= 768 && sp_width<1200)
-											var sp_limit = 11 -1 ;
-										$('#sp-vermegamenu .item-1').each(function(i){
-											if(i>sp_limit)
-												$(this).css('display', 'none');
-											else
-												$(this).css('display', 'block');
-										});
-
-										if(sp_width > 992){
-											offtogglevermegamenu();
-											renderWidthSubmenu();
-										}
-
-									});
-
-									$("#sp-vermegamenu  li.parent  .grower").click(function(){
-											if($(this).hasClass('close'))
-												$(this).addClass('open').removeClass('close');
-											else
-												$(this).addClass('close').removeClass('open');
-
-											$('.dropdown-menu',$(this).parent()).first().toggle(300);
-
-									});
-
-							});
-
-							$('#show-vermegamenu').click(function() {
-								if($('.sp-vermegamenu').hasClass('sp-vermegamenu-active'))
-									$('.sp-vermegamenu').removeClass('sp-vermegamenu-active');
-								else
-									$('.sp-vermegamenu').addClass('sp-vermegamenu-active');
-						        return false;
-						    });
-
-							$('#remove-vermegamenu').click(function() {
-						        $('.sp-vermegamenu').removeClass('sp-vermegamenu-active');
-						        return false;
-						    });
 
 
-							function offtogglevermegamenu()
-							{
-								$('#sp-vermegamenu li.parent .dropdown-menu').css('display','');
-								$('#sp-vermegamenu').removeClass('sp-vermegamenu-active');
-								$("#sp-vermegamenu  li.parent  .grower").removeClass('open').addClass('close');
-							}
-
-							function renderWidthSubmenu()
-							{
-								$('#sp-vermegamenu  li.parent').each(function(){
-									value = $(this).data("subwidth");
-									if(value){
-										var container_width = $('.container').width();
-										var vertical_width = $('#sp-vermegamenu').width();
-										var full_width = container_width - vertical_width;
-										var width_submenu = (full_width*value)/100;
-										$('> .dropdown-menu',this).css('width',width_submenu+'px');
-									}
-								});
-							}
-
-						</script>
-					</div>
-					<div class="col-md-9 col-sm-8 col-xs-12">
-						<div class="spmegamenu">
-							<nav class="navbar" role="navigation">
-								<div class="navbar-button">
-									<button type="button" id="show-megamenu" data-toggle="collapse" data-target="#sp-megamenu" class="navbar-toggle">
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-									</button>
-								</div>
-								<div id="sp-megamenu" class="mega sp-megamenu clearfix">
-									<span id="remove-megamenu" class="fa fa-remove"></span>
-									<span class="label-menu">Menu</span>
-									<div class="sp-megamenu-container">
-										<div class="home">
-											<a href="http://prestashop.flytheme.net/sp_market/">Casa</a>
-										</div>
-										<ul class="nav navbar-nav  menu sp_lesp level-1">
-											<li class="item-1 newarrival" ><a href="http://prestashop.flytheme.net/sp_market/new-products" title="Nuevo"><p><span class="hot">Hot</span></p> Nuevo</a>
-											</li>
-											<li class="item-1 promotions" ><a href="#" title="Promociones"> Promociones</a>
-											</li>
-											<li class="item-1 css_type specials" ><a href="http://prestashop.flytheme.net/sp_market/prices-drop" title="Especiales"> Especiales</a>
-											</li>
-											<li class="item-1 blog" ><a href="indexd963.html?fc=module&amp;module=smartblog&amp;controller=category" title="Blog"> Blog</a>
-											</li>
-											<li class="item-1 contactus" ><a href="{{url('Contactenos/')}}" title="Cont&aacute;ctenos"> Cont&aacute;ctenos</a>
-											</li>
-											<li class="item-1 aboutus" ><a href="content/4-about-us.html" title="Nosotros"> Nosotros</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</nav>
-						</div>
-						<script type="text/javascript">
-
-						$(document).ready(function() {
-
-							$("#sp-megamenu  li.parent  .grower").click(function(){
-								if($(this).hasClass('close'))
-									$(this).addClass('open').removeClass('close');
-								else
-									$(this).addClass('close').removeClass('open');
-
-								$('.dropdown-menu',$(this).parent()).first().toggle(300);
-
-							});
-							$("#sp-megamenu  .home  .grower").click(function(){
-								if($(this).hasClass('close'))
-									$(this).addClass('open').removeClass('close');
-								else
-									$(this).addClass('close').removeClass('open');
-
-								$('.dropdown-menu',$(this).parent()).first().toggle(300);
-							});
-
-							var wd_width = $(window).width();
-							var wd_height = $(window).height();
-							if(wd_width > 992)
-								offtogglemegamenu();
-
-							$(window).resize(function() {
-								var sp_width = $( window ).width();
-								if(sp_width > 992)
-									offtogglemegamenu();
-							});
-						});
-
-						$('#show-megamenu').click(function() {
-							if($('.sp-megamenu').hasClass('sp-megamenu-active'))
-								$('.sp-megamenu').removeClass('sp-megamenu-active');
-							else
-								$('.sp-megamenu').addClass('sp-megamenu-active');
-					        return false;
-					    });
-						$('#remove-megamenu').click(function() {
-					        $('.sp-megamenu').removeClass('sp-megamenu-active');
-					        return false;
-					    });
-
-
-						function offtogglemegamenu()
-						{
-							$('#sp-megamenu li.parent .dropdown-menu').css('display','');
-							$('#sp-megamenu').removeClass('sp-megamenu-active');
-							$("#sp-megamenu  li.parent  .grower").removeClass('open').addClass('close');
-							$('#sp-megamenu .home .dropdown-menu').css('display','');
-							$('#sp-megamenu').removeClass('sp-megamenu-active');
-							$("#sp-megamenu .home  .grower").removeClass('open').addClass('close');
-						}
-						</script>
-					</div>
-				</div>
-			</div>
-		</div>
-			 <!-- End of Header -->
+<script type="text/javascript">
+    //<![CDATA[
+    var listdeal = [];
+    //]]>
+</script>
 
 			<!-- Breadcrumb Column -->
 							 <div class="breadcrumb-container">
@@ -627,7 +247,7 @@
 
 					<span id="view_full_size">
 
-								<img id="bigpic" itemprop="image" data-src="url:(http://prestashop.flytheme.net/sp_market/6-thickbox_default/faded-short-sleeves-tshirt.jpg)" data-zoom-image="http://prestashop.flytheme.net/sp_market/6-thickbox_default/faded-short-sleeves-tshirt.jpg"  src="../../6-large_default/faded-short-sleeves-tshirt.jpg" title="Aliquam Leberkas" alt="Aliquam Leberkas" width="570" height="570"/>
+								<img id="bigpic" itemprop="image" data-src="url:(../imgArticulos/{{$articulos[0]->imagen}})" data-zoom-image="../imgArticulos/{{$articulos[0]->imagen}}"  src="../imgArticulos/{{$articulos[0]->imagen}}" title="Aliquam Leberkas" alt="Aliquam Leberkas" width="570" height="570"/>
 
 
 						</span>
@@ -642,7 +262,7 @@
 					<!-- end thumbnails -->
 
 									<p class="resetimg clear no-print">
-						<span id="wrapResetImages" style="display: none;">
+						<span id="wrapResetImages">
 							<a href="1-faded-short-sleeves-tshirt.html" name="resetImages">
 								<i class="fa fa-repeat"></i>
 								Display all pictures
@@ -659,7 +279,7 @@
 
 
 
-				<h1 class="product_name" itemprop="name">Coctelera SmartBart Profesional</h1>
+				<h1 class="product_name" itemprop="name">{{$articulos[0]->nombre}}</h1>
 
 				<!--<div class="product-code">
 					<label>Product code : </label>
@@ -2484,18 +2104,5 @@ var moderation_active = 1;
 
 							</div>
 						</div>
-										<div class="footer-bottom">
-						<div class="container">
-							<div class="row">
-								<div class="col-sm-8">
-									<div class="copyright">&copy; 2016 Prestashop Themes Demo Store. All Rights Reserved.  Designed By <a target="_blank" title="Visit MagenTech!" href="http://magentech.com/">MagenTech.Com</a></div>								</div>
-								<div class="col-sm-4">
-									<div class="footer-payment">
-<img src="../../modules/spthemeconfigurator/patterns/payments-1-1.png" alt="payment logos" >
-</div>
 
-								</div>
-							</div>
-						</div>
-					</div>
-</div>
+										@endsection

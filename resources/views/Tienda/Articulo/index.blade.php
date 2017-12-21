@@ -1,7 +1,6 @@
-
+@extends('Tienda.Layout.app')
 @section('content')
 
-<!DOCTYPE HTML>
 					<link href="../themes/sp_market/css/fonts/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
 							<link rel="stylesheet" href="../themes/sp_market/css/global.css" type="text/css" media="all" />
 							<link rel="stylesheet" href="../themes/sp_market/css/autoload/jquery.mCustomScrollbar.css" type="text/css" media="all" />
@@ -759,10 +758,14 @@ param_product_url = '#';
 	                    </div>
 	                  </div>
 	                  <div class="right-block">
-							          <h4 itemprop="nombre" class="product-name">
-													<a href="sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html" itemprop="url" >{{$articulo->nombre}}
+											<?php
+											echo $articulo->nombre.'- '.$articulo->id;
+							          echo '<h4 itemprop="nombre" class="product-name">
+
+													<a href="'.$articulo->id.'/Detalles" itemprop="url" >'.$articulo->nombre.'
 								          </a>
-							          </h4>
+							          </h4>';
+												?>
 											<h5 itemprop="marca" class="product-name">
 												<b>Marca: {{$articulo->marca}}
 							          </b>
@@ -878,110 +881,4 @@ param_product_url = '#';
 </div><!-- #columns -->
 </div><!-- .columns-container -->
 
-<!-- Footer -->
-<div class="footer-container">
-	<footer id="footer"  class="container">
-		<div class="footer-content">
-			<div class="row">
-        <div class="sp_customhtml_4_15132659381470326636box-footer col-sm-3 spcustom_html">
-
-
-                  <div class="footer-links">
-								<div class="title-box">About Market</div>
-								<ul class="links">
-								<li><a href="#">About Us</a></li>
-								<li><a href="#">Market Reviews</a></li>
-								<li><a href="#">Terms of Use</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-								<li><a href="#">Site Map</a></li>
-								</ul>
-								</div>
-
-                    </div>
-
-                        <div class="sp_customhtml_5_15132659381359856899
-		box-footer col-sm-3 spcustom_html">
-
-
-                  <div class="footer-links">
-								<div class="title-box">Customer Service</div>
-								<ul class="links">
-								<li><a href="#">Shipping Policy</a></li>
-								<li><a href="#">Compensation First</a></li>
-								<li><a href="#">My Account</a></li>
-								<li><a href="#">Return Policy</a></li>
-								<li><a href="#">Contact Us</a></li>
-								</ul>
-								</div>
-
-                    </div>
-
-                        <div class="sp_customhtml_6_1513265938238401174
-		box-footer col-sm-3 spcustom_html">
-
-
-                  <div class="footer-links">
-								<div class="title-box">Payment & Shipping</div>
-								<ul class="links">
-								<li><a href="#">Terms of Use</a></li>
-								<li><a href="#">Payment Methods</a></li>
-								<li><a href="#">Shipping Guide</a></li>
-								<li><a href="#">Locations We Ship To</a></li>
-								<li><a href="#">Estimated Delivery Time</a></li>
-								</ul>
-								</div>
-
-                    </div>
-    <!-- /SP Custom Html -->
-
-
-<!-- MODULE Block contact infos -->
-<section id="block_contact_infos" class="contact-infos box-footer col-md-3 col-sm-12">
-
-	<div class="title-box">Contacte con nosotros</div>
-	<ul class="list-contact">
-
-					<li class="address">
-				<span class="icon"><i class="fa fa-map-marker"></i></span>
-				<label>Address: No 40 Baria Sreet 133/2 NewYork City,
-NY, United States</label>
-			</li>
-							<li class="email">
-				<span class="icon"><i class="fa fa-envelope"></i></span>
-				<label>Email: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;%63%6f%6e%74%61%63%74@%6d%61%72%6b%65%74.%63%6f%6d" >&#x63;&#x6f;&#x6e;&#x74;&#x61;&#x63;&#x74;&#x40;&#x6d;&#x61;&#x72;&#x6b;&#x65;&#x74;&#x2e;&#x63;&#x6f;&#x6d;</a></label>
-			</li>
-							<li class="phone">
-				<span class="icon"><i class="fa fa-mobile"></i></span>
-				<label>Phone: 0123456789</label>
-			</li>
-			</ul>
-
-</section>
-							</div>
-						</div>
-					</footer>
-
-															
-										<div class="footer-bottom">
-						<div class="container">
-							<div class="row">
-								<div class="col-sm-8">
-									<div class="copyright">&copy; 2016 Prestashop Themes Demo Store. All Rights Reserved.  Designed By <a target="_blank" title="Visit MagenTech!" href="http://magentech.com/">MagenTech.Com</a></div>								</div>
-								<div class="col-sm-4">
-									<div class="footer-payment">
-<img src="http://prestashop.flytheme.net/sp_market/modules/spthemeconfigurator/patterns/payments-1-1.png" alt="payment logos" >
-</div>
-
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="backtop">
-						<a id="sp-totop" class="backtotop" href="#" title="Back to top">
-							<i class="fa fa-arrow-up"></i>
-						</a>
-					</div>
-
-				</div><!-- #footer -->
-					</div><!-- #page -->
+@endsection
