@@ -195,13 +195,21 @@ var wishlistProductsIds = false;
     //]]>
 </script>
 
-			<!-- Breadcrumb Column -->
-							 <div class="breadcrumb-container">
-					<div class="container">
 
-<!-- Breadcrumb -->
-<div class="breadcrumb clearfix">
-	</div>
+			<div class="breadcrumb-container">
+				<div class="container">
+
+			<!-- Breadcrumb -->
+					<div class="breadcrumb clearfix">
+						<ul>
+							<li class="home"><a href="{{'Tienda'}}">Inicio</a></li>
+							<li class="depth1"><a href="#">{{$articulos[0]->nombre}}</a></li>
+						</ul>
+					</div>
+			<!-- /Breadcrumb -->
+				</div>
+			</div>
+
 
 		</div>
 				</div>

@@ -11,8 +11,8 @@
 <div class="breadcrumb clearfix">
 	<ul>
 		<li class="home"><a href="{{url('Tienda/')}}">Inicio</a></li>
-									<b>>  Carrito</b>
-						</ul>
+		<li class="depth1"><a href="#">Carrito</a></li>
+	</ul>
 
 </div>
 <!-- /Breadcrumb -->
