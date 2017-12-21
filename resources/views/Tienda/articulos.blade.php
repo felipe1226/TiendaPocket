@@ -883,11 +883,6 @@
 
 	<div class="content_product_list      "  data-class=" col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
 
-
-
-
-
-
 	<!-- Products list -->
 	<ul class="product_list row grid">
 
@@ -905,9 +900,7 @@
 																					<a href="toys-hobbies/69-faded-short-sleeves-tshirt.html" title="Gortor shankleng" itemprop="url" >
 									<img class="img_1" src="../347-home_default/faded-short-sleeves-tshirt.jpg"  alt="Gortor shankleng"/>
 																	</a>
-
-
-						</div>
+					</div>
 
 						<div class="label-box">
 															<span class="new-box">Nuevo</span>
@@ -1019,13 +1012,8 @@
 						</div>
 				</div>
 
-
-
 			</div><!-- .product-container> -->
 		</li>
-
-
-
 
 		<li class="ajax_block_product  col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
 			<div class="product-container" itemscope itemtype="http://schema.org/Product">
@@ -1746,10 +1734,8 @@
 																	</div>
 
 						<div class="button-container">
-
-																																		<a class="cart_button ajax_add_to_cart_button" href="ordera6a2.html?add=1&amp;id_product=63&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f" rel="nofollow"  title="Carro" data-id-product="63">
-											Carro
-										</a>
+							<a class="cart_button ajax_add_to_cart_button" href="ordera6a2.html?add=1&amp;id_product=63&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f" rel="nofollow"  title="Carro" data-id-product="63">
+											Carro</a>
 
 
 	<a class="addToWishlist wishlistProd_63" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '63', false, 1); return false;">
@@ -1871,10 +1857,7 @@
 																	</div>
 
 						<div class="button-container">
-
-																																		<a class="cart_button ajax_add_to_cart_button" href="order81b4.html?add=1&amp;id_product=62&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f" rel="nofollow"  title="Carro" data-id-product="62">
-											Carro
-										</a>
+							<a class="cart_button ajax_add_to_cart_button" href="order81b4.html?add=1&amp;id_product=62&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f" rel="nofollow"  title="Carro" data-id-product="62">Carro</a>
 
 
 	<a class="addToWishlist wishlistProd_62" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '62', false, 1); return false;">

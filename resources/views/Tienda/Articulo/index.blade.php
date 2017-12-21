@@ -1,80 +1,185 @@
-
 @section('content')
 
-<!DOCTYPE HTML>
+	<!DOCTYPE HTML>
+
+	<html lang="es">
+
+	<!-- Mirrored from prestashop.flytheme.net/sp_market/es/new-products by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 24 Sep 2017 01:40:29 GMT -->
+	<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+	<head>
+			<title>New products - SP Market</title>
+
+						<meta name="description" content="Our new products" />
+
+
+
+			<meta charset="utf-8" />
+	        <meta name="generator" content="PrestaShop" />
+			<meta name="format-detection" content="telephone=no">
+			<meta name="robots" content="index,follow" />
+			<link rel="icon" type="image/vnd.microsoft.icon" href="http://prestashop.flytheme.net/sp_market/img/favicon.ico?1474943838" />
+			<link rel="shortcut icon" type="image/x-icon" href="http://prestashop.flytheme.net/sp_market/img/favicon.ico?1474943838" />
+
+
+
+					 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+
+
+
+
+			<meta name="apple-mobile-web-app-capable" content="YES" />
+	        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+
 					<link href="../themes/sp_market/css/fonts/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
-							<link rel="stylesheet" href="../themes/sp_market/css/global.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../themes/sp_market/css/autoload/jquery.mCustomScrollbar.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../themes/sp_market/css/autoload/uniform.default.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../js/jquery/plugins/fancybox/jquery.fancybox.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../modules/spthemeconfigurator/views/css/front/sp-cpanel.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../themes/sp_market/css/bootstrap/bootstrap.min.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../modules/spthemeconfigurator/views/css/front/configCss-1.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../themes/sp_market/css/theme-2f0033.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../themes/sp_market/css/responsive.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../themes/sp_market/css/modules/blocktags/blocktags.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../themes/sp_market/css/modules/blockwishlist/blockwishlist.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../themes/sp_market/css/modules/productcomments/productcomments.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../themes/sp_market/css/modules/spblockcurrencies/css/spblockcurrencies.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../themes/sp_market/css/modules/spblocklanguages/css/spblocklanguages.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../modules/smartblog/css/smartblogstyle.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../themes/sp_market/css/modules/blockcategories/blockcategories.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../themes/sp_market/css/modules/spmegamenu/css/spmegamenu.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../themes/sp_market/css/modules/spextraslider/views/css/style.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../modules/spextraslider/views/css/owl.carousel.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../themes/sp_market/css/modules/splistingtabs/views/css/sp-listing-tabs.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../modules/splistingtabs/views/css/owl.carousel.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../themes/sp_market/css/modules/spblockuserinfo/css/spblockuserinfo.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../themes/sp_market/css/modules/spdeal/views/css/styles.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../themes/sp_market/css/modules/spverticalmenu/css/spverticalmenu.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../themes/sp_market/css/modules/spcategories/views/css/sp-categories.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../themes/sp_market/css/modules/spsearchpro/views/css/style.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../themes/sp_market/css/modules/spblockcart/css/spblockcart.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../js/jquery/plugins/bxslider/jquery.bxslider.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../themes/sp_market/css/modules/sphomeslider/css/sphomeslider.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../modules/sphomeslider/css/animate.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../modules/sphomeslider/css/owl.carousel.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../themes/sp_market/css/modules/spblocknewsletter/spblocknewsletter.css" type="text/css" media="all" />
-							<link rel="stylesheet" href="../themes/sp_market/css/modules/spcustomhtml/views/css/style.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../themes/sp_market/css/global.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../themes/sp_market/css/autoload/jquery.mCustomScrollbar.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../themes/sp_market/css/autoload/uniform.default.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../js/jquery/plugins/fancybox/jquery.fancybox.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../modules/spthemeconfigurator/views/css/front/sp-cpanel.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../themes/sp_market/css/bootstrap/bootstrap.min.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../modules/spthemeconfigurator/views/css/front/configCss-1.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../themes/sp_market/css/theme-2f0033.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../themes/sp_market/css/responsive.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../themes/sp_market/css/modules/blocktags/blocktags.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../themes/sp_market/css/modules/blockwishlist/blockwishlist.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../themes/sp_market/css/modules/productcomments/productcomments.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../themes/sp_market/css/modules/spblockcurrencies/css/spblockcurrencies.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../themes/sp_market/css/modules/spblocklanguages/css/spblocklanguages.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../modules/smartblog/css/smartblogstyle.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../themes/sp_market/css/modules/blockcategories/blockcategories.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../themes/sp_market/css/modules/spmegamenu/css/spmegamenu.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../themes/sp_market/css/modules/spextraslider/views/css/style.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../modules/spextraslider/views/css/owl.carousel.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../themes/sp_market/css/modules/splistingtabs/views/css/sp-listing-tabs.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../modules/splistingtabs/views/css/owl.carousel.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../themes/sp_market/css/modules/spblockuserinfo/css/spblockuserinfo.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../themes/sp_market/css/modules/spdeal/views/css/styles.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../themes/sp_market/css/modules/spverticalmenu/css/spverticalmenu.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../themes/sp_market/css/modules/spcategories/views/css/sp-categories.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../themes/sp_market/css/modules/spsearchpro/views/css/style.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../themes/sp_market/css/modules/spblockcart/css/spblockcart.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../js/jquery/plugins/bxslider/jquery.bxslider.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../themes/sp_market/css/modules/sphomeslider/css/sphomeslider.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../modules/sphomeslider/css/animate.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../modules/sphomeslider/css/owl.carousel.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../themes/sp_market/css/modules/spblocknewsletter/spblocknewsletter.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="../themes/sp_market/css/modules/spcustomhtml/views/css/style.css" type="text/css" media="all" />
 
-					<script type="text/javascript">
 
-							<script type="text/javascript" src="../js/jquery/jquery-1.11.0.min.js"></script>
-							<script type="text/javascript" src="../js/jquery/jquery-migrate-1.2.1.min.js"></script>
-							<script type="text/javascript" src="../js/jquery/plugins/jquery.easing.js"></script>
-							<script type="text/javascript" src="../js/tools.js"></script>
-							<script type="text/javascript" src="../themes/sp_market/js/global.js"></script>
-							<script type="text/javascript" src="../themes/sp_market/js/autoload/10-bootstrap.min.js"></script>
-							<script type="text/javascript" src="../themes/sp_market/js/autoload/15-jquery.total-storage.min.js"></script>
-							<script type="text/javascript" src="../themes/sp_market/js/autoload/15-jquery.uniform-modified.js"></script>
-							<script type="text/javascript" src="../themes/sp_market/js/autoload/jquery.mCustomScrollbar.concat.min.js"></script>
-							<script type="text/javascript" src="../themes/sp_market/js/autoload/slick.min.js"></script>
-							<script type="text/javascript" src="../js/jquery/plugins/fancybox/jquery.fancybox.js"></script>
-							<script type="text/javascript" src="../themes/sp_market/js/products-comparison.js"></script>
-							<script type="text/javascript" src="../modules/spthemeconfigurator/views/js/front/jquery.miniColors.min.js"></script>
-							<script type="text/javascript" src="../modules/spthemeconfigurator/views/js/front/sp-cpanel.js"></script>
-							<script type="text/javascript" src="../themes/sp_market/js/sp_lib/jquery.backtotop.js"></script>
-							<script type="text/javascript" src="../themes/sp_market/js/sp_lib/jquery.global.js"></script>
-							<script type="text/javascript" src="../themes/sp_market/js/sp_lib/jquery.ui.touch-punch.min.js"></script>
-							<script type="text/javascript" src="../themes/sp_market/js/sp_lib/jquery.elevatezoom.js"></script>
-							<script type="text/javascript" src="../themes/sp_market/js/modules/blockwishlist/js/ajax-wishlist.js"></script>
-							<script type="text/javascript" src="../themes/sp_market/js/tools/treeManagement.js"></script>
-							<script type="text/javascript" src="../modules/spextraslider/views/js/owl.carousel.js"></script>
-							<script type="text/javascript" src="../modules/spdeal/views/js/deal.js"></script>
-							<script type="text/javascript" src="../modules/spdeal/views/js/jquery.cj-swipe.js"></script>
-							<script type="text/javascript" src="../modules/spcategories/views/js/jquery.imagesloaded.js"></script>
-							<script type="text/javascript" src="../modules/spcategories/views/js/jquery.sj_accordion.js"></script>
-							<script type="text/javascript" src="../modules/spsearchpro/views/js/jquery.autocomplete.js"></script>
-							<script type="text/javascript" src="../themes/sp_market/js/modules/spblockcart/ajax-cart.js"></script>
-							<script type="text/javascript" src="../js/jquery/plugins/jquery.scrollTo.js"></script>
-							<script type="text/javascript" src="../js/jquery/plugins/jquery.serialScroll.js"></script>
-							<script type="text/javascript" src="../js/jquery/plugins/bxslider/jquery.bxslider.js"></script>
-							<script type="text/javascript" src="../modules/sphomeslider/js/owl.carousel.js"></script>
-							<script type="text/javascript" src="../modules/spblocknewsletter/jquery.cookie.min.js"></script>
-							<script type="text/javascript" src="../themes/sp_market/js/index.js"></script>
-							<script type="text/javascript" src="../modules/statsdata/js/plugindetect.js"></script>
 
-<div class="header-center">
+
+
+
+						<script type="text/javascript">
+	var CUSTOMIZE_TEXTFIELD = 1;
+	var FancyboxI18nClose = 'Close';
+	var FancyboxI18nNext = 'Next';
+	var FancyboxI18nPrev = 'Previous';
+	var add_compare_item = 'Product successfully added to the product comparison';
+	var added_to_wishlist = 'El producto se ha añadido con éxito a su lista de deseos.';
+	var ajax_allowed = true;
+	var ajaxsearch = true;
+	var baseDir = 'http://prestashop.flytheme.net/sp_market/';
+	var baseUri = 'http://prestashop.flytheme.net/sp_market/';
+	var comparator_max_item = '3';
+	var comparedProductsIds = [];
+	var contentOnly = false;
+	var currency = {"id":1,"name":"USD","iso_code":"USD","iso_code_num":"840","sign":"$","blank":"0","conversion_rate":"1.000000","deleted":"0","format":"1","decimals":"1","active":"1","prefix":"$ ","suffix":"","id_shop_list":null,"force_id":false};
+	var currencyBlank = 0;
+	var currencyFormat = 1;
+	var currencyRate = 1;
+	var currencySign = '$';
+	var customizationIdMessage = 'Customization #';
+	var delete_txt = 'Delete';
+	var displayList = false;
+	var freeProductTranslation = 'Free!';
+	var freeShippingTranslation = 'Free shipping!';
+	var generated_date = 1506214402;
+	var id_lang = 4;
+	var img_dir = 'http://prestashop.flytheme.net/sp_market/themes/sp_market/img/';
+	var instantsearch = false;
+	var isGuest = 0;
+	var isLogged = 0;
+	var isMobile = false;
+	var loggin_required = 'Debe identificarse para administrar su lista de deseos.';
+	var max_item = 'You cannot add more than 3 product(s) to the product comparison';
+	var min_item = 'Please select at least one product';
+	var mywishlist_url = 'loginf896.html';
+	var page_name = 'new-products';
+	var priceDisplayMethod = 1;
+	var priceDisplayPrecision = 2;
+	var quickView = true;
+	var remove_compare_item = 'Product successfully removed from the product comparison';
+	var removingLinkText = 'remove this product from my cart';
+	var request = 'new-products.html';
+	var roundMode = 2;
+	var static_token = 'c4995744c9bff2e8158c3c8bf59fbd5f';
+	var token = '022e82784722414d50430c9aaa58ca23';
+	var usingSecureMode = false;
+	var wishlistProductsIds = false;
+	</script>
+
+								<script type="text/javascript" src="../js/jquery/jquery-1.11.0.min.js"></script>
+								<script type="text/javascript" src="../js/jquery/jquery-migrate-1.2.1.min.js"></script>
+								<script type="text/javascript" src="../js/jquery/plugins/jquery.easing.js"></script>
+								<script type="text/javascript" src="../js/tools.js"></script>
+								<script type="text/javascript" src="../themes/sp_market/js/global.js"></script>
+								<script type="text/javascript" src="../themes/sp_market/js/autoload/10-bootstrap.min.js"></script>
+								<script type="text/javascript" src="../themes/sp_market/js/autoload/15-jquery.total-storage.min.js"></script>
+								<script type="text/javascript" src="../themes/sp_market/js/autoload/15-jquery.uniform-modified.js"></script>
+								<script type="text/javascript" src="../themes/sp_market/js/autoload/jquery.mCustomScrollbar.concat.min.js"></script>
+								<script type="text/javascript" src="../themes/sp_market/js/autoload/slick.min.js"></script>
+								<script type="text/javascript" src="../js/jquery/plugins/fancybox/jquery.fancybox.js"></script>
+								<script type="text/javascript" src="../themes/sp_market/js/products-comparison.js"></script>
+								<script type="text/javascript" src="../modules/spthemeconfigurator/views/js/front/jquery.miniColors.min.js"></script>
+								<script type="text/javascript" src="../modules/spthemeconfigurator/views/js/front/sp-cpanel.js"></script>
+								<script type="text/javascript" src="../themes/sp_market/js/sp_lib/jquery.backtotop.js"></script>
+								<script type="text/javascript" src="../themes/sp_market/js/sp_lib/jquery.global.js"></script>
+								<script type="text/javascript" src="../themes/sp_market/js/sp_lib/jquery.ui.touch-punch.min.js"></script>
+								<script type="text/javascript" src="../themes/sp_market/js/sp_lib/jquery.elevatezoom.js"></script>
+								<script type="text/javascript" src="../themes/sp_market/js/modules/blockwishlist/js/ajax-wishlist.js"></script>
+								<script type="text/javascript" src="../themes/sp_market/js/tools/treeManagement.js"></script>
+								<script type="text/javascript" src="../modules/spextraslider/views/js/owl.carousel.js"></script>
+								<script type="text/javascript" src="../modules/spdeal/views/js/deal.js"></script>
+								<script type="text/javascript" src="../modules/spdeal/views/js/jquery.cj-swipe.js"></script>
+								<script type="text/javascript" src="../modules/spcategories/views/js/jquery.imagesloaded.js"></script>
+								<script type="text/javascript" src="../modules/spcategories/views/js/jquery.sj_accordion.js"></script>
+								<script type="text/javascript" src="../modules/spsearchpro/views/js/jquery.autocomplete.js"></script>
+								<script type="text/javascript" src="../themes/sp_market/js/modules/spblockcart/ajax-cart.js"></script>
+								<script type="text/javascript" src="../js/jquery/plugins/jquery.scrollTo.js"></script>
+								<script type="text/javascript" src="../js/jquery/plugins/jquery.serialScroll.js"></script>
+								<script type="text/javascript" src="../js/jquery/plugins/bxslider/jquery.bxslider.js"></script>
+								<script type="text/javascript" src="../modules/sphomeslider/js/owl.carousel.js"></script>
+								<script type="text/javascript" src="../modules/spblocknewsletter/jquery.cookie.min.js"></script>
+
+<script type="text/javascript">
+	    //<![CDATA[
+	    var listdeal = [];
+	    //]]>
+	</script>
+<script type="text/javascript">
+	    //<![CDATA[
+	    var listdeal = [];
+	    //]]>
+	</script>
+
+
+	        <!--[if IE]> <link rel="stylesheet" href="http://prestashop.flytheme.net/sp_market/themes/sp_market/css/ie9.css" type="text/css" media="all" /><![endif]-->
+
+
+
+			<!-- ADD RTL CLASSS -->
+
+
+		</head>
+
+
+
+
+
+
+		<div class="header-center">
 	<div class="container">
 		<div class="row">
 			<div id="header_logo" class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
@@ -202,22 +307,22 @@
 							</div>
 						</div>
 
-						<div id="pro_added_success" class="alert alert-success">Product successfully added to your shopping cart
+						<div id="pro_added_success" class="alert alert-success">Producto agregado exitosamente a su carrito de compras
 						</div>
 						<div class="layer_details">
 							<div class="layer_cart_row">
 										<!-- Plural Case [both cases are needed because page may be updated in Javascript] -->
 											<span class="ajax_cart_product_txt_s  unvisible">
-												There are <span class="ajax_cart_quantity">0</span> items in your cart.
+												Hay <span class="ajax_cart_quantity">0</span> articulos en tu carrito
 											</span>
 										<!-- Singular Case [both cases are needed because page may be updated in Javascript] -->
 											<span class="ajax_cart_product_txt ">
-												There is 1 item in your cart.
+												Hay 1 artículo en su carrito..
 											</span>
 							</div>
 							<div id="layer_cart_ajax_block_products_total" class="layer_cart_row hidden">
 											<span class="layer_cart_label">
-												Total products
+												Total productos
 																		(tax excl.)
 											</span>
 											<span class="ajax_block_products_total">
@@ -855,7 +960,8 @@ param_product_url = '#';
 			</div>
 								 <!-- End of Sidebar -->
 
-
+				{!!Html::script('javascripts/notificaciones/modernizr.custom.js')!!}
+				{!!Html::script('javascripts/notificaciones/notificationFx.js')!!}
 				<div id="center_column" class="column col-sm-8 col-md-9 col-lg-9">
 				@include('flash::message')
 				@if(isset($articulos))
@@ -873,9 +979,9 @@ param_product_url = '#';
 				              <option value="name:desc" >Nombre: Z to A</option>
 								      <option value="price:asc" >Mayor precio</option>
 					            <option value="price:desc" >Menor precio</option>
-								      <option value="quantity:desc" >Product In Stock</option>
-				              <option value="reference:asc" >Lowest Reference</option>
-				              <option value="reference:desc" >Highest Reference</option>
+								      <option value="quantity:desc" >Productos en Stock</option>
+				              <option value="reference:asc" >Referencia mas baja</option>
+				              <option value="reference:desc" >Referencia mas alta</option>
 			              </select>
 		            </div>
 	            </form>
@@ -902,7 +1008,7 @@ param_product_url = '#';
 														}
 													?>
 												</div>
-								        <a class="quick-view" href="sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html" data-rel="sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html">Ver detalles
+										 <a title="Vista rápida" class="quick-view" href="Tienda/Articulo/NotificacionArticulo" data-rel="http://localhost:8000/Articulos/PocketClub">Ver detalles
 								        </a>
 	                    </div>
 	                  </div>
@@ -987,9 +1093,9 @@ param_product_url = '#';
 				              <option value="name:desc" >Nombre: Z to A</option>
 								      <option value="price:asc" >Mayor precio</option>
 					            <option value="price:desc" >Menor precio</option>
-								      <option value="quantity:desc" >Product In Stock</option>
-				              <option value="reference:asc" >Lowest Reference</option>
-				              <option value="reference:desc" >Highest Reference</option>
+								      <option value="quantity:desc" >Productos en Stock</option>
+				              <option value="reference:asc" >Referencia mas baja</option>
+				              <option value="reference:desc" >Referencia mas alta</option>
 			              </select>
 		            </div>
 	            </form>

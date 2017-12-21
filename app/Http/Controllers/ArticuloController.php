@@ -12,6 +12,7 @@ use Auth;
 use Storage;
 class ArticuloController extends Controller
 {
+
   public function __construct()
   {
 
