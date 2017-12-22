@@ -830,7 +830,7 @@ param_product_url = '#';
 														}
 													?>
 												</div>
-										 <a title="Vista rápida" class="quick-view" href="Tienda/Articulo/NotificacionArticulo" data-rel="http://localhost:8000/Articulos/PocketClub">Ver detalles
+										 <a title="Vista rápida" class="quick-view" href="Tienda/Articulo" data-rel="http://localhost:8000/Articulos/PocketClub">Ver detalles
 								        </a>
 	                    </div>
 	                  </div>
