@@ -42,7 +42,7 @@
 
 
 						<script type="text/javascript">
-	
+
 	</script>
 
 								<script type="text/javascript" src="../js/jquery/jquery-1.11.0.min.js"></script>
