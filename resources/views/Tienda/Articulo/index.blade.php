@@ -37,14 +37,6 @@
 						<link rel="stylesheet" href="../themes/sp_market/css/modules/spcustomhtml/views/css/style.css" type="text/css" media="all" />
 
 
-
-
-
-
-						<script type="text/javascript">
-
-	</script>
-
 								<script type="text/javascript" src="../js/jquery/jquery-1.11.0.min.js"></script>
 								<script type="text/javascript" src="../js/jquery/jquery-migrate-1.2.1.min.js"></script>
 								<script type="text/javascript" src="../js/jquery/plugins/jquery.easing.js"></script>
@@ -78,16 +70,7 @@
 								<script type="text/javascript" src="../modules/sphomeslider/js/owl.carousel.js"></script>
 								<script type="text/javascript" src="../modules/spblocknewsletter/jquery.cookie.min.js"></script>
 
-<script type="text/javascript">
-	    //<![CDATA[
-	    var listdeal = [];
-	    //]]>
-	</script>
-<script type="text/javascript">
-	    //<![CDATA[
-	    var listdeal = [];
-	    //]]>
-	</script>
+
 
 
 	        <!--[if IE]> <link rel="stylesheet" href="http://prestashop.flytheme.net/sp_market/themes/sp_market/css/ie9.css" type="text/css" media="all" /><![endif]-->
