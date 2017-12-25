@@ -25,6 +25,5 @@ class Carrito extends Model
 
     return $resultado;
   }
-
-
+  
 }

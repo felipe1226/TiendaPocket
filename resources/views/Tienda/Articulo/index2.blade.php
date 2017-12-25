@@ -45,8 +45,8 @@
     var added_to_wishlist = 'El producto se ha añadido con éxito a su lista de deseos.';
     var ajax_allowed = true;
     var ajaxsearch = true;
-    var baseDir = 'sp_market/';
-    var baseUri = 'sp_market/';
+    var baseDir = '/';
+    var baseUri = '/';
     var blocklayeredSliderName = {"price":"precio","weight":"peso"};
     var comparator_max_item = 3;
     var comparedProductsIds = [22];
@@ -124,6 +124,83 @@
     <script type="text/javascript" src="../modules/statsdata/js/plugindetect.js"></script>
 
 
+
+
+  	<div id="layer_cart" class="layer_box">
+  		<div class="layer_inner_box">
+  			<div class="layer_product clearfix mar_b10">
+  						<span class="cross" title="Close window"></span>
+  				<div class="product-image-container layer_cart_img">
+  				</div>
+  				<div class="layer_product_info">
+  							<h3 id="layer_cart_product_title" class="product-name"></h3>
+  							<span id="layer_cart_product_attributes"></span>
+  					<div id="layer_cart_product_quantity_wrap" class="hidden">
+  								<span class="layer_cart_label">Quantity</span>
+  								<span id="layer_cart_product_quantity"></span>
+  					</div>
+  					<div id="layer_cart_product_price_wrap" class="hidden">
+  								<span class="layer_cart_label">Total</span>
+  								<span id="layer_cart_product_price"></span>
+  					</div>
+  				</div>
+  			</div>
+
+  			<div id="pro_added_success" class="alert alert-success">Producto agregado exitosamente a su carrito de compras
+  			</div>
+  			<div class="layer_details">
+  				<div class="layer_cart_row">
+  							<!-- Plural Case [both cases are needed because page may be updated in Javascript] -->
+  								<span class="ajax_cart_product_txt_s  unvisible">
+  									Hay <span class="ajax_cart_quantity">0</span> articulos en tu carrito
+  								</span>
+  							<!-- Singular Case [both cases are needed because page may be updated in Javascript] -->
+  								<span class="ajax_cart_product_txt ">
+  									Hay 1 artículo en su carrito..
+  								</span>
+  				</div>
+  				<div id="layer_cart_ajax_block_products_total" class="layer_cart_row hidden">
+  								<span class="layer_cart_label">
+  									Total productos
+  															(tax excl.)
+  								</span>
+  								<span class="ajax_block_products_total">
+  								</span>
+  				</div>
+
+  				<div id="layer_cart_ajax_cart_shipping_cost" class="layer_cart_row hidden">
+  								<span class="layer_cart_label">
+  									Total shipping&nbsp;(tax excl.)
+  								</span>
+  								<span class="ajax_cart_shipping_cost">
+  									Free shipping!
+  								</span>
+  				</div>
+  				<div id="layer_cart_ajax_block_cart_total" class="layer_cart_row">
+  								<span class="layer_cart_label">
+  									Total
+  															(tax excl.)
+  								</span>
+  								<span class="ajax_block_cart_total price">
+  								</span>
+  				</div>
+  				<div class="button-container clearfix">
+  								<span class="continue button pull-left" title="Continue shopping">
+  									Continue shopping
+  								</span>
+  								<a class="button pull-right" href="order.html" title="Proceed to checkout" rel="nofollow">
+  									Proceed to checkout
+  								</a>
+  				</div>
+  			</div>
+  		</div>
+  		<div class="crossseling">
+  		</div>
+  	</div> <!-- #layer_cart -->
+  	<div class="layer_cart_overlay">
+  	</div>
+
+
 <!-- Breadcrumb Column -->
 	<div class="breadcrumb-container">
 		<div class="container">
@@ -131,9 +208,10 @@
 <!-- Breadcrumb -->
       <div class="breadcrumb clearfix">
 	      <ul>
-		      <li class="home"><a href="http://prestashop.flytheme.net/sp_market/" title="Return to Home">Home  </a>
+		      <li class="home"><a href="http://prestashop.flytheme.net/sp_market/" title="Return to Home">Inicio  </a>
           </li>
-									<b>>  {{$categoria}}</b>
+          <li class="depht1"><a href="#">{{$categoria}}  </a>
+          </li>
 				</ul>
       </div>
 <!-- /Breadcrumb -->
@@ -520,1336 +598,210 @@
 			});
 		});
 	</script>
-
 								</div>
 								 <!-- End of Sidebar -->
-
-
-
-
-						<!-- Center Column -->
-						<div id="center_column" class="column col-sm-8 col-md-9 col-lg-9">
-
-
-
-
-
-
-
+			<div id="center_column" class="column col-sm-8 col-md-9 col-lg-9">
 		<!-- Subcategories -->
+        @if(isset($articulos))
+          @if(count($articulos) == 0)
+            <p class="alert alert-warning">No hay productos de esta categoria en este momento.</p>
+          @else
+  					<div class="content_sortPagiBar_top">
+  				    <div class="category-view-type hidden-xs">
+                <div id="grid" class="category-view-type-selector"><a rel="nofollow" href="#" title="Cuadricula"></a>
+                </div>
+                <div id="list" class="category-view-type-selector"><a rel="nofollow" href="#" title="Lista"></a>
+                </div>
+              </div>
+              <form id="productsSortForm" action="http://prestashop.flytheme.net/sp_market/es/153-healthy-beauty" class="productsSortForm ">
 
-
-
-					<div class="content_sortPagiBar_top">
-				<div class="category-view-type hidden-xs">
-    <div id="grid" class="category-view-type-selector"><a rel="nofollow" href="#" title="Grid"></a></div>
-    <div id="list" class="category-view-type-selector"><a rel="nofollow" href="#" title="List"></a></div>
-</div>
-
-
-
-
-<form id="productsSortForm" action="http://prestashop.flytheme.net/sp_market/es/153-healthy-beauty" class="productsSortForm ">
-
-	<div class="select selector1">
-		<label for="selectProductSort">Ordenar</label>
-		<select id="selectProductSort" class="selectProductSort form-control">
-			<option value="name:asc" >Product Name: A to Z</option>
-			<option value="name:desc" >Product Name: Z to A</option>
-							<option value="price:asc" >Lowest Price</option>
-				<option value="price:desc" >Highest Price</option>
-						<!--<option value="position:asc" selected="selected">Product Sort</option>-->
-							<option value="quantity:desc" >Product In Stock</option>
-
-			<option value="reference:asc" >Lowest Reference</option>
-			<option value="reference:desc" >Highest Reference</option>
-		</select>
-	</div>
-</form>
-<!-- /Sort products -->
-
-
-											<!-- nbr product/page -->
-			<form action="http://prestashop.flytheme.net/sp_market/es/153-healthy-beauty" method="get" class="nbrItemPage">
-			<div class="clearfix selector1">
-												<label for="nb_item">
-					Show
-				</label>
-																																	<input type="hidden" name="id_category" value="153" />
-																			<select name="n" id="nb_item" class="form-control">
-																							<option value="9" selected="selected">9</option>
-																														<option value="18" >18</option>
-																														<option value="45" >45</option>
-																					</select>
-
-			</div>
-		</form>
-		<!-- /nbr product/page -->
-
-
-
+              	<div class="select selector1">
+              		<label for="selectProductSort">Ordenar</label>
+              		<select id="selectProductSort" class="selectProductSort form-control">
+              			<option value="name:asc" >Product Name: A to Z</option>
+              			<option value="name:desc" >Product Name: Z to A</option>
+              			<option value="price:asc" >Lowest Price</option>
+              			<option value="price:desc" >Highest Price</option>
+              						<!--<option value="position:asc" selected="selected">Product Sort</option>-->
+              			<option value="quantity:desc" >Product In Stock</option>
+              			<option value="reference:asc" >Lowest Reference</option>
+              			<option value="reference:desc" >Highest Reference</option>
+              		</select>
+              	</div>
+              </form>
+  <!-- /Sort products -->
 
 	<!-- Pagination -->
-		<div id="pagination" class="pagination clearfix">
-					<ul class="pagination">
-																															<li class="active current">
-							<span>
-								<span>1</span>
-							</span>
-						</li>
-																				<li>
-							<a  href="/sp_market/es/153-healthy-beauty?p=2">
-								<span>2</span>
-							</a>
-						</li>
-																				<li>
-							<a  href="/sp_market/es/153-healthy-beauty?p=3">
-								<span>3</span>
-							</a>
-						</li>
-																																			<li id="pagination_next" class="pagination_next">
-						<a  href="/sp_market/es/153-healthy-beauty?p=2">
-							<i class="fa fa-angle-right" aria-hidden="true"></i>
-						</a>
-					</li>
+		          <div id="pagination" class="pagination clearfix">
+					      <ul class="pagination">
+                  <li class="active current">
+      							<span><span>1</span></span>
+      						</li>
+                  <li>
+      							<a  href="/sp_market/es/153-healthy-beauty?p=2">
+      								<span>2</span>
+      							</a>
+      						</li>
+                  <li>
+      							<a  href="/sp_market/es/153-healthy-beauty?p=3">
+      								<span>3</span>
+      							</a>
+      						</li>
+                  <li id="pagination_next" class="pagination_next">
+        						<a  href="/sp_market/es/153-healthy-beauty?p=2">
+        							<i class="fa fa-angle-right" aria-hidden="true"></i>
+        						</a>
+        					</li>
 								</ul>
-
-		 <!--<div class="product-count">
-																											Showing 1 - 9 of 23 items
-					</div>
-		-->
-
-	</div>
+              </div>
     	<!-- /Pagination -->
-
-			</div>
-
-
-
-			<div class="content_product_list hide-productdes hide-coloroption hide-stockinfo   "  data-class=" col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
-
-
-
-
-
-
-	<!-- Products list -->
-	<ul class="product_list row grid">
-
-
-
-
-		<li class="ajax_block_product  col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
-			<div class="product-container" itemscope itemtype="http://schema.org/Product">
-				<div class="left-block">
-
-					<div class="product-image-container">
-						<!--   Slider Images Product   -->
-
-						<div class="product-image">
-																					<a href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html" title="Peberkas tongue" itemprop="url" >
-									<img class="img_1" src="http://prestashop.flytheme.net/sp_market/56-home_default/faded-short-sleeves-tshirt.jpg"  alt="Peberkas tongue"/>
-																	</a>
-
-
-						</div>
-
-						<div class="label-box">
-															<span class="new-box">Nuevo</span>
-
-															<span class="sale-box">Venta!</span>
-														</div>
-
-						 							<!--   Enable quick view  -->
-							<a class="quick-view" href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html" title="Vista r&aacute;pida" data-rel="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html">
-								Vista r&aacute;pida
-							</a>
-
-
-
-					</div>
-
-
-				</div>
-
-				<div class="right-block">
-					<!--  Show Product title  -->
-					<h5 itemprop="name" class="product-name">
-												<a href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html" title="Peberkas tongue" itemprop="url" >
-							Peberkas tongue
-						</a>
-					</h5>
-
-					<!--   Show category description   -->
-					<p class="product-desc" itemprop="description">
-						Cupidatat sunt velit esse, deserunt filet mignon hamburger excepteur shank ea ball tip. Eiusmod sunt filet mignon venison kevin sint irure exercitation labore cow prosciutto. Consectetur voluptate leberkas qui kielbasa nostrud proident laborum cupim pork belly beef ad. Aliquip hamburger fugiat sed
-					</p>
-
-
-					<!--   Show Color Options   -->
-											<div class="color-list-container"><ul class="color_to_pick_list clearfix">
-									<li>
-				<a href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html#/size-m/color-orange" id="color_65" class="color_pick" style="background:#F39C11;">
-									</a>
-			</li>
-											<li>
-				<a href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html#/size-s/color-blue" id="color_64" class="color_pick" style="background:#5D9CEC;">
-									</a>
-			</li>
-			</ul>
-</div>
-
-					<!-- <div class="product-flags">
-																																					</div>
-					 -->
-					 						<!--  Show average rating stars  -->
-							<div class="comments_note" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-		<div class="star_content">
-												<div class="star"></div>
-																<div class="star"></div>
-																<div class="star"></div>
-																<div class="star"></div>
-																<div class="star"></div>
-							            <meta itemprop="worstRating" content = "0" />
-            <meta itemprop="ratingValue" content = "0" />
-            <meta itemprop="bestRating" content = "5" />
-		</div>
-		<span class="nb-comments"><span itemprop="reviewCount">0</span> Comentario(s)</span>
-	</div>
-
-
-					<!--Product Prices-->
-										<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="price-box">
-													<span itemprop="price" class="price product-price">
-								$30.51							</span>
-							<meta itemprop="priceCurrency" content="USD" />
-
-
-											</div>
-
-
-					<!--    Show stock information    -->
-
-																				<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="availability">
-																			<span class="available-now">
-											<i class="fa fa-check"></i>
-											<link itemprop="availability" href="http://schema.org/InStock" />In stock										</span>
-																	</div>
-
-						<div class="button-container">
-
-																																		<a class="cart_button ajax_add_to_cart_button" href="http://prestashop.flytheme.net/sp_market/es/cart?add=1&amp;id_product=11&amp;token=37dab0cd8f57363d790bac16e0dd0e45" rel="nofollow"  title="Carro" data-id-product="11">
-											Carro
-										</a>
-
-
-	<a class="addToWishlist wishlistProd_11" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '11', false, 1); return false;">
-		<i class="fa fa-heart"></i>
-	</a>
-
-
-
-															<a class="add_to_compare" href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/11-faded-short-sleeves-tshirt.html" data-tooltip-remove="Remove from compare"  title="A&ntilde;adir a comparar" data-id-product="11">
-									<i class="fa fa-bar-chart"></i></a>
-								</a>
-
-						</div>
-				</div>
-
-
-
-			</div><!-- .product-container> -->
-		</li>
-
-
-
-
-		<li class="ajax_block_product  col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
-			<div class="product-container" itemscope itemtype="http://schema.org/Product">
-				<div class="left-block">
-
-					<div class="product-image-container">
-						<!--   Slider Images Product   -->
-
-						<div class="product-image">
-																					<a href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/12-blouse.html" title="Lround porchetta" itemprop="url" >
-									<img class="img_1" src="http://prestashop.flytheme.net/sp_market/61-home_default/blouse.jpg"  alt="Lround porchetta"/>
-																	</a>
-
-
-						</div>
-
-						<div class="label-box">
-															<span class="new-box">Nuevo</span>
-
-													</div>
-
-						 							<!--   Enable quick view  -->
-							<a class="quick-view" href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/12-blouse.html" title="Vista r&aacute;pida" data-rel="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/12-blouse.html">
-								Vista r&aacute;pida
-							</a>
-
-
-
-					</div>
-
-
-				</div>
-
-				<div class="right-block">
-					<!--  Show Product title  -->
-					<h5 itemprop="name" class="product-name">
-												<a href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/12-blouse.html" title="Lround porchetta" itemprop="url" >
-							Lround porchetta
-						</a>
-					</h5>
-
-					<!--   Show category description   -->
-					<p class="product-desc" itemprop="description">
-						Ullamco fugiat prosciutto brisket tail capicola consequat aliquip biltong irure mollit eu pork chop anim. Swine filet mignon turkey tri-tip culpa andouille commodo turducken strip steak. Picanha bresaola boudin aliqua est, ex minim proident pork belly turducken dolore. Biltong leberkas labore non
-					</p>
-
-
-					<!--   Show Color Options   -->
-											<div class="color-list-container"><ul class="color_to_pick_list clearfix">
-									<li>
-				<a href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/12-blouse.html#/size-s/color-white" id="color_70" class="color_pick" style="background:#ffffff;">
-									</a>
-			</li>
-											<li>
-				<a href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/12-blouse.html#/size-m/color-black" id="color_71" class="color_pick" style="background:#434A54;">
-									</a>
-			</li>
-			</ul>
-</div>
-
-					<!-- <div class="product-flags">
-																														</div>
-					 -->
-					 						<!--  Show average rating stars  -->
-							<div class="comments_note" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-		<div class="star_content">
-												<div class="star"></div>
-																<div class="star"></div>
-																<div class="star"></div>
-																<div class="star"></div>
-																<div class="star"></div>
-							            <meta itemprop="worstRating" content = "0" />
-            <meta itemprop="ratingValue" content = "0" />
-            <meta itemprop="bestRating" content = "5" />
-		</div>
-		<span class="nb-comments"><span itemprop="reviewCount">0</span> Comentario(s)</span>
-	</div>
-
-
-					<!--Product Prices-->
-										<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="price-box">
-													<span itemprop="price" class="price product-price">
-								$27.00							</span>
-							<meta itemprop="priceCurrency" content="USD" />
-
-
-											</div>
-
-
-					<!--    Show stock information    -->
-
-																				<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="availability">
-																			<span class="available-now">
-											<i class="fa fa-check"></i>
-											<link itemprop="availability" href="http://schema.org/InStock" />In stock										</span>
-																	</div>
-
-						<div class="button-container">
-
-																																		<a class="cart_button ajax_add_to_cart_button" href="http://prestashop.flytheme.net/sp_market/es/cart?add=1&amp;id_product=12&amp;token=37dab0cd8f57363d790bac16e0dd0e45" rel="nofollow"  title="Carro" data-id-product="12">
-											Carro
-										</a>
-
-
-	<a class="addToWishlist wishlistProd_12" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '12', false, 1); return false;">
-		<i class="fa fa-heart"></i>
-	</a>
-
-
-
-															<a class="add_to_compare" href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/12-blouse.html" data-tooltip-remove="Remove from compare"  title="A&ntilde;adir a comparar" data-id-product="12">
-									<i class="fa fa-bar-chart"></i></a>
-								</a>
-
-						</div>
-				</div>
-
-
-
-			</div><!-- .product-container> -->
-		</li>
-
-
-
-
-		<li class="ajax_block_product  col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
-			<div class="product-container" itemscope itemtype="http://schema.org/Product">
-				<div class="left-block">
-
-					<div class="product-image-container">
-						<!--   Slider Images Product   -->
-
-						<div class="product-image">
-																					<a href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/15-faded-short-sleeves-tshirt.html" title="Porta tenderloin" itemprop="url" >
-									<img class="img_1" src="http://prestashop.flytheme.net/sp_market/76-home_default/faded-short-sleeves-tshirt.jpg"  alt="Porta tenderloin"/>
-																	</a>
-
-
-						</div>
-
-						<div class="label-box">
-															<span class="new-box">Nuevo</span>
-
-													</div>
-
-						 							<!--   Enable quick view  -->
-							<a class="quick-view" href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/15-faded-short-sleeves-tshirt.html" title="Vista r&aacute;pida" data-rel="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/15-faded-short-sleeves-tshirt.html">
-								Vista r&aacute;pida
-							</a>
-
-
-
-					</div>
-
-
-				</div>
-
-				<div class="right-block">
-					<!--  Show Product title  -->
-					<h5 itemprop="name" class="product-name">
-												<a href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/15-faded-short-sleeves-tshirt.html" title="Porta tenderloin" itemprop="url" >
-							Porta tenderloin
-						</a>
-					</h5>
-
-					<!--   Show category description   -->
-					<p class="product-desc" itemprop="description">
-						Ut eiusmod swine incididunt qui pig. Pastrami in turkey doner, ullamco cupidatat nostrud est dolore. Spare ribs mollit nostrud anim, pork loin bacon deserunt chuck. Adipisicing tri-tip ullamco kevin non. Incididunt bresaola lorem, tri-tip filet mignon pork loin esse tenderloin beef.
-					</p>
-
-
-					<!--   Show Color Options   -->
-											<div class="color-list-container"><ul class="color_to_pick_list clearfix">
-									<li>
-				<a href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/15-faded-short-sleeves-tshirt.html#/size-m/color-orange" id="color_92" class="color_pick" style="background:#F39C11;">
-									</a>
-			</li>
-											<li>
-				<a href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/15-faded-short-sleeves-tshirt.html#/size-s/color-blue" id="color_91" class="color_pick" style="background:#5D9CEC;">
-									</a>
-			</li>
-			</ul>
-</div>
-
-					<!-- <div class="product-flags">
-																														</div>
-					 -->
-					 						<!--  Show average rating stars  -->
-							<div class="comments_note" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-		<div class="star_content">
-												<div class="star"></div>
-																<div class="star"></div>
-																<div class="star"></div>
-																<div class="star"></div>
-																<div class="star"></div>
-							            <meta itemprop="worstRating" content = "0" />
-            <meta itemprop="ratingValue" content = "0" />
-            <meta itemprop="bestRating" content = "5" />
-		</div>
-		<span class="nb-comments"><span itemprop="reviewCount">0</span> Comentario(s)</span>
-	</div>
-
-
-					<!--Product Prices-->
-										<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="price-box">
-													<span itemprop="price" class="price product-price">
-								$16.51							</span>
-							<meta itemprop="priceCurrency" content="USD" />
-
-
-											</div>
-
-
-					<!--    Show stock information    -->
-
-																				<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="availability">
-																			<span class="available-now">
-											<i class="fa fa-check"></i>
-											<link itemprop="availability" href="http://schema.org/InStock" />In stock										</span>
-																	</div>
-
-						<div class="button-container">
-
-																																		<a class="cart_button ajax_add_to_cart_button" href="http://prestashop.flytheme.net/sp_market/es/cart?add=1&amp;id_product=15&amp;token=37dab0cd8f57363d790bac16e0dd0e45" rel="nofollow"  title="Carro" data-id-product="15">
-											Carro
-										</a>
-
-
-	<a class="addToWishlist wishlistProd_15" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '15', false, 1); return false;">
-		<i class="fa fa-heart"></i>
-	</a>
-
-
-
-															<a class="add_to_compare" href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/15-faded-short-sleeves-tshirt.html" data-tooltip-remove="Remove from compare"  title="A&ntilde;adir a comparar" data-id-product="15">
-									<i class="fa fa-bar-chart"></i></a>
-								</a>
-
-						</div>
-				</div>
-
-
-
-			</div><!-- .product-container> -->
-		</li>
-
-
-
-
-		<li class="ajax_block_product  col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
-			<div class="product-container" itemscope itemtype="http://schema.org/Product">
-				<div class="left-block">
-
-					<div class="product-image-container">
-						<!--   Slider Images Product   -->
-
-						<div class="product-image">
-																					<a href="http://prestashop.flytheme.net/sp_market/es/healthy-beauty/21-faded-short-sleeves-tshirt.html" title="Semper tenderloin" itemprop="url" >
-									<img class="img_1" src="http://prestashop.flytheme.net/sp_market/106-home_default/faded-short-sleeves-tshirt.jpg"  alt="Semper tenderloin"/>
-																	</a>
-
-
-						</div>
-
-						<div class="label-box">
-															<span class="new-box">Nuevo</span>
-
-													</div>
-
-						 							<!--   Enable quick view  -->
-							<a class="quick-view" href="http://prestashop.flytheme.net/sp_market/es/healthy-beauty/21-faded-short-sleeves-tshirt.html" title="Vista r&aacute;pida" data-rel="http://prestashop.flytheme.net/sp_market/es/healthy-beauty/21-faded-short-sleeves-tshirt.html">
-								Vista r&aacute;pida
-							</a>
-
-
-
-					</div>
-
-
-				</div>
-
-				<div class="right-block">
-					<!--  Show Product title  -->
-					<h5 itemprop="name" class="product-name">
-												<a href="http://prestashop.flytheme.net/sp_market/es/healthy-beauty/21-faded-short-sleeves-tshirt.html" title="Semper tenderloin" itemprop="url" >
-							Semper tenderloin
-						</a>
-					</h5>
-
-					<!--   Show category description   -->
-					<p class="product-desc" itemprop="description">
-						Adipisicing pastrami tail pancetta chuck laborum. Ham hock mollit minim shank porchetta pork belly aliqua. Tempor sed turkey, dolor cow ribeye eiusmod rump sirloin bacon. Ipsum qui incididunt minim anim pig chuck in dolor aliquip occaecat beef beef ribs ham nisi.
-					</p>
-
-
-					<!--   Show Color Options   -->
-											<div class="color-list-container"><ul class="color_to_pick_list clearfix">
-									<li>
-				<a href="http://prestashop.flytheme.net/sp_market/es/healthy-beauty/21-faded-short-sleeves-tshirt.html#/size-m/color-orange" id="color_128" class="color_pick" style="background:#F39C11;">
-									</a>
-			</li>
-											<li>
-				<a href="http://prestashop.flytheme.net/sp_market/es/healthy-beauty/21-faded-short-sleeves-tshirt.html#/size-s/color-blue" id="color_127" class="color_pick" style="background:#5D9CEC;">
-									</a>
-			</li>
-			</ul>
-</div>
-
-					<!-- <div class="product-flags">
-																														</div>
-					 -->
-					 						<!--  Show average rating stars  -->
-							<div class="comments_note" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-		<div class="star_content">
-												<div class="star"></div>
-																<div class="star"></div>
-																<div class="star"></div>
-																<div class="star"></div>
-																<div class="star"></div>
-							            <meta itemprop="worstRating" content = "0" />
-            <meta itemprop="ratingValue" content = "0" />
-            <meta itemprop="bestRating" content = "5" />
-		</div>
-		<span class="nb-comments"><span itemprop="reviewCount">0</span> Comentario(s)</span>
-	</div>
-
-
-					<!--Product Prices-->
-										<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="price-box">
-													<span itemprop="price" class="price product-price">
-								$78.00							</span>
-							<meta itemprop="priceCurrency" content="USD" />
-
-
-											</div>
-
-
-					<!--    Show stock information    -->
-
-																				<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="availability">
-																			<span class="available-now">
-											<i class="fa fa-check"></i>
-											<link itemprop="availability" href="http://schema.org/InStock" />In stock										</span>
-																	</div>
-
-						<div class="button-container">
-
-																																		<a class="cart_button ajax_add_to_cart_button" href="http://prestashop.flytheme.net/sp_market/es/cart?add=1&amp;id_product=21&amp;token=37dab0cd8f57363d790bac16e0dd0e45" rel="nofollow"  title="Carro" data-id-product="21">
-											Carro
-										</a>
-
-
-	<a class="addToWishlist wishlistProd_21" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '21', false, 1); return false;">
-		<i class="fa fa-heart"></i>
-	</a>
-
-
-
-															<a class="add_to_compare" href="http://prestashop.flytheme.net/sp_market/es/healthy-beauty/21-faded-short-sleeves-tshirt.html" data-tooltip-remove="Remove from compare"  title="A&ntilde;adir a comparar" data-id-product="21">
-									<i class="fa fa-bar-chart"></i></a>
-								</a>
-
-						</div>
-				</div>
-
-
-
-			</div><!-- .product-container> -->
-		</li>
-
-
-
-
-		<li class="ajax_block_product  col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
-			<div class="product-container" itemscope itemtype="http://schema.org/Product">
-				<div class="left-block">
-
-					<div class="product-image-container">
-						<!--   Slider Images Product   -->
-
-						<div class="product-image">
-																					<a href="http://prestashop.flytheme.net/sp_market/es/healthy-beauty/22-faded-short-sleeves-tshirt.html" title="Znterdum nibhing" itemprop="url" >
-									<img class="img_1" src="http://prestashop.flytheme.net/sp_market/111-home_default/faded-short-sleeves-tshirt.jpg"  alt="Znterdum nibhing"/>
-																	</a>
-
-
-						</div>
-
-						<div class="label-box">
-															<span class="new-box">Nuevo</span>
-
-													</div>
-
-						 							<!--   Enable quick view  -->
-							<a class="quick-view" href="http://prestashop.flytheme.net/sp_market/es/healthy-beauty/22-faded-short-sleeves-tshirt.html" title="Vista r&aacute;pida" data-rel="http://prestashop.flytheme.net/sp_market/es/healthy-beauty/22-faded-short-sleeves-tshirt.html">
-								Vista r&aacute;pida
-							</a>
-
-
-
-					</div>
-
-
-				</div>
-
-				<div class="right-block">
-					<!--  Show Product title  -->
-					<h5 itemprop="name" class="product-name">
-												<a href="http://prestashop.flytheme.net/sp_market/es/healthy-beauty/22-faded-short-sleeves-tshirt.html" title="Znterdum nibhing" itemprop="url" >
-							Znterdum nibhing
-						</a>
-					</h5>
-
-					<!--   Show category description   -->
-					<p class="product-desc" itemprop="description">
-						Qui biltong venison consectetur pork, bacon jerky leberkas t-bone incididunt commodo pariatur eiusmod ullamco. Shankle bacon nostrud kevin officia pariatur chuck commodo elit enim ball tip beef do. Doner exercitation shoulder, proident tri-tip dolore est. Deserunt eu velit ribeye do commodo quis. In
-					</p>
-
-
-					<!--   Show Color Options   -->
-											<div class="color-list-container"><ul class="color_to_pick_list clearfix">
-									<li>
-				<a href="http://prestashop.flytheme.net/sp_market/es/healthy-beauty/22-faded-short-sleeves-tshirt.html#/size-m/color-orange" id="color_134" class="color_pick" style="background:#F39C11;">
-									</a>
-			</li>
-											<li>
-				<a href="http://prestashop.flytheme.net/sp_market/es/healthy-beauty/22-faded-short-sleeves-tshirt.html#/size-s/color-blue" id="color_133" class="color_pick" style="background:#5D9CEC;">
-									</a>
-			</li>
-			</ul>
-</div>
-
-					<!-- <div class="product-flags">
-																														</div>
-					 -->
-					 						<!--  Show average rating stars  -->
-							<div class="comments_note" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-		<div class="star_content">
-												<div class="star"></div>
-																<div class="star"></div>
-																<div class="star"></div>
-																<div class="star"></div>
-																<div class="star"></div>
-							            <meta itemprop="worstRating" content = "0" />
-            <meta itemprop="ratingValue" content = "0" />
-            <meta itemprop="bestRating" content = "5" />
-		</div>
-		<span class="nb-comments"><span itemprop="reviewCount">0</span> Comentario(s)</span>
-	</div>
-
-
-					<!--Product Prices-->
-										<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="price-box">
-													<span itemprop="price" class="price product-price">
-								$66.00							</span>
-							<meta itemprop="priceCurrency" content="USD" />
-
-
-											</div>
-
-
-					<!--    Show stock information    -->
-
-																				<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="availability">
-																			<span class="available-now">
-											<i class="fa fa-check"></i>
-											<link itemprop="availability" href="http://schema.org/InStock" />In stock										</span>
-																	</div>
-
-						<div class="button-container">
-
-																																		<a class="cart_button ajax_add_to_cart_button" href="http://prestashop.flytheme.net/sp_market/es/cart?add=1&amp;id_product=22&amp;token=37dab0cd8f57363d790bac16e0dd0e45" rel="nofollow"  title="Carro" data-id-product="22">
-											Carro
-										</a>
-
-
-	<a class="addToWishlist wishlistProd_22" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '22', false, 1); return false;">
-		<i class="fa fa-heart"></i>
-	</a>
-
-
-
-															<a class="add_to_compare" href="http://prestashop.flytheme.net/sp_market/es/healthy-beauty/22-faded-short-sleeves-tshirt.html" data-tooltip-remove="Remove from compare"  title="A&ntilde;adir a comparar" data-id-product="22">
-									<i class="fa fa-bar-chart"></i></a>
-								</a>
-
-						</div>
-				</div>
-
-
-
-			</div><!-- .product-container> -->
-		</li>
-
-
-
-
-		<li class="ajax_block_product  col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
-			<div class="product-container" itemscope itemtype="http://schema.org/Product">
-				<div class="left-block">
-
-					<div class="product-image-container">
-						<!--   Slider Images Product   -->
-
-						<div class="product-image">
-																					<a href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/14-printed-dress.html" title="Cenean congue" itemprop="url" >
-									<img class="img_1" src="http://prestashop.flytheme.net/sp_market/71-home_default/printed-dress.jpg"  alt="Cenean congue"/>
-																	</a>
-
-
-						</div>
-
-						<div class="label-box">
-															<span class="new-box">Nuevo</span>
-
-													</div>
-
-						 							<!--   Enable quick view  -->
-							<a class="quick-view" href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/14-printed-dress.html" title="Vista r&aacute;pida" data-rel="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/14-printed-dress.html">
-								Vista r&aacute;pida
-							</a>
-
-
-
-					</div>
-
-
-				</div>
-
-				<div class="right-block">
-					<!--  Show Product title  -->
-					<h5 itemprop="name" class="product-name">
-												<a href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/14-printed-dress.html" title="Cenean congue" itemprop="url" >
-							Cenean congue
-						</a>
-					</h5>
-
-					<!--   Show category description   -->
-					<p class="product-desc" itemprop="description">
-						Ex brisket deserunt laborum drumstick. Porchetta strip steak aliqua andouille chicken duis. Fugiat velit beef ex. Ad cillum pariatur, magna consequat quis ut frankfurter tri-tip pork loin capicola andouille reprehenderit. Frankfurter sed aliqua, sunt velit bacon ipsum. Sed commodo ground round
-					</p>
-
-
-					<!--   Show Color Options   -->
-											<div class="color-list-container"><ul class="color_to_pick_list clearfix">
-									<li>
-				<a href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/14-printed-dress.html#/size-m/color-orange" id="color_88" class="color_pick" style="background:#F39C11;">
-									</a>
-			</li>
-			</ul>
-</div>
-
-					<!-- <div class="product-flags">
-																														</div>
-					 -->
-					 						<!--  Show average rating stars  -->
-							<div class="comments_note" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-		<div class="star_content">
-												<div class="star star_on"></div>
-																<div class="star star_on"></div>
-																<div class="star star_on"></div>
-																<div class="star star_on"></div>
-																<div class="star star_on"></div>
-							            <meta itemprop="worstRating" content = "0" />
-            <meta itemprop="ratingValue" content = "5" />
-            <meta itemprop="bestRating" content = "5" />
-		</div>
-		<span class="nb-comments"><span itemprop="reviewCount">2</span> Comentario(s)</span>
-	</div>
-
-
-					<!--Product Prices-->
-										<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="price-box">
-													<span itemprop="price" class="price product-price">
-								$26.00							</span>
-							<meta itemprop="priceCurrency" content="USD" />
-
-
-											</div>
-
-
-					<!--    Show stock information    -->
-
-																				<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="availability">
-																			<span class="available-now">
-											<i class="fa fa-check"></i>
-											<link itemprop="availability" href="http://schema.org/InStock" />In stock										</span>
-																	</div>
-
-						<div class="button-container">
-
-																																		<a class="cart_button ajax_add_to_cart_button" href="http://prestashop.flytheme.net/sp_market/es/cart?add=1&amp;id_product=14&amp;token=37dab0cd8f57363d790bac16e0dd0e45" rel="nofollow"  title="Carro" data-id-product="14">
-											Carro
-										</a>
-
-
-	<a class="addToWishlist wishlistProd_14" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '14', false, 1); return false;">
-		<i class="fa fa-heart"></i>
-	</a>
-
-
-
-															<a class="add_to_compare" href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/14-printed-dress.html" data-tooltip-remove="Remove from compare"  title="A&ntilde;adir a comparar" data-id-product="14">
-									<i class="fa fa-bar-chart"></i></a>
-								</a>
-
-						</div>
-				</div>
-
-
-
-			</div><!-- .product-container> -->
-		</li>
-
-
-
-
-		<li class="ajax_block_product  col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
-			<div class="product-container" itemscope itemtype="http://schema.org/Product">
-				<div class="left-block">
-
-					<div class="product-image-container">
-						<!--   Slider Images Product   -->
-
-						<div class="product-image">
-																					<a href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/16-faded-short-sleeves-tshirt.html" title="Sed sollicitudin" itemprop="url" >
-									<img class="img_1" src="http://prestashop.flytheme.net/sp_market/81-home_default/faded-short-sleeves-tshirt.jpg"  alt="Sed sollicitudin"/>
-																	</a>
-
-
-						</div>
-
-						<div class="label-box">
-															<span class="new-box">Nuevo</span>
-
-													</div>
-
-						 							<!--   Enable quick view  -->
-							<a class="quick-view" href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/16-faded-short-sleeves-tshirt.html" title="Vista r&aacute;pida" data-rel="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/16-faded-short-sleeves-tshirt.html">
-								Vista r&aacute;pida
-							</a>
-
-
-
-					</div>
-
-
-				</div>
-
-				<div class="right-block">
-					<!--  Show Product title  -->
-					<h5 itemprop="name" class="product-name">
-												<a href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/16-faded-short-sleeves-tshirt.html" title="Sed sollicitudin" itemprop="url" >
-							Sed sollicitudin
-						</a>
-					</h5>
-
-					<!--   Show category description   -->
-					<p class="product-desc" itemprop="description">
-						Chicken pork culpa shank biltong ut. Meatball sint salami et in doner beef ribs ground round reprehenderit pig irure ham hock. Eu tongue aliqua, prosciutto nulla id pig ullamco frankfurter bresaola excepteur beef ribs et beef. Salami reprehenderit minim, beef ribs cupidatat irure landjaeger flank
-					</p>
-
-
-					<!--   Show Color Options   -->
-											<div class="color-list-container"><ul class="color_to_pick_list clearfix">
-									<li>
-				<a href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/16-faded-short-sleeves-tshirt.html#/size-m/color-orange" id="color_98" class="color_pick" style="background:#F39C11;">
-									</a>
-			</li>
-											<li>
-				<a href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/16-faded-short-sleeves-tshirt.html#/size-s/color-blue" id="color_97" class="color_pick" style="background:#5D9CEC;">
-									</a>
-			</li>
-			</ul>
-</div>
-
-					<!-- <div class="product-flags">
-																														</div>
-					 -->
-					 						<!--  Show average rating stars  -->
-							<div class="comments_note" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-		<div class="star_content">
-												<div class="star"></div>
-																<div class="star"></div>
-																<div class="star"></div>
-																<div class="star"></div>
-																<div class="star"></div>
-							            <meta itemprop="worstRating" content = "0" />
-            <meta itemprop="ratingValue" content = "0" />
-            <meta itemprop="bestRating" content = "5" />
-		</div>
-		<span class="nb-comments"><span itemprop="reviewCount">0</span> Comentario(s)</span>
-	</div>
-
-
-					<!--Product Prices-->
-										<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="price-box">
-													<span itemprop="price" class="price product-price">
-								$90.00							</span>
-							<meta itemprop="priceCurrency" content="USD" />
-
-
-											</div>
-
-
-					<!--    Show stock information    -->
-
-																				<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="availability">
-																			<span class="available-now">
-											<i class="fa fa-check"></i>
-											<link itemprop="availability" href="http://schema.org/InStock" />In stock										</span>
-																	</div>
-
-						<div class="button-container">
-
-																																		<a class="cart_button ajax_add_to_cart_button" href="http://prestashop.flytheme.net/sp_market/es/cart?add=1&amp;id_product=16&amp;token=37dab0cd8f57363d790bac16e0dd0e45" rel="nofollow"  title="Carro" data-id-product="16">
-											Carro
-										</a>
-
-
-	<a class="addToWishlist wishlistProd_16" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '16', false, 1); return false;">
-		<i class="fa fa-heart"></i>
-	</a>
-
-
-
-															<a class="add_to_compare" href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/16-faded-short-sleeves-tshirt.html" data-tooltip-remove="Remove from compare"  title="A&ntilde;adir a comparar" data-id-product="16">
-									<i class="fa fa-bar-chart"></i></a>
-								</a>
-
-						</div>
-				</div>
-
-
-
-			</div><!-- .product-container> -->
-		</li>
-
-
-
-
-		<li class="ajax_block_product  col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
-			<div class="product-container" itemscope itemtype="http://schema.org/Product">
-				<div class="left-block">
-
-					<div class="product-image-container">
-						<!--   Slider Images Product   -->
-
-						<div class="product-image">
-																					<a href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/17-faded-short-sleeves-tshirt.html" title="Cenean vehicula" itemprop="url" >
-									<img class="img_1" src="http://prestashop.flytheme.net/sp_market/87-home_default/faded-short-sleeves-tshirt.jpg"  alt="Cenean vehicula"/>
-																	</a>
-
-
-						</div>
-
-						<div class="label-box">
-															<span class="new-box">Nuevo</span>
-
-															<span class="sale-box">Venta!</span>
-														</div>
-
-						 							<!--   Enable quick view  -->
-							<a class="quick-view" href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/17-faded-short-sleeves-tshirt.html" title="Vista r&aacute;pida" data-rel="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/17-faded-short-sleeves-tshirt.html">
-								Vista r&aacute;pida
-							</a>
-
-
-
-					</div>
-
-
-				</div>
-
-				<div class="right-block">
-					<!--  Show Product title  -->
-					<h5 itemprop="name" class="product-name">
-												<a href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/17-faded-short-sleeves-tshirt.html" title="Cenean vehicula" itemprop="url" >
-							Cenean vehicula
-						</a>
-					</h5>
-
-					<!--   Show category description   -->
-					<p class="product-desc" itemprop="description">
-						Est irure prosciutto jerky consectetur in kevin short loin exercitation. Voluptate officia boudin short loin, cupim spare ribs elit cow pastrami brisket bacon laboris labore ut. Pork loin cupidatat laboris tongue aute hamburger. Cupidatat eu proident, chicken ham hock ea sed ex turkey filet mignon
-					</p>
-
-
-					<!--   Show Color Options   -->
-											<div class="color-list-container"><ul class="color_to_pick_list clearfix">
-									<li>
-				<a href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/17-faded-short-sleeves-tshirt.html#/size-m/color-orange" id="color_104" class="color_pick" style="background:#F39C11;">
-									</a>
-			</li>
-											<li>
-				<a href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/17-faded-short-sleeves-tshirt.html#/size-s/color-blue" id="color_103" class="color_pick" style="background:#5D9CEC;">
-									</a>
-			</li>
-			</ul>
-</div>
-
-					<!-- <div class="product-flags">
-																																					</div>
-					 -->
-					 						<!--  Show average rating stars  -->
-							<div class="comments_note" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-		<div class="star_content">
-												<div class="star star_on"></div>
-																<div class="star star_on"></div>
-																<div class="star star_on"></div>
-																<div class="star star_on"></div>
-																<div class="star star_on"></div>
-							            <meta itemprop="worstRating" content = "0" />
-            <meta itemprop="ratingValue" content = "5" />
-            <meta itemprop="bestRating" content = "5" />
-		</div>
-		<span class="nb-comments"><span itemprop="reviewCount">1</span> Comentario(s)</span>
-	</div>
-
-
-					<!--Product Prices-->
-										<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="price-box">
-													<span itemprop="price" class="price product-price">
-								$30.51							</span>
-							<meta itemprop="priceCurrency" content="USD" />
-
-
-											</div>
-
-
-					<!--    Show stock information    -->
-
-																				<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="availability">
-																			<span class="available-now">
-											<i class="fa fa-check"></i>
-											<link itemprop="availability" href="http://schema.org/InStock" />In stock										</span>
-																	</div>
-
-						<div class="button-container">
-
-																																		<a class="cart_button ajax_add_to_cart_button" href="http://prestashop.flytheme.net/sp_market/es/cart?add=1&amp;id_product=17&amp;token=37dab0cd8f57363d790bac16e0dd0e45" rel="nofollow"  title="Carro" data-id-product="17">
-											Carro
-										</a>
-
-
-	<a class="addToWishlist wishlistProd_17" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '17', false, 1); return false;">
-		<i class="fa fa-heart"></i>
-	</a>
-
-
-
-															<a class="add_to_compare" href="http://prestashop.flytheme.net/sp_market/es/smartphones-tablets/17-faded-short-sleeves-tshirt.html" data-tooltip-remove="Remove from compare"  title="A&ntilde;adir a comparar" data-id-product="17">
-									<i class="fa fa-bar-chart"></i></a>
-								</a>
-
-						</div>
-				</div>
-
-
-
-			</div><!-- .product-container> -->
-		</li>
-
-
-
-
-		<li class="ajax_block_product  col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
-			<div class="product-container" itemscope itemtype="http://schema.org/Product">
-				<div class="left-block">
-
-					<div class="product-image-container">
-						<!--   Slider Images Product   -->
-
-						<div class="product-image">
-																					<a href="http://prestashop.flytheme.net/sp_market/es/healthy-beauty/23-faded-short-sleeves-tshirt.html" title="Zravida Prosciutto" itemprop="url" >
-									<img class="img_1" src="http://prestashop.flytheme.net/sp_market/116-home_default/faded-short-sleeves-tshirt.jpg"  alt="Zravida Prosciutto"/>
-																	</a>
-
-
-						</div>
-
-						<div class="label-box">
-															<span class="new-box">Nuevo</span>
-
-													</div>
-
-						 							<!--   Enable quick view  -->
-							<a class="quick-view" href="http://prestashop.flytheme.net/sp_market/es/healthy-beauty/23-faded-short-sleeves-tshirt.html" title="Vista r&aacute;pida" data-rel="http://prestashop.flytheme.net/sp_market/es/healthy-beauty/23-faded-short-sleeves-tshirt.html">
-								Vista r&aacute;pida
-							</a>
-
-
-
-					</div>
-
-
-				</div>
-
-				<div class="right-block">
-					<!--  Show Product title  -->
-					<h5 itemprop="name" class="product-name">
-												<a href="http://prestashop.flytheme.net/sp_market/es/healthy-beauty/23-faded-short-sleeves-tshirt.html" title="Zravida Prosciutto" itemprop="url" >
-							Zravida Prosciutto
-						</a>
-					</h5>
-
-					<!--   Show category description   -->
-					<p class="product-desc" itemprop="description">
-						Beef turducken ea sint voluptate. Sirloin cow bresaola quis, kevin strip steak sint. Meatball cow swine in pariatur. Ribeye quis turkey venison flank. Consequat biltong beef ribs cow porchetta salami esse aliquip tail spare ribs meatloaf lorem. Hamburger pork corned beef eiusmod. Anim fatback pork
-					</p>
-
-
-					<!--   Show Color Options   -->
-											<div class="color-list-container"><ul class="color_to_pick_list clearfix">
-									<li>
-				<a href="http://prestashop.flytheme.net/sp_market/es/healthy-beauty/23-faded-short-sleeves-tshirt.html#/size-m/color-orange" id="color_140" class="color_pick" style="background:#F39C11;">
-									</a>
-			</li>
-											<li>
-				<a href="http://prestashop.flytheme.net/sp_market/es/healthy-beauty/23-faded-short-sleeves-tshirt.html#/size-s/color-blue" id="color_139" class="color_pick" style="background:#5D9CEC;">
-									</a>
-			</li>
-			</ul>
-</div>
-
-					<!-- <div class="product-flags">
-																														</div>
-					 -->
-					 						<!--  Show average rating stars  -->
-							<div class="comments_note" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-		<div class="star_content">
-												<div class="star"></div>
-																<div class="star"></div>
-																<div class="star"></div>
-																<div class="star"></div>
-																<div class="star"></div>
-							            <meta itemprop="worstRating" content = "0" />
-            <meta itemprop="ratingValue" content = "0" />
-            <meta itemprop="bestRating" content = "5" />
-		</div>
-		<span class="nb-comments"><span itemprop="reviewCount">0</span> Comentario(s)</span>
-	</div>
-
-
-					<!--Product Prices-->
-										<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="price-box">
-													<span itemprop="price" class="price product-price">
-								$200.00							</span>
-							<meta itemprop="priceCurrency" content="USD" />
-
-
-											</div>
-
-
-					<!--    Show stock information    -->
-
-																				<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="availability">
-																			<span class="available-now">
-											<i class="fa fa-check"></i>
-											<link itemprop="availability" href="http://schema.org/InStock" />In stock										</span>
-																	</div>
-
-						<div class="button-container">
-
-																																		<a class="cart_button ajax_add_to_cart_button" href="http://prestashop.flytheme.net/sp_market/es/cart?add=1&amp;id_product=23&amp;token=37dab0cd8f57363d790bac16e0dd0e45" rel="nofollow"  title="Carro" data-id-product="23">
-											Carro
-										</a>
-
-
-	<a class="addToWishlist wishlistProd_23" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '23', false, 1); return false;">
-		<i class="fa fa-heart"></i>
-	</a>
-
-
-
-															<a class="add_to_compare" href="http://prestashop.flytheme.net/sp_market/es/healthy-beauty/23-faded-short-sleeves-tshirt.html" data-tooltip-remove="Remove from compare"  title="A&ntilde;adir a comparar" data-id-product="23">
-									<i class="fa fa-bar-chart"></i></a>
-								</a>
-
-						</div>
-				</div>
-
-
-
-			</div><!-- .product-container> -->
-		</li>
-		</ul>
-
-
-
-
-
             </div>
+            <div class="content_product_list hide-productdes hide-coloroption hide-stockinfo" data-class=" col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
+	<!-- Products list -->
+	            <ul class="product_list row grid">
+                @foreach($articulos as $articulo)
+              		<li class="ajax_block_product  col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
+              			<div class="product-container" itemscope itemtype="http://schema.org/Product">
+              				<div class="left-block">
+                        <div class="product-image-container">
+              						<!--   Slider Images Product   -->
+              						<div class="product-image">
+                            <a href="{{$articulo->id}}/Detalles" itemprop="url" >
+              							  <img height="220" class="img_1" src="../imgArticulos/{{$articulo->imagen}}"  alt="{{$articulo->nombre}}"/>
+            								</a>
+            						  </div>
+                          <div class="label-box">
+														<span class="new-box">Nuevo</span>
+                            @if($articulo->cantidad == 0)
+														  <span class="sale-box">Agotado!</span>
+                            @endif
+													</div>
+                          <a class="quick-view" href="{{url('vistaRapida')}}" data-rel="{{url('vistaRapida')}}">Vista rápida
+							            </a>
+                        </div>
+                      </div>
+                      <div class="right-block">
+					<!--  Show Product title  -->
+                      <h4 itemprop="name" class="product-name">
+												<a href="{{$articulo->id}}/Detalles" itemprop="url" >
+                          {{$articulo->nombre}}
+						            </a>
+                      </h4>
+                      <h5 itemprop="marca" class="product-name">
+												<b>Marca: {{$articulo->marca}}
+							          </b>
+						          </h5>
+            					<!--   Show category description   -->
+            					<p class="product-desc" itemprop="description">
+            						{{$articulo->descripcion}}
+            					</p>
+							        <div class="comments_note" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+		                    <div class="star_content">
+												    <div class="star"></div>
+														<div class="star"></div>
+														<div class="star"></div>
+														<div class="star"></div>
+														<div class="star"></div>
+							              <meta itemprop="worstRating" content = "0" />
+                            <meta itemprop="ratingValue" content = "0" />
+                            <meta itemprop="bestRating" content = "5" />
+                    		</div>
+                    		<span class="nb-comments">
+                          <span itemprop="reviewCount">0</span> Comentario(s)</span>
+                    	</div>
+					<!--Product Prices-->
+										  <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="price-box">
+												<span itemprop="price" class="price product-price">${{$articulo->precio}}</span>
+                      </div>
 
 
-			<div class="content_sortPagiBar_bottom">
-				<div class="category-view-type hidden-xs">
-    <div id="grid" class="category-view-type-selector"><a rel="nofollow" href="#" title="Grid"></a></div>
-    <div id="list" class="category-view-type-selector"><a rel="nofollow" href="#" title="List"></a></div>
-</div>
+					<!--    Show stock information    -->
+                      <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="availability">
+												<span class="available-now">
+                          <i class="fa fa-check"></i>
+											    <link itemprop="availability" href="http://schema.org/InStock" />In stock</span>
+											</div>
+                      {!!Form::open(array('url'=>'Tienda/Carrito','method'=>'POST',))!!}
+                        <div class="form-group">
+                          <input class="form-control grey" type="hidden" name="vista" value="articulos"/>
+                        </div>
+                        <div class="form-group">
+                          <input class="form-control grey" type="hidden" name="id_articulo" value="{{$articulo->id}}"/>
+                        </div>
+                        <div class="form-group">
+                          <input class="form-control grey" type="hidden" name="categoria" value="{{$articulo->categoria}}" hidden />
+                        </div>
+                        <div class="button-container">
+                          <button  class="cart_button" type="submit">
+														Carro
+												  </button>
+                          <a class="addToWishlist wishlistProd_11" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '11', false, 1); return false;">
+                          <i class="fa fa-heart"></i>
+                        </a>
+                      </div>
+                      {!!Form::close()!!}
+				            </div>
+                  </div><!-- .product-container> -->
+                </li>
+                @endforeach
+              </ul>
+            </div>
+			      <div class="content_sortPagiBar_bottom">
+				      <div class="category-view-type hidden-xs">
+                <div id="grid" class="category-view-type-selector"><a rel="nofollow" href="#" title="Grid"></a>
+                </div>
+                <div id="list" class="category-view-type-selector"><a rel="nofollow" href="#" title="List"></a>
+                </div>
+              </div>
+              <form id="productsSortForm" action="http://prestashop.flytheme.net/sp_market/es/153-healthy-beauty" class="productsSortForm ">
 
+              	<div class="select selector1">
+              		<label for="selectProductSort">Ordenar</label>
+              		<select id="selectProductSort" class="selectProductSort form-control">
+              			<option value="name:asc" >Product Name: A to Z</option>
+              			<option value="name:desc" >Product Name: Z to A</option>
+              							<option value="price:asc" >Lowest Price</option>
+              				<option value="price:desc" >Highest Price</option>
+              						<!--<option value="position:asc" selected="selected">Product Sort</option>-->
+              							<option value="quantity:desc" >Product In Stock</option>
 
-
-
-<form id="productsSortForm" action="http://prestashop.flytheme.net/sp_market/es/153-healthy-beauty" class="productsSortForm ">
-
-	<div class="select selector1">
-		<label for="selectProductSort">Ordenar</label>
-		<select id="selectProductSort" class="selectProductSort form-control">
-			<option value="name:asc" >Product Name: A to Z</option>
-			<option value="name:desc" >Product Name: Z to A</option>
-							<option value="price:asc" >Lowest Price</option>
-				<option value="price:desc" >Highest Price</option>
-						<!--<option value="position:asc" selected="selected">Product Sort</option>-->
-							<option value="quantity:desc" >Product In Stock</option>
-
-			<option value="reference:asc" >Lowest Reference</option>
-			<option value="reference:desc" >Highest Reference</option>
-		</select>
-	</div>
-</form>
+              			<option value="reference:asc" >Lowest Reference</option>
+              			<option value="reference:desc" >Highest Reference</option>
+              		</select>
+              	</div>
+              </form>
 <!-- /Sort products -->
-
-
-											<!-- nbr product/page -->
-			<form action="http://prestashop.flytheme.net/sp_market/es/153-healthy-beauty" method="get" class="nbrItemPage">
-			<div class="clearfix selector1">
-												<label for="nb_item">
-					Show
-				</label>
-																																	<input type="hidden" name="id_category" value="153" />
-																			<select name="n" id="nb_item" class="form-control">
-																							<option value="9" selected="selected">9</option>
-																														<option value="18" >18</option>
-																														<option value="45" >45</option>
-																					</select>
-
-			</div>
-		</form>
-		<!-- /nbr product/page -->
-
-
-
-
 	<!-- Pagination -->
-		<div id="pagination_bottom" class="pagination clearfix">
-					<ul class="pagination">
-																															<li class="active current">
-							<span>
-								<span>1</span>
-							</span>
-						</li>
-																				<li>
-							<a  href="/sp_market/es/153-healthy-beauty?p=2">
-								<span>2</span>
-							</a>
-						</li>
-																				<li>
-							<a  href="/sp_market/es/153-healthy-beauty?p=3">
-								<span>3</span>
-							</a>
-						</li>
-																																			<li id="pagination_next_bottom" class="pagination_next">
-						<a  href="/sp_market/es/153-healthy-beauty?p=2">
-							<i class="fa fa-angle-right" aria-hidden="true"></i>
-						</a>
-					</li>
+		          <div id="pagination_bottom" class="pagination clearfix">
+					      <ul class="pagination">
+                  <li class="active current">
+							      <span>
+      							<span>1</span>
+      							</span>
+      						</li>
+                  <li>
+      							<a  href="/sp_market/es/153-healthy-beauty?p=2">
+      								<span>2</span>
+      							</a>
+      						</li>
+                  <li>
+      							<a  href="/sp_market/es/153-healthy-beauty?p=3">
+      								<span>3</span>
+      							</a>
+      						</li>
+                  <li id="pagination_next_bottom" class="pagination_next">
+      						  <a  href="/sp_market/es/153-healthy-beauty?p=2">
+                      <i class="fa fa-angle-right" aria-hidden="true"></i>
+      						  </a>
+      					  </li>
 								</ul>
+              </div>
+              @endif
+            @endif
+			    </div>
+        </div><!-- #center_column -->
+      </div><!-- .row -->
+    </div><!-- #columns -->
+  </div><!-- .columns-container -->
 
-		 <!--<div class="product-count">
-																											Showing 1 - 9 of 23 items
-					</div>
-		-->
-
-	</div>
-    	<!-- /Pagination -->
-
-			</div>
-
-
-						</div><!-- #center_column -->
-					</div><!-- .row -->
-				</div><!-- #columns -->
-
-
-
-			</div><!-- .columns-container -->
-
-
-      @endsection
+@endsection

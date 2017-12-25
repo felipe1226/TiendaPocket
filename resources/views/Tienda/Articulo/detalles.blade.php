@@ -202,7 +202,7 @@ var wishlistProductsIds = false;
 			<!-- Breadcrumb -->
 					<div class="breadcrumb clearfix">
 						<ul>
-							<li class="home"><a href="{{'Tienda'}}">Inicio</a></li>
+							<li class="home"><a href="{{url('Tienda')}}">Inicio</a></li>
 							<li class="depth1"><a href="#">{{$articulos[0]->nombre}}</a></li>
 						</ul>
 					</div>
@@ -223,19 +223,8 @@ var wishlistProductsIds = false;
 								</div>
 								 <!-- End of Sidebar -->
 
-
-
-
-
 						<!-- Center Column -->
 						<div id="center_column" class="column col-sm-12">
-
-
-
-
-
-
-
 
 <div itemscope itemtype="http://schema.org/Product" class="product-wrap">
 	<div class="row">
@@ -265,18 +254,9 @@ var wishlistProductsIds = false;
 
 				</div> <!-- end image-block -->
 				<!-- thumbnails -->
-									<div id="views_block" class="clearfix"> </div>
 									<!-- end views-block -->
 					<!-- end thumbnails -->
 
-									<p class="resetimg clear no-print">
-						<span id="wrapResetImages">
-							<a href="1-faded-short-sleeves-tshirt.html" name="resetImages">
-								<i class="fa fa-repeat"></i>
-								Display all pictures
-							</a>
-						</span>
-					</p>
 					</div> <!-- end pb-left-column -->
 			<!-- end left infos-->
 
@@ -323,7 +303,7 @@ var wishlistProductsIds = false;
 											<!-- prices -->
 						<div class="price">
 							<p class="our_price_display" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-								<link itemprop="availability" href="http://schema.org/InStock"/>																	<span id="our_price_display" itemprop="price">$55.000</span>
+								<link itemprop="availability" href="http://schema.org/InStock"/>																	<span id="our_price_display" itemprop="price">${{$articulos[0]->precio}}</span>
 									 										Cop.
 							  <meta itemprop="priceCurrency" content="USD" />
 
@@ -362,7 +342,7 @@ var wishlistProductsIds = false;
 
 									<div id="short_description_block">
 						<label>DESCRIPCIÓN</label>
-													<div id="short_description_content" class="rte align_justify" itemprop="description"><p>Cóctelera en acero inoxidable, profesional de 16 onzas, con medidor y tapa en vidrio, con al cual podras ver el color y densidad de tus mezclas, antes de servir</p></div>
+													<div id="short_description_content" class="rte align_justify" itemprop="description"><p>{{$articulos[0]->descripcion}}</p></div>
 
 
 											</div> <!-- end short_description_block -->
@@ -464,7 +444,7 @@ var wishlistProductsIds = false;
 									<!-- More info -->
 					<section id="idTab1" class="page-product-box active">
 							<!-- full description -->
-							<div  class="rte"><p>Cóctelera en acero inoxidable, profesional de 16 onzas, con medidor y tapa en vidrio, con al cual podras ver el color y densidad de tus mezclas, antes de servir</p></div>
+							<div  class="rte"><p>{{$articulos[0]->descripcion}}</p></div>
 					</section>
 					<!--end  More info -->
 

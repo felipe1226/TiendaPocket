@@ -56,7 +56,6 @@
 						var FancyboxI18nClose = 'Close';
 						var FancyboxI18nNext = 'Next';
 						var FancyboxI18nPrev = 'Previous';
-						var add_compare_item = 'Product successfully added to the product comparison';
 						var added_to_wishlist = 'El producto se ha añadido con éxito a su lista de deseos.';
 						var ajax_allowed = true;
 						var ajaxsearch = false;
@@ -65,13 +64,12 @@
 						var comparator_max_item = 3;
 						var comparedProductsIds = [22];
 						var contentOnly = false;
-						var currency = {"id":1,"name":"USD","iso_code":"USD","iso_code_num":"840","sign":"$","blank":"0","conversion_rate":"1.000000","deleted":"0","format":"1","decimals":"1","active":"1","prefix":"$ ","suffix":"","id_shop_list":null,"force_id":false};
+						var currency = {"id":1,"name":"USD","iso_code":"USD","iso_code_num":"840","sign":"$","blank":"0","conversion_rate":"1.000000",,"format":"1","decimals":"1","active":"1","prefix":"$ ","suffix":"","id_shop_list":null,"force_id":false};
 						var currencyBlank = 0;
 						var currencyFormat = 1;
 						var currencyRate = 1;
 						var currencySign = '$';
 						var customizationIdMessage = 'Customization #';
-						var delete_txt = 'Delete';
 						var displayList = false;
 						var freeProductTranslation = 'Free!';
 						var freeShippingTranslation = 'Free shipping!';
@@ -83,15 +81,11 @@
 						var isLogged = 1;
 						var isMobile = false;
 						var loggin_required = 'Debe identificarse para administrar su lista de deseos.';
-						var max_item = 'You cannot add more than 3 product(s) to the product comparison';
-						var min_item = 'Please select at least one product';
 						var mywishlist_url = 'http://prestashop.flytheme.net/sp_market/es/module/blockwishlist/mywishlist';
 						var page_name = 'index';
 						var priceDisplayMethod = 1;
 						var priceDisplayPrecision = 2;
 						var quickView = true;
-						var remove_compare_item = 'Product successfully removed from the product comparison';
-						var removingLinkText = 'remove this product from my cart';
 						var roundMode = 2;
 						var static_token = '37dab0cd8f57363d790bac16e0dd0e45';
 						var token = 'e7a94a67a2d06ed0af03a2d1f4e4a2fb';
@@ -134,6 +128,8 @@
 						<script type="text/javascript" src="themes/sp_market/js/index.js"></script>
 						<script type="text/javascript" src="modules/statsdata/js/plugindetect.js"></script>
 
+
+
 	</head>
 
 	<body id="product" class="blog-small_image content-v1  product   lang_es patternnone layout-full slider-imgpr-0  secondImage-0" data-content="content-v1">
@@ -147,63 +143,10 @@
 										<div id="block_left" class="col-sm-6 col-xs-6">
 											<!-- Block languages module -->
 
-
-							<div id="languages-block-top" class="languages-block">
-																														<div class="current">
-											<img src="http://prestashop.flytheme.net/sp_market/img/l/4.jpg" alt="es" />
-											<span>Español</span>
-										</div>
-													<ul id="first-languages" class="languages-block_ul toogle_content">
-													<li >
-																										<a href="http://prestashop.flytheme.net/sp_market/en/my-account" title="English">
-																					<span><img src="http://prestashop.flytheme.net/sp_market/img/l/1.jpg" alt="en"  />
-												English</span>
-															</a>
-														</li>
-													<li >
-																										<a href="http://prestashop.flytheme.net/sp_market/ar/my-account" title="Arabic">
-																					<span><img src="http://prestashop.flytheme.net/sp_market/img/l/2.jpg" alt="ar"  />
-												Arabic</span>
-															</a>
-														</li>
-													<li >
-																										<a href="http://prestashop.flytheme.net/sp_market/fr/my-account" title="Français">
-																					<span><img src="http://prestashop.flytheme.net/sp_market/img/l/3.jpg" alt="fr"  />
-												Français</span>
-															</a>
-														</li>
-													<li class="selected">
-																<span><img src="http://prestashop.flytheme.net/sp_market/img/l/4.jpg" alt="es"  />
-												Español</span>
-														</li>
-											</ul>
-							</div>
 						<!-- /Block languages module -->
 
 						<!-- Block currencies module -->
-							<div id="currencies-block-top">
-								<form id="setCurrency" action="/sp_market/es/my-account" method="post">
-									<div class="current">
-										<input type="hidden" name="id_currency" id="id_currency" value=""/>
-										<input type="hidden" name="SubmitCurrency" value="" />
-										<!--<span class="cur-label">Currency :</span>-->
-																								<span><!--$--> USD</span>							</div>
-									<ul id="first-currencies" class="currencies_ul toogle_content">
-																					<li>
-													<a href="javascript:setCurrency(2);" rel="nofollow" title="EUR">
-														EUR
-													</a>
-												</li>
 
-																					<li class="selected">
-													<span>
-														USD
-													</span>
-												</li>
-
-													</ul>
-								</form>
-							</div>
 						<!-- /Block currencies module -->
 										</div>
 
@@ -351,10 +294,6 @@
 																					<span class="price">$'.$carrito->almacena->precio * $carrito->cantidad.'</span>
 																					<span class="quantity-formated titleFont">Cantidad: '.$carrito->cantidad.'</span>
 																				</div>
-																				<span class="remove_link">
-																					<a class="ajax_cart_block_remove_link" href="" rel="nofollow" title="Borrar del carrito"><i class="fa fa-trash"></i>
-																					</a>
-																				</span>
 																			</dt>
 																		</dl>
 																	</div>';
@@ -366,7 +305,7 @@
 																	</div>';
 															?>
 															<div class="buttons">
-																<a id="button_order_cart" class="btn btn-default button button-small titleFont" href="{{url('Carrito/')}}" rel="nofollow">
+																<a id="button_order_cart" class="btn btn-default button button-small titleFont" href="{{url('Carrito')}}" rel="nofollow">
 																	Ver carrito
 																</a>
 															</div>
@@ -376,6 +315,25 @@
 										</div>
 									</div>
 								</div>
+								<script>
+								      	function eliminar(idCarrito){
+								      		if(confirm('¿Desea descartar este articulo del carrito?')){
+								      			$.ajax({
+								      				url: "Carrito/eliminar",
+								      				type: 'GET',
+								      				data: {
+								      					id: idCarrito
+								      				},
+								      				success: function(){
+								      						location.reload();
+								      				},
+								      				error: function(data){
+								      					alert('No se puede eliminar el articulo del carrito');
+								      				}
+								      			});
+								      		}
+								      	}
+								</script>
 
 									<div id="layer_cart" class="layer_box">
 										<div class="layer_inner_box">

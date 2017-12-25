@@ -20,7 +20,7 @@ class CarritoController extends Controller
 
     public function store(Request $request){
       $existe = Carrito::where('id_articulo', $request->id_articulo)->get();
-      if(isset($existe)){
+      if(count($existe) > 0){
         $cant = 0;
         $cant = $existe[0]->cantidad + 1;
         $carrito = Carrito::find($existe[0]->id);
@@ -38,20 +38,19 @@ class CarritoController extends Controller
         $carrito->cantidad = 1;
 
         $carrito->save();
-
       }
+
       if($request->vista == "articulos"){
         Flash::success("Se ha guardado el articulo en el carrito satisfactoriamente!")->important();
         return redirect('Articulos/'.$request->categoria);
-
       }
+
       else{
         flash::success('Carrito actualizado!')->important();
         return redirect('Carrito/');
       }
 
     }
-
 
     public function ListarCarrito(){
       $id_empresa = Auth::user()->idEmpresa;
@@ -61,4 +60,16 @@ class CarritoController extends Controller
       return view('Tienda/Carrito/index')->with(['carritos' => $carritos]);
     }
 
+
+    public function modificarCant(Request $request){
+      $carrito = Carrito::find($request->id);
+      $carrito->cantidad = $request->cantidad;
+      $carrito->save();
+    }
+
+
+    public function eliminar(Request $request){
+      $carrito = Carrito::find($request->id);
+      $carrito->delete();
+    }
 }

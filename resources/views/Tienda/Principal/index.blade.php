@@ -1,53 +1,43 @@
 @extends('Tienda.Layout.app')
 @section('content')
 
-
-			<div class="header-bottom">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-9 col-sm-12  col-xs-12">
-							<div class="box-tags hidden-xs clearfix">
+	<div class="header-bottom">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-9 col-sm-12  col-xs-12">
+					<div class="box-tags hidden-xs clearfix">
 
 <!-- SP Custom Html -->
-
-        <div class="sp_customhtml_1_15062136711651002266
-		 spcustom_html"><br>
-
-							</div>
-							<div class="box-slider" align="center">
+						<div class="sp_customhtml_1_15062136711651002266spcustom_html"><br>
+						</div>
+						<div class="box-slider" align="center">
 								<!-- Module SpHomeSlider -->
-    		<div id="sphomepage-slider1" class="sphomepage-slider ">
+    					<div id="sphomepage-slider1" class="sphomepage-slider ">
 							<!--  <div class="sp-homeslider extraslider-inner-1" data-effect="">  -->
-			 <div class="sp-homeslider sphomeslider-inner-1">
-
-
-										<div class="item ">
-						<a href="#" title="sample-1">
-							<img class="responsive" src="modules/sphomeslider/images/sample-1.jpg"  alt="sample-1" />
-						</a>
-											</div>
-
-
-										<div class="item " align="center">
-						<a href="#" title="sample-2">
-							<img class="responsive" src="modules/sphomeslider/images/sample-2.jpg"  alt="sample-2" />
-						</a>
-											</div>
-
-
-						<div class="item ">
-						<a href="#" title="sample-3">
-							<img class="responsive" src="modules/sphomeslider/images/sample-3.jpg"  alt="sample-3" />
-						</a>
-											</div>
-												</div>
-		</div>
+			 					<div class="sp-homeslider sphomeslider-inner-1">
+									<div class="item ">
+										<a href="#" title="1">
+											<img class="responsive" src="modules/sphomeslider/images/sample-1.jpg"  alt="sample-1" />
+										</a>
+									</div>
+									<div class="item " align="center">
+										<a href="#" title="2">
+											<img class="responsive" src="modules/sphomeslider/images/sample-2.jpg"  alt="sample-2" />
+										</a>
+									</div>
+									<div class="item ">
+										<a href="#" title="3">
+											<img class="responsive" src="modules/sphomeslider/images/sample-3.jpg"  alt="sample-3" />
+										</a>
+									</div>
+								</div>
+							</div>
 				<script type="text/javascript">
 				$(".sphomeslider-inner-1").owlCarousel({
 						animateOut: 'fadeOut',
 						animateIn: 'fadeIn',
-						autoplay: false,
-						autoplayTimeout: 2000,
+						autoplay: true,
+						autoplayTimeout: 5000,
 						autoplaySpeed: 2000,
 						smartSpeed: 500,
 						autoplayHoverPause: true,
@@ -73,68 +63,114 @@
 
 	<!-- /Module SpHomeSlider -->
 
-							</div>
-							<div class="box-banner">
+						</div>
+						<div class="box-banner">
 
 <!-- SP Custom Html -->
+							<div class="sp_customhtml_2_15062136711798665534spcustom_html">
+								<div class="banner">
+									<div class="box-slider">
+											<!-- Module SpHomeSlider -->
+			    					<div id="sphomepage-slider1" class="sphomepage-slider ">
+										<!--  <div class="sp-homeslider extraslider-inner-1" data-effect="">  -->
+						 					<div class="sp-homeslider sphomeslider-inner-2">
+												<div class="item ">
+													<a href="#" title="1">
+														<img class="responsive" src="themes/sp_market/img/cms/banner01.jpg"  alt="sample-1" />
+													</a>
+												</div>
+												<div class="item">
+													<a href="#" title="2">
+														<img class="responsive" src="themes/sp_market/img/cms/banner02.jpg"  alt="sample-2" />
+													</a>
+												</div>
+												<div class="item ">
+													<a href="#" title="3">
+														<img class="responsive" src="themes/sp_market/img/cms/banner03.jpg"  alt="sample-3" />
+													</a>
+												</div>
+											</div>
+										</div>
+							<script type="text/javascript">
+							$(".sphomeslider-inner-2").owlCarousel({
+									animateOut: 'fadeOut',
+									animateIn: 'fadeIn',
+									autoplay: true,
+									autoplayTimeout: 5000,
+									autoplaySpeed: 2000,
+									smartSpeed: 500,
+									autoplayHoverPause: true,
+									startPosition: 0,
+									mouseDrag: true,
+									touchDrag: true,
+									pullDrag: true,
+									dots: 0,
+									autoWidth: false,
+									dotClass: "owl-dot",
+									dotsClass: "owl-dots",
+									nav: true,
+									loop: true,
+									navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+									navClass: ["owl-prev", "owl-next"],
+									responsive:{
+										0:{
+										  items:1 // In this configuration 1 is enabled from 0px up to 479px screen size
+										},
+									}
+							});
+					</script>
 
-                        <div class="sp_customhtml_2_15062136711798665534
-		 spcustom_html">
+				<!-- /Module SpHomeSlider -->
 
-
-                  <div class="banner"><a href="#" class="img img1"><img src="themes/sp_market/img/cms/banner01.jpg" alt="#" /></a> <a href="#" class="img img2"><img src="themes/sp_market/img/cms/banner02.jpg" alt="#" /></a> <a href="#" class="img img3"><img src="themes/sp_market/img/cms/banner03.jpg" alt="#" /></a></div>
-
-                    </div>
-    <!-- /SP Custom Html -->
-
-
+									</div>
+									<a href="#" class="img img2">
+										<img src="themes/sp_market/img/cms/banner02.jpg" alt="#" />
+									</a>
+									<a href="#" class="img img3">
+										<img src="themes/sp_market/img/cms/banner03.jpg" alt="#" />
+									</a>
+								</div>
 							</div>
-							<div class="box-promotion hidden-xs clearfix">
+    <!-- /SP Custom Html -->
+						</div>
+						<div class="box-promotion hidden-xs clearfix">
 
 <!-- SP Custom Html -->
-
-                        <div class="sp_customhtml_3_1506213671965279715
-		 spcustom_html">
-
-
-                  <div class="promotion">
-								<div class="item item1">
-								<div class="icon">Icon</div>
-								<div class="text">
-								<h2><a href="#">90 DAY MONEYBACK</a></h2>
+							<div class="sp_customhtml_3_1506213671965279715spcustom_html">
+								<div class="promotion">
+									<div class="item item1">
+										<div class="icon">Icon</div>
+										<div class="text">
+											<h2><a href="#">90 DAY MONEYBACK</a></h2>
+										</div>
+									</div>
+									<div class="item item2">
+										<div class="icon">Icon</div>
+										<div class="text">
+											<h2><a href="#">FREE SHIPPING ON ALL ORDER</a></h2>
+										</div>
+									</div>
+									<div class="item item3">
+										<div class="icon">Icon</div>
+										<div class="text">
+											<h2><a href="#">LOWEST PRICE GUARANTEE</a></h2>
+										</div>
+									</div>
+									<div class="item item4">
+										<div class="icon">Icon</div>
+										<div class="text">
+											<h2><a href="#">SAFE SHOPPING GUARANTEE</a></h2>
+										</div>
+									</div>
 								</div>
-								</div>
-								<div class="item item2">
-								<div class="icon">Icon</div>
-								<div class="text">
-								<h2><a href="#">FREE SHIPPING ON ALL ORDER</a></h2>
-								</div>
-								</div>
-								<div class="item item3">
-								<div class="icon">Icon</div>
-								<div class="text">
-								<h2><a href="#">LOWEST PRICE GUARANTEE</a></h2>
-								</div>
-								</div>
-								<div class="item item4">
-								<div class="icon">Icon</div>
-								<div class="text">
-								<h2><a href="#">SAFE SHOPPING GUARANTEE</a></h2>
-								</div>
-								</div>
-								</div>
-
-                    </div>
-    <!-- /SP Custom Html -->
-
-
 							</div>
+    <!-- /SP Custom Html -->
 						</div>
 					</div>
 				</div>
 			</div>
-
-							 </div>
+		</div>
+	</div>
 
 
 <script type="text/javascript">

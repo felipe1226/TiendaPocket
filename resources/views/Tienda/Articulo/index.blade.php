@@ -134,351 +134,80 @@
 	    //]]>
 	</script>
 
-
-	        <!--[if IE]> <link rel="stylesheet" href="http://prestashop.flytheme.net/sp_market/themes/sp_market/css/ie9.css" type="text/css" media="all" /><![endif]-->
-
-
-
-			<!-- ADD RTL CLASSS -->
-
-
-		</head>
-
-
-
-
-
-
-		<div class="header-center">
-	<div class="container">
-		<div class="row">
-			<div id="header_logo" class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-				<a class="logo" href="http://prestashop.flytheme.net/sp_market/">
-					<img  src="../img/sp-g3shop-logo-1472003784.jpg" alt="SP Market" width="250" height="70">
-				</a>
-			</div>
-
-			<div class="col-sm-8">
-				<div class="shop-menu pull-right">
-					<ul class="nav navbar-nav">
-						<li ><a>
-							Bienvenido - {{Auth::user()->nombrePersona}}
-						</a></li>
-						<li ><a href="../Principales/cuenta.php" target="principal"><i class="fa fa-user"></i> Cuenta</a></li>
-						<li ><a href="{{url('RegistrarArticulo/')}}"><i class="fa fa-bookmark-o"></i> Administrar</a></li>
-					</ul>
-			</div>
-		</div>
-			<div id="header_search" class="col-lg-7 col-md-6 col-sm-6 col-xs-12 hidden-xs">
-        <div class="sp_searchpro ">
-					<div id="sp_search_pro_1" class="spr-container spr-preload">
-						<form class="sprsearch-form  show-box" method="get" action="sp_market/es/module/spsearchpro/catesearch">
-							<div class="spr_selector">
-								<select class="spr_select">
-											<option>--- Categorias ---</option>
-
-											<option value="PocketClub">PocketClub</option>
-
-											<option value="tecnologia">Tecnologia</option>
-
-											<option value="licores">Licores</option>
-
-											<option value="cervezas">Cervezas</option>
-
-											<option value="utencilios">Utencilios</option>
-
-											<option value="promociones">Promociones</option>
-
-											<option value="mercadotecnia">Mercadotecnia</option>
-								</select>
-							</div>
-							<div class="text-search">
-								<input class="spr-query" type="text" name="search_query" value="" placeholder="¿Que buscas?"/>
-							</div>
-							<button value="Buscar" class="spr-search-button" type="submit" name="spr_submit_search">
-								<i class="fa fa-search" aria-hidden="true"></i>
-							</button>
-						</form>
+	<div id="layer_cart" class="layer_box">
+		<div class="layer_inner_box">
+			<div class="layer_product clearfix mar_b10">
+						<span class="cross" title="Close window"></span>
+				<div class="product-image-container layer_cart_img">
+				</div>
+				<div class="layer_product_info">
+							<h3 id="layer_cart_product_title" class="product-name"></h3>
+							<span id="layer_cart_product_attributes"></span>
+					<div id="layer_cart_product_quantity_wrap" class="hidden">
+								<span class="layer_cart_label">Quantity</span>
+								<span id="layer_cart_product_quantity"></span>
 					</div>
-        </div>
-			</div>
-
-			<div id="header_cart" class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
-						<!-- MODULE Block cart -->
-
-				<div class="blockcart clearfix">
-					<div class="shopping_cart clearfix">
-						<div class="icon-cart">
-						</div>
-							<a href="order.html" rel="nofollow">
-
-										<span class="text-cart">CARRITO</span>
-
-										<span class="text-cart4">Carrito</span>
-										<span class="line line4"> - </span>
-										<span class="ajax_cart_quantity">{{count($carritos)}}</span>
-										<span class="ajax_cart_quantity_text">Articulos</span>
-										<span class="line line4 arrow"><i class="fa fa-caret-down"></i></span>
-										<span class="line"> - </span>
-										<?php
-										$totalCarrito = 0;
-										foreach($carritos as $carrito){
-											$totalCarrito += $carrito->cantidad * $carrito->almacena->precio;
-										}
-
-											echo '<span class="ajax_cart_total">$'.$totalCarrito.'</span>
-
-							</a>
-							<div class="cart_block block exclusive">
-								<div class="block_content">
-											<!-- block list of products -->
-									<div class="cart_block_list">
-												<p class="recent_items ">Articulos <span>Precio</span></p>';
-												if(count($carritos) == 0){
-													echo '<p class="cart_block_no_products">
-															No tienes articulos en tu carrito
-													</p>';
-												}
-												else{
-													foreach($carritos as $carrito){
-														echo '<div class="list-products mCustomScrollbar">
-															<dl class="products ">
-																<dt data-id="cart_block_product_1_1_23" class="first_item">
-																	<a class="cart-images" href="#"><img height="50" width="50" src="../imgArticulos/'.$carrito->almacena->imagen.'" /></a>
-																	<div class="cart-info">
-																		<div class="product-name titleFont">
-																			<a class="cart_block_product_name" href="#">'.$carrito->almacena->nombre.'</a>
-																		</div>
-																		<span class="price">$'.$carrito->almacena->precio * $carrito->cantidad.'</span>
-																		<span class="quantity-formated titleFont">Cantidad: '.$carrito->cantidad.'</span>
-																	</div>
-																	<span class="remove_link">
-																		<a class="ajax_cart_block_remove_link" href="#" rel="nofollow" title="Borrar del carrito"><i class="fa fa-trash"></i></a>
-																	</span>
-																</dt>
-															</dl>
-														</div>';
-													}
-												}
-									echo '<div class="cart-prices">
-										<div class="price-total titleFont">
-											<span class="price_text">Total : </span>
-												<span class="price cart_block_total ajax_block_cart_total">$'.$totalCarrito.'
-												</span>
-										</div>';
-										?>
-										<div class="buttons">
-												<a id="button_order_cart" class="btn btn-default button button-small titleFont" href="{{url('Carrito/')}}" rel="nofollow">
-														Ver carrito
-												</a>
-											</div>
-										</div>
-									</div>
-								</div><!-- .cart_block -->
-							</div>
+					<div id="layer_cart_product_price_wrap" class="hidden">
+								<span class="layer_cart_label">Total</span>
+								<span id="layer_cart_product_price"></span>
 					</div>
 				</div>
+			</div>
 
-
-				<div id="layer_cart" class="layer_box">
-					<div class="layer_inner_box">
-						<div class="layer_product clearfix mar_b10">
-									<span class="cross" title="Close window"></span>
-							<div class="product-image-container layer_cart_img">
-							</div>
-							<div class="layer_product_info">
-										<h3 id="layer_cart_product_title" class="product-name"></h3>
-										<span id="layer_cart_product_attributes"></span>
-								<div id="layer_cart_product_quantity_wrap" class="hidden">
-											<span class="layer_cart_label">Quantity</span>
-											<span id="layer_cart_product_quantity"></span>
-								</div>
-								<div id="layer_cart_product_price_wrap" class="hidden">
-											<span class="layer_cart_label">Total</span>
-											<span id="layer_cart_product_price"></span>
-								</div>
-							</div>
-						</div>
-
-						<div id="pro_added_success" class="alert alert-success">Producto agregado exitosamente a su carrito de compras
-						</div>
-						<div class="layer_details">
-							<div class="layer_cart_row">
-										<!-- Plural Case [both cases are needed because page may be updated in Javascript] -->
-											<span class="ajax_cart_product_txt_s  unvisible">
-												Hay <span class="ajax_cart_quantity">0</span> articulos en tu carrito
-											</span>
-										<!-- Singular Case [both cases are needed because page may be updated in Javascript] -->
-											<span class="ajax_cart_product_txt ">
-												Hay 1 artículo en su carrito..
-											</span>
-							</div>
-							<div id="layer_cart_ajax_block_products_total" class="layer_cart_row hidden">
-											<span class="layer_cart_label">
-												Total productos
-																		(tax excl.)
-											</span>
-											<span class="ajax_block_products_total">
-											</span>
-							</div>
-
-							<div id="layer_cart_ajax_cart_shipping_cost" class="layer_cart_row hidden">
-											<span class="layer_cart_label">
-												Total shipping&nbsp;(tax excl.)
-											</span>
-											<span class="ajax_cart_shipping_cost">
-												Free shipping!
-											</span>
-							</div>
-							<div id="layer_cart_ajax_block_cart_total" class="layer_cart_row">
-											<span class="layer_cart_label">
-												Total
-																		(tax excl.)
-											</span>
-											<span class="ajax_block_cart_total price">
-											</span>
-							</div>
-							<div class="button-container clearfix">
-											<span class="continue button pull-left" title="Continue shopping">
-												Continue shopping
-											</span>
-											<a class="button pull-right" href="order.html" title="Proceed to checkout" rel="nofollow">
-												Proceed to checkout
-											</a>
-							</div>
-						</div>
-					</div>
-					<div class="crossseling">
-					</div>
-				</div> <!-- #layer_cart -->
-				<div class="layer_cart_overlay">
+			<div id="pro_added_success" class="alert alert-success">Producto agregado exitosamente a su carrito de compras
+			</div>
+			<div class="layer_details">
+				<div class="layer_cart_row">
+							<!-- Plural Case [both cases are needed because page may be updated in Javascript] -->
+								<span class="ajax_cart_product_txt_s  unvisible">
+									Hay <span class="ajax_cart_quantity">0</span> articulos en tu carrito
+								</span>
+							<!-- Singular Case [both cases are needed because page may be updated in Javascript] -->
+								<span class="ajax_cart_product_txt ">
+									Hay 1 artículo en su carrito..
+								</span>
+				</div>
+				<div id="layer_cart_ajax_block_products_total" class="layer_cart_row hidden">
+								<span class="layer_cart_label">
+									Total productos
+															(tax excl.)
+								</span>
+								<span class="ajax_block_products_total">
+								</span>
 				</div>
 
-<!-- /MODULE Block cart -->
+				<div id="layer_cart_ajax_cart_shipping_cost" class="layer_cart_row hidden">
+								<span class="layer_cart_label">
+									Total shipping&nbsp;(tax excl.)
+								</span>
+								<span class="ajax_cart_shipping_cost">
+									Free shipping!
+								</span>
+				</div>
+				<div id="layer_cart_ajax_block_cart_total" class="layer_cart_row">
+								<span class="layer_cart_label">
+									Total
+															(tax excl.)
+								</span>
+								<span class="ajax_block_cart_total price">
+								</span>
+				</div>
+				<div class="button-container clearfix">
+								<span class="continue button pull-left" title="Continue shopping">
+									Continue shopping
+								</span>
+								<a class="button pull-right" href="order.html" title="Proceed to checkout" rel="nofollow">
+									Proceed to checkout
+								</a>
+				</div>
 			</div>
 		</div>
+		<div class="crossseling">
+		</div>
+	</div> <!-- #layer_cart -->
+	<div class="layer_cart_overlay">
 	</div>
-</div>
 
-
-<!--MENU DE CATEGORIAS-->
-			<div class="header-menu">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-3 col-sm-4 col-xs-12">
-							<div class="spverticalmenu ">
-								<nav class="navbar-default" role="navigation">
-									<div class="navbar-header">
-										<button type="button" id="show-vermegamenu" data-toggle="collapse" data-target="#sp-vermegamenu" class="navbar-toggle">
-											Todas categorias
-										</button>
-										<h2 class="cat-title">Todas categorias</h2>
-									</div>
-									<a href="#"><div id="sp-vermegamenu" class=" sp-vermegamenu clearfix">
-									<span id="remove-vermegamenu" class="fa fa-remove"></span>
-									<h2 class="cat-title">Todas categorias</h2></a>
-									<div class="sp-verticalmenu-container">
-										<ul class="nav navbar-nav  menu sp_lesp level-1">
-											<li class="item-1 vertical-cat"  >
-												<a href="{{url('Articulos/PocketClub')}}"><i class="icon-v1"></i>PocketClub</a>
-											</li>
-											<li class="item-1 mega_type type1 parent group"  >
-												<a href="{{url('Articulos/Tecnologias')}}"><i class="icon-v2"></i>Tecnologias</a>
-												<div class="dropdown-menu" style="width:200px">
-													<ul class="level-2">
-														<li class="item-2 sub-cate group parent" style="width:100%" >
-															<a href="72-subcat1.html" title="Subcat1">Subcat1</a>
-															<div class="dropdown-menu">
-																<ul>
-																	<li class=" parent"  ><a href="68-hiking-gear.html">Hiking Gear</a>
-																		<div class="dropdown-menu">
-																			<ul>
-																				<li class=""  >
-																					<a href="97-hammock.html">Hammock</a>
-																				</li>
-																				<li class="">
-																					<a href="98-telescope.html">Telescope</a>
-																				</li>
-																				<li class=""  >
-																					<a href="99-hat.html">Hat</a>
-																				</li>
-																				<li class="">
-																					<a href="100-tent.html">Tent</a>
-																				</li>
-																				<li class="">
-																					<a href="101-sleeping-bag.html">Sleeping Bag</a>
-																				</li>
-																			</ul>
-																		</div>
-																	</li>
-																</ul>
-															</div>
-														</li>
-													</ul>
-												</div>
-											</li>
-											<li class="item-1 vertical-cat"  >
-												<a href="{{url('Articulos/Licores')}}"><i class="icon-v1"></i>Licores</a>
-											</li>
-											<li class="item-1 vertical-cat"  >
-												<a href="{{url('Articulos/Cervezas')}}"><i class="icon-v1"></i>Cervezas</a>
-											</li>
-											<li class="item-1 vertical-cat"  >
-												<a href="{{url('Articulos/Utencilios')}}"><i class="icon-v1"></i>Utencilios</a>
-											</li>
-											<li class="item-1 vertical-cat"  >
-												<a href="{{url('Articulos/Promociones')}}"><i class="icon-v1"></i>Promociones</a>
-											</li>
-											<li class="item-1 vertical-cat"  >
-												<a href="{{url('Articulos/Mercadotecnia')}}"><i class="icon-v1"></i>Mercadotecnia</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</nav>
-						</div>
-
-					</div>
-					<div class="col-md-9 col-sm-8 col-xs-12">
-						<div class="spmegamenu">
-							<nav class="navbar" role="navigation">
-								<div class="navbar-button">
-									<button type="button" id="show-megamenu" data-toggle="collapse" data-target="#sp-megamenu" class="navbar-toggle">
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-									</button>
-								</div>
-								<div id="sp-megamenu" class="mega sp-megamenu clearfix">
-									<span id="remove-megamenu" class="fa fa-remove"></span>
-									<span class="label-menu">Menu</span>
-									<div class="sp-megamenu-container">
-										<div class="home">
-											<a href="http://prestashop.flytheme.net/sp_market/">Casa</a>
-										</div>
-										<ul class="nav navbar-nav  menu sp_lesp level-1">
-											<li class="item-1 newarrival" ><a href="http://prestashop.flytheme.net/sp_market/new-products" title="Nuevo"><p><span class="hot">Hot</span></p> Nuevo</a>
-											</li>
-											<li class="item-1 promotions" ><a href="#" title="Promociones"> Promociones</a>
-											</li>
-											<li class="item-1 css_type specials" ><a href="http://prestashop.flytheme.net/sp_market/prices-drop" title="Especiales"> Especiales</a>
-											</li>
-											<li class="item-1 blog" ><a href="indexd963.html?fc=module&amp;module=smartblog&amp;controller=category" title="Blog"> Blog</a>
-											</li>
-											<li class="item-1 contactus" ><a href="{{url('Contactenos/')}}" title="Cont&aacute;ctenos"> Cont&aacute;ctenos</a>
-											</li>
-											<li class="item-1 aboutus" ><a href="content/4-about-us.html" title="Nosotros"> Nosotros</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</nav>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-			 <!-- End of Header -->
 <div class="breadcrumb-container">
 					<div class="container">
 
@@ -782,8 +511,6 @@ param_product_url = '#';
 			</div>
 								 <!-- End of Sidebar -->
 
-				{!!Html::script('javascripts/notificaciones/modernizr.custom.js')!!}
-				{!!Html::script('javascripts/notificaciones/notificationFx.js')!!}
 				<div id="center_column" class="column col-sm-8 col-md-9 col-lg-9">
 				@include('flash::message')
 				@if(isset($articulos))
@@ -830,7 +557,7 @@ param_product_url = '#';
 														}
 													?>
 												</div>
-										 <a title="Vista rápida" class="quick-view" href="Tienda/Articulo" data-rel="http://localhost:8000/Articulos/PocketClub">Ver detalles
+										 <a title="Vista rápida" class="quick-view" href="Tienda/Articulo/NotificacionArticulo" data-rel="http://localhost:8000/Articulos/PocketClub">Ver detalles
 								        </a>
 	                    </div>
 	                  </div>
@@ -885,7 +612,7 @@ param_product_url = '#';
 												  <i class="fa fa-check"></i>
 												  <link itemprop="availability" href="http://schema.org/InStock" />In stock</span>
 												</div>
-												{!!Form::open(array('url'=>'Tienda/Carrito','method'=>'POST',))!!}
+												{!!Form::open(array('url'=>'Carrito','method'=>'POST',))!!}
 												<div class="form-group">
 													<input class="form-control grey" type="hidden" name="vista" value="articulos"/>
 												</div>
@@ -951,7 +678,6 @@ param_product_url = '#';
 	        </div>
 					@endif
 				@endif
-      </div>
     </div>
   </div><!-- #center_column -->
 </div><!-- .row -->

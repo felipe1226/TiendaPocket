@@ -5,7 +5,7 @@
   position: absolute;
   top: calc(50% - 25px);
   height: 50px;
-  width: 30px;
+  width: 50px;
   transition: 0.3s all ease 0s;
   text-align: center;
   line-height: 46px;
@@ -38,3 +38,7 @@
 
 .rtl .sphomepage-slider {
   direction: ltr; }
+
+.box-slider{
+  width: 30px;
+}

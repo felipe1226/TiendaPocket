@@ -131,4 +131,13 @@ Route::resource('RegistrarArticulo', 'ArticuloController@registrarArticulo');
 
 Route::resource('Cuenta', 'TiendaController@MiCuenta');
 
-Route::get('Carrito/','CarritoController@ListarCarrito');
+Route::resource('vistaRapida', 'ArticuloController@vistaRapida');
+
+
+Route::get('Carrito/eliminar', 'CarritoController@eliminar');
+
+Route::get('Carrito/modificar', 'CarritoController@modificarCant');
+
+Route::get('Carrito','CarritoController@ListarCarrito');
+
+Route::resource('Tienda/Carrito', 'CarritoController');
