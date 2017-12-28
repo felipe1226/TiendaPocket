@@ -49,7 +49,7 @@
 						var wishlistProductsIds = false;
 					</script>
 
-							
+
 
 <!-- Breadcrumb Column -->
 	<div class="breadcrumb-container">
@@ -84,7 +84,7 @@
                 <li><a href="#"><i class="fa fa-building"></i><span>Agregar direccion principal</span></a></li>
                 <li><a href="#"><i class="fa fa-list-ol"></i><span>Historial de pedido y detalles</span></a></li>
                 <li><a href="#"><i class="fa fa-file-o"></i><span>My credit slips</span></a></li>
-            		<li><a href="#"><i class="fa fa-building"></i><span>Mis direcciones</span></a></li>
+            		<li><a href="{{url('Direcciones')}}"><i class="fa fa-building"></i><span>Mis direcciones</span></a></li>
             		<li><a href="#"><i class="fa fa-user"></i><span>Mi informacion personal</span></a></li>
         			</ul>
 						</div>

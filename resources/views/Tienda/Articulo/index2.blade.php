@@ -666,7 +666,7 @@
                         <div class="product-image-container">
               						<!--   Slider Images Product   -->
               						<div class="product-image">
-                            <a href="{{$articulo->id}}/Detalles" itemprop="url" >
+                            <a href="../Detalles/{{$articulo->id}}">
               							  <img height="220" class="img_1" src="../imgArticulos/{{$articulo->imagen}}"  alt="{{$articulo->nombre}}"/>
             								</a>
             						  </div>
@@ -683,7 +683,7 @@
                       <div class="right-block">
 					<!--  Show Product title  -->
                       <h4 itemprop="name" class="product-name">
-												<a href="{{$articulo->id}}/Detalles" itemprop="url" >
+												<a href="../Detalles/{{$articulo->id}}" itemprop="url" >
                           {{$articulo->nombre}}
 						            </a>
                       </h4>

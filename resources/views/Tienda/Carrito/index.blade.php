@@ -184,21 +184,6 @@
 		@endif
 	@endif
 
-	{!!Form::open(array('url'=>'Tienda/Carrito','method'=>'POST',))!!}
-
-	<div class="form-group">
-		<input class="form-control grey" type="hidden" name="id_articulo" value=""/>
-	</div>
-	<div class="form-group">
-		<input class="form-control grey" type="hidden" name="vista" value="carrito" hidden />
-	</div>
-	<div class="button-container">
-		<button  class="cart_button" type="submit" >
-			Actualizar
-	</button>
-	</div>
-	{!!Form::close()!!}
-
 
 			<div class="order_delivery clearfix row">
 												<div class="col-xs-12 col-sm-6">

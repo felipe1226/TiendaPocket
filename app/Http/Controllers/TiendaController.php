@@ -20,10 +20,4 @@ class TiendaController extends Controller
     $carritos = Carrito::where('id_empresa',Auth::user()->idEmpresa)->get();
     return view('Tienda/Principal/index')->with('carritos',$carritos);
   }
-
-  public function MiCuenta(request $request){
-    $carritos = Carrito::where('id_empresa',Auth::user()->idEmpresa)->get();
-    return view('Tienda/Cuenta/index')->with('carritos', $carritos);
-  }
-
 }

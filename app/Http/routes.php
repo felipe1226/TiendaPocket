@@ -123,13 +123,12 @@ Route::resource('Tienda', 'TiendaController');
 
 Route::get('Articulos/{categoria}','ArticuloController@ArtsxCategoria');
 
-Route::get('{id}/Detalles','ArticuloController@verArticulo');
+Route::get('Detalles/{id}','ArticuloController@verArticulo');
 
 Route::resource('Contactenos', 'ContactenosController');
 
 Route::resource('RegistrarArticulo', 'ArticuloController@registrarArticulo');
 
-Route::resource('Cuenta', 'TiendaController@MiCuenta');
 
 Route::resource('vistaRapida', 'ArticuloController@vistaRapida');
 
@@ -141,3 +140,9 @@ Route::get('Carrito/modificar', 'CarritoController@modificarCant');
 Route::get('Carrito','CarritoController@ListarCarrito');
 
 Route::resource('Tienda/Carrito', 'CarritoController');
+
+Route::resource('Direcciones', 'CuentaController@direcciones');
+
+Route::resource('Cuenta/AgregarDireccion', 'CuentaController@agregarDireccion');
+
+Route::resource('Cuenta', 'CuentaController');

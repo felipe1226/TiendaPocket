@@ -61,7 +61,6 @@ class ArticuloController extends Controller
   }
 
   public function vistaRapida(){
-
     return view('Tienda/Articulo/verArticulo');
   }
 
