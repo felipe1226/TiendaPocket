@@ -82,7 +82,8 @@
 						<div class="col-xs-12 col-sm-6 col-lg-4">
 							<ul class="myaccount-link-list">
                 <li><a href="#"><i class="fa fa-building"></i><span>Agregar direccion principal</span></a></li>
-                <li><a href="#"><i class="fa fa-list-ol"></i><span>Historial de pedido y detalles</span></a></li>
+								<li><a href="{{url('Pedidos')}}" title="Mis Pedidos"><i class="fa fa-list-ol"></i><span>Historial de Pedidos y Detalles</span></a></li>
+                <!--<li><a href="#"><i class="fa fa-list-ol"></i><span>Historial de pedido y detalles</span></a></li>-->
                 <li><a href="#"><i class="fa fa-file-o"></i><span>My credit slips</span></a></li>
             		<li><a href="{{url('Direcciones')}}"><i class="fa fa-building"></i><span>Mis direcciones</span></a></li>
             		<li><a href="#"><i class="fa fa-user"></i><span>Mi informacion personal</span></a></li>
@@ -92,7 +93,8 @@
         			<ul class="myaccount-link-list">
 <!-- MODULE WishList -->
 								<li class="lnk_wishlist">
-									<a 	href="#">
+									<!--<a 	href="#">-->
+									<a 	href="{{url('ListadeDeseos')}}" title="Lista de Deseos">
 										<i class="fa fa-heart"></i>
 										<span>Mi lista de deseos</span>
 									</a>

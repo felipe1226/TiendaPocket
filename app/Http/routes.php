@@ -146,3 +146,7 @@ Route::resource('Direcciones', 'CuentaController@direcciones');
 Route::resource('Cuenta/AgregarDireccion', 'CuentaController@agregarDireccion');
 
 Route::resource('Cuenta', 'CuentaController');
+
+Route::resource('Pedidos', 'PedidosController');
+
+Route::resource('ListadeDeseos', 'ListaDeseosController');
