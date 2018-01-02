@@ -82,8 +82,8 @@
 						<div class="col-xs-12 col-sm-6 col-lg-4">
 							<ul class="myaccount-link-list">
                 <li><a href="#"><i class="fa fa-building"></i><span>Agregar direccion principal</span></a></li>
-                <li><a href="#"><i class="fa fa-list-ol"></i><span>Historial de pedido y detalles</span></a></li>
-                <li><a href="#"><i class="fa fa-file-o"></i><span>My credit slips</span></a></li>
+                <li><a href="{{url('Pedidos')}}"><i class="fa fa-list-ol"></i><span>Historial de pedidos y detalles</span></a></li>
+                <!--<li><a href="#"><i class="fa fa-file-o"></i><span>My credit slips</span></a></li>-->
             		<li><a href="{{url('Direcciones')}}"><i class="fa fa-building"></i><span>Mis direcciones</span></a></li>
             		<li><a href="#"><i class="fa fa-user"></i><span>Mi informacion personal</span></a></li>
         			</ul>

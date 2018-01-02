@@ -46,7 +46,7 @@ class ArticuloController extends Controller
     $articulos = Articulo::BuscarxCategoria($categoria)->get();
     $carritos = Carrito::where('id_empresa',Auth::user()->idEmpresa)->get();
 
-    return view('Tienda/Articulo/index2')->with(['articulos' => $articulos])->with('carritos', $carritos)->with('categoria', $categoria);
+    return view('Tienda/Articulo/index')->with(['articulos' => $articulos])->with('carritos', $carritos)->with('categoria', $categoria);
   }
 
   public function registrarArticulo(request $request){
