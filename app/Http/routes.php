@@ -150,3 +150,5 @@ Route::resource('Cuenta', 'CuentaController');
 Route::resource('Pedidos', 'PedidosController');
 
 Route::resource('ListadeDeseos', 'ListaDeseosController');
+
+Route::resource('InformacionPersonal', 'InformacionPersonalController');

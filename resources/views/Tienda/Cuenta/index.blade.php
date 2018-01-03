@@ -84,9 +84,12 @@
                 <li><a href="#"><i class="fa fa-building"></i><span>Agregar direccion principal</span></a></li>
 								<li><a href="{{url('Pedidos')}}" title="Mis Pedidos"><i class="fa fa-list-ol"></i><span>Historial de Pedidos y Detalles</span></a></li>
                 <!--<li><a href="#"><i class="fa fa-list-ol"></i><span>Historial de pedido y detalles</span></a></li>-->
-                <li><a href="#"><i class="fa fa-file-o"></i><span>My credit slips</span></a></li>
+
+								<!--SE ELIMINA MY CREDIT SLIPS-->
+                <!--<li><a href="#"><i class="fa fa-file-o"></i><span>My credit slips</span></a></li>-->
+
             		<li><a href="{{url('Direcciones')}}"><i class="fa fa-building"></i><span>Mis direcciones</span></a></li>
-            		<li><a href="#"><i class="fa fa-user"></i><span>Mi informacion personal</span></a></li>
+            		<li><a href="{{url('InformacionPersonal')}}"><i class="fa fa-user"></i><span>Mi Informacion Personal</span></a></li>
         			</ul>
 						</div>
 						<div class="col-xs-12 col-sm-6 col-lg-4">
