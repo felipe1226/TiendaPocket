@@ -152,3 +152,7 @@ Route::get('Direccion/eliminar', 'CuentaController@eliminarDireccion');
 Route::resource('Pedidos', 'CuentaController@pedidos');
 
 Route::resource('Cuenta', 'CuentaController');
+
+Route::resource('Pedidos', 'PedidosController');
+
+Route::resource('ListadeDeseos', 'ListaDeseosController');
