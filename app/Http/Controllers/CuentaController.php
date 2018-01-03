@@ -52,7 +52,7 @@ class CuentaController extends Controller
   public function pedidos(){
     $carritos = Carrito::where('id_empresa',Auth::user()->idEmpresa)->get();
     //$pedidos = Pedido::Listar(Auth::user()->idEmpresa)->get();
-    return view('Tienda/Pedidos/index2')->with('carritos', $carritos);
+    return view('Tienda/Pedidos/index')->with('carritos', $carritos);
   }
 
   public function eliminarDireccion(Request $request){
