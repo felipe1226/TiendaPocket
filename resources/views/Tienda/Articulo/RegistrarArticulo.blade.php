@@ -48,7 +48,7 @@
                	</div>
                	<div class="contact-content col-md-8 col-sm-12">
 									@include('flash::message')
-									{!!Form::open(array('url'=>'Tienda/RegistrarArticulo','method'=>'POST','enctype' => 'multipart/form-data'))!!}
+									{!!Form::open(array('url'=>'RegistrarArticulo','method'=>'POST','enctype' => 'multipart/form-data'))!!}
 									{{Form::token()}}
                			<fieldset>
                				<h2 class="title">Informacion del articulo</h2>
