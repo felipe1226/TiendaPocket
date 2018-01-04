@@ -375,7 +375,9 @@ var wishlistProductsIds = false;
 						<div class="footer-social">
 <h3 class="title">Follow us :</h3>
 <div class="socials">
-	  <a href="https://www.facebook.com/MagenTech" class="facebook" target="_blank" ><i class="fa fa-facebook"></i></a>	   <a href="https://twitter.com/magentech" class="twitter" target="_blank" ><i class="fa fa-twitter"></i></a>		   <a href="https://plus.google.com/u/0/+SmartAddons-Joomla-Magento-WordPress/posts" class="google" target="_blank"><i class="fa fa-google-plus"></i></a>		   <a href="https://www.pinterest.com/magentech" class="pinterest" target="_blank" ><i class="fa fa-pinterest"></i></a>
+	  <a href="https://www.facebook.com/MagenTech" class="facebook" target="_blank" ><i class="fa fa-facebook"></i></a>	   <a href="https://twitter.com/magentech" class="twitter" target="_blank" ><i class="fa fa-twitter"></i></a>		   <a href="https://plus.google.com/u/0/+SmartAddons-Joomla-Magento-WordPress/posts" class="google" target="_blank">
+			<i class="fa fa-google-plus"></i></a>
+		<a href="https://www.pinterest.com/magentech" class="pinterest" target="_blank" ><i class="fa fa-pinterest"></i></a>
 
 </div>
 </div>
@@ -755,12 +757,9 @@ var moderation_active = 1;
 
 						<!--Product Buttons-->
 							<div class="button-container">
-
-																																						<a class=" cart_button ajax_add_to_cart_button" href="../orderc2ff.html?add=1&amp;id_product=4&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f" rel="nofollow"  title="Añadir al carrito" data-id-product="4">
+								<a class=" cart_button ajax_add_to_cart_button" href="../orderc2ff.html?add=1&amp;id_product=4&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f" rel="nofollow"  title="Añadir al carrito" data-id-product="4">
 												COMPRAR
-											</a>
-
-
+								</a>
 							</div>
 					</div>
 			<li class="product-box item">
