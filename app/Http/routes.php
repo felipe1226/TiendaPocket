@@ -124,7 +124,6 @@ Route::resource('Tienda', 'TiendaController');
 
 
 
-
 Route::get('Articulos/{categoria}','ArticuloController@ArtsxCategoria');
 
 Route::get('Detalles/{id}','ArticuloController@verArticulo');
@@ -143,9 +142,9 @@ Route::get('Carrito','CarritoController@ListarCarrito');
 
 Route::resource('Tienda/Carrito', 'CarritoController');
 
-Route::resource('Direcciones', 'CuentaController@direcciones');
+Route::resource('RegistrarDireccion', 'DireccionController@registrarDireccion');
 
-Route::resource('NuevaDireccion', 'CuentaController@nuevaDireccion');
+Route::resource('MisDirecciones', 'DireccionController');
 
 Route::get('Direccion/eliminar', 'CuentaController@eliminarDireccion');
 

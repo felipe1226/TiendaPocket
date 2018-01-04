@@ -8,7 +8,7 @@
 <!-- Breadcrumb -->
 <div class="breadcrumb clearfix">
 	<ul>
-		<li class="home"><a href="http://prestashop.flytheme.net/sp_market/" title="Return to Home">Home</a></li>
+		<li class="home"><a href="{{url('Tienda')}}" title="Return to Home">Inicio</a></li>
 		<li class="depth1"><a href="{{url('Contactenos')}}">Contactenos</a></li>
 	</ul>
 </div>

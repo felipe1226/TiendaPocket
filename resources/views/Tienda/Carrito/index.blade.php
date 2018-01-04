@@ -11,7 +11,7 @@
 <div class="breadcrumb clearfix">
 	<ul>
 		<li class="home"><a href="{{url('Tienda/')}}">Inicio</a></li>
-		<li class="depth1"><a href="#">Carrito</a></li>
+		<li class="depth1"><a href="{{url('Carrito')}}">Carrito</a></li>
 	</ul>
 
 </div>
@@ -184,46 +184,6 @@
 		@endif
 	@endif
 
-
-			<div class="order_delivery clearfix row">
-												<div class="col-xs-12 col-sm-6">
-						<ul class="address first_item item box">
-							<li>
-								<h3 class="page-subheading">
-																			Delivery address
-																												<span class="address_alias">(Principal)</span>
-																	</h3>
-							</li>
-																																																																																<li><span class="address_name">
-																				Felipe
-																																																															Bedoya
-																												</span></li>
-																																																																																																	<li><span class="address_company">
-																				Pocket
-																												</span></li>
-																																																																																																	<li><span class="address_address1">
-																				tranv 9 #22-42
-																																																															diag 23
-																												</span></li>
-																																																																																																	<li><span class="address_city">
-																				Tulua,
-																																																															Washington
-																																																															12345
-																												</span></li>
-																																																																																																	<li><span class="">
-																				United States
-																												</span></li>
-																																																																																																	<li><span class="address_phone">
-																				2305539
-																												</span></li>
-																																																																																																	<li><span class="address_phone_mobile">
-																				3156624815
-																												</span></li>
-																														</ul>
-					</div>
-
-									</div>
-		<div id="HOOK_SHOPPING_CART"></div>
 	<p class="cart_navigation clearfix">
 
 		<a href="{{url('Tienda/')}}" class="button-exclusive btn btn-default">

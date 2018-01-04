@@ -50,7 +50,8 @@
         <div class="breadcrumb clearfix">
 	        <ul>
             <li class="home"><a href="{{url('Tienda')}}">Inicio</a></li>
-		        <li class="depth1"><a href="#">Mis direcciones</a></li>
+             <li class="depth1"><a href="{{url('Cuenta')}}">Mi cuenta</a></li>
+		         <li class="depth2"><a href="{{url('MisDirecciones')}}">Mis direcciones</a></li>
 	        </ul>
 
         </div>
@@ -118,7 +119,7 @@
 			        </div>
             </div>
             <div class="clearfix main-page-indent">
-	            <a href="{{url('NuevaDireccion')}}" class="btn btn-default button button-medium">
+	            <a href="{{url('RegistrarDireccion')}}" class="btn btn-default button button-medium">
                 <span>Agregar nueva dirección<i class="fa fa-chevron-right right"></i></span>
               </a>
             </div>
