@@ -8,10 +8,6 @@
 					</div>
 					 <!-- End of Sidebar -->
 
-
-
-
-
 			<!-- Center Column -->
 			<div id="center_column" class="column col-sm-12">
 
@@ -33,14 +29,8 @@
 			</div>
 
 		<span id="view_full_size">
-
-					<img id="bigpic" itemprop="image" data-src="url:(../imgArticulos/{{$articulos[0]->imagen}})" data-zoom-image="../imgArticulos/{{$articulos[0]->imagen}}"  src="../imgArticulos/{{$articulos[0]->imagen}}" title="Aliquam Leberkas" alt="Aliquam Leberkas" width="570" height="570"/>
-
-
-			</span>
-
-
-
+			<img id="bigpic" itemprop="image" data-src="url:(../imgArticulos/{{$articulos[0]->imagen}})" data-zoom-image="../imgArticulos/{{$articulos[0]->imagen}}"  src="../imgArticulos/{{$articulos[0]->imagen}}" title="Aliquam Leberkas" alt="Aliquam Leberkas" width="570" height="570"/>
+		</span>
 
 	</div> <!-- end image-block -->
 	<!-- thumbnails -->
