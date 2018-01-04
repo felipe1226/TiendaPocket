@@ -50,6 +50,51 @@
 					</script>
 
 
+							<script type="text/javascript" src="/sp_market/js/jquery/jquery-1.11.0.min.js"></script>
+							<script type="text/javascript" src="/sp_market/js/jquery/jquery-migrate-1.2.1.min.js"></script>
+							<script type="text/javascript" src="/sp_market/js/jquery/plugins/jquery.easing.js"></script>
+							<script type="text/javascript" src="/sp_market/js/tools.js"></script>
+							<script type="text/javascript" src="/sp_market/themes/sp_market/js/global.js"></script>
+							<script type="text/javascript" src="/sp_market/themes/sp_market/js/autoload/10-bootstrap.min.js"></script>
+							<script type="text/javascript" src="/sp_market/themes/sp_market/js/autoload/15-jquery.total-storage.min.js"></script>
+							<script type="text/javascript" src="/sp_market/themes/sp_market/js/autoload/15-jquery.uniform-modified.js"></script>
+							<script type="text/javascript" src="/sp_market/themes/sp_market/js/autoload/jquery.mCustomScrollbar.concat.min.js"></script>
+							<script type="text/javascript" src="/sp_market/themes/sp_market/js/autoload/slick.min.js"></script>
+							<script type="text/javascript" src="/sp_market/js/jquery/plugins/fancybox/jquery.fancybox.js"></script>
+							<script type="text/javascript" src="/sp_market/themes/sp_market/js/products-comparison.js"></script>
+							<script type="text/javascript" src="/sp_market/modules/spthemeconfigurator/views/js/front/jquery.miniColors.min.js"></script>
+							<script type="text/javascript" src="/sp_market/modules/spthemeconfigurator/views/js/front/sp-cpanel.js"></script>
+							<script type="text/javascript" src="/sp_market/themes/sp_market/js/sp_lib/jquery.backtotop.js"></script>
+							<script type="text/javascript" src="/sp_market/themes/sp_market/js/sp_lib/jquery.global.js"></script>
+							<script type="text/javascript" src="/sp_market/themes/sp_market/js/sp_lib/jquery.ui.touch-punch.min.js"></script>
+							<script type="text/javascript" src="/sp_market/themes/sp_market/js/sp_lib/jquery.elevatezoom.js"></script>
+							<script type="text/javascript" src="/sp_market/themes/sp_market/js/modules/blockwishlist/js/ajax-wishlist.js"></script>
+							<script type="text/javascript" src="/sp_market/themes/sp_market/js/tools/treeManagement.js"></script>
+							<script type="text/javascript" src="/sp_market/modules/spextraslider/views/js/owl.carousel.js"></script>
+							<script type="text/javascript" src="/sp_market/modules/spdeal/views/js/deal.js"></script>
+							<script type="text/javascript" src="/sp_market/modules/spdeal/views/js/jquery.cj-swipe.js"></script>
+							<script type="text/javascript" src="/sp_market/modules/spcategories/views/js/jquery.imagesloaded.js"></script>
+							<script type="text/javascript" src="/sp_market/modules/spcategories/views/js/jquery.sj_accordion.js"></script>
+							<script type="text/javascript" src="/sp_market/modules/spsearchpro/views/js/jquery.autocomplete.js"></script>
+							<script type="text/javascript" src="/sp_market/themes/sp_market/js/modules/spblockcart/ajax-cart.js"></script>
+							<script type="text/javascript" src="/sp_market/js/jquery/plugins/jquery.scrollTo.js"></script>
+							<script type="text/javascript" src="/sp_market/js/jquery/plugins/jquery.serialScroll.js"></script>
+							<script type="text/javascript" src="/sp_market/js/jquery/plugins/bxslider/jquery.bxslider.js"></script>
+							<script type="text/javascript" src="/sp_market/modules/sphomeslider/js/owl.carousel.js"></script>
+							<script type="text/javascript" src="/sp_market/modules/spblocknewsletter/jquery.cookie.min.js"></script>
+
+
+<script type="text/javascript">
+    //<![CDATA[
+    var listdeal = [];
+    //]]>
+</script>
+
+<script type="text/javascript">
+    //<![CDATA[
+    var listdeal = [];
+    //]]>
+</script>
 
 <!-- Breadcrumb Column -->
 	<div class="breadcrumb-container">
@@ -78,6 +123,7 @@
 				<div id="center_column" class="column col-sm-12">
 					<h1 class="page-heading">Mi Cuenta</h1>
 					<p class="info-account">Administra toda la informacion de tu cuenta, articulos y pedidos.</p>
+
 					<div class="row addresses-lists">
 						<div class="col-xs-12 col-sm-6 col-lg-4">
 							<ul class="myaccount-link-list">
@@ -88,7 +134,7 @@
 								<!--SE ELIMINA MY CREDIT SLIPS-->
                 <!--<li><a href="#"><i class="fa fa-file-o"></i><span>My credit slips</span></a></li>-->
 
-            		<li><a href="{{url('Direcciones')}}"><i class="fa fa-building"></i><span>Mis direcciones</span></a></li>
+            		<li><a href="{{url('Direcciones')}}"><i class="fa fa-building"></i><span>Mis Direcciones</span></a></li>
             		<li><a href="{{url('InformacionPersonal')}}"><i class="fa fa-user"></i><span>Mi Informacion Personal</span></a></li>
         			</ul>
 						</div>
@@ -99,7 +145,7 @@
 									<!--<a 	href="#">-->
 									<a 	href="{{url('ListadeDeseos')}}" title="Lista de Deseos">
 										<i class="fa fa-heart"></i>
-										<span>Mi lista de deseos</span>
+										<span>Mi Lista de Deseos</span>
 									</a>
 								</li>
 <!-- END : MODULE WishList -->

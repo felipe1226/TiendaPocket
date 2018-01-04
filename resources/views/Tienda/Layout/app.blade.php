@@ -163,7 +163,7 @@
 
 								<li class="wishlist">
 									<a href="http://prestashop.flytheme.net/sp_market/es/module/blockwishlist/mywishlist" title="Mi deseos" rel="nofollow">
-										<span>Mi deseos</span>
+										<span>Mis deseos</span>
 									</a>
 								</li>
 
@@ -203,12 +203,12 @@
 													<select class="spr_select">
 														<option>Categorias</option>
 														<option value="PocketClub">PocketClub</option>
-														<option value="tecnologia">Tecnologia</option>
 														<option value="licores">Licores</option>
-														<option value="cervezas">Cervezas</option>
-														<option value="utencilios">Utencilios</option>
-														<option value="promociones">Promociones</option>
-														<option value="mercadotecnia">Mercadotecnia</option>
+														<option value="electronicos">Electronicos</option>
+														<option value="utensilios">Cocteleria</option>
+														<option value="utensilios">Cocina</option>
+														<option value="publicitarios">Publicitarios</option>
+														<option value="Herramientas">Herramientas y Decoracion</option>
 													</select>
 												</div>
 												<div class="text-search">
@@ -436,22 +436,22 @@
 														<a href="{{url('Articulos/PocketClub')}}"><i class="icon-v1"></i>PocketClub</a>
 													</li>
 													<li class="item-1 vertical-cat"  >
-														<a href="{{url('Articulos/Tecnologias')}}"><i class="icon-v2"></i>Tecnologias</a>
+														<a href="{{url('Articulos/Licores')}}"><i class="icon-v2"></i>Licores</a>
 													</li>
 													<li class="item-1 vertical-cat"  >
-														<a href="{{url('Articulos/Licores')}}"><i class="icon-v1"></i>Licores</a>
+														<a href="{{url('Articulos/Electronicos')}}"><i class="icon-v1"></i>Electronicos</a>
 													</li>
 													<li class="item-1 vertical-cat"  >
-														<a href="{{url('Articulos/Cervezas')}}"><i class="icon-v1"></i>Cervezas</a>
+														<a href="{{url('Articulos/Cocteleria')}}"><i class="icon-v1"></i>Cocteleria</a>
 													</li>
 													<li class="item-1 vertical-cat"  >
-														<a href="{{url('Articulos/Utencilios')}}"><i class="icon-v1"></i>Utencilios</a>
+														<a href="{{url('Articulos/Cocina')}}"><i class="icon-v1"></i>Cocina</a>
 													</li>
 													<li class="item-1 vertical-cat"  >
-														<a href="{{url('Articulos/Promociones')}}"><i class="icon-v1"></i>Promociones</a>
+														<a href="{{url('Articulos/Publicitarios')}}"><i class="icon-v1"></i>Publicitarios</a>
 													</li>
 													<li class="item-1 vertical-cat"  >
-														<a href="{{url('Articulos/Mercadotecnia')}}"><i class="icon-v1"></i>Mercadotecnia</a>
+														<a href="{{url('Articulos/Herramientas')}}"><i class="icon-v1"></i>Herramientas y Decoracion</a>
 													</li>
 												</ul>
 											</div>
