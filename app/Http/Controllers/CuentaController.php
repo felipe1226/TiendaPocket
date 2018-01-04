@@ -5,6 +5,8 @@ namespace PocketByR\Http\Controllers;
 use Illuminate\Http\Request;
 use PocketByR\Carrito;
 use PocketByR\Direccion;
+use PocketByR\Departamento;
+use PocketByR\Ciudad;
 use Auth;
 use PocketByR\Http\Requests;
 use PocketByR\Http\Controllers\Controller;
@@ -45,8 +47,10 @@ class CuentaController extends Controller
   }
 
   public function nuevaDireccion(){
+    $departamentos = Departamento::all();
+      $ciudades = Ciudad::all();
     $carritos = Carrito::where('id_empresa',Auth::user()->idEmpresa)->get();
-    return view('Tienda/Cuenta/nuevaDireccion')->with('carritos', $carritos);
+    return view('Tienda/Cuenta/nuevaDireccion')->with('carritos', $carritos)->with('departamentos', $departamentos)->with('ciudades', $ciudades);
   }
 
   public function pedidos(){

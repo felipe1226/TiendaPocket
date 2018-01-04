@@ -9,7 +9,7 @@
 		<div class="breadcrumb clearfix">
 			<ul>
 				<li class="home"><a href="{{url('Cuenta')}}">Inicio</a></li>
-				<li class="depth1"><a href="#">Mis direcciones</a></li>
+				<li class="depth1"><a href="{{url('Direcciones')}}">Mis direcciones</a></li>
 				<li class="depth2"><a href="#">Nueva direccion</a></li>
 			</ul>
 		</div>
@@ -54,14 +54,18 @@
 						</div>
 						<div class="required id_state form-group">
 							<label for="id_state">Departamento <sup>*</sup></label>
-							<select name="id_state" id="id_state" class="form-control">
-								<option value="">-</option>
+
+
+							<select name="id_departamento" id="id_depto" class="form-control">
+								@foreach($departamentos as $departamento)
+									<option value="{{$departamento->id}}">{{$departamento->nombre}}</option>
+								@endforeach
 							</select>
 						</div>
 						<div class="required form-group">
 							<label for="city">Ciudad <sup>*</sup></label>
-							<select name="id_state" id="id_state" class="form-control">
-								<option value="">-</option>
+							<select name="id_ciudad" id="id_ciudad" class="form-control">
+								<option value=""></option>
 							</select>
 						</div>
 						<div class="form-group phone-number required">
@@ -105,6 +109,27 @@
 		</div><!-- .row -->
 	</div><!-- #columns -->
 </div><!-- .columns-container -->
+
+<script>
+	$('#id_depto').on('change', function (event) {
+			var id = $(this).find('option:selected').val();
+			$('#id_ciudad').empty();
+			$('#id_ciudad').append($('<option>', {
+						value: 0,
+						text: 'Elija una opción'
+				}));
+			JSONCiudades = eval(<?php echo json_encode($ciudades);?>);
+			JSONCiudades.forEach(function(currentValue,index,arr) {
+				if(currentValue.idDepartamento == id){
+					$('#id_ciudad').append($('<option>', {
+						value: currentValue.id,
+						text: currentValue.nombre
+				}));
+				}
+		});
+
+	});
+</script>
 
 
 @endsection
