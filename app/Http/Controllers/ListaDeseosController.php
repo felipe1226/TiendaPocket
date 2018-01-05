@@ -20,4 +20,12 @@ class ListaDeseosController extends Controller
     return view('Tienda/ListadeDeseos/index')->with('carritos', $carritos);
   }
 
+  public function ListarListaDeseo(){
+    $id_listadeseos = Auth::user()->id_listadeseos;
+
+    $carritos = Carrito::where('id_empresa',Auth::user()->idEmpresa)->get();
+    return view('Tienda/ListadeDeseos/index')->with('carritos', $carritos);
+  }
+
+
 }

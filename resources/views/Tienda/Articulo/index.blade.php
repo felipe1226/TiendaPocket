@@ -136,7 +136,7 @@
   							<h3 id="layer_cart_product_title" class="product-name"></h3>
   							<span id="layer_cart_product_attributes"></span>
   					<div id="layer_cart_product_quantity_wrap" class="hidden">
-  								<span class="layer_cart_label">Quantity</span>
+  								<span class="layer_cart_label">Cantidad</span>
   								<span id="layer_cart_product_quantity"></span>
   					</div>
   					<div id="layer_cart_product_price_wrap" class="hidden">
@@ -170,10 +170,11 @@
 
   				<div id="layer_cart_ajax_cart_shipping_cost" class="layer_cart_row hidden">
   								<span class="layer_cart_label">
-  									Total shipping&nbsp;(tax excl.)
+
+                    Envío Total;(tax excl.)
   								</span>
   								<span class="ajax_cart_shipping_cost">
-  									Free shipping!
+  									Envio Gratis!
   								</span>
   				</div>
   				<div id="layer_cart_ajax_block_cart_total" class="layer_cart_row">
@@ -186,10 +187,10 @@
   				</div>
   				<div class="button-container clearfix">
   								<span class="continue button pull-left" title="Continue shopping">
-  									Continue shopping
+  									Seguir Comprando
   								</span>
   								<a class="button pull-right" href="order.html" title="Proceed to checkout" rel="nofollow">
-  									Proceed to checkout
+  									Pasar por la caja
   								</a>
   				</div>
   			</div>
@@ -735,11 +736,86 @@
                           <button  class="cart_button" type="submit">
 														Carro
 												  </button>
-                          <a class="addToWishlist wishlistProd_11" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '11', false, 1); return false;">
-                          <i class="fa fa-heart"></i>
-                        </a>
+                          <a class="addToWishlist wishlistProd_1" title="Añadir a la lista de deseos" href="#" onclick="WishlistCart('wishlist_block_list', 'add', '1', false, 1); return false;">
+                            <i class="fa fa-heart"></i>
+	                        </a>
                       </div>
                       {!!Form::close()!!}
+
+                      <script>
+                      function agregar(id_listadeseos,){
+                        if(confirm('¿Desea guardar en lista de deseos?')){
+                          $.ajax({
+                            url: "ListadeDeseos/agregar",
+                            type: 'GET',
+                            data: {
+                              id: id_listadeseos
+                            },
+                            success: function(){
+                                location.reload();
+                            },
+                            error: function(data){
+                              alert('No se puede agregar el articulo en la lista de deseos, ya que existe historial de ventas del mismo.');
+                            }
+                          });
+                        }
+                      }
+                      function modificarCantidad(idCarrito, precio, val){
+                        var cant = parseInt($("#cantidad"+idCarrito).val());
+                        if(cant < 1){
+                          cant = 1;
+                        }
+                        if(val == "0"){
+                          if(cant > 1){
+                            cant -= 1;
+                          }
+                        }
+                        else{
+                          if(val == "1"){
+                            cant += 1;
+                          }
+                        }
+                          var valor = parseInt(precio)*cant;
+                          $.ajax({
+                            url: "Carrito/modificar",
+                            type: 'GET',
+                            data: {
+                              id: idCarrito,
+                              cantidad: cant
+                            },
+                            success: function(){
+                              $("#cantidad"+idCarrito).val(cant);
+                              $("#cantidadTotal"+idCarrito).val(valor);
+
+                              $("#totalArticulos").val(valor);
+                              $("#totalCarrito").val(cant);
+
+                            },
+                            error: function(data){
+                              alert('Error al modificar la cantidad');
+                            }
+                          });
+                      }
+
+                      	function eliminar(idCarrito){
+                      		if(confirm('¿Desea descartar este articulo del carrito?')){
+                      			$.ajax({
+                      				url: "Carrito/eliminar",
+                      				type: 'GET',
+                      				data: {
+                      					id: idCarrito
+                      				},
+                      				success: function(){
+                      						location.reload();
+                      				},
+                      				error: function(data){
+                      					alert('No se puede eliminar el articulo del carrito, ya que existe historial de ventas del mismo.');
+                      				}
+                      			});
+                      		}
+                      	}
+                      </script>
+
 				            </div>
                   </div><!-- .product-container> -->
                 </li>

@@ -154,30 +154,77 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"1","product_quantity":"
 										<table class="std">
 											<thead>
 												<tr>
-													<th class="first_item">Nombre</th>
-													<th class="item mywishlist_first">Cant.</th>
+                          <th class="cart_product first_item">Articulo</th>
+              						<th class="cart_description item">Descripcion</th>
+              						<th class="cart_avail item text-center">Disponibilidad</th>
 													<th class="item mywishlist_second">Creado</th>
 													<th class="item mywishlist_second">Enlace directo</th>
 													<th class="last_item mywishlist_first">Eliminar</th>
 												</tr>
 											</thead>
-				<tbody>
-					<tr id="wishlist_43">
-						<td style="width:200px;">
-							<a href="javascript:;" onclick="javascript:WishlistManage('block-order-detail', '43');">Mi lista de deseos</a>
-						</td>
-						<td class="bold">
-							1
-						</td>
-						<td>2018-01-04</td>
-						<td>
-							<a class="button" href="javascript:;" onclick="javascript:WishlistManage('block-order-detail', '43');">Ver</a>
-						</td>
-						<td class=" wishlist_del">
-							<a class="button" href="javascript:;" onclick="return (WishlistDelete('wishlist_43', '43', '¿Desea realmente eliminar esta lista?'));">Eliminar</a>
-						</td>
-					</tr>
-				</tbody>
+
+                      <tbody>
+                        @foreach($carritos as $carrito)
+                          <tr id="product_17_108_0_0" class="cart_item first_item address_0 odd">
+                            <td class="cart_product">
+                              <a href=""><img src="imgArticulos/{{$carrito->almacena->imagen}}" width="110" height="110"  /></a>
+                            </td>
+                            <td class="cart_description">
+                              <h5 class="product-name">
+                                <?php
+                                  echo '<h3><a href="'.$carrito->id_articulo.'/Detalles">'.$carrito->almacena->nombre.'</a></h3';
+                                ?>
+                              </h5>
+                              <small class="cart_ref">Marca: {{$carrito->almacena->marca}}</small>
+                              <small class="cart_ref">{{$carrito->almacena->categoria}}</small>
+
+                            </td>
+                            <td class="cart_avail">
+                              <span class="label label-success">In stock</span>
+                            </td>
+                            <td class="cart_unit" data-title="Unit price">
+                              <ul class="price text-right" id="cantidad">
+                                <li class="price">${{$carrito->almacena->precio}}</li>
+                              </ul>
+                            </td>
+
+                            <td class="cart_quantity text-center" data-title="Quantity">
+
+                              <input type="hidden" value="1" name="quantity_17_108_0_0_hidden" />
+                              <input id="cantidad{{$carrito->id}}" size="2"  type="text" autocomplete="off" class="cart_quantity_input form-control grey" value="{{$carrito->cantidad}}" name="quantity_17_108_0_0" onblur="modificarCantidad({{$carrito->id}}, {{$carrito->almacena->precio}}, 3)"/>
+
+                              <div class="cart_quantity_button clearfix">
+                                <a class="cart_quantity_down btn btn-default button-minus" href="javascript:void(0);" title="Sustraer" onclick="modificarCantidad({{$carrito->id}}, {{$carrito->almacena->precio}}, 0)">
+                                  <span>
+                                    <i class="fa fa-minus"></i>
+                                  </span>
+                                </a>
+                                <a  class="cart_quantity_up btn btn-default button-plus" href="javascript:void(0);" title="Agregar" onclick="modificarCantidad({{$carrito->id}}, {{$carrito->almacena->precio}}, 1)"><span><i class="fa fa-plus"></i></span></a>
+                              </div>
+                            </td>
+
+                            <td class="cart_delete text-center" data-title="Delete">
+                              <div>
+                                <button class="btn btn-default" onclick="eliminar({{$carrito->id}})" style="BACKGROUND-COLOR: rgb(79,0,85); color:white"><i class="fa fa-trash"></i></button>
+                              </div>
+                            </td>
+                            <td class="cart_total" data-title="Total">
+                              <span>$</span>
+                              <?php
+
+                                echo '<input id="cantidadTotal'.$carrito->id.'" readonly="readonly" style="border:0" class="price"  value="'.$carrito->almacena->precio * $carrito->cantidad.'" onchange=""/>';
+                               ?>
+
+                            </td>
+                          </tr>
+                          @endforeach
+                      </tbody>
+
+
+
+
+
+				
 			</table>
 		</div>
 
