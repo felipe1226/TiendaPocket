@@ -80,26 +80,29 @@ var wishlistProductsIds = [{"id_product":"2","quantity":"1","product_quantity":"
 			<!-- Center Column -->
 			<div id="center_column" class="column col-sm-12">
 				<h1 class="page-heading bottom-indent">Historial de pedidos</h1>
-				<p class="info-title">Estos son los pedidos que han realizado.</p>
-				<div class="block-center" id="block-history">
-					<table id="order-list" class="table table-bordered footab">
-						<thead>
-							<tr>
-									<th class="first_item" data-sort-ignore="true">Referencia</th>
-									<th class="item">Fecha envio</th>
-									<th class="item">Fecha entrega</th>
-									<th data-hide="phone" class="item">Costo Total</th>
-									<th data-sort-ignore="true" data-hide="phone,tablet" class="item">Metodo de pago</th>
-									<th class="item">Estado</th>
-									<th data-sort-ignore="true" data-hide="phone,tablet" class="item">Factura</th>
-									<th data-sort-ignore="true" data-hide="phone,tablet" class="last_item">&nbsp;</th>
-							</tr>
-						</thead>
-					<tbody>
-					@if(isset($pedidos))
-						@if($pedidos == 0)
-							<p class="alert alert-warning">No has realizado pedidos!.</p>
-						@else
+
+				@if(isset($pedidos))
+					@if(count($pedidos) == 0)
+						<p class="alert alert-warning">No has realizado pedidos!.</p>
+					@else
+
+						<p class="info-title">Estos son los pedidos que han realizado.</p>
+							<div class="block-center" id="block-history">
+								<table id="order-list" class="table table-bordered footab">
+									<thead>
+										<tr>
+												<th class="first_item" data-sort-ignore="true">Referencia</th>
+												<th class="item">Fecha envio</th>
+												<th class="item">Fecha entrega</th>
+												<th data-hide="phone" class="item">Costo Total</th>
+												<th data-sort-ignore="true" data-hide="phone,tablet" class="item">Metodo de pago</th>
+												<th class="item">Estado</th>
+												<th data-sort-ignore="true" data-hide="phone,tablet" class="item">Factura</th>
+												<th data-sort-ignore="true" data-hide="phone,tablet" class="last_item">&nbsp;</th>
+										</tr>
+									</thead>
+								<tbody>
+
 							@foreach($pedidos as $pedido)
 								<tr class="first_item ">
 									<td class="history_link bold">

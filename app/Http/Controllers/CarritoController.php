@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use PocketByR\Http\Requests;
 use PocketByR\Carrito;
+use PocketByR\Direccion;
 use Laracasts\Flash\Flash;
 use PocketByR\Http\Controllers\Controller;
 use Auth;
@@ -52,12 +53,28 @@ class CarritoController extends Controller
 
     }
 
-    public function ListarCarrito(){
+    public function index(){
       $id_empresa = Auth::user()->idEmpresa;
 
       $carritos = Carrito::ConsultaCarrito($id_empresa)->get();
 
-      return view('Tienda/Carrito/index')->with(['carritos' => $carritos]);
+      return view('Tienda/Carrito/resumen')->with(['carritos' => $carritos]);
+    }
+
+    public function direcciones(){
+      $id_empresa = Auth::user()->idEmpresa;
+      $direcciones = Direccion::Listar(Auth::user()->idEmpresa)->get();
+      $carritos = Carrito::ConsultaCarrito($id_empresa)->get();
+
+      return view('Tienda/Carrito/direccion')->with(['carritos' => $carritos])->with('direcciones', $direcciones);
+    }
+
+    public function metodoPago(){
+      $id_empresa = Auth::user()->idEmpresa;
+
+      $carritos = Carrito::ConsultaCarrito($id_empresa)->get();
+
+      return view('Tienda/Carrito/metodoPago')->with(['carritos' => $carritos]);
     }
 
 
