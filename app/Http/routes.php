@@ -159,3 +159,5 @@ Route::resource('Pedidos', 'PedidoController');
 Route::resource('ListadeDeseos', 'ListaDeseosController');
 
 Route::resource('InformacionPersonal', 'InformacionPersonalController');
+
+Route::resource('Mensajes', 'MensajeriaController');
