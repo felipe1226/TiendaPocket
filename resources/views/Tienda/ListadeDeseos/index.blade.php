@@ -157,6 +157,7 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"1","product_quantity":"
                           <th class="cart_product first_item">Articulo</th>
               						<th class="cart_description item">Descripcion</th>
               						<th class="cart_avail item text-center">Disponibilidad</th>
+													<th class="item mywishlist_second">Precio Unitario</th>
 													<th class="item mywishlist_second">Creado</th>
 													<th class="last_item mywishlist_first">Eliminar</th>
 												</tr>
@@ -165,9 +166,11 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"1","product_quantity":"
                       <tbody>
                         @foreach($carritos as $carrito)
                           <tr id="product_17_108_0_0" class="cart_item first_item address_0 odd">
+
                             <td class="cart_product">
                               <a href=""><img src="imgArticulos/{{$carrito->almacena->imagen}}" width="110" height="110"  /></a>
                             </td>
+
                             <td class="cart_description">
                               <h5 class="product-name">
                                 <?php
@@ -176,8 +179,8 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"1","product_quantity":"
                               </h5>
                               <small class="cart_ref">Marca: {{$carrito->almacena->marca}}</small>
                               <small class="cart_ref">{{$carrito->almacena->categoria}}</small>
-
                             </td>
+
                             <td class="cart_avail">
                               <span class="label label-success">In stock</span>
                             </td>
@@ -206,14 +209,6 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"1","product_quantity":"
                               <div>
                                 <button class="btn btn-default" onclick="eliminar({{$carrito->id}})" style="BACKGROUND-COLOR: rgb(79,0,85); color:white"><i class="fa fa-trash"></i></button>
                               </div>
-                            </td>
-                            <td class="cart_total" data-title="Total">
-                              <span>$</span>
-                              <?php
-
-                                echo '<input id="cantidadTotal'.$carrito->id.'" readonly="readonly" style="border:0" class="price"  value="'.$carrito->almacena->precio * $carrito->cantidad.'" onchange=""/>';
-                               ?>
-
                             </td>
                           </tr>
                           @endforeach
