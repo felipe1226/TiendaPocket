@@ -33,16 +33,12 @@
           	<li class="step_done first">
           		<a href="{{url('Carrito')}}"><em>01.</em> Resumen</a>
           	</li>
-
           	<li class="step_current second">
           					<span><em>02.</em> Dirección</span>
           			</li>
-          	<li class="step_todo third">
-          					<span><em>03.</em> Envio</span>
-          			</li>
           	<li id="step_end" class="step_todo last">
-          		<span><em>04.</em> Pago</span>
-          	</li>
+          					<span><em>03.</em> Pago</span>
+          			</li>
           </ul>
 <!-- /Steps -->
 

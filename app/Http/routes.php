@@ -140,7 +140,7 @@ Route::get('Carrito/modificar', 'CarritoController@modificarCant');
 
 Route::resource('Carrito','CarritoController');
 Route::resource('Direccion', 'CarritoController@direcciones');
-Route::resource('Pago', 'CarritoController@metodoPago');
+Route::resource('Pago', 'CarritoController@pago');
 
 Route::resource('Tienda/Carrito', 'CarritoController');
 

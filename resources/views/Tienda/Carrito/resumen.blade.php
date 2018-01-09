@@ -47,12 +47,9 @@
   	<li class="step_todo second">
   					<span><em>02.</em> Dirección</span>
   			</li>
-  	<li class="step_todo third">
-  					<span><em>03.</em> Envio</span>
-  			</li>
   	<li id="step_end" class="step_todo last">
-  		<span><em>04.</em> Pago</span>
-  	</li>
+  					<span><em>03.</em> Pago</span>
+  			</li>
   </ul>
 
 <!-- /Steps -->
@@ -125,6 +122,10 @@
   							<td class="cart_total" data-title="Total">
   								<span>$</span>
   								<?php
+
+                    echo '<div id="cantidadTotal'.$carrito->id.'" class="price" value="'.$carrito->almacena->precio * $carrito->cantidad.'" onchange=""/> </div>';
+
+
 
   									echo '<input id="cantidadTotal'.$carrito->id.'" readonly="readonly" style="border:0" class="price"  value="'.$carrito->almacena->precio * $carrito->cantidad.'" onchange=""/>';
   								 ?>
@@ -235,7 +236,8 @@
             },
             success: function(){
               $("#cantidad"+idCarrito).val(cant);
-              $("#cantidadTotal"+idCarrito).val(valor);
+
+              $("#cantidadTotal"+idCarrito).html("<span>"+valor+"</span>");
 
               $("#totalArticulos").val(valor);
               $("#totalCarrito").val(cant);

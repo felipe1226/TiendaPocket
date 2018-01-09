@@ -69,12 +69,12 @@ class CarritoController extends Controller
       return view('Tienda/Carrito/direccion')->with(['carritos' => $carritos])->with('direcciones', $direcciones);
     }
 
-    public function metodoPago(){
+    public function pago(){
       $id_empresa = Auth::user()->idEmpresa;
 
       $carritos = Carrito::ConsultaCarrito($id_empresa)->get();
 
-      return view('Tienda/Carrito/metodoPago')->with(['carritos' => $carritos]);
+      return view('Tienda/Carrito/pago')->with(['carritos' => $carritos]);
     }
 
 
