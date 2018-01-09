@@ -49,16 +49,13 @@ var usingSecureMode = false;
 var wishlistProductsIds = [{"id_product":"2","quantity":"1","product_quantity":"0","name":"Aliquam lobortis","id_product_attribute":"0","priority":"0","link_rewrite":"blouse","category_rewrite":"electronics","attributes_small":""},{"id_product":"8","quantity":"1","product_quantity":"0","name":"Etiam Andouille","id_product_attribute":"0","priority":"1","link_rewrite":"printed-dress","category_rewrite":"electronics","attributes_small":""}];
 </script>
 
-
-
-			<!-- Breadcrumb Column -->
-							 <div class="breadcrumb-container">
-					<div class="container">
-
-<!-- Breadcrumb -->
-<div class="breadcrumb clearfix">
-	<ul>
-		<li class="home"><a href="http://prestashop.flytheme.net/sp_market/" title="Return to Home">Home</a></li>
+<!-- Breadcrumb Column -->
+<div class="breadcrumb-container">
+	<div class="container">
+    <!-- Breadcrumb -->
+    <div class="breadcrumb clearfix">
+      <ul>
+		      <li class="home"><a href="{{url('Tienda')}}">Inicio</a></li>
 									    <li class="depth1"><a href="http://prestashop.flytheme.net/sp_market/es/order?step=3" title="Volver al Pedido">Procesos de Pedido</a></li> <li class="depth2">Pago por transferencia bancaria</li>
 
 						</ul>
@@ -101,29 +98,19 @@ var wishlistProductsIds = [{"id_product":"2","quantity":"1","product_quantity":"
 
 <!-- Steps -->
 <ul class="step clearfix" id="order_step">
-	<li class="step_done first">
-				<a href="http://prestashop.flytheme.net/sp_market/es/order">
-			<em>01.</em> Summary
-		</a>
-			</li>
-	<li class="step_done second">
-				<a href="http://prestashop.flytheme.net/sp_market/es/order?step=1">
-			<em>02.</em> Sign in
-		</a>
-			</li>
-	<li class="step_done third">
-				<a href="http://prestashop.flytheme.net/sp_market/es/order?step=1">
-			<em>03.</em> Address
-		</a>
-			</li>
-	<li class="step_done step_done_last four">
-				<a href="http://prestashop.flytheme.net/sp_market/es/order?step=2">
-			<em>04.</em> Shipping
-		</a>
-			</li>
-	<li id="step_end" class="step_current last">
-		<span><em>05.</em> Payment</span>
-	</li>
+  <li class="step_done first">
+    <a href="{{url('Carrito')}}"><em>01.</em> Resumen</a>
+  </li>
+
+  <li class="step_current second">
+          <span><em>02.</em> Dirección</span>
+      </li>
+  <li class="step_todo third">
+          <span><em>03.</em> Envio</span>
+      </li>
+  <li id="step_end" class="step_todo last">
+    <span><em>04.</em> Pago</span>
+  </li>
 </ul>
 <!-- /Steps -->
 
