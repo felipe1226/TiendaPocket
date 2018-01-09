@@ -89,4 +89,9 @@ class CarritoController extends Controller
       $carrito = Carrito::find($request->id);
       $carrito->delete();
     }
+    public function ListaDeseos(){
+      $carritos = Carrito::where('id_empresa',Auth::user()->idEmpresa)->get();
+      return view('Tienda/ListaDeseos/index')->with('carritos', $carritos);
+
+    }
 }
