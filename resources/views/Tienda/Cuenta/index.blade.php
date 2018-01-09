@@ -137,7 +137,7 @@
 <!-- MODULE WishList -->
 								<li class="lnk_wishlist">
 									<!--<a 	href="#">-->
-									<a 	href="{{url('ListadeDeseos')}}" title="Lista de Deseos">
+									<a 	href="{{url('ListaDeseos')}}" title="Lista de Deseos">
 										<i class="fa fa-heart"></i>
 										<span>Mi Lista de Deseos</span>
 									</a>
