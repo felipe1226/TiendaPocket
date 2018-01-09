@@ -191,18 +191,8 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"1","product_quantity":"
                             </td>
 
                             <td class="cart_quantity text-center" data-title="Quantity">
+                              {{$carrito->created_at}}
 
-                              <input type="hidden" value="1" name="quantity_17_108_0_0_hidden" />
-                              <input id="cantidad{{$carrito->id}}" size="2"  type="text" autocomplete="off" class="cart_quantity_input form-control grey" value="{{$carrito->cantidad}}" name="quantity_17_108_0_0" onblur="modificarCantidad({{$carrito->id}}, {{$carrito->almacena->precio}}, 3)"/>
-
-                              <div class="cart_quantity_button clearfix">
-                                <a class="cart_quantity_down btn btn-default button-minus" href="javascript:void(0);" title="Sustraer" onclick="modificarCantidad({{$carrito->id}}, {{$carrito->almacena->precio}}, 0)">
-                                  <span>
-                                    <i class="fa fa-minus"></i>
-                                  </span>
-                                </a>
-                                <a  class="cart_quantity_up btn btn-default button-plus" href="javascript:void(0);" title="Agregar" onclick="modificarCantidad({{$carrito->id}}, {{$carrito->almacena->precio}}, 1)"><span><i class="fa fa-plus"></i></span></a>
-                              </div>
                             </td>
 
                             <td class="cart_delete text-center" data-title="Delete">
