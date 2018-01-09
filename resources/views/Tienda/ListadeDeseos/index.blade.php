@@ -158,7 +158,6 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"1","product_quantity":"
               						<th class="cart_description item">Descripcion</th>
               						<th class="cart_avail item text-center">Disponibilidad</th>
 													<th class="item mywishlist_second">Creado</th>
-													<th class="item mywishlist_second">Enlace directo</th>
 													<th class="last_item mywishlist_first">Eliminar</th>
 												</tr>
 											</thead>
@@ -219,154 +218,11 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"1","product_quantity":"
                           </tr>
                           @endforeach
                       </tbody>
+                    </table>
+                  </div>
 
 
-
-
-
-				
-			</table>
-		</div>
-
-<div id="block-order-detail" style="display: block;">
-		<div class="wishlistLinkTop">
-				<a href="#" id="hideWishlist" class="button_account" onclick="WishlistVisibility('wishlistLinkTop', 'Wishlist'); return false;" title="Cerrar lista de deseados" rel="nofollow"><i class="fa fa-times"></i></a>
-				<ul class="clearfix display_list">
-					<li>
-						<a href="#" id="hideBoughtProducts" class="button_account" onclick="WishlistVisibility('wlp_bought', 'BoughtProducts'); return false;" title="Ocultar productos">Ocultar productos</a>
-						<a href="#" id="showBoughtProducts" class="button_account" onclick="WishlistVisibility('wlp_bought', 'BoughtProducts'); return false;" title="Mostrar productos">Mostrar productos</a>
-					</li>
-					<li>
-						<a href="#" id="hideBoughtProductsInfos" class="button_account" onclick="WishlistVisibility('wlp_bought_infos', 'BoughtProductsInfos'); return false;" title="Ocultar productos">Ocultar la información de los productos comprados</a>
-						<!--<a href="#" id="showBoughtProductsInfos" class="button_account"  onclick="WishlistVisibility('wlp_bought_infos', 'BoughtProductsInfos'); return false;" title="Mostrar productos">Mostrar la información de los productos comprados</a>-->
-					</li>
-							</ul>
-
-				<div class="wlp_bought">
-				<ul class="row wlp_bought_list">
-							<li id="wlp_1_0" class="col-md-3 col-sm-4 address item">
-						<div class="item-inner">
-
-							<div class="clearfix">
-								<div class="product_image">
-									<a href="http://localhost:8000/Detalles/1" title="Detalle del producto">
-										<img class="img_1" src="../imgArticulos/1513282402_BBDC77-anymore.tv_.jpg" alt="Bloody">
-									</a>
-								</div>
-								<div class="product_infos">
-									<h5 id="s_title" class="product_name">Bloody</h5>
-									<span class="wishlist_product_detail">
-										<label>Cantidad</label>
-										<input type="text" id="quantity_1_0" value="1" size="3">
-										<br>
-										<label>Prioridad</label>
-										<select id="priority_1_0">
-											<option value="0">Alta</option>
-											<option value="1" selected="selected">Media</option>
-											<option value="2">Baja</option>
-										</select>
-										<!---->
-									</span>
-								</div>
-							</div>
-							<br>
-							<div class="btn_action">
-								<a href="javascript:;" class="exclusive lnk_save" onclick="WishlistProductManage('wlp_bought_0', 'update', '43', '1', '0', $('#quantity_1_0').val(), $('#priority_1_0').val());" title="Guardar">Guardar</a>
-								<a href="javascript:;" class="lnk_del btn" onclick="WishlistProductManage('wlp_bought', 'delete', '43', '1', '0', $('#quantity_1_0').val(), $('#priority_1_0').val());" title="Eliminar">Eliminar</a>
-							</div>
-						</div>
-
-					</li>
-						</ul>
-			</div>
-
-
-				<form method="post" class="wl_send std" onsubmit="return (false);" style="display: none;">
-				<a id="hideSendWishlist" class="button_account btn icon" href="#" onclick="WishlistVisibility('wl_send', 'SendWishlist'); return false;" rel="nofollow" title="Cerrar lista de deseados">
-					<i class="fa fa-remove"></i>
-				</a>
-				<fieldset>
-					<p class="required">
-						<label for="email1">Correo electrónico1 <sup>*</sup></label>
-						<input type="text" name="email1" id="email1">
-					</p>
-								<p>
-						<label for="email2">Correo electrónico2</label>
-						<input type="text" name="email2" id="email2">
-					</p>
-								<p>
-						<label for="email3">Correo electrónico3</label>
-						<input type="text" name="email3" id="email3">
-					</p>
-								<p>
-						<label for="email4">Correo electrónico4</label>
-						<input type="text" name="email4" id="email4">
-					</p>
-								<p>
-						<label for="email5">Correo electrónico5</label>
-						<input type="text" name="email5" id="email5">
-					</p>
-								<p>
-						<label for="email6">Correo electrónico6</label>
-						<input type="text" name="email6" id="email6">
-					</p>
-								<p>
-						<label for="email7">Correo electrónico7</label>
-						<input type="text" name="email7" id="email7">
-					</p>
-								<p>
-						<label for="email8">Correo electrónico8</label>
-						<input type="text" name="email8" id="email8">
-					</p>
-								<p>
-						<label for="email9">Correo electrónico9</label>
-						<input type="text" name="email9" id="email9">
-					</p>
-								<p>
-						<label for="email10">Correo electrónico10</label>
-						<input type="text" name="email10" id="email10">
-					</p>
-								<p class="submit">
-						<input class="button" type="submit" value="Enviar" name="submitWishlist" onclick="WishlistSend('wl_send', '43', 'email');">
-					</p>
-					<p class="required">
-						<sup>*</sup> Campo requerido
-					</p>
-				</fieldset>
-			</form>
-
-				<table class="wlp_bought_infos std" style="display:none;">
-				<thead>
-					<tr>
-						<th class="first_item">Producto</th>
-						<th class="item align_center">Cantidad</th>
-						<th class="item align_center">regalo de</th>
-						<th class="last_item align_center">Fecha</th>
-					</tr>
-				</thead>
-				<tbody>
-																		</tbody>
-			</table>
-
-			<p class="submit">
-				</p><div id="showSendWishlist">
-					<a href="#" class="button_account exclusive" onclick="WishlistVisibility('wl_send', 'SendWishlist'); return false;" title="Enviar esta lista">Enviar esta lista</a>
-				</div>
-			<p></p>
-
-		</div></div>
-
-
-
-
-
-	<ul class="footer_links">
-		<li><a class="button" href="http://prestashop.flytheme.net/sp_market/es/my-account"><i class="fa fa-user"></i> Volver a Su Cuenta</a></li>
-		<li class="f_right"><a class="button" href="http://prestashop.flytheme.net/sp_market/"> <i class="fa fa-home"></i> Inicio</a></li>
-	</ul>
-</div>
-
-					</div><!-- #center_column -->
+                </div><!-- #center_column -->
 					</div><!-- .row -->
 				</div><!-- #columns -->
 			</div><!-- .columns-container -->
