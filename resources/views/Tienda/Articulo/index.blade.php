@@ -735,7 +735,7 @@
                           <button  class="cart_button" type="submit">
 														Carro
 												  </button>
-                          <a class="cart_button" type="submit" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '11', false, 1); return false;">
+                          <a class="cart_button" type="submit" title="Añadir a la lista de deseos" href="{{url('ListaDeseos')}}">
                           <i class="fa fa-heart"></i>
                         </a>
                       </div>
