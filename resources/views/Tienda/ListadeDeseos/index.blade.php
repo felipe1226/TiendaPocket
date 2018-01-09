@@ -95,6 +95,25 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"1","product_quantity":"
     var listdeal = [];
     //]]>
 </script>
+<script>
+function eliminar(idCarrito){
+  if(confirm('¿Desea descartar este articulo del carrito?')){
+    $.ajax({
+      url: "Carrito/eliminar",
+      type: 'GET',
+      data: {
+        id: idCarrito
+      },
+      success: function(){
+          location.reload();
+      },
+      error: function(data){
+        alert('No se puede eliminar el articulo del carrito, ya que existe historial de ventas del mismo.');
+      }
+    });
+  }
+}
+</script>
 <!--     --->
 
 
@@ -196,10 +215,10 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"1","product_quantity":"
                             </td>
 
                             <td class="cart_delete text-center" data-title="Delete">
-                              <div>
-                                <button class="btn btn-default" onclick="eliminar({{$carrito->id}})" style="BACKGROUND-COLOR: rgb(79,0,85); color:white"><i class="fa fa-trash"></i></button>
-                              </div>
-                            </td>
+              								<div>
+                                <a onclick="eliminar({{$carrito->id}})" title="Delete" class="cart_quantity_delete" id="33_204_0_23" href="javascript:void(0)"><i class="fa fa-trash"></i></a>
+              								</div>
+              							</td>
                           </tr>
                           @endforeach
                       </tbody>
