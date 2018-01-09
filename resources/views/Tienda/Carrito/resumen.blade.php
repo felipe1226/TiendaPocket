@@ -190,11 +190,9 @@
 
 	<p class="cart_navigation clearfix">
 
-		<a href="{{url('Tienda/')}}" class="button-exclusive btn btn-default">
-			<i class="fa fa-chevron-left left"></i>Regresar
-		</a>
+		<a class="button" href="{{url('Tienda')}}" title="Inicio"> <i class="fa fa-home"></i></a>
     @if(count($carritos) != 0)
-    <a class="button btn btn-default standard-checkout button-medium" href="{{url('Direccion')}}" class="button btn btn-default standard-checkout button-medium"><span>Proceder con la compra<i class="fa fa-chevron-right right"></i></span>
+    <a class="button" href="{{url('Direccion')}}"><span>Proceder con la compra<i class="fa fa-chevron-right right"></i></span>
 		</a>
     @endif
 	</p>

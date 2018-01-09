@@ -42,24 +42,22 @@
           </ul>
 <!-- /Steps -->
 
-
-
 		<form action="http://prestashop.flytheme.net/sp_market/es/order" method="post">
-<div class="addresses clearfix">
-	<div class="row">
-		<div class="col-xs-12 col-sm-6">
-			<div class="address_delivery select form-group selector1">
-				<label for="id_address_delivery">Elija una dirección de entrega: </label>
-				<select name="id_address_delivery" id="id_address_delivery" class="address_select form-control">
-					@foreach($direcciones as $direccion)
-						<option value="{{$direccion->id}}">{{$direccion->referencia}}</option>
-					@endforeach
-									</select><span class="waitimage"></span>
-			</div>
+			<div class="addresses clearfix">
+				<div class="row">
+					<div class="col-xs-12 col-sm-6">
+						<div class="address_delivery select form-group selector1">
+							<label for="id_address_delivery">Elija una dirección de entrega: </label>
+							<select name="id_address_delivery" id="id_address_delivery" class="address_select form-control">
+								@foreach($direcciones as $direccion)
+									<option value="{{$direccion->id}}">{{$direccion->referencia}}</option>
+								@endforeach
+												</select><span class="waitimage"></span>
+						</div>
 
-		</div>
-	</div> <!-- end row -->
-	<div class="row">
+					</div>
+				</div> <!-- end row -->
+				<div class="row">
 			<div class="col-xs-12 col-sm-6">
 				<ul class="last_item item box">
 					<li><h3 id="referencia" class="page-subheading">{{$direcciones[0]->referencia}}</h3></li>
@@ -111,7 +109,6 @@
 
 
 			</div><!-- .columns-container -->
-
 
 			<script>
 				$('#id_address_delivery').on('change', function (event) {

@@ -184,10 +184,12 @@
 				</form>
 
                     <p class="cart_navigation clearfix">
-        <a href="http://prestashop.flytheme.net/sp_market/es/order?step=2" title="Previous" class="button-exclusive btn btn-default">
+        <a href="{{url('Direccion')}}" title="Regresar" class="button-exclusive btn btn-default">
             <i class="fa fa-chevron-left left"></i>
-            Continue shopping
         </a>
+            <button class="button btn btn-default button-medium" type="submit">
+                <span>Confirmo mi pedido<i class="fa fa-chevron-right right"></i></span>
+            </button>
     </p>
     </div> <!-- end HOOK_TOP_PAYMENT -->
 
