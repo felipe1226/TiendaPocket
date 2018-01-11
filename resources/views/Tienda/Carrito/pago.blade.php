@@ -56,132 +56,143 @@
 										</tr>
 									</thead>
                     <tfoot>
-                                                                        <tr class="cart_total_price">
-                                <td colspan="4" class="text-right">Total products</td>
-                                <td colspan="2" class="price" id="total_product">$99.00</td>
-                            </tr>
-                                                                <tr class="cart_total_voucher" style="display:none">
-                        <td colspan="4" class="text-right">
-                                                                                                Total gift wrapping cost:                                                                                    </td>
+											<tr class="cart_total_price">
+												<td colspan="4" class="text-right">Total products</td>
+												 <td colspan="2" class="price" id="total_product">$99.00</td>
+                      </tr>
+											<tr class="cart_total_voucher" style="display:none">
+												<td colspan="4" class="text-right">
+													Total gift wrapping cost:
+												</td>
                         <td colspan="2" class="price-discount price" id="total_wrapping">
-                                                                                                $0.00
-                                                                                    </td>
-                    </tr>
-                                                                        <tr class="cart_total_delivery">
-                                <td colspan="4" class="text-right">Total shipping</td>
-                                <td colspan="2" class="price" id="total_shipping" >$2.00</td>
-                            </tr>
-                                                                <tr class="cart_total_voucher" style="display:none">
+													$0.00
+												</td>
+											</tr>
+											<tr class="cart_total_delivery">
+												<td colspan="4" class="text-right">Total shipping</td>
+												<td colspan="2" class="price" id="total_shipping" >$2.00</td>
+											</tr>
+											<tr class="cart_total_voucher" style="display:none">
                         <td colspan="4" class="text-right">
-                                                                                                Total vouchers                                                                                    </td>
+													Total vouchers
+												</td>
                         <td colspan="2" class="price-discount price" id="total_discount">
-                                                                                                $0.00
-                                                                                    </td>
-                    </tr>
-                                                                    <tr class="cart_total_price">
-                            <td colspan="4" class="total_price_container text-right"><span>Total</span></td>
-                            <td colspan="2" class="price" id="total_price_container">
-                                <span id="total_price" data-selenium-total-price="101">$101.00</span>
-                            </td>
-                        </tr>
-                                        </tfoot>
+													$0.00
+												</td>
+											</tr>
+											<tr class="cart_total_price">
+                        <td colspan="4" class="total_price_container text-right">
+													<span>Total</span>
+												</td>
+                        <td colspan="2" class="price" id="total_price_container">
+                          <span id="total_price" data-selenium-total-price="101">$101.00</span>
+                        </td>
+                      </tr>
+										</tfoot>
+										<tbody>
+											@foreach($carritos as $carrito)
+					  						<tr id="carrito{{$carrito->id}}" class="cart_item first_item address_0 odd">
+					  							<td class="cart_product">
+					  								<a href="Detalles/{{$carrito->id_articulo}}"><img src="imgArticulos/{{$carrito->almacena->imagen}}" width="110" height="110"  /></a>
+					  							</td>
+					  							<td class="cart_description">
+					  								<h5 class="product-name">
+					  									<?php
+					  										echo '<h3><a href="Detalles/'.$carrito->id_articulo.'">'.$carrito->almacena->nombre.'</a></h3';
+					  									?>
+					  								</h5>
+					  								<small class="cart_ref">Marca: {{$carrito->almacena->marca}}</small>
+					  								<small class="cart_ref">{{$carrito->almacena->categoria}}</small>
 
-                    <tbody>
+					  							</td>
+					  							<td class="cart_avail">
+					  								<span class="label label-success">In stock</span>
+					  							</td>
+					  							<td class="cart_unit" data-title="Unit price">
+					  								<ul class="price text-right" id="cantidad">
+					  					        <li class="price">${{$carrito->almacena->precio}}</li>
+					  								</ul>
+					  							</td>
 
+					  							<td class="cart_quantity text-center" data-title="Quantity">
+					  								{{$carrito->cantidad}}
+					  							</td>
+					  							<td class="cart_total" data-title="Total">
+					  								<span>$</span>
+					  								<?php
 
-                        <tr id="product_33_204_0_23" class="cart_item address_23 odd">
-	<td class="cart_product">
-		<a href="http://prestashop.flytheme.net/sp_market/es/toys-hobbies/33-faded-short-sleeves-tshirt.html#/size-s/color-orange"><img src="http://prestashop.flytheme.net/sp_market/166-small_default/faded-short-sleeves-tshirt.jpg" alt="Sapien fermen" width="110" height="110"  /></a>
-	</td>
-	<td class="cart_description">
-						<h5 class="product-name"><a href="http://prestashop.flytheme.net/sp_market/es/toys-hobbies/33-faded-short-sleeves-tshirt.html#/size-s/color-orange">Sapien fermen</a></h5>
-			<small class="cart_ref">SKU : demo_33</small>		<small><a href="http://prestashop.flytheme.net/sp_market/es/toys-hobbies/33-faded-short-sleeves-tshirt.html#/size-s/color-orange">Size : S, Color : Orange</a></small>	</td>
-			<td class="cart_avail"><span class="label label-success">In stock</span></td>
-		<td class="cart_unit" data-title="Unit price">
-		<ul class="price text-right" id="product_price_33_204_23">
-			            	               	 	<li class="price">$99.00</li>
-													</ul>
-	</td>
+					  									echo '<input id="cantidadTotal'.$carrito->id.'" readonly="readonly" style="border:0" class="price"  value="'.$carrito->almacena->precio * $carrito->cantidad.'"/>';
+					  								 ?>
 
-	<td class="cart_quantity text-center" data-title="Quantity">
-					<span>
-									1
-							</span>
-			</td>
+					  							</td>
+					  						</tr>
+					  						@endforeach
+											</tbody>
+										</table>
+            			</div> <!-- end order-detail-content -->
+                  <div id="HOOK_PAYMENT">
+            				<div class="row">
+											<form action="http://prestashop.flytheme.net/sp_market/es/module/bankwire/validation" method="post">
+													<div class="box cheque-box">
+															<h3 class="page-subheading">
+																	Resumen de pago
+															</h3>
+															<p class="cheque-indent">
+																	<strong class="dark">
+																			Ha elegido pagar por transferencia bancaria. Aquí tiene un resumen de su pedido:
+																	</strong>
+															</p>
+															<p>
+																	- El importe total de su pedido es
+																	<span id="amount" class="price">$28.00</span>
+																											(impuestos inc.)
+																							</p>
+															<p>
+																	-
+																											Aceptamos las siguientes monedas para las transferencias bancarias:&nbsp;<b>USD</b>
+																			<input type="hidden" name="currency_payment" value="1" />
+																							</p>
+															<p>
+																	- La información para realizar la transferencia bancaria aparecerá en la página siguiente.
+																	<br />
+																	- Por favor, confirme su pedido haciendo clic en &quot;Confirmo mi pedido&quot;.
+															</p>
+													</div><!-- .cheque-box -->
+											</form>
 
-		<td class="cart_total" data-title="Total">
-		<span class="price" id="total_product_price_33_204_23">
-												$99.00									</span>
-	</td>
+												<div class="col-xs-12">
+													<p class="payment_module">
+														<a class="bankwire" href="http://prestashop.flytheme.net/sp_market/es/module/bankwire/payment" title="Pago por transferencia bancaria">
+															Pago por transferencia bancaria <span>(el procesamiento del pedido tomará más tiempo)</span>
+														</a>
+													</p>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-xs-12">
+											        <p class="payment_module">
+											            <a class="cheque" href="http://prestashop.flytheme.net/sp_market/es/module/cheque/payment" title="Pagar por cheque">
+											                Pagar por cheque <span>(el procesamiento del pedido tomará más tiempo)</span>
+											            </a>
+											        </p>
+											    </div>
+											</div>
+										</div>
 
-</tr>
-</tbody>
-
-                                    </table>
-            </div> <!-- end order-detail-content -->
-                        <div id="HOOK_PAYMENT">
-            <div class="row">
-							<form action="http://prestashop.flytheme.net/sp_market/es/module/bankwire/validation" method="post">
-									<div class="box cheque-box">
-											<h3 class="page-subheading">
-													Pago por transferencia bancaria
-											</h3>
-											<p class="cheque-indent">
-													<strong class="dark">
-															Ha elegido pagar por transferencia bancaria. Aquí tiene un resumen de su pedido:
-													</strong>
-											</p>
-											<p>
-													- El importe total de su pedido es
-													<span id="amount" class="price">$28.00</span>
-																							(impuestos inc.)
-																			</p>
-											<p>
-													-
-																							Aceptamos las siguientes monedas para las transferencias bancarias:&nbsp;<b>USD</b>
-															<input type="hidden" name="currency_payment" value="1" />
-																			</p>
-											<p>
-													- La información para realizar la transferencia bancaria aparecerá en la página siguiente.
-													<br />
-													- Por favor, confirme su pedido haciendo clic en &quot;Confirmo mi pedido&quot;.
-											</p>
-									</div><!-- .cheque-box -->
-							</form>
-
-	<div class="col-xs-12">
-		<p class="payment_module">
-			<a class="bankwire" href="http://prestashop.flytheme.net/sp_market/es/module/bankwire/payment" title="Pago por transferencia bancaria">
-				Pago por transferencia bancaria <span>(el procesamiento del pedido tomará más tiempo)</span>
-			</a>
-		</p>
-	</div>
-</div>
-<div class="row">
-	<div class="col-xs-12">
-        <p class="payment_module">
-            <a class="cheque" href="http://prestashop.flytheme.net/sp_market/es/module/cheque/payment" title="Pagar por cheque">
-                Pagar por cheque <span>(el procesamiento del pedido tomará más tiempo)</span>
-            </a>
-        </p>
-    </div>
-</div>
-
-        </div>
-
-				<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-					<input type="hidden" name="cmd" value="_xclick">
-					<input type="hidden" name="business" value="tendenciastulua@gmail.com">
-					<input type="hidden" name="lc" value="CO">
-					<input type="hidden" name="item_name" value="Carrito de compras">
-					<input type="hidden" name="item_number" value="CAR001">
-					<input type="hidden" name="button_subtype" value="services">
-					<input type="hidden" name="no_note" value="0">
-					<input type="hidden" name="currency_code" value="USD">
-					<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
-					<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-					<img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
-				</form>
+										<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+											<input type="hidden" name="cmd" value="_xclick">
+											<input type="hidden" name="business" value="tendenciastulua@gmail.com">
+											<input type="hidden" name="lc" value="CO">
+											<input type="hidden" name="item_name" value="Carrito de compras">
+											<input type="hidden" name="item_number" value="CAR002">
+											<input type="hidden" name="item_number" value="CAR001">
+											<input type="hidden" name="button_subtype" value="services">
+											<input type="hidden" name="no_note" value="0">
+											<input type="hidden" name="currency_code" value="USD">
+											<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
+											<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+											<img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
+										</form>
 
                     <p class="cart_navigation clearfix">
         <a href="{{url('Direccion')}}" title="Regresar" class="button-exclusive btn btn-default">
