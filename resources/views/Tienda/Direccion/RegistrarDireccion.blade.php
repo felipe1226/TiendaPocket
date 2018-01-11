@@ -31,11 +31,9 @@
 			<div id="center_column" class="column col-sm-12">
 				<div class="box">
 					<h1 class="page-subheading">Nueva direccion</h1>
-					<p class="info-title">
-					Complete los datos del formulario, por favor.
-					</p>
 
-					
+
+
 
 					@include('flash::message')
 					{!! Form::open(['method' => 'POST', 'action' => 'DireccionController@store']) !!}
@@ -89,12 +87,11 @@
 								<label for="informacion">Información adicional</label>
 								<textarea class="form-control" id="info" name="informacion" cols="26" rows="3" ></textarea>
 							</div>
-						<!--			<p class="inline-infos required">You must register at least one phone number.</p>
-				-->
+
 							<div class="clearfix"></div>
 							<div class="form-group" id="referencia_direccion">
 								<label for="referencia">Titulo de referencia para esta direccion. <sup>*</sup></label>
-								<input type="text" id="referencia" class="form-control" name="referencia" value="Mi direccion" />
+								<input type="text" id="referencia" class="form-control" name="referencia" placeholder="Mi direccion" />
 							</div>
 								<button type="submit" class="btn btn-default button button-medium">
 									<span>

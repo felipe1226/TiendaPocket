@@ -30,7 +30,6 @@ class DireccionController extends Controller
       $departamentos = Departamento::all();
       $ciudades = Ciudad::all();
       $carritos = Carrito::where('id_empresa',Auth::user()->idEmpresa)->get();
-      $direccion = Direccion;
 
       return view('Tienda/Direccion/RegistrarDireccion')->with('carritos', $carritos)->with('departamentos', $departamentos)->with('ciudades', $ciudades);
     }

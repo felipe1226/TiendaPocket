@@ -1,56 +1,6 @@
 @extends('Tienda.Layout.app')
 @section('content')
 
-
-
-		<script type="text/javascript">
-var CUSTOMIZE_TEXTFIELD = 1;
-var FancyboxI18nClose = 'Close';
-var FancyboxI18nNext = 'Next';
-var FancyboxI18nPrev = 'Previous';
-var add_compare_item = 'Product successfully added to the product comparison';
-var added_to_wishlist = 'El producto se ha añadido con éxito a su lista de deseos.';
-var ajax_allowed = true;
-var ajaxsearch = true;
-var baseDir = '/';
-var baseUri = '/';
-var comparator_max_item = 3;
-var comparedProductsIds = [22];
-var contentOnly = false;
-var currency = {"id":1,"name":"USD","iso_code":"USD","iso_code_num":"840","sign":"$","blank":"0","conversion_rate":"1.000000","deleted":"0","format":"1","decimals":"1","active":"1","prefix":"$ ","suffix":"","id_shop_list":null,"force_id":false};
-var currencyBlank = 0;
-var currencyFormat = 1;
-var currencyRate = 1;
-var currencySign = '$';
-var customizationIdMessage = 'Customization #';
-var delete_txt = 'Delete';
-var displayList = false;
-var freeProductTranslation = 'Free!';
-var freeShippingTranslation = 'Free shipping!';
-var generated_date = 1514909928;
-var id_lang = 4;
-var img_dir = 'themes/sp_market/img/';
-var instantsearch = false;
-var isGuest = 0;
-var isLogged = 1;
-var isMobile = false;
-var loggin_required = 'Debe identificarse para administrar su lista de deseos.';
-var max_item = 'You cannot add more than 3 product(s) to the product comparison';
-var min_item = 'Please select at least one product';
-var mywishlist_url = 'http://prestashop.flytheme.net/sp_market/es/module/blockwishlist/mywishlist';
-var page_name = 'history';
-var priceDisplayMethod = 1;
-var priceDisplayPrecision = 2;
-var quickView = true;
-var remove_compare_item = 'Product successfully removed from the product comparison';
-var removingLinkText = 'remove this product from my cart';
-var roundMode = 2;
-var static_token = '37dab0cd8f57363d790bac16e0dd0e45';
-var token = 'e7a94a67a2d06ed0af03a2d1f4e4a2fb';
-var usingSecureMode = false;
-var wishlistProductsIds = [{"id_product":"2","quantity":"1","product_quantity":"0","name":"Aliquam lobortis","id_product_attribute":"0","priority":"1","link_rewrite":"blouse","category_rewrite":"electronics","attributes_small":""}];
-</script>
-
 <!-- Breadcrumb Column -->
 <div class="breadcrumb-container">
 	<div class="container">
@@ -359,7 +309,6 @@ var wishlistProductsIds = [{"id_product":"2","quantity":"1","product_quantity":"
 
       function infoPedido(ref){
 
-
         $('#block-order-detail').fadeOut('slow', function() {
               $.scrollTo(this, 2000);
 
@@ -395,8 +344,6 @@ var wishlistProductsIds = [{"id_product":"2","quantity":"1","product_quantity":"
           });
 
         }
-
-
 
       </script>
 

@@ -8,7 +8,8 @@
        <!-- Breadcrumb -->
        <div class="breadcrumb clearfix">
        	<ul>
-       		<li class="home"><a href="{{url('Tienda/')}}" title="Ir al inicio">Inicio</a></li><b>>  Registro de articulo</b>
+       		<li class="home"><a href="{{url('Tienda/')}}" title="Ir al inicio">Inicio</a></li>
+            <li class="depth1"><a href="{{url('RegistrarArticulo')}}">RegistrarArticulo</a></li>
        	</ul>
 
        </div>
@@ -57,14 +58,14 @@
                						<div class="form-group selector1">
                							<label for="categoria">Categoria</label>
                								<select class="form-control" name="categoria">
-               								         <option value="0">---CATEGORIA---</option>
+               								         <option value="0">Elija la categoria</option>
                																	<option value="PocketClub">PocketClub</option>
-               																	<option value="Tecnologias">Tecnologia</option>
-                                                <option value="Licores">Licores</option>
-               																	<option value="Cervezas">Cervezas</option>
-                                                <option value="Utencilios">Utencilios</option>
-               																	<option value="Promociones">Promociones</option>
-                                                <option value="Mercadotecnia">Mercadotecnia</option>
+               																	<option value="Licores">Licores</option>
+                                                <option value="Electronicos">Electronicos</option>
+               																	<option value="Cocteleria">Cocteleria</option>
+                                                <option value="Cocina">Cocina</option>
+               																	<option value="Publicitarios">Publicitarios</option>
+                                                <option value="Herramientas y decoracion">Herramientas y decoracion</option>
                						    </select>
                						</div>
                               <div class="form-group" style="margin:0;">
@@ -89,10 +90,10 @@
                									<input class="form-control grey" type="text" name="precio"/>
                							</div>
 
-														<div class="form-group">
+														<!--<div class="form-group">
                								<label for="impuesto">Impuesto</label>
                									<input class="form-control grey" type="text" name="impuesto"/>
-               							</div>
+               							</div>-->
 														<div class="form-group">
                								<label for="cantidad">Cantidad</label>
                									<input class="form-control grey" type="text" name="cantidad"/>
@@ -105,10 +106,10 @@
                						<textarea class="form-control" name="descripcion"></textarea>
                					</div>
                				</div>
-               				<div class="submit">
-               					<button type="submit" class="button btn btn-default button-medium">Registrar
-               					</button>
-               				</div>
+                      <div class="submit">
+                   			<button type="submit" class="button btn btn-default button-medium">Registrar
+                   			</button>
+                   		</div>
                			</fieldset>
 										{!!Form::close()!!}
 

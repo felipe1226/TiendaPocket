@@ -59,7 +59,7 @@
 				</div> <!-- end row -->
 				<div class="row">
 			<div class="col-xs-12 col-sm-6">
-				<ul class="last_item item box">
+				<ul id="block-address" class="last_item item box">
 					<li><h3 id="referencia" class="page-subheading">{{$direcciones[0]->referencia}}</h3></li>
 					<li>
 						<span id="nombres" class="address_name">{{$direcciones[0]->nombres}}
@@ -117,14 +117,22 @@
 						JSONDirecciones = eval(<?php echo json_encode($direcciones);?>);
 						JSONDirecciones.forEach(function(currentValue,index,arr) {
 							if(currentValue.id == id){
-								$('#referencia').html("<span>"+currentValue.referencia+"</span>");
-								$('#nombres').html(currentValue.nombres);
-								$('#apellidos').html(currentValue.apellidos);
-								$('#direccion').html(currentValue.direccion);
-								$('#ciudad').html(currentValue.ciudad+", ");
-								$('#departamento').html(currentValue.departamento);
-								$('#telefono').html(currentValue.telefono);
-								$('#movil').html(currentValue.movil);
+								$('#block-address').fadeOut('slow', function() {
+			            $.scrollTo(this, 1000);
+									$('#referencia').html("<span>"+currentValue.referencia+"</span>");
+									$('#nombres').html(currentValue.nombres);
+									$('#apellidos').html(currentValue.apellidos);
+									$('#direccion').html(currentValue.direccion);
+									$('#ciudad').html(currentValue.ciudad+", ");
+									$('#departamento').html(currentValue.departamento);
+									$('#telefono').html(currentValue.telefono);
+									$('#movil').html(currentValue.movil);
+								});
+								$('#block-address').fadeIn('slow', function() {
+			            $.scrollTo(this, 1000);
+									});
+
+
 							}
 					});
 				});
