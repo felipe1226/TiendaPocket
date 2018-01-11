@@ -34,6 +34,9 @@
 					<p class="info-title">
 					Complete los datos del formulario, por favor.
 					</p>
+
+					
+
 					@include('flash::message')
 					{!! Form::open(['method' => 'POST', 'action' => 'DireccionController@store']) !!}
 						<div class="form-group">

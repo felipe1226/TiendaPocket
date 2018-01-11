@@ -9,7 +9,7 @@
   <form class="navbar-form navbar-left">
     <div class="form-group" align="left">
         <a href="#addModal" class="btn btn-default" data-toggle="modal">
-            <i class="fa fa-plus"></i> Nuevo proveedor &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; 
+            <i class="fa fa-plus"></i> Nuevo proveedor &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
         </a>
     </div>
   </form >
@@ -58,12 +58,12 @@
   </div>
 
   <div class="panel-body">
-      <div id="list-prov"></div>
+      <div id=" list-prov"></div>
   </div>
 </div>
 
 <script type="text/javascript">
-  
+
   $(document).ready(function(){
     listprov();
     cambiarCurrent("#proveedor");
@@ -81,7 +81,7 @@
         });
     });
   });
-  
+
   function sleep(milliseconds) {
     var start = new Date().getTime();
     for (var i = 0; i < 1e7; i++) {
@@ -90,7 +90,7 @@
       }
     }
   }
-  
+
   $(document).on("click",".pagination li a",function(e){
     e.preventDefault();
     var url = $(this).attr("href");
@@ -113,7 +113,7 @@
       }
     });
   }
-  
+
   function cambiarCurrent(idInput) {
       $(".current").removeClass("current");
       $(idInput).addClass("current");
@@ -127,29 +127,29 @@
         margin-left: auto;
         margin-right: auto;
     }
-    
+
     .input-group .icon-addon .form-control {
         border-radius: 0;
     }
-    
+
     .icon-addon {
         position: relative;
         color: rgb(79,0,85);
         display: block;
     }
-    
+
     .icon-addon:after,
     .icon-addon:before {
         display: table;
         content: " ";
     }
-    
+
     .icon-addon:after {
         clear: both;
     }
-    
+
     .icon-addon.addon-md .glyphicon,
-    .icon-addon .glyphicon, 
+    .icon-addon .glyphicon,
     .icon-addon.addon-md .fa,
     .icon-addon .fa {
         position: absolute;
@@ -162,21 +162,21 @@
         padding: 10px 0;
         top: 1px
     }
-    
+
     .icon-addon.addon-lg .form-control {
         line-height: 1.33;
         height: 46px;
         font-size: 18px;
         padding: 10px 16px 10px 40px;
     }
-    
+
     .icon-addon.addon-sm .form-control {
         height: 30px;
         padding: 5px 10px 5px 28px;
         font-size: 12px;
         line-height: 1.5;
     }
-    
+
     .icon-addon.addon-lg .fa,
     .icon-addon.addon-lg .glyphicon {
         font-size: 18px;
@@ -184,14 +184,14 @@
         left: 11px;
         top: 4px;
     }
-    
+
     .icon-addon.addon-md .form-control,
     .icon-addon .form-control {
         padding-left: 30px;
         float: left;
         font-weight: normal;
     }
-    
+
     .icon-addon.addon-sm .fa,
     .icon-addon.addon-sm .glyphicon {
         margin-left: 0;
@@ -199,7 +199,7 @@
         left: 5px;
         top: -1px
     }
-    
+
     .icon-addon .form-control:focus + .glyphicon,
     .icon-addon:hover .glyphicon,
     .icon-addon .form-control:focus + .fa,

@@ -76,7 +76,7 @@
 
   				<tbody>
   					@foreach($carritos as $carrito)
-  						<tr id="product_17_108_0_0" class="cart_item first_item address_0 odd">
+  						<tr id="articulo{{$carrito->id}}" class="cart_item first_item address_0 odd">
   							<td class="cart_product">
   								<a href="Detalles/{{$carrito->id_articulo}}"><img src="imgArticulos/{{$carrito->almacena->imagen}}" width="110" height="110"  /></a>
   							</td>
@@ -123,7 +123,7 @@
   								<span>$</span>
   								<?php
 
-                    echo '<div id="cantidadTotal'.$carrito->id.'" class="price" value="'.$carrito->almacena->precio * $carrito->cantidad.'" onchange=""/> </div>';
+                    /*echo '<div id="cantidadTotal'.$carrito->id.'" class="price" value="'.$carrito->almacena->precio * $carrito->cantidad.'" onchange=""/> </div>';*/
 
 
 

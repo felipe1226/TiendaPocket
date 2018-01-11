@@ -106,39 +106,36 @@ var wishlistProductsIds = [{"id_product":"2","quantity":"1","product_quantity":"
 							@foreach($pedidos as $pedido)
 								<tr class="first_item ">
 									<td class="history_link bold">
-										<a class="color-myaccount" href="javascript:showOrder(1, 21, 'http://prestashop.flytheme.net/sp_market/es/index.php?controller=order-detail');">
-										LYZPJTFJF
+										<a class="color-myaccount" href="#">
+										{{$pedido->referencia}}
 										</a>
 									</td>
 									<td data-value="20171221204509" class="history_date bold">
-									2017-12-21
+  									{{$pedido->fecha_envio}}
 									</td>
 									<td data-value="20171221204509" class="history_date bold">
-									2017-12-21
+  									{{$pedido->fecha_entrega}}
 									</td>
-									<td class="history_price" data-value="725.000000">
+									<td class="history_price">
 										<span class="price">
-										$725.00
+                      {{$pedido->costoTotal}}
 										</span>
 									</td>
-									<td class="history_method">Transferencia bancaria</td>
+									<td class="history_method">{{$pedido->tipoPago}}</td>
 									<td data-value="10" class="history_state">
 										<span class="label" style="background-color:#4169E1; border-color:#4169E1;">
-											En espera de pago
+											{{$pedido->estado}}
 										</span>
 															</td>
 								<td class="history_invoice">
-																	-
+																	{{$pedido->factura}}
 															</td>
 								<td class="history_detail">
-									<a class="btn btn-default button button-small" href="javascript:showOrder(1, 21, 'http://prestashop.flytheme.net/sp_market/es/index.php?controller=order-detail');">
+									<a onclick="infoPedido({{$pedido->referencia}})" class="btn btn-default button button-small" href="javascript:void(0);">
 										<span>
 											Detalles<i class="fa fa-chevron-right right"></i>
 										</span>
 									</a>
-																	<a class="link-button button" href="http://prestashop.flytheme.net/sp_market/es/order?submitReorder=&amp;id_order=21" title="Reorder">
-																										<i class="fa fa-refresh left"></i>Re-ordenar
-																	</a>
 								</td>
 								</tr>
 							@endforeach
@@ -146,7 +143,195 @@ var wishlistProductsIds = [{"id_product":"2","quantity":"1","product_quantity":"
 					@endif
 				</tbody>
 		</table>
-		<div id="block-order-detail" class="unvisible">&nbsp;</div>
+    <div id="block-order-detail" class="unvisible" style="display: none"><div class="box box-small clearfix">
+		<p class="dark">
+		<strong>Referencia de pedido
+      <span id="referencia"></span> - creado en <span id="created"></span></strong>
+	</p>
+</div>
+
+<h1 class="page-heading">Detalles del pedido</h1>
+<div class="table_block">
+	<table class="detail_step_by_step table table-bordered">
+		<thead>
+			<tr>
+				<th class="first_item">Fecha</th>
+				<th class="last_item">Estado</th>
+			</tr>
+		</thead>
+		<tbody>
+					<tr class="first_item item">
+				<td class="step-by-step-date">2017-12-21</td>
+				<td><span id="estado" style="background-color:#4169E1; border-color:#4169E1;" class="label"></span></td>
+			</tr>
+				</tbody>
+	</table>
+</div>
+
+
+<div class="adresses_bloc">
+	<div class="row">
+		<div class="col-xs-12 col-sm-6">
+			<ul class="address alternate_item box">
+				<li><h3 class="page-subheading"><span id="referenciaDireccion"></span></h3></li>
+        <li><span id="nombres"class="address_firstname">Felipe</span> <span class="address_lastname">Bedoya</span></li>
+        <li class="address_company">Pocket</li>
+        <li><span class="address_address1">tranv 9 #22-42</span> <span class="address_address2">diag 23</span></li>
+        <li><span class="address_city">Tulua,</span> <span class="address_State:name">Washington</span> <span class="address_postcode">12345</span></li>
+        <li><span class="address_Country:name">United States</span></li>
+        <li><span class="address_phone">2305539</span></li>
+        <li class="address_phone_mobile">3156624815</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<form action="http://prestashop.flytheme.net/sp_market/es/order-follow" method="post"><div id="order-detail-content" class="table_block table-responsive">
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+								<th class="first_item">Reference</th>
+				<th class="item">Product</th>
+				<th class="item">Quantity</th>
+								<th class="item">Unit price</th>
+				<th class="last_item">Total price</th>
+			</tr>
+		</thead>
+		<tfoot>
+							<tr class="item">
+					<td colspan="1">
+						<strong>Items (tax excl.)</strong>
+					</td>
+					<td colspan="4">
+						<span class="price">$723.00</span>
+					</td>
+				</tr>
+						<tr class="item">
+				<td colspan="1">
+					<strong>Items (tax incl.) </strong>
+				</td>
+				<td colspan="4">
+					<span class="price">$723.00</span>
+				</td>
+			</tr>
+									<tr class="item">
+				<td colspan="1">
+					<strong>Shipping &amp; handling (tax incl.) </strong>
+				</td>
+				<td colspan="4">
+					<span class="price-shipping">$2.00</span>
+				</td>
+			</tr>
+			<tr class="totalprice item">
+				<td colspan="1">
+					<strong>Total</strong>
+				</td>
+				<td colspan="4">
+					<span id="costoTotal"class="price"></span>
+				</td>
+			</tr>
+		</tfoot>
+		<tbody>
+																														<!-- Customized products -->
+								<!-- Classic products -->
+									<tr class="item">
+												<td><label for="cb_58">demo_33</label></td>
+						<td class="bold">
+							<label for="cb_58">
+																	Sapien fermen - Size : S, Color : Orange
+															</label>
+						</td>
+						<td class="return_quantity">
+							<input class="order_qte_input form-control grey" name="order_qte_input[58]" type="text" size="2" value="1">
+							<div class="clearfix return_quantity_buttons">
+								<a href="#" class="return_quantity_down btn btn-default button-minus"><span><i class="fa fa-minus"></i></span></a>
+								<a href="#" class="return_quantity_up btn btn-default button-plus"><span><i class="fa fa-plus"></i></span></a>
+							</div>
+							<label for="cb_58"><span class="order_qte_span editable">1</span></label></td>
+												<td class="price">
+							<label for="cb_58">
+															$99.00
+														</label>
+						</td>
+						<td class="price">
+							<label for="cb_58">
+															$99.00
+														</label>
+						</td>
+					</tr>
+																																					<!-- Customized products -->
+								<!-- Classic products -->
+									<tr class="item">
+												<td><label for="cb_59">demo_34</label></td>
+						<td class="bold">
+							<label for="cb_59">
+																	Roccaecat dolore - Size : S, Color : Orange
+															</label>
+						</td>
+						<td class="return_quantity">
+							<input class="order_qte_input form-control grey" name="order_qte_input[59]" type="text" size="2" value="4">
+							<div class="clearfix return_quantity_buttons">
+								<a href="#" class="return_quantity_down btn btn-default button-minus"><span><i class="fa fa-minus"></i></span></a>
+								<a href="#" class="return_quantity_up btn btn-default button-plus"><span><i class="fa fa-plus"></i></span></a>
+							</div>
+							<label for="cb_59"><span class="order_qte_span editable">4</span></label></td>
+												<td class="price">
+							<label for="cb_59">
+															$156.00
+														</label>
+						</td>
+						<td class="price">
+							<label for="cb_59">
+															$624.00
+														</label>
+						</td>
+					</tr>
+													</tbody>
+	</table>
+</div>
+</form>
+		<h3 class="page-heading">Mensaje</h3>
+	 <div class="table_block">
+		<table class="detail_step_by_step table table-bordered">
+			<thead>
+				<tr>
+					<th class="first_item" style="width:150px;">De</th>
+					<th class="last_item">Comentario</th>
+				</tr>
+			</thead>
+			<tbody>
+							<tr class="first_item item">
+					<td>
+						<strong class="dark">
+															Felipe Bedoya
+													</strong>
+						<br>
+						2017-12-21 20:45:09
+					</td>
+					<td>hola</td>
+				</tr>
+						</tbody>
+		</table>
+	</div>
+				<form action="http://prestashop.flytheme.net/sp_market/es/index.php?controller=order-detail" method="post" class="std" id="sendOrderMessage">
+		<h3 class="page-heading bottom-indent">Agrega un mensaje</h3>
+		<p>Si desea agregar un comentario sobre su pedido, escríbalo en el campo a continuación.</p>
+		<p class="form-group">
+		<label for="id_product">Product</label>
+			<select id="articulos" name="id_product" class="form-control">
+				<option></option>
+							</select>
+		</p>
+		<p class="form-group">
+			<textarea class="form-control" cols="67" rows="3" name="msgText"></textarea>
+		</p>
+		<div class="submit">
+			<input type="hidden" name="id_order" value="21">
+			<input type="submit" class="unvisible" name="submitMessage" value="Send">
+			<button type="submit" name="submitMessage" class="button btn btn-default button-medium"><span>Enviar<i class="fa fa-chevron-right right"></i></span></button>
+		</div>
+	</form>
+</div>
 	</div>
 <ul class="footer_links clearfix">
 	<li>
@@ -169,4 +354,51 @@ var wishlistProductsIds = [{"id_product":"2","quantity":"1","product_quantity":"
 
 
 			</div><!-- .columns-container -->
+
+      <script>
+
+      function infoPedido(ref){
+
+
+        $('#block-order-detail').fadeOut('slow', function() {
+              $.scrollTo(this, 2000);
+
+          $('#articulos').empty();
+          $('#articulos').append($('<option>', {
+                value: 0,
+                text: 'Elija un articulo'
+            }));
+
+            JSONPedidos = eval(<?php echo json_encode($pedidos);?>);
+            JSONPedidos.forEach(function(currentValue,index,arr) {
+              if(currentValue.referencia == ref){
+                $('#referencia').html(currentValue.referencia);
+                $('#created').html(currentValue.created_at);
+
+                $('#estado').html(currentValue.estado);
+
+
+                $('#costoTotal').html(currentValue.costoTotal);
+                $('#comentario').html(currentValue.comentario);
+
+                $('#articulos').append($('<option>', {
+                  value: currentValue.id_articulo,
+                  text: currentValue.nombre_articulo
+              }));
+              }
+          });
+          });
+
+
+          $('#block-order-detail').fadeIn('slow', function() {
+                $.scrollTo(this, 2000);
+          });
+
+        }
+
+
+
+      </script>
+
+
 @endsection
