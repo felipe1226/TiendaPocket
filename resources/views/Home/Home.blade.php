@@ -72,7 +72,7 @@
 						                        <fieldset id="body">
 						                            <fieldset>
 						                                <label for="email">Username</label>
-						                                <input type="text1" name="username" placeholder="Username">
+						                                <input type="text1" name="email" placeholder="email">
 						                            </fieldset>
 						                            <fieldset>
 						                                <label for="password">Contraseña</label>
@@ -135,17 +135,17 @@
 										 @endif
 									 </div>
 			                    	<div class="form-group">
-			                    		
+
 			                        	<input type="text" name="nombreEstablecimiento" placeholder="Nombre de Empresa" value="{{ old('nombreEstablecimiento') }}" class="form-first-name form-control" id="form-first-name">
 										<div class="text-danger">{{$errors->first('nombreEstablecimiento')}}</div>
 			                        </div>
 			                        <div class="form-group">
-			                        	
+
 			                        	<input value="{{ old('name') }}" type="text" name="nombrePersona" placeholder="Nombre..." class="form-last-name form-control" id="form-last-name">
 			                        	<div class="text-danger">{{$errors->first('name')}}</div>
 			                        </div>
 			                        <div class="form-group">
-			                        	
+
 			                        	<input type="text"  name="email" value="{{ old('email') }}" placeholder="Email..." class="form-email form-control" id="form-email">
 			                        	<div class="text-danger">{{$errors->first('email')}}</div>
 			                        </div>
@@ -160,7 +160,7 @@
                                 <div class="form-group">
                                     <div class="left-w3-agile">
                                     <select id="idCiudad" name="idCiudad" class="form-email form-control" id="form-email" required>
-                                    	<option></option>  
+                                    	<option></option>
                                     </select>
                                 	</div>
 									<div class="right-agileits">
@@ -609,9 +609,9 @@
         				<button type="button" class="close" data-dismiss="modal">
         					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
         				</button>
-        			
+
         			</div>
-        			<div class="modal-header">        				
+        			<div class="modal-header">
         				<h2 class="modal-title" id="modal-privacy-label">Politicas</h2>
         			</div>
         			<div class="modal-body">
@@ -622,10 +622,10 @@
 	                    	Información que es recogida en nuestro sitio web podrá tener información personal por ejemplo: Nombre,  información de contacto como  su dirección de correo electrónica e información demográfica. Así mismo cuando sea necesario podrá ser requerida información específica para procesar algún pedido o realizar una entrega o facturación.</p>
 	                    	<br>
 	                    	<h3>2. Uso de la Información</h3>
-	                    	<p style="text-align:justify">                   	
+	                    	<p style="text-align:justify">
 	                    	Uso de la información recogida en nuestro sitio web, emplea la información con el fin de proporcionar el mejor servicio posible, particularmente para mantener un registro de usuarios, de pedidos en caso que aplique, y mejorar nuestros productos y servicios.  Es posible que sean enviados correos electrónicos periódicamente a través de nuestro sitio con ofertas especiales, nuevos productos y otra información publicitaria que consideremos relevante para usted o que pueda brindarle algún beneficio, estos correos electrónicos serán enviados a la dirección que usted proporcione y podrán ser cancelados en cualquier momento.<br>
 
-	                    	
+
 	                    	Pocket Compañy está altamente comprometido para cumplir con el compromiso de mantener su información segura. Usamos los sistemas más avanzados y los actualizamos constantemente para asegurarnos que no exista ningún acceso no autorizado.</p>
 	                    	<br>
                             <h3>3. Uso de Cookies</h3>
@@ -639,14 +639,14 @@
 	                    	este sitio web pudiera contener en laces a otros sitios que pudieran ser de su interés. Una vez que usted de clic en estos enlaces y abandone nuestra página, ya no tenemos control sobre al sitio al que es redirigido y por lo tanto no somos responsables de los términos o privacidad ni de la protección de sus datos en esos otros sitios terceros. Dichos sitios están sujetos a sus propias políticas de privacidad por lo cual es recomendable que los consulte para confirmar que usted está de acuerdo con estas.</p>
 	                    	<br>
 	                    	<h3>5. Control de su información personal</h3>
-                            <p style="text-align:justify"> 
+                            <p style="text-align:justify">
 	                    	En cualquier momento usted puede restringir la recopilación o el uso de la información personal que es proporcionada a nuestro sitio web.  Cada vez que se le solicite rellenar un formulario, como el de alta de usuario, puede marcar o desmarcar la opción de recibir información por correo electrónico.  En caso de que haya marcado la opción de recibir nuestro boletín o publicidad usted puede cancelarla en cualquier momento.
 
 	                    	Esta compañía no venderá, cederá ni distribuirá la información personal que es recopilada sin su consentimiento, salvo que sea requerido por un juez con un orden judicial.
 
 	                    	Pocket Compañy Se reserva el derecho de cambiar los términos de la presente Política de Privacidad en cualquier momento.
 	                    	 </p>
-	             
+
         			</div>
         			</div>
         	</div>
@@ -707,7 +707,7 @@
 					}));
 			    }
 			});
-			 
+
 		});
 	</script>
 
