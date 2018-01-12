@@ -4,6 +4,7 @@ namespace PocketByR\Http\Controllers;
 
 use Illuminate\Http\Request;
 use PocketByR\Carrito;
+use PocketByR\Usuario;;
 use Auth;
 use PocketByR\Http\Requests;
 use PocketByR\Http\Controllers\Controller;
@@ -17,7 +18,8 @@ class InformacionPersonalController extends Controller
 
   public function index(){
     $carritos = Carrito::where('id_empresa',Auth::user()->idEmpresa)->get();
-    return view('Tienda/InformacionPersonal/index')->with('carritos', $carritos);
+    $usuarios = Usuario::where('id',Auth::user()->id)->get();
+    return view('Tienda/InformacionPersonal/index')->with(['usuarios' => $usuarios])->with('carritos', $carritos);
   }
 
 }
