@@ -156,13 +156,13 @@
 						<div id="user_infoblock-top" class="header_user_info">
 							<ul>
 								<li class="account">
-								 	<a href="{{url('Cuenta')}}" title="Mi cuenta" -->
+								 	<a href="{{url('Cuenta')}}">
 										<span>Mi cuenta</span>
 									</a>
 								</li>
 
 								<li class="wishlist">
-									<a href="http://prestashop.flytheme.net/sp_market/es/module/blockwishlist/mywishlist" title="Mi deseos" rel="nofollow">
+									<a href="{{url('ListaDeseos')}}" rel="nofollow">
 										<span>Mis deseos</span>
 									</a>
 								</li>

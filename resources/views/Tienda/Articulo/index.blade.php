@@ -1,7 +1,7 @@
 @extends('Tienda.Layout.app')
 @section('content')
 
-<link href="../themes/sp_market/css/fonts/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="../themes/sp_market/css/fonts/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
     <link rel="stylesheet" href="../themes/sp_market/css/global.css" type="text/css" media="all" />
     <link rel="stylesheet" href="../themes/sp_market/css/autoload/jquery.mCustomScrollbar.css" type="text/css" media="all" />
     <link rel="stylesheet" href="../themes/sp_market/css/autoload/uniform.default.css" type="text/css" media="all" />
@@ -735,9 +735,9 @@
                           <button  class="cart_button" type="submit">
 														Carro
 												  </button>
-                          <a class="addToWishlist wishlistProd_11" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '11', false, 1); return false;">
-                          <i class="fa fa-heart"></i>
-                        </a>
+                          <a class="addToWishlist" title="Añadir a la lista de deseos" onclick="AddDeseos({{$articulo->id}})" href="javascript:void(0);">
+                            <i class="fa fa-heart"></i>
+                          </a>
                       </div>
                       {!!Form::close()!!}
 				            </div>
@@ -803,5 +803,33 @@
       </div><!-- .row -->
     </div><!-- #columns -->
   </div><!-- .columns-container -->
+
+  <script>
+  function AddDeseos(id){
+    $('#MsgDeseo').fadeIn('slow',fuction(){
+      $.scrollTo(this,2000);
+    }))
+  }
+  </script>
+
+  <div id="MsgDeseo" class="fancybox-overlay fancybox-overlay-fixed" style="display: none; width: auto; height: auto;">
+    <div class="fancybox-wrap fancybox-desktop fancybox-type-html fancybox-opened" tabindex="-1" style="opacity: 1; overflow: visible; height: auto; width: 384px; position: absolute; top: 286px; left: 177px;">
+      <div class="fancybox-skin" style="padding: 0px; width: auto; height: auto;">
+        <div class="fancybox-outer"><div class="fancybox-inner" style="overflow: auto; width: 384px; height: auto;">
+          <p class="fancybox-error">El producto se ha añadido con éxito a su lista de deseos.</p>
+          <a href="{{url('ListaDeseos')}}" class="wishlist_product_view button"> Ver Todo </a>
+        </div>
+      </div>
+      <a title="Close" class="fancybox-item fancybox-close" href="javascript:;"></a>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
 
 @endsection

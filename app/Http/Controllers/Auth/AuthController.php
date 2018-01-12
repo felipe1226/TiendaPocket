@@ -41,9 +41,9 @@ class AuthController extends Controller
      * @var string
      */
     protected $redirectTo = '/WelcomeAdmin';
-    
+
     protected function redirectTo()
-    {   
+    {
         if(Auth::User()->esAdmin){
             return '/WelcomeAdmin';
         }elseif(Auth::User()->esProveedor){
@@ -61,7 +61,7 @@ class AuthController extends Controller
     {
         $this->middleware($this->guestMiddleware(), ['except' => ['getLogout','profile','updateProfile' , 'editProfile']]);
     }
-    
+
     public function getRegister(Request $request){
         $departamentos = Departamento::all();
         $ciudades = Ciudad::all();
@@ -80,7 +80,7 @@ class AuthController extends Controller
             //'sexo' => 'required',
             //'telefono' => 'required|min:1|max:9999999999|numeric',
         ];
-         
+
         $validator = Validator::make($request->all(), $rules);
         $departamentos = Departamento::All();
         $ciudades = Ciudad::all();
@@ -94,7 +94,7 @@ class AuthController extends Controller
         else{
             $empresa = new Empresa;
             $empresa->nombreEstablecimiento = $request->nombreEstablecimiento;
-            $empresa->save();// crea la empresa con el nombre del establecimiento 
+            $empresa->save();// crea la empresa con el nombre del establecimiento
 
 
             $admin = new User;
@@ -118,14 +118,14 @@ class AuthController extends Controller
             $admin->cedula= $request->email; // coloco el email aquí temporalmente mientras se crea, unas lineas más adelante lo actualizo
             $admin->idEmpresa = $empresa->id; // id de la empresa para saber a quién pertenece
             $admin->username = str_random(100);
-            $admin->save();// guarda el usuario registrado 
-            
-            $empresa->usuario_id = $admin->id;// obtiene el id del usuario que creo la empres apara saber la referencia 
+            $admin->save();// guarda el usuario registrado
+
+            $empresa->usuario_id = $admin->id;// obtiene el id del usuario que creo la empres apara saber la referencia
             $empresa->departamento = $departamentos[($request->idDepto) -1]->nombre;
             $empresa->ciudad = $ciudades[($request->idCiudad) -1]->nombre;
-            $empresa->save();// guarda los cambios 
+            $empresa->save();// guarda los cambios
 
-            
+
             // parte del código para generar el username inicial
             $admin->cedula = $admin->id;
             $numeroRepetido = 0; // numero que se agregará al username por si ya hay alguno parecido y poderlo diferenciar
@@ -154,9 +154,9 @@ class AuthController extends Controller
             Mail::send('Emails.confirmacion', ['data' => $data], function($mail) use($data){
                 $mail->to($data->email)->subject('Confirma tu cuenta de PocketByR');
             });
-            
+
             return redirect("Auth/login")
-            ->with("message", "Hemos enviado un enlace de confirmación a su cuenta de correo electrónico");      
+            ->with("message", "Hemos enviado un enlace de confirmación a su cuenta de correo electrónico");
         }
     }
 
@@ -169,7 +169,7 @@ class AuthController extends Controller
            $confirm_token = str_random(100);
            $user->where('email', '=', $email)
            ->update(['confirmoEmail' => $confirmoEmail, 'confirm_token' => $confirm_token]);
-           
+
            return redirect('Auth/login')
            ->with('message', 'Bienvenido ' . $the_user[0]['nombrePersona'] . ' ya puede iniciar sesión');
         }else{
@@ -181,7 +181,7 @@ class AuthController extends Controller
 
         if (Auth::attempt(
                 [
-                    'username' => $request->username,
+                    'email' => $request->email,
                     'password' => $request->password,
                     'confirmoEmail' => 1,
                     'estado' => true
@@ -191,29 +191,29 @@ class AuthController extends Controller
             Auth::User()->inicioSesion();// función que se llama para que guarde un nuevo registro en la tabla de registro de inicio y cierre de sesión
             return redirect()->intended($this->redirectPath());
         }if (Auth::attempt([
-                    'username' => $request->username,
+                    'email' => $request->email,
                     'password' => $request->password,
                     'confirmoEmail' => 0
-                ], $request->has('remember'))){            
+                ], $request->has('remember'))){
             return $this->volverLogin('Por favor activa tu cuenta primero');
         }
         if(Auth::attempt([
-                    'username' => $request->username,
+                    'email' => $request->email,
                     'password' => $request->password,
                     'estado' => false
                 ], $request->has('remember'))){
             return $this->volverLogin('Ha sido desactivado, por favor contacte con el administrador');
         }else{
             $rules = [
-                'username' => 'required',
+                'email' => 'required',
                 'password' => 'required',
             ];
             $messages = [
-                'username.required' => 'El campo Username es requerido',
+                'email.required' => 'El campo email es requerido',
                 'password.required' => 'El campo password es requerido',
             ];
             $validator = Validator::make($request->all(), $rules, $messages);
-            
+
             return redirect('Auth/login')
             ->withErrors($validator)
             ->withInput()
@@ -251,7 +251,7 @@ class AuthController extends Controller
         ];
 
         $validator = Validator::make($request->all(), $rules);
-        
+
         if ($validator->fails()){
             return redirect("Auth/editProfile")
             ->withErrors($validator)
@@ -307,7 +307,7 @@ class AuthController extends Controller
     /**
      * Obtain the user information from provider.  Check if the user already exists in our
      * database by looking up their provider_id in the database.
-     * If the user exists, log them in. Otherwise, create a new user then log them in. After that 
+     * If the user exists, log them in. Otherwise, create a new user then log them in. After that
      * redirect them to the authenticated users homepage.
      *
      * @return Response
@@ -339,7 +339,7 @@ class AuthController extends Controller
 
         $empresa = new Empresa;
         $empresa->nombreEstablecimiento = '';
-        $empresa->save();// crea la empresa con el nombre del establecimiento 
+        $empresa->save();// crea la empresa con el nombre del establecimiento
 
 
         $admin = new User;
@@ -360,15 +360,15 @@ class AuthController extends Controller
         $admin->esBartender = true;
         $admin->esMesero = true;
         $admin->obsequio = true;
-        $admin->cedula= ''; 
+        $admin->cedula= '';
         $admin->idEmpresa = $empresa->id; // id de la empresa para saber a quién pertenece
         $admin->username = str_random(100);
-        $admin->save();// guarda el usuario registrado 
-        
-        $empresa->usuario_id = $admin->id;// obtiene el id del usuario que creo la empres apara saber la referencia 
-        $empresa->save();// guarda los cambios 
+        $admin->save();// guarda el usuario registrado
 
-        
+        $empresa->usuario_id = $admin->id;// obtiene el id del usuario que creo la empres apara saber la referencia
+        $empresa->save();// guarda los cambios
+
+
         // parte del código para generar el username inicial
         $numeroRepetido = 0; // numero que se agregará al username por si ya hay alguno parecido y poderlo diferenciar
         $auxiliarBool = true;

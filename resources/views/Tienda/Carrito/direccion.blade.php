@@ -33,39 +33,33 @@
           	<li class="step_done first">
           		<a href="{{url('Carrito')}}"><em>01.</em> Resumen</a>
           	</li>
-
           	<li class="step_current second">
           					<span><em>02.</em> Dirección</span>
           			</li>
-          	<li class="step_todo third">
-          					<span><em>03.</em> Envio</span>
-          			</li>
           	<li id="step_end" class="step_todo last">
-          		<span><em>04.</em> Pago</span>
-          	</li>
+          					<span><em>03.</em> Pago</span>
+          			</li>
           </ul>
 <!-- /Steps -->
 
-
-
 		<form action="http://prestashop.flytheme.net/sp_market/es/order" method="post">
-<div class="addresses clearfix">
-	<div class="row">
-		<div class="col-xs-12 col-sm-6">
-			<div class="address_delivery select form-group selector1">
-				<label for="id_address_delivery">Elija una dirección de entrega: </label>
-				<select name="id_address_delivery" id="id_address_delivery" class="address_select form-control">
-					@foreach($direcciones as $direccion)
-						<option value="{{$direccion->id}}">{{$direccion->referencia}}</option>
-					@endforeach
-									</select><span class="waitimage"></span>
-			</div>
+			<div class="addresses clearfix">
+				<div class="row">
+					<div class="col-xs-12 col-sm-6">
+						<div class="address_delivery select form-group selector1">
+							<label for="id_address_delivery">Elija una dirección de entrega: </label>
+							<select name="id_address_delivery" id="id_address_delivery" class="address_select form-control">
+								@foreach($direcciones as $direccion)
+									<option value="{{$direccion->id}}">{{$direccion->referencia}}</option>
+								@endforeach
+												</select><span class="waitimage"></span>
+						</div>
 
-		</div>
-	</div> <!-- end row -->
-	<div class="row">
+					</div>
+				</div> <!-- end row -->
+				<div class="row">
 			<div class="col-xs-12 col-sm-6">
-				<ul class="last_item item box">
+				<ul id="block-address" class="last_item item box">
 					<li><h3 id="referencia" class="page-subheading">{{$direcciones[0]->referencia}}</h3></li>
 					<li>
 						<span id="nombres" class="address_name">{{$direcciones[0]->nombres}}
@@ -116,7 +110,6 @@
 
 			</div><!-- .columns-container -->
 
-
 			<script>
 				$('#id_address_delivery').on('change', function (event) {
 
@@ -124,14 +117,22 @@
 						JSONDirecciones = eval(<?php echo json_encode($direcciones);?>);
 						JSONDirecciones.forEach(function(currentValue,index,arr) {
 							if(currentValue.id == id){
-								$('#referencia').html("<span>"+currentValue.referencia+"</span>");
-								$('#nombres').html(currentValue.nombres);
-								$('#apellidos').html(currentValue.apellidos);
-								$('#direccion').html(currentValue.direccion);
-								$('#ciudad').html(currentValue.ciudad+", ");
-								$('#departamento').html(currentValue.departamento);
-								$('#telefono').html(currentValue.telefono);
-								$('#movil').html(currentValue.movil);
+								$('#block-address').fadeOut('slow', function() {
+			            $.scrollTo(this, 1000);
+									$('#referencia').html("<span>"+currentValue.referencia+"</span>");
+									$('#nombres').html(currentValue.nombres);
+									$('#apellidos').html(currentValue.apellidos);
+									$('#direccion').html(currentValue.direccion);
+									$('#ciudad').html(currentValue.ciudad+", ");
+									$('#departamento').html(currentValue.departamento);
+									$('#telefono').html(currentValue.telefono);
+									$('#movil').html(currentValue.movil);
+								});
+								$('#block-address').fadeIn('slow', function() {
+			            $.scrollTo(this, 1000);
+									});
+
+
 							}
 					});
 				});

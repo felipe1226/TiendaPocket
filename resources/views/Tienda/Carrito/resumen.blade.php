@@ -47,12 +47,9 @@
   	<li class="step_todo second">
   					<span><em>02.</em> Dirección</span>
   			</li>
-  	<li class="step_todo third">
-  					<span><em>03.</em> Envio</span>
-  			</li>
   	<li id="step_end" class="step_todo last">
-  		<span><em>04.</em> Pago</span>
-  	</li>
+  					<span><em>03.</em> Pago</span>
+  			</li>
   </ul>
 
 <!-- /Steps -->
@@ -79,7 +76,7 @@
 
   				<tbody>
   					@foreach($carritos as $carrito)
-  						<tr id="product_17_108_0_0" class="cart_item first_item address_0 odd">
+  						<tr id="articulo{{$carrito->id}}" class="cart_item first_item address_0 odd">
   							<td class="cart_product">
   								<a href="Detalles/{{$carrito->id_articulo}}"><img src="imgArticulos/{{$carrito->almacena->imagen}}" width="110" height="110"  /></a>
   							</td>
@@ -125,6 +122,10 @@
   							<td class="cart_total" data-title="Total">
   								<span>$</span>
   								<?php
+
+                    /*echo '<div id="cantidadTotal'.$carrito->id.'" class="price" value="'.$carrito->almacena->precio * $carrito->cantidad.'" onchange=""/> </div>';*/
+
+
 
   									echo '<input id="cantidadTotal'.$carrito->id.'" readonly="readonly" style="border:0" class="price"  value="'.$carrito->almacena->precio * $carrito->cantidad.'" onchange=""/>';
   								 ?>
@@ -189,11 +190,9 @@
 
 	<p class="cart_navigation clearfix">
 
-		<a href="{{url('Tienda/')}}" class="button-exclusive btn btn-default">
-			<i class="fa fa-chevron-left left"></i>Regresar
-		</a>
+		<a class="button" href="{{url('Tienda')}}" title="Inicio"> <i class="fa fa-home"></i></a>
     @if(count($carritos) != 0)
-    <a class="button btn btn-default standard-checkout button-medium" href="{{url('Direccion')}}" class="button btn btn-default standard-checkout button-medium"><span>Proceder con la compra<i class="fa fa-chevron-right right"></i></span>
+    <a class="button" href="{{url('Direccion')}}"><span>Proceder con la compra<i class="fa fa-chevron-right right"></i></span>
 		</a>
     @endif
 	</p>
@@ -235,7 +234,8 @@
             },
             success: function(){
               $("#cantidad"+idCarrito).val(cant);
-              $("#cantidadTotal"+idCarrito).val(valor);
+
+              $("#cantidadTotal"+idCarrito).html("<span>"+valor+"</span>");
 
               $("#totalArticulos").val(valor);
               $("#totalCarrito").val(cant);

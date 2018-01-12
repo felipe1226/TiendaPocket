@@ -30,8 +30,23 @@ class DireccionController extends Controller
       $departamentos = Departamento::all();
       $ciudades = Ciudad::all();
       $carritos = Carrito::where('id_empresa',Auth::user()->idEmpresa)->get();
+
       return view('Tienda/Direccion/RegistrarDireccion')->with('carritos', $carritos)->with('departamentos', $departamentos)->with('ciudades', $ciudades);
     }
+
+    public function actualizarDireccion(request $request){
+      $departamentos = Departamento::all();
+      $ciudades = Ciudad::all();
+      $carritos = Carrito::where('id_empresa',Auth::user()->idEmpresa)->get();
+
+      $direccion = Direccion::where('id_articulo', $request->id_articulo)->get();
+
+
+      return view('Tienda/Direccion/RegistrarDireccion')->with('carritos', $carritos)->with('departamentos', $departamentos)->with('ciudades', $ciudades);
+    }
+
+
+
 
     public function store(Request $request){
       $direccion = new Direccion;
