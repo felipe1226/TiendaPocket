@@ -88,40 +88,59 @@
     </script>
 
 
-    <script type="text/javascript" src="../js/jquery/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="../js/jquery/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="../js/jquery/plugins/jquery.easing.js"></script>
-    <script type="text/javascript" src="../js/tools.js"></script>
-    <script type="text/javascript" src="../themes/sp_market/js/global.js"></script>
-    <script type="text/javascript" src="../themes/sp_market/js/autoload/10-bootstrap.min.js"></script>
-    <script type="text/javascript" src="../themes/sp_market/js/autoload/15-jquery.total-storage.min.js"></script>
-    <script type="text/javascript" src="../themes/sp_market/js/autoload/15-jquery.uniform-modified.js"></script>
-    <script type="text/javascript" src="../themes/sp_market/js/autoload/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script type="text/javascript" src="../themes/sp_market/js/autoload/slick.min.js"></script>
-    <script type="text/javascript" src="../js/jquery/plugins/fancybox/jquery.fancybox.js"></script>
-    <script type="text/javascript" src="../themes/sp_market/js/products-comparison.js"></script>
-    <script type="text/javascript" src="../modules/spthemeconfigurator/views/js/front/jquery.miniColors.min.js"></script>
-    <script type="text/javascript" src="../modules/spthemeconfigurator/views/js/front/sp-cpanel.js"></script>
-    <script type="text/javascript" src="../themes/sp_market/js/sp_lib/jquery.backtotop.js"></script>
-    <script type="text/javascript" src="../themes/sp_market/js/sp_lib/jquery.global.js"></script>
-    <script type="text/javascript" src="../themes/sp_market/js/sp_lib/jquery.ui.touch-punch.min.js"></script>
-    <script type="text/javascript" src="../themes/sp_market/js/sp_lib/jquery.elevatezoom.js"></script>
-    <script type="text/javascript" src="../themes/sp_market/js/modules/blockwishlist/js/ajax-wishlist.js"></script>
-    <script type="text/javascript" src="../themes/sp_market/js/tools/treeManagement.js"></script>
-    <script type="text/javascript" src="../modules/spextraslider/views/js/owl.carousel.js"></script>
-    <script type="text/javascript" src="../modules/spdeal/views/js/deal.js"></script>
-    <script type="text/javascript" src="../modules/spdeal/views/js/jquery.cj-swipe.js"></script>
-    <script type="text/javascript" src="../modules/spcategories/views/js/jquery.imagesloaded.js"></script>
-    <script type="text/javascript" src="../modules/spcategories/views/js/jquery.sj_accordion.js"></script>
-    <script type="text/javascript" src="../modules/spsearchpro/views/js/jquery.autocomplete.js"></script>
-    <script type="text/javascript" src="../themes/sp_market/js/modules/spblockcart/ajax-cart.js"></script>
-    <script type="text/javascript" src="../js/jquery/plugins/jquery.scrollTo.js"></script>
-    <script type="text/javascript" src="../js/jquery/plugins/jquery.serialScroll.js"></script>
-    <script type="text/javascript" src="../js/jquery/plugins/bxslider/jquery.bxslider.js"></script>
-    <script type="text/javascript" src="../modules/sphomeslider/js/owl.carousel.js"></script>
-    <script type="text/javascript" src="../modules/spblocknewsletter/jquery.cookie.min.js"></script>
-    <script type="text/javascript" src="../themes/sp_market/js/index.js"></script>
-    <script type="text/javascript" src="../modules/statsdata/js/plugindetect.js"></script>
+             <script type="text/javascript" src="../js/jquery/jquery-1.11.0.min.js"></script>
+							<script type="text/javascript" src="../js/jquery/jquery-migrate-1.2.1.min.js"></script>
+							<script type="text/javascript" src="../js/jquery/plugins/jquery.easing.js"></script>
+							<script type="text/javascript" src="../js/tools.js"></script>
+							<script type="text/javascript" src="../themes/sp_market/js/global.js"></script>
+							<script type="text/javascript" src="../themes/sp_market/js/autoload/10-bootstrap.min.js"></script>
+							<script type="text/javascript" src="../themes/sp_market/js/autoload/15-jquery.total-storage.min.js"></script>
+							<script type="text/javascript" src="../themes/sp_market/js/autoload/15-jquery.uniform-modified.js"></script>
+							<script type="text/javascript" src="../themes/sp_market/js/autoload/jquery.mCustomScrollbar.concat.min.js"></script>
+							<script type="text/javascript" src="../themes/sp_market/js/autoload/slick.min.js"></script>
+							<script type="text/javascript" src="../js/jquery/plugins/fancybox/jquery.fancybox.js"></script>
+							<script type="text/javascript" src="../themes/sp_market/js/products-comparison.js"></script>
+							<script type="text/javascript" src="../themes/sp_market/js/category.js"></script>
+							<script type="text/javascript" src="../modules/spthemeconfigurator/views/js/front/jquery.miniColors.min.js"></script>
+							<script type="text/javascript" src="../modules/spthemeconfigurator/views/js/front/sp-cpanel.js"></script>
+							<script type="text/javascript" src="../themes/sp_market/js/sp_lib/jquery.backtotop.js"></script>
+							<script type="text/javascript" src="../themes/sp_market/js/sp_lib/jquery.global.js"></script>
+							<script type="text/javascript" src="../themes/sp_market/js/sp_lib/jquery.ui.touch-punch.min.js"></script>
+							<script type="text/javascript" src="../themes/sp_market/js/sp_lib/jquery.elevatezoom.js"></script>
+							<script type="text/javascript" src="../themes/sp_market/js/modules/blocklayered/blocklayered.js"></script>
+							<script type="text/javascript" src="../js/jquery/ui/jquery.ui.core.min.js"></script>
+							<script type="text/javascript" src="../js/jquery/ui/jquery.ui.widget.min.js"></script>
+							<script type="text/javascript" src="../js/jquery/ui/jquery.ui.mouse.min.js"></script>
+							<script type="text/javascript" src="../js/jquery/ui/jquery.ui.slider.min.js"></script>
+							<script type="text/javascript" src="../js/jquery/plugins/jquery.scrollTo.js"></script>
+							<script type="text/javascript" src="../themes/sp_market/js/modules/blockwishlist/js/ajax-wishlist.js"></script>
+							<script type="text/javascript" src="../themes/sp_market/js/tools/treeManagement.js"></script>
+							<script type="text/javascript" src="../modules/spextraslider/views/js/owl.carousel.js"></script>
+							<script type="text/javascript" src="../modules/spdeal/views/js/deal.js"></script>
+							<script type="text/javascript" src="../modules/spdeal/views/js/jquery.cj-swipe.js"></script>
+							<script type="text/javascript" src="../modules/spcategories/views/js/jquery.imagesloaded.js"></script>
+							<script type="text/javascript" src="../modules/spcategories/views/js/jquery.sj_accordion.js"></script>
+							<script type="text/javascript" src="../modules/spsearchpro/views/js/jquery.autocomplete.js"></script>
+							<script type="text/javascript" src="../themes/sp_market/js/modules/spblockcart/ajax-cart.js"></script>
+							<script type="text/javascript" src="../js/jquery/plugins/jquery.serialScroll.js"></script>
+							<script type="text/javascript" src="../js/jquery/plugins/bxslider/jquery.bxslider.js"></script>
+							<script type="text/javascript" src="../modules/sphomeslider/js/owl.carousel.js"></script>
+							<script type="text/javascript" src="../modules/spblocknewsletter/jquery.cookie.min.js"></script>
+
+<script type="text/javascript">
+    //<![CDATA[
+    var listdeal = [];
+    //]]>
+</script>
+
+
+
+
+<script type="text/javascript">
+    //<![CDATA[
+    var listdeal = [];
+    //]]>
+</script>
 
 
 
@@ -735,10 +754,11 @@
                           <button  class="cart_button" type="submit">
 														Carro
 												  </button>
-                          <a class="addToWishlist" title="Añadir a la lista de deseos" onclick="AddDeseos({{$articulo->id}})" href="javascript:void(0);">
-                            <i class="fa fa-heart"></i>
-                          </a>
-                      </div>
+
+                            <a class="addToWishlist" type="submit" title="Añadir a la lista de deseos" onclick="AddDeseos({{$articulo->id}})" href="javascript:void(0);">
+                            <i class="fa fa-heart"></i></a>
+                        </div>
+
                       {!!Form::close()!!}
 				            </div>
                   </div><!-- .product-container> -->
@@ -758,15 +778,15 @@
               	<div class="select selector1">
               		<label for="selectProductSort">Ordenar</label>
               		<select id="selectProductSort" class="selectProductSort form-control">
-              			<option value="name:asc" >Product Name: A to Z</option>
-              			<option value="name:desc" >Product Name: Z to A</option>
-              							<option value="price:asc" >Lowest Price</option>
-              				<option value="price:desc" >Highest Price</option>
+              			<option value="name:asc" >Nombre del producto: A a Z</option>
+              			<option value="name:desc" >Nombre del producto: Z a A</option>
+              							<option value="price:asc" >Precio mas bajo</option>
+              				<option value="price:desc" >Precio mas alto</option>
               						<!--<option value="position:asc" selected="selected">Product Sort</option>-->
-              							<option value="quantity:desc" >Product In Stock</option>
+              							<option value="quantity:desc" >Productos en existencia</option>
 
-              			<option value="reference:asc" >Lowest Reference</option>
-              			<option value="reference:desc" >Highest Reference</option>
+              			<option value="reference:asc" >Referencia mas baja</option>
+              			<option value="reference:desc" >Referencia mas alta</option>
               		</select>
               	</div>
               </form>
