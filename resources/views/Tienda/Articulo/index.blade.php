@@ -1,7 +1,8 @@
 @extends('Tienda.Layout.app')
 @section('content')
 
-
+<link href="../themes/sp_market/css/fonts/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="../themes/sp_market/css/global.css" type="text/css" media="all" />
     <link rel="stylesheet" href="../themes/sp_market/css/autoload/jquery.mCustomScrollbar.css" type="text/css" media="all" />
     <link rel="stylesheet" href="../themes/sp_market/css/autoload/uniform.default.css" type="text/css" media="all" />
     <link rel="stylesheet" href="../js/jquery/plugins/fancybox/jquery.fancybox.css" type="text/css" media="all" />
@@ -34,57 +35,6 @@
     <link rel="stylesheet" href="../modules/sphomeslider/css/owl.carousel.css" type="text/css" media="all" />
     <link rel="stylesheet" href="../themes/sp_market/css/modules/spblocknewsletter/spblocknewsletter.css" type="text/css" media="all" />
     <link rel="stylesheet" href="../themes/sp_market/css/modules/spcustomhtml/views/css/style.css" type="text/css" media="all" />
-
-    <script type="text/javascript">
-    var CUSTOMIZE_TEXTFIELD = 1;
-    var FancyboxI18nClose = 'Close';
-    var FancyboxI18nNext = 'Next';
-    var FancyboxI18nPrev = 'Previous';
-    var add_compare_item = 'Product successfully added to the product comparison';
-    var added_to_wishlist = 'El producto se ha añadido con éxito a su lista de deseos.';
-    var ajax_allowed = true;
-    var ajaxsearch = true;
-    var baseDir = '/';
-    var baseUri = '/';
-    var blocklayeredSliderName = {"price":"precio","weight":"peso"};
-    var comparator_max_item = 3;
-    var comparedProductsIds = [22];
-    var contentOnly = false;
-    var currency = {"id":1,"name":"USD","iso_code":"USD","iso_code_num":"840","sign":"$","blank":"0","conversion_rate":"1.000000","deleted":"0","format":"1","decimals":"1","active":"1","prefix":"$ ","suffix":"","id_shop_list":null,"force_id":false};
-    var currencyBlank = 0;
-    var currencyFormat = 1;
-    var currencyRate = 1;
-    var currencySign = '$';
-    var customizationIdMessage = 'Customization #';
-    var delete_txt = 'Delete';
-    var displayList = false;
-    var freeProductTranslation = 'Free!';
-    var freeShippingTranslation = 'Free shipping!';
-    var generated_date = 1513840724;
-    var id_lang = 4;
-    var img_dir = 'themes/sp_market/img/';
-    var instantsearch = false;
-    var isGuest = 0;
-    var isLogged = 1;
-    var isMobile = false;
-    var loggin_required = 'Debe identificarse para administrar su lista de deseos.';
-    var max_item = 'You cannot add more than 3 product(s) to the product comparison';
-    var min_item = 'Please select at least one product';
-    var mywishlist_url = 'http://prestashop.flytheme.net/sp_market/es/module/blockwishlist/mywishlist';
-    var page_name = 'category';
-    var param_product_url = '#';
-    var priceDisplayMethod = 1;
-    var priceDisplayPrecision = 2;
-    var quickView = true;
-    var remove_compare_item = 'Product successfully removed from the product comparison';
-    var removingLinkText = 'remove this product from my cart';
-    var request = 'http://prestashop.flytheme.net/sp_market/es/153-healthy-beauty';
-    var roundMode = 2;
-    var static_token = '37dab0cd8f57363d790bac16e0dd0e45';
-    var token = 'e7a94a67a2d06ed0af03a2d1f4e4a2fb';
-    var usingSecureMode = false;
-    var wishlistProductsIds = false;
-    </script>
 
 
     <script type="text/javascript" src="../js/jquery/jquery-1.11.0.min.js"></script>
@@ -123,9 +73,7 @@
     <script type="text/javascript" src="../modules/statsdata/js/plugindetect.js"></script>
 
 
-
-
-  	<div id="layer_cart" class="layer_box">
+  	<div id="mensajeCarrito" class="layer_box">
   		<div class="layer_inner_box">
   			<div class="layer_product clearfix mar_b10">
   						<span class="cross" title="Close window"></span>
@@ -196,8 +144,10 @@
   		<div class="crossseling">
   		</div>
   	</div> <!-- #layer_cart -->
+
   	<div class="layer_cart_overlay">
   	</div>
+
 
 
 <!-- Breadcrumb Column -->
@@ -717,28 +667,17 @@
 					<!--    Show stock information    -->
                       <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="availability">
 												<span class="available-now">
-                          <i class="fa fa-check"></i>
+                          <i class="fa fa-check">-</i>
 											    <link itemprop="availability" href="http://schema.org/InStock" />In stock</span>
 											</div>
-                      {!!Form::open(array('url'=>'Tienda/Carrito','method'=>'POST',))!!}
-                        <div class="form-group">
-                          <input class="form-control grey" type="hidden" name="vista" value="articulos"/>
-                        </div>
-                        <div class="form-group">
-                          <input class="form-control grey" type="hidden" name="id_articulo" value="{{$articulo->id}}"/>
-                        </div>
-                        <div class="form-group">
-                          <input class="form-control grey" type="hidden" name="categoria" value="{{$articulo->categoria}}" hidden />
-                        </div>
-                        <div class="button-container">
-                          <button  class="cart_button" type="submit">
-														Carro
-												  </button>
-                          <a class="addToWishlist" title="Añadir a la lista de deseos" onclick="AddDeseos({{$articulo->id}})" href="javascript:void(0);">
-                            <i class="fa fa-heart"></i>
-                          </a>
-                      </div>
-                      {!!Form::close()!!}
+                          <div class="button-container">
+                            <a onclick="addCompra({{$articulo->id}})" class="cart_button ajax_add_to_cart_button" href="javascript:void(0)">
+											                   Carro
+                                       </a>
+                            <a onclick="addDeseo({{$articulo->id}})" class="addToWishlist" title="Añadir a la lista de deseos" href="javascript:void(0)"  >
+                              <i class="fa fa-heart"></i>
+                            </a>
+                          </div>
 				            </div>
                   </div><!-- .product-container> -->
                 </li>
@@ -805,32 +744,68 @@
 
 
 
-  <div id="MsgDeseo" class="fancybox-overlay fancybox-overlay-fixed" style="display: none; width: auto; height: auto;">
-    <div class="fancybox-wrap fancybox-desktop fancybox-type-html fancybox-opened" tabindex="-1" style="opacity: 1; overflow: visible; height: auto; width: 384px; position: absolute; top: 286px; left: 177px;">
+  <div id="msgDeseo" class="fancybox-overlay fancybox-overlay-fixed" style="display:none; width: auto; height: auto;">
+    <div class="fancybox-wrap fancybox-desktop fancybox-type-html fancybox-opened" tabindex="-1" style="opacity: 1; overflow: visible; height: auto; width: 384px; position: absolute; top: 286px; left: 400px;">
       <div class="fancybox-skin" style="padding: 0px; width: auto; height: auto;">
         <div class="fancybox-outer"><div class="fancybox-inner" style="overflow: auto; width: 384px; height: auto;">
           <p class="fancybox-error">El producto se ha añadido con éxito a su lista de deseos.</p>
           <a href="http://prestashop.flytheme.net/sp_market/module/blockwishlist/mywishlist" class="wishlist_product_view button"> View all </a>
         </div>
       </div>
-      <a title="Close" class="fancybox-item fancybox-close" href="javascript:;"></a>
+      <a title="Cerrar" class="fancybox-item fancybox-close" onclick="cerrarDeseo()" href="javascript:void(0);"></a>
     </div>
   </div>
 </div>
 
 
+<script>
+  function addCompra(id){
+      $.ajax({
+        url: "../Carrito/agregar",
+        type: 'GET',
+        data: {
+          id_articulo: id
 
+        },
+        success: function(){
+          $('#msgDeseo').fadeIn('slow', function() {
+                $.scrollTo(this, 2000);
+          });
 
-
-
-  <script>
-  function AddDeseos(id){
-    $('#MsgDeseo').fadeIn('slow',fuction(){
-      $.scrollTo(this,2000);
-
-    }))
-
+        },
+        error: function(data){
+          alert('Error en la compra');
+        }
+      });
   }
+
+
+  function addDeseo(id){
+      $.ajax({
+        url: "../Deseo/agregar",
+        type: 'GET',
+        data: {
+          id_articulo: id
+
+        },
+        success: function(){
+          $('#msgDeseo').fadeIn('slow', function() {
+                $.scrollTo(this, 2000);
+          });
+
+        },
+        error: function(data){
+          alert('Error en la compra');
+        }
+      });
+  }
+
+  function cerrarDeseo(){
+    $('#msgDeseo').fadeOut('slow', function() {
+          $.scrollTo(this, 2000);
+    });
+  }
+  </script>
 
 
 @endsection

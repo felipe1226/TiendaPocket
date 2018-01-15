@@ -17,4 +17,11 @@ class Pedido extends Model
 
       return $resultado;
   }
+
+  public function scopeListarxGroup($query, $id_empresa){
+
+      $resultado = $query->where('id_empresa','=',$id_empresa)->GroupBy('referencia');
+
+      return $resultado;
+  }
 }

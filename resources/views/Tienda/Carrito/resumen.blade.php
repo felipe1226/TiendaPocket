@@ -1,7 +1,6 @@
 @extends('Tienda.Layout.app')
 @section('content')
 
-  <script type="text/javascript" src="themes/sp_market/js/carrito.js"></script>
 
 			<!-- Breadcrumb Column -->
 							 <div class="breadcrumb-container">
@@ -91,7 +90,15 @@
 
   							</td>
   							<td class="cart_avail">
-  								<span class="label label-success">In stock</span>
+
+
+										@if(($carrito->almacena->cantidad) == 0)
+											<span class="label label-warning" title="Estará disponible proximamente!">Agotado</span>
+
+										@else
+											<span class="label label-success">Adquirir</span>
+										@endif
+
   							</td>
   							<td class="cart_unit" data-title="Unit price">
   								<ul class="price text-right" id="cantidad">
@@ -102,7 +109,7 @@
   							<td class="cart_quantity text-center" data-title="Quantity">
 
   								<input type="hidden" value="1" name="quantity_17_108_0_0_hidden" />
-  								<input id="cantidad{{$carrito->id}}" size="2"  type="text" autocomplete="off" class="cart_quantity_input form-control grey" value="{{$carrito->cantidad}}" name="quantity_17_108_0_0" onblur="modificarCantidad({{$carrito->id}}, {{$carrito->almacena->precio}}, 3)"/>
+  								<input id="cantidad{{$carrito->id}}" size="2"  type="text" autocomplete="off" class="cart_quantity_input form-control grey" value="{{$carrito->cantidad}}" name="quantity_17_108_0_0" onblur="modificarCantidad({{$carrito->id}}, {{$carrito->almacena->precio}}, 2)"/>
 
   								<div class="cart_quantity_button clearfix">
   									<a class="cart_quantity_down btn btn-default button-minus" href="javascript:void(0);" title="Sustraer" onclick="modificarCantidad({{$carrito->id}}, {{$carrito->almacena->precio}}, 0)">
@@ -123,11 +130,8 @@
   								<span>$</span>
   								<?php
 
-                    /*echo '<div id="cantidadTotal'.$carrito->id.'" class="price" value="'.$carrito->almacena->precio * $carrito->cantidad.'" onchange=""/> </div>';*/
 
-
-
-  									echo '<input id="cantidadTotal'.$carrito->id.'" readonly="readonly" style="border:0" class="price"  value="'.$carrito->almacena->precio * $carrito->cantidad.'" onchange=""/>';
+  									echo '<span id="cantidadTotal'.$carrito->id.'">'.$carrito->almacena->precio * $carrito->cantidad.'</span>';
   								 ?>
 
   							</td>
@@ -137,7 +141,7 @@
   				<tfoot>
   					<tr class="cart_total_price">
   						<td rowspan="4" colspan="3" id="cart_voucher" class="cart_voucher"></td>
-  						<td colspan="3" class="text-right">Total carrito</td>
+  						<td colspan="3" class="text-right">costo articulos</td>
   							<?php
   								$totalArticulos = 0;
   								foreach($carritos as $carrito){
@@ -145,8 +149,8 @@
   								}
 
   									echo '<td colspan="2" class="price"><span>$</span>
-  									<input id="totalArticulos" readonly="readonly" style="border:0" class="price"  value="'.$totalArticulos.'"/>
-  									</td>';
+  													<span id="totalArticulos" value="'.$totalArticulos.'">'.$totalArticulos.'</span>
+  												</td>';
 
   							?>
   					</tr>
@@ -192,8 +196,9 @@
 
 		<a class="button" href="{{url('Tienda')}}" title="Inicio"> <i class="fa fa-home"></i></a>
     @if(count($carritos) != 0)
-    <a class="button" href="{{url('Direccion')}}"><span>Proceder con la compra<i class="fa fa-chevron-right right"></i></span>
-		</a>
+    	<a id="buttomComprar" class="button" href="{{url('Direccion')}}">
+				<span>Proceder con la compra<i class="fa fa-chevron-right right"></i></span>
+			</a>
     @endif
 	</p>
 
@@ -209,8 +214,19 @@
 
 
       <script>
+			window.onload=function() {
+						JSONCarritos = eval(<?php echo json_encode($carritos);?>);
+						JSONCarritos.forEach(function(currentValue,index,arr) {
+							if(currentValue.almacena.cantidad == 0){
+								document.getElementById("buttomComprar").style.display="none";
+							}
+						});
+			}
+
       function modificarCantidad(idCarrito, precio, val){
         var cant = parseInt($("#cantidad"+idCarrito).val());
+				var auxTotal = parseInt($("#totalArticulos").html());
+				var costoArticulo = parseInt($("#cantidadTotal"+idCarrito).html());
         if(cant < 1){
           cant = 1;
         }
@@ -225,6 +241,18 @@
           }
         }
           var valor = parseInt(precio)*cant;
+					var TotalArticulos = 0;
+					if(val == "2"){
+						if(costoArticulo > valor){
+							TotalArticulos = auxTotal+valor-costoArticulo;
+						}
+						else{
+							TotalArticulos = auxTotal+valor-costoArticulo;
+						}
+					}
+					else{
+						TotalArticulos = auxTotal-costoArticulo+valor;
+					}
           $.ajax({
             url: "Carrito/modificar",
             type: 'GET',
@@ -235,10 +263,11 @@
             success: function(){
               $("#cantidad"+idCarrito).val(cant);
 
-              $("#cantidadTotal"+idCarrito).html("<span>"+valor+"</span>");
+              $("#cantidadTotal"+idCarrito).html(valor);
 
-              $("#totalArticulos").val(valor);
-              $("#totalCarrito").val(cant);
+							$("#totalArticulos").html(TotalArticulos);
+							$("#totalArticulos").val(TotalArticulos);
+              $("#totalCarrito").val(eval(TotalArticulos+2));
 
             },
             error: function(data){
@@ -259,11 +288,12 @@
       						location.reload();
       				},
       				error: function(data){
-      					alert('No se puede eliminar el articulo del carrito, ya que existe historial de ventas del mismo.');
+      					alert('Error al eliminar el articulo del carrito!');
       				}
       			});
       		}
       	}
+
       </script>
 
 @endsection

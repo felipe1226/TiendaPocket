@@ -17,7 +17,7 @@ class TiendaController extends Controller
 
   }
   public function index(request $request){
-    $carritos = Carrito::where('id_empresa',Auth::user()->idEmpresa)->get();
+    $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
     return view('Tienda/Principal/index')->with('carritos',$carritos);
   }
 }

@@ -19,7 +19,16 @@ class CarritoController extends Controller
 
     }
 
+    public function index(){
+      $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
+      return view('Tienda/Carrito/resumen')->with('carritos',$carritos);
+    }
+
+
     public function store(Request $request){
+    }
+
+    public function agregarCarrito(Request $request){
       $existe = Carrito::where('id_articulo', $request->id_articulo)->get();
       if(count($existe) > 0){
         $cant = 0;
@@ -37,42 +46,34 @@ class CarritoController extends Controller
         $carrito->id_empresa = Auth::user()->idEmpresa;
         $carrito->id_articulo = $request->id_articulo;
         $carrito->cantidad = 1;
+        $carrito->estado = 1;
 
         $carrito->save();
       }
-
-      if($request->vista == "articulos"){
-        Flash::success("Se ha guardado el articulo en el carrito satisfactoriamente!")->important();
-        return redirect('Articulos/'.$request->categoria);
-      }
-
-      else{
-        flash::success('Carrito actualizado!')->important();
-        return redirect('Carrito/');
-      }
-
     }
 
-    public function index(){
-      $id_empresa = Auth::user()->idEmpresa;
 
-      $carritos = Carrito::ConsultaCarrito($id_empresa)->get();
+    public function agregarDeseo(Request $request){
+        $carrito = new Carrito;
+        $carrito->id_empresa = Auth::user()->idEmpresa;
+        $carrito->id_articulo = $request->id_articulo;
+        $carrito->cantidad = 1;
+        $carrito->estado = 0;
 
-      return view('Tienda/Carrito/resumen')->with(['carritos' => $carritos]);
+        $carrito->save();
     }
+
 
     public function direcciones(){
-      $id_empresa = Auth::user()->idEmpresa;
       $direcciones = Direccion::Listar(Auth::user()->idEmpresa)->get();
-      $carritos = Carrito::ConsultaCarrito($id_empresa)->get();
+      $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
 
       return view('Tienda/Carrito/direccion')->with(['carritos' => $carritos])->with('direcciones', $direcciones);
     }
 
     public function pago(){
-      $id_empresa = Auth::user()->idEmpresa;
 
-      $carritos = Carrito::ConsultaCarrito($id_empresa)->get();
+      $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
 
       return view('Tienda/Carrito/pago')->with(['carritos' => $carritos]);
     }
@@ -90,9 +91,9 @@ class CarritoController extends Controller
       $carrito->delete();
     }
 
-    
+
     public function ListaDeseos(){
-      $carritos = Carrito::where('id_empresa',Auth::user()->idEmpresa)->get();
+      $carritos = Carrito::ConsultaDeseo(Auth::user()->idEmpresa)->get();
       return view('Tienda/ListaDeseos/index')->with('carritos', $carritos);
 
     }

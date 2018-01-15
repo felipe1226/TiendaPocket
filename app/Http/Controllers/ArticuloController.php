@@ -44,18 +44,18 @@ class ArticuloController extends Controller
 
   public function ArtsxCategoria($categoria){
     $articulos = Articulo::BuscarxCategoria($categoria)->get();
-    $carritos = Carrito::where('id_empresa',Auth::user()->idEmpresa)->get();
+    $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
 
     return view('Tienda/Articulo/index')->with(['articulos' => $articulos])->with('carritos', $carritos)->with('categoria', $categoria);
   }
 
   public function registrarArticulo(request $request){
-    $carritos = Carrito::where('id_empresa',Auth::user()->idEmpresa)->get();
+    $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
     return view('Tienda/Articulo/RegistrarArticulo')->with('carritos',$carritos);
   }
 
   public function verArticulo($id_articulo){
-    $carritos = Carrito::where('id_empresa',Auth::user()->idEmpresa)->get();
+    $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
     $articulo = Articulo::where('id',$id_articulo)->get();
     return view('Tienda/Articulo/detalles')->with('carritos',$carritos)->with('articulos', $articulo);
   }

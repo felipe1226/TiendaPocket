@@ -16,7 +16,7 @@ class ListaDeseosController extends Controller
   }
 
   public function index(){
-    $carritos = Carrito::where('id_empresa',Auth::user()->idEmpresa)->get();
+    $carritos = Carrito::ConsultaDeseo($id_empresa)->get();
     return view('Tienda/ListadeDeseos/index')->with('carritos', $carritos);
   }
 

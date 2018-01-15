@@ -53,35 +53,43 @@
 									</thead>
 								<tbody>
 
-							@foreach($pedidos as $pedido)
+							@foreach($pedidosGroup as $pedidoGroup)
 								<tr class="first_item ">
 									<td class="history_link bold">
 										<a class="color-myaccount" href="#">
-										{{$pedido->referencia}}
+										{{$pedidoGroup->referencia}}
 										</a>
 									</td>
 									<td data-value="20171221204509" class="history_date bold">
-  									{{$pedido->fecha_envio}}
+										@if($pedidoGroup->fecha_envio == "0000-00-00")
+											-
+										@else
+  										{{$pedidoGroup->fecha_envio}}
+										@endif
 									</td>
 									<td data-value="20171221204509" class="history_date bold">
-  									{{$pedido->fecha_entrega}}
+  									@if($pedidoGroup->fecha_entrega == "0000-00-00")
+										 -
+										@else
+  										{{$pedidoGroup->fecha_entrega}}
+										@endif
 									</td>
 									<td class="history_price">
 										<span class="price">
-                      {{$pedido->costoTotal}}
+                      {{$pedidoGroup->costoTotal}}
 										</span>
 									</td>
-									<td class="history_method">{{$pedido->tipoPago}}</td>
+									<td class="history_method">{{$pedidoGroup->tipoPago}}</td>
 									<td data-value="10" class="history_state">
 										<span class="label" style="background-color:#4169E1; border-color:#4169E1;">
-											{{$pedido->estado}}
+											{{$pedidoGroup->estado}}
 										</span>
 															</td>
 								<td class="history_invoice">
-																	{{$pedido->factura}}
+																	{{$pedidoGroup->factura}}
 															</td>
 								<td class="history_detail">
-									<a onclick="infoPedido({{$pedido->referencia}})" class="btn btn-default button button-small" href="javascript:void(0);">
+									<a onclick="infoPedido({{$pedidoGroup->referencia}})" class="btn btn-default button button-small" href="javascript:void(0);">
 										<span>
 											Detalles<i class="fa fa-chevron-right right"></i>
 										</span>
@@ -124,13 +132,11 @@
 		<div class="col-xs-12 col-sm-6">
 			<ul class="address alternate_item box">
 				<li><h3 class="page-subheading"><span id="referenciaDireccion"></span></h3></li>
-        <li><span id="nombres"class="address_firstname">Felipe</span> <span class="address_lastname">Bedoya</span></li>
-        <li class="address_company">Pocket</li>
-        <li><span class="address_address1">tranv 9 #22-42</span> <span class="address_address2">diag 23</span></li>
-        <li><span class="address_city">Tulua,</span> <span class="address_State:name">Washington</span> <span class="address_postcode">12345</span></li>
-        <li><span class="address_Country:name">United States</span></li>
-        <li><span class="address_phone">2305539</span></li>
-        <li class="address_phone_mobile">3156624815</li>
+        <li><span id="nombre"class="address_firstname"></span></li>
+        <li><span id="direccion" class="address_address1"></span></li>
+        <li><span id="localidad" class="address_city"></span>
+        <li><span id="telefono" class="address_phone"></span></li>
+        <li<span id="movil" class="address_phone_mobile"></li>
 			</ul>
 		</div>
 	</div>
@@ -140,33 +146,25 @@
 	<table class="table table-bordered">
 		<thead>
 			<tr>
-								<th class="first_item">Reference</th>
-				<th class="item">Product</th>
-				<th class="item">Quantity</th>
-								<th class="item">Unit price</th>
-				<th class="last_item">Total price</th>
+				<th class="first_item">Articulo</th>
+				<th class="item">Marca</th>
+				<th class="item">Precio unitario</th>
+				<th class="item">Cantidad</th>
+				<th class="last_item">Total</th>
 			</tr>
 		</thead>
 		<tfoot>
-							<tr class="item">
-					<td colspan="1">
-						<strong>Items (tax excl.)</strong>
-					</td>
-					<td colspan="4">
-						<span class="price">$723.00</span>
-					</td>
-				</tr>
 						<tr class="item">
 				<td colspan="1">
-					<strong>Items (tax incl.) </strong>
+					<strong>Total articulos</strong>
 				</td>
 				<td colspan="4">
-					<span class="price">$723.00</span>
+					<span id="totalArticulos" class="price">$723.00</span>
 				</td>
 			</tr>
 									<tr class="item">
 				<td colspan="1">
-					<strong>Shipping &amp; handling (tax incl.) </strong>
+					<strong>Costo de envio</strong>
 				</td>
 				<td colspan="4">
 					<span class="price-shipping">$2.00</span>
@@ -174,69 +172,17 @@
 			</tr>
 			<tr class="totalprice item">
 				<td colspan="1">
-					<strong>Total</strong>
+					<strong>Total del pedido</strong>
 				</td>
 				<td colspan="4">
-					<span id="costoTotal"class="price"></span>
+					<span id="costoTotal" class="price"></span>
 				</td>
 			</tr>
 		</tfoot>
-		<tbody>
-																														<!-- Customized products -->
-								<!-- Classic products -->
-									<tr class="item">
-												<td><label for="cb_58">demo_33</label></td>
-						<td class="bold">
-							<label for="cb_58">
-																	Sapien fermen - Size : S, Color : Orange
-															</label>
-						</td>
-						<td class="return_quantity">
-							<input class="order_qte_input form-control grey" name="order_qte_input[58]" type="text" size="2" value="1">
-							<div class="clearfix return_quantity_buttons">
-								<a href="#" class="return_quantity_down btn btn-default button-minus"><span><i class="fa fa-minus"></i></span></a>
-								<a href="#" class="return_quantity_up btn btn-default button-plus"><span><i class="fa fa-plus"></i></span></a>
-							</div>
-							<label for="cb_58"><span class="order_qte_span editable">1</span></label></td>
-												<td class="price">
-							<label for="cb_58">
-															$99.00
-														</label>
-						</td>
-						<td class="price">
-							<label for="cb_58">
-															$99.00
-														</label>
-						</td>
-					</tr>
-																																					<!-- Customized products -->
-								<!-- Classic products -->
-									<tr class="item">
-												<td><label for="cb_59">demo_34</label></td>
-						<td class="bold">
-							<label for="cb_59">
-																	Roccaecat dolore - Size : S, Color : Orange
-															</label>
-						</td>
-						<td class="return_quantity">
-							<input class="order_qte_input form-control grey" name="order_qte_input[59]" type="text" size="2" value="4">
-							<div class="clearfix return_quantity_buttons">
-								<a href="#" class="return_quantity_down btn btn-default button-minus"><span><i class="fa fa-minus"></i></span></a>
-								<a href="#" class="return_quantity_up btn btn-default button-plus"><span><i class="fa fa-plus"></i></span></a>
-							</div>
-							<label for="cb_59"><span class="order_qte_span editable">4</span></label></td>
-												<td class="price">
-							<label for="cb_59">
-															$156.00
-														</label>
-						</td>
-						<td class="price">
-							<label for="cb_59">
-															$624.00
-														</label>
-						</td>
-					</tr>
-													</tbody>
+		<tbody id="pedidos">
+			<!-- Customized products -->
+			<!-- Classic products -->
+		</tbody>
 	</table>
 </div>
 </form>
@@ -308,11 +254,14 @@
       <script>
 
       function infoPedido(ref){
+				var costoArticulo = 0 ;
+				var totalArticulos = 0 ;
 
         $('#block-order-detail').fadeOut('slow', function() {
               $.scrollTo(this, 2000);
 
-          $('#articulos').empty();
+          $('#pedidos').empty();
+					$('#articulos').empty();
           $('#articulos').append($('<option>', {
                 value: 0,
                 text: 'Elija un articulo'
@@ -321,21 +270,37 @@
             JSONPedidos = eval(<?php echo json_encode($pedidos);?>);
             JSONPedidos.forEach(function(currentValue,index,arr) {
               if(currentValue.referencia == ref){
+
+  							$('#referenciaDireccion').html(currentValue.referencia_direccion);
+								$('#nombre').html(currentValue.nombre);
+								$('#direccion').html(currentValue.direccion);
+								$('#localidad').html(currentValue.localidad);
+								$('#telefono').html(currentValue.telefono);
+								$('#movil').html(currentValue.movil);
+
                 $('#referencia').html(currentValue.referencia);
                 $('#created').html(currentValue.created_at);
-
                 $('#estado').html(currentValue.estado);
+                $('#costoTotal').html("$"+currentValue.costoTotal);
 
 
-                $('#costoTotal').html(currentValue.costoTotal);
                 $('#comentario').html(currentValue.comentario);
+
+								costoArticulo = eval(currentValue.cantidad_articulo*currentValue.precio_articulo);
+								totalArticulos = eval(totalArticulos + costoArticulo);
+
+								$('#pedidos').append('<tr class="item"><td><label>'+currentValue.nombre_articulo+'</label></td><td class="bold"><label>'+currentValue.proveedor+'</label></td><td class="price"><label>$'+currentValue.precio_articulo+'</label></td><td class="return_quantity"><span>'+currentValue.cantidad_articulo+'</span></td><td class="price"><label>$'+costoArticulo+'</label></td></tr>');
+
+
 
                 $('#articulos').append($('<option>', {
                   value: currentValue.id_articulo,
                   text: currentValue.nombre_articulo
               }));
               }
-          });
+          	});
+						$('#totalArticulos').html("$"+totalArticulos);
+
           });
 
 

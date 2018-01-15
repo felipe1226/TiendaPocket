@@ -19,19 +19,18 @@ class CuentaController extends Controller
   }
 
   public function index(){
-    $carritos = Carrito::where('id_empresa',Auth::user()->idEmpresa)->get();
+    $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
     return view('Tienda/Cuenta/index')->with('carritos', $carritos);
   }
 
-  
+
   public function pedidos(){
-    $carritos = Carrito::where('id_empresa',Auth::user()->idEmpresa)->get();
-    //$pedidos = Pedido::Listar(Auth::user()->idEmpresa)->get();
+    $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
     return view('Tienda/Pedidos/index')->with('carritos', $carritos);
   }
 
   public function eliminarDireccion(Request $request){
-    $direccion = Direccion::find($request->id);
+    $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
     $direccion->delete();
   }
 

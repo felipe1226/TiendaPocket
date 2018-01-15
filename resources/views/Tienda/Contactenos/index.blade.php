@@ -131,7 +131,7 @@
 				</div>
 				<div class="submit">
 					<button type="submit" name="submitMessage" id="submitMessage" class="button btn btn-default button-medium">
-						Enviar Correo Electronico </span>
+						Enviar</span>
 					</button>
 				</div>
 			</fieldset>

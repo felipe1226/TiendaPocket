@@ -21,9 +21,16 @@ class Carrito extends Model
 
   public function scopeConsultaCarrito($query, $id_empresa){
 
-    $resultado = $query->where('id_empresa','=',$id_empresa);
+    $resultado = $query->where('id_empresa','=',$id_empresa)->where('estado', '=', 1);
 
     return $resultado;
   }
-  
+
+  public function scopeConsultaDeseo($query, $id_empresa){
+
+    $resultado = $query->where('id_empresa','=',$id_empresa)->where('estado', '=', 0);
+
+    return $resultado;
+  }
+
 }

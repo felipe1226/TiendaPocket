@@ -251,7 +251,7 @@
 									<div class="blockcart clearfix">
 										<div class="shopping_cart clearfix">
 											<div class="icon-cart"></div>
-												<a href="../order.html" title="View my shopping cart" rel="nofollow">
+												<a href="{{url('Carrito')}}" title="View my shopping cart" rel="nofollow">
 														<span class="text-cart">CARRITO</span>
 														<span class="text-cart4">Carrito</span>
 														<span class="line line4"> - </span>
@@ -271,14 +271,15 @@
 												<div class="cart_block block exclusive">
 													<div class="block_content">
 															<!-- block list of products -->
-														<div class="cart_block_list">
-															<p class="recent_items ">Articulos <span>Precio</span></p>';
+														<div class="cart_block_list">';
+
 															if(count($carritos) == 0){
-																echo '<p class="cart_block_no_products unvisible">
+																echo '<p class="cart_block_no_products style="display: block">
 																			No tienes articulos en el carrito
 																</p>';
 															}
 															else{
+																echo '<p class="recent_items ">Articulos <span>Precio</span></p>';
 																foreach($carritos as $carrito){
 																	echo '<div class="list-products mCustomScrollbar">
 																		<dl class="products ">
@@ -849,6 +850,6 @@
 			 				</div><!-- #footer -->
 			 					</div><!-- #page -->
 
+
 	</body>
-<!-- Mirrored from prestashop.flytheme.net/sp_market/es/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 24 Sep 2017 01:04:04 GMT -->
 </html>
