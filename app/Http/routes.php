@@ -120,10 +120,6 @@ Route::resource('Salario','SalarioController');
 
 Route::resource('Tienda', 'TiendaController');
 
-
-
-
-
 Route::get('Articulos/{categoria}','ArticuloController@ArtsxCategoria');
 
 Route::get('Detalles/{id}','ArticuloController@verArticulo');
