@@ -572,7 +572,6 @@
                           <i class="fa fa-check">-</i>
 											    <link itemprop="availability" href="http://schema.org/InStock" />In stock</span>
 											</div>
-<<<<<<< HEAD
                           <div class="button-container">
                             <a onclick="addCompra({{$articulo->id}})" class="cart_button ajax_add_to_cart_button" href="javascript:void(0)">
 											                   Carro
@@ -581,28 +580,6 @@
                               <i class="fa fa-heart"></i>
                             </a>
                           </div>
-=======
-                      {!!Form::open(array('url'=>'Tienda/Carrito','method'=>'POST',))!!}
-                        <div class="form-group">
-                          <input class="form-control grey" type="hidden" name="vista" value="articulos"/>
-                        </div>
-                        <div class="form-group">
-                          <input class="form-control grey" type="hidden" name="id_articulo" value="{{$articulo->id}}"/>
-                        </div>
-                        <div class="form-group">
-                          <input class="form-control grey" type="hidden" name="categoria" value="{{$articulo->categoria}}" hidden />
-                        </div>
-                        <div class="button-container">
-                          <button  class="cart_button" type="submit">
-														Carro
-												  </button>
-
-                            <a class="addToWishlist" type="submit" title="Añadir a la lista de deseos" onclick="AddDeseos({{$articulo->id}})" href="javascript:void(0);">
-                            <i class="fa fa-heart"></i></a>
-                        </div>
-
-                      {!!Form::close()!!}
->>>>>>> origin/master
 				            </div>
                   </div><!-- .product-container> -->
                 </li>
