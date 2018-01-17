@@ -150,5 +150,6 @@
 
 
 			</div><!-- .columns-container -->
+		</div>
 
 @endsection

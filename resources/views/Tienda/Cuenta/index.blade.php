@@ -16,8 +16,7 @@
 		</div>
 	</div>
 						<!-- End Breadcrumb Column -->
-			<!-- Columns -->
-	<div class="columns-container">
+						<div class="columns-container">
 		<div id="columns" class="container">
 			<div class="row">
 														 <!-- Sidebar -->
@@ -60,6 +59,8 @@
 			</div><!-- .row -->
 		</div><!-- #columns -->
 	</div><!-- .columns-container -->
+</div>
+
 
 
 @endsection

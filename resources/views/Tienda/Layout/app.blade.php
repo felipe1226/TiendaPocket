@@ -16,123 +16,129 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-				<link href="themes/sp_market/css/fonts/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
-						<link rel="stylesheet" href="themes/sp_market/css/global.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="themes/sp_market/css/autoload/jquery.mCustomScrollbar.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="themes/sp_market/css/autoload/uniform.default.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="js/jquery/plugins/fancybox/jquery.fancybox.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="modules/spthemeconfigurator/views/css/front/sp-cpanel.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="themes/sp_market/css/bootstrap/bootstrap.min.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="modules/spthemeconfigurator/views/css/front/configCss-1.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="themes/sp_market/css/theme-2f0033.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="themes/sp_market/css/responsive.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="themes/sp_market/css/modules/blocktags/blocktags.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="themes/sp_market/css/modules/blockwishlist/blockwishlist.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="themes/sp_market/css/modules/productcomments/productcomments.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="themes/sp_market/css/modules/spblockcurrencies/css/spblockcurrencies.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="themes/sp_market/css/modules/spblocklanguages/css/spblocklanguages.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="modules/smartblog/css/smartblogstyle.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="themes/sp_market/css/modules/blockcategories/blockcategories.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="themes/sp_market/css/modules/spmegamenu/css/spmegamenu.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="themes/sp_market/css/modules/spextraslider/views/css/style.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="modules/spextraslider/views/css/owl.carousel.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="themes/sp_market/css/modules/splistingtabs/views/css/sp-listing-tabs.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="modules/splistingtabs/views/css/owl.carousel.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="themes/sp_market/css/modules/spblockuserinfo/css/spblockuserinfo.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="themes/sp_market/css/modules/spdeal/views/css/styles.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="themes/sp_market/css/modules/spverticalmenu/css/spverticalmenu.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="themes/sp_market/css/modules/spcategories/views/css/sp-categories.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="themes/sp_market/css/modules/spsearchpro/views/css/style.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="themes/sp_market/css/modules/spblockcart/css/spblockcart.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="js/jquery/plugins/bxslider/jquery.bxslider.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="themes/sp_market/css/modules/sphomeslider/css/sphomeslider.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="modules/sphomeslider/css/animate.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="modules/sphomeslider/css/owl.carousel.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="themes/sp_market/css/modules/spblocknewsletter/spblocknewsletter.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="themes/sp_market/css/modules/spcustomhtml/views/css/style.css" type="text/css" media="all" />
+				<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/fonts/font-awesome.css"  type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/global.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/autoload/jquery.mCustomScrollbar.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/autoload/uniform.default.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/js/jquery/plugins/fancybox/jquery.fancybox.css" type="text/css" media="all" />
+
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/modules/spthemeconfigurator/views/css/front/sp-cpanel.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/bootstrap/bootstrap.min.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/modules/spthemeconfigurator/views/css/front/configCss-1.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/theme-2f0033.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/responsive.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/blocktags/blocktags.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/blockwishlist/blockwishlist.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/productcomments/productcomments.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/spblockcurrencies/css/spblockcurrencies.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/spblocklanguages/css/spblocklanguages.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/modules/smartblog/css/smartblogstyle.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/blockcategories/blockcategories.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/spmegamenu/css/spmegamenu.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/spextraslider/views/css/style.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/modules/spextraslider/views/css/owl.carousel.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/splistingtabs/views/css/sp-listing-tabs.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/modules/splistingtabs/views/css/owl.carousel.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/spblockuserinfo/css/spblockuserinfo.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/spdeal/views/css/styles.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/spverticalmenu/css/spverticalmenu.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/spcategories/views/css/sp-categories.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/spsearchpro/views/css/style.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/spblockcart/css/spblockcart.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/js/jquery/plugins/bxslider/jquery.bxslider.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/sphomeslider/css/sphomeslider.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/modules/sphomeslider/css/animate.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/modules/sphomeslider/css/owl.carousel.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/spblocknewsletter/spblocknewsletter.css" type="text/css" media="all" />
+						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/spcustomhtml/views/css/style.css" type="text/css" media="all" />
+
 
 						<script type="text/javascript">
-						var CUSTOMIZE_TEXTFIELD = 1;
-						var FancyboxI18nClose = 'Close';
-						var FancyboxI18nNext = 'Next';
-						var FancyboxI18nPrev = 'Previous';
-						var added_to_wishlist = 'El producto se ha añadido con éxito a su lista de deseos.';
-						var ajax_allowed = true;
-						var ajaxsearch = false;
-						var baseDir = '/';
-						var baseUri = '/';
-						var comparator_max_item = 3;
-						var comparedProductsIds = [22];
-						var contentOnly = false;
-						var currency = {"id":1,"name":"USD","iso_code":"USD","iso_code_num":"840","sign":"$","blank":"0","conversion_rate":"1.000000",,"format":"1","decimals":"1","active":"1","prefix":"$ ","suffix":"","id_shop_list":null,"force_id":false};
-						var currencyBlank = 0;
-						var currencyFormat = 1;
-						var currencyRate = 1;
-						var currencySign = '$';
-						var customizationIdMessage = 'Customization #';
-						var displayList = false;
-						var freeProductTranslation = 'Free!';
-						var freeShippingTranslation = 'Free shipping!';
-						var generated_date = 1513833335;
-						var id_lang = 4;
-						var img_dir = 'themes/sp_market/img/';
-						var instantsearch = false;
-						var isGuest = 0;
-						var isLogged = 1;
-						var isMobile = false;
-						var loggin_required = 'Debe identificarse para administrar su lista de deseos.';
-						var mywishlist_url = 'http://prestashop.flytheme.net/sp_market/es/module/blockwishlist/mywishlist';
-						var page_name = 'index';
-						var priceDisplayMethod = 1;
-						var priceDisplayPrecision = 2;
-						var quickView = true;
-						var roundMode = 2;
-						var static_token = '37dab0cd8f57363d790bac16e0dd0e45';
-						var token = 'e7a94a67a2d06ed0af03a2d1f4e4a2fb';
-						var usingSecureMode = false;
-						var wishlistProductsIds = false;
-						</script>
+var CUSTOMIZE_TEXTFIELD = 1;
+var FancyboxI18nClose = 'Close';
+var FancyboxI18nNext = 'Next';
+var FancyboxI18nPrev = 'Previous';
+var add_compare_item = 'Product successfully added to the product comparison';
+var added_to_wishlist = 'El producto se ha añadido con éxito a su lista de deseos.';
+var ajax_allowed = true;
+var ajaxsearch = true;
+var baseDir = 'http://prestashop.flytheme.net/sp_market/';
+var baseUri = 'http://prestashop.flytheme.net/sp_market/';
+var comparator_max_item = 3;
+var comparedProductsIds = [22];
+var contentOnly = false;
+var currency = {"id":1,"name":"USD","iso_code":"USD","iso_code_num":"840","sign":"$","blank":"0","conversion_rate":"1.000000","deleted":"0","format":"1","decimals":"1","active":"1","prefix":"$ ","suffix":"","id_shop_list":null,"force_id":false};
+var currencyBlank = 0;
+var currencyFormat = 1;
+var currencyRate = 1;
+var currencySign = '$';
+var customizationIdMessage = 'Customization #';
+var delete_txt = 'Delete';
+var displayList = false;
+var freeProductTranslation = 'Free!';
+var freeShippingTranslation = 'Free shipping!';
+var generated_date = 1516121359;
+var id_lang = 4;
+var img_dir = 'http://prestashop.flytheme.net/sp_market/themes/sp_market/img/';
+var instantsearch = false;
+var isGuest = 0;
+var isLogged = 1;
+var isMobile = false;
+var loggin_required = 'Debe identificarse para administrar su lista de deseos.';
+var max_item = 'You cannot add more than 3 product(s) to the product comparison';
+var min_item = 'Please select at least one product';
+var mywishlist_url = 'http://prestashop.flytheme.net/sp_market/es/module/blockwishlist/mywishlist';
+var page_name = 'my-account';
+var priceDisplayMethod = 1;
+var priceDisplayPrecision = 2;
+var quickView = true;
+var remove_compare_item = 'Product successfully removed from the product comparison';
+var removingLinkText = 'remove this product from my cart';
+var roundMode = 2;
+var static_token = '37dab0cd8f57363d790bac16e0dd0e45';
+var token = 'e7a94a67a2d06ed0af03a2d1f4e4a2fb';
+var usingSecureMode = false;
+var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"0","name":"Aliquam Leberkas","id_product_attribute":"0","priority":"1","link_rewrite":"faded-short-sleeves-tshirt","category_rewrite":"electronics","attributes_small":""},{"id_product":"2","quantity":"14","product_quantity":"0","name":"Aliquam lobortis","id_product_attribute":"0","priority":"0","link_rewrite":"blouse","category_rewrite":"electronics","attributes_small":""},{"id_product":"4","quantity":"5","product_quantity":"0","name":"Nulla tenderloin","id_product_attribute":"0","priority":"1","link_rewrite":"printed-dress","category_rewrite":"electronics","attributes_small":""},{"id_product":"5","quantity":"2","product_quantity":"0","name":"Cauris venenatis","id_product_attribute":"0","priority":"1","link_rewrite":"printed-summer-dress","category_rewrite":"electronics","attributes_small":""},{"id_product":"8","quantity":"4","product_quantity":"0","name":"Etiam Andouille","id_product_attribute":"0","priority":"1","link_rewrite":"printed-dress","category_rewrite":"electronics","attributes_small":""},{"id_product":"59","quantity":"1","product_quantity":"0","name":"Cillum eiusmod","id_product_attribute":"0","priority":"1","link_rewrite":"faded-short-sleeves-tshirt","category_rewrite":"electronics","attributes_small":""}];
+</script>
 
-						<script type="text/javascript" src="js/jquery/jquery-1.11.0.min.js"></script>
-						<script type="text/javascript" src="js/jquery/jquery-migrate-1.2.1.min.js"></script>
-						<script type="text/javascript" src="js/jquery/plugins/jquery.easing.js"></script>
-						<script type="text/javascript" src="js/tools.js"></script>
-						<script type="text/javascript" src="themes/sp_market/js/global.js"></script>
-						<script type="text/javascript" src="themes/sp_market/js/autoload/10-bootstrap.min.js"></script>
-						<script type="text/javascript" src="themes/sp_market/js/autoload/15-jquery.total-storage.min.js"></script>
-						<script type="text/javascript" src="themes/sp_market/js/autoload/15-jquery.uniform-modified.js"></script>
-						<script type="text/javascript" src="themes/sp_market/js/autoload/jquery.mCustomScrollbar.concat.min.js"></script>
-						<script type="text/javascript" src="themes/sp_market/js/autoload/slick.min.js"></script>
-						<script type="text/javascript" src="js/jquery/plugins/fancybox/jquery.fancybox.js"></script>
-						<script type="text/javascript" src="themes/sp_market/js/products-comparison.js"></script>
-						<script type="text/javascript" src="modules/spthemeconfigurator/views/js/front/jquery.miniColors.min.js"></script>
-						<script type="text/javascript" src="modules/spthemeconfigurator/views/js/front/sp-cpanel.js"></script>
-						<script type="text/javascript" src="themes/sp_market/js/sp_lib/jquery.backtotop.js"></script>
-						<script type="text/javascript" src="themes/sp_market/js/sp_lib/jquery.global.js"></script>
-						<script type="text/javascript" src="themes/sp_market/js/sp_lib/jquery.ui.touch-punch.min.js"></script>
-						<script type="text/javascript" src="themes/sp_market/js/sp_lib/jquery.elevatezoom.js"></script>
-						<script type="text/javascript" src="themes/sp_market/js/modules/blockwishlist/js/ajax-wishlist.js"></script>
-						<script type="text/javascript" src="themes/sp_market/js/tools/treeManagement.js"></script>
-						<script type="text/javascript" src="modules/spextraslider/views/js/owl.carousel.js"></script>
-						<script type="text/javascript" src="modules/spdeal/views/js/deal.js"></script>
-						<script type="text/javascript" src="modules/spdeal/views/js/jquery.cj-swipe.js"></script>
-						<script type="text/javascript" src="modules/spcategories/views/js/jquery.imagesloaded.js"></script>
-						<script type="text/javascript" src="modules/spcategories/views/js/jquery.sj_accordion.js"></script>
-						<script type="text/javascript" src="modules/spsearchpro/views/js/jquery.autocomplete.js"></script>
-						<script type="text/javascript" src="themes/sp_market/js/modules/spblockcart/ajax-cart.js"></script>
-						<script type="text/javascript" src="js/jquery/plugins/jquery.scrollTo.js"></script>
-						<script type="text/javascript" src="js/jquery/plugins/jquery.serialScroll.js"></script>
-						<script type="text/javascript" src="js/jquery/plugins/bxslider/jquery.bxslider.js"></script>
-						<script type="text/javascript" src="modules/sphomeslider/js/owl.carousel.js"></script>
-						<script type="text/javascript" src="modules/spblocknewsletter/jquery.cookie.min.js"></script>
-						<script type="text/javascript" src="themes/sp_market/js/index.js"></script>
-						<script type="text/javascript" src="modules/statsdata/js/plugindetect.js"></script>
+						<script type="text/javascript" src="http://localhost/TiendaPocket/public/js/jquery/jquery-1.11.0.min.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/js/jquery/jquery-migrate-1.2.1.min.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/js/jquery/plugins/jquery.easing.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/js/tools.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/global.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/autoload/10-bootstrap.min.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/autoload/15-jquery.total-storage.min.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/autoload/15-jquery.uniform-modified.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/autoload/jquery.mCustomScrollbar.concat.min.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/autoload/slick.min.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/js/jquery/plugins/fancybox/jquery.fancybox.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/products-comparison.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/modules/spthemeconfigurator/views/js/front/jquery.miniColors.min.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/modules/spthemeconfigurator/views/js/front/sp-cpanel.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/sp_lib/jquery.backtotop.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/sp_lib/jquery.global.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/sp_lib/jquery.ui.touch-punch.min.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/sp_lib/jquery.elevatezoom.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/modules/blockwishlist/js/ajax-wishlist.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/tools/treeManagement.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/modules/spextraslider/views/js/owl.carousel.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/modules/spdeal/views/js/deal.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/modules/spdeal/views/js/jquery.cj-swipe.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/modules/spcategories/views/js/jquery.imagesloaded.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/modules/spcategories/views/js/jquery.sj_accordion.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/modules/spsearchpro/views/js/jquery.autocomplete.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/modules/spblockcart/ajax-cart.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/js/jquery/plugins/jquery.scrollTo.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/js/jquery/plugins/jquery.serialScroll.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/js/jquery/plugins/bxslider/jquery.bxslider.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/modules/sphomeslider/js/owl.carousel.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/modules/spblocknewsletter/jquery.cookie.min.js"></script>
 
 
 
 	</head>
 
-	<body id="product" class="blog-small_image content-v1  product   lang_es patternnone layout-full slider-imgpr-0  secondImage-0" data-content="content-v1">
+	<body id="my-account" itemscope="" itemtype="http://schema.org/WebPage" class="blog-small_image content-v1  my-account   lang_es patternnone layout-full slider-imgpr-0  secondImage-0" data-content="content-v1" style="">
 		<div id="wrapper" >
 									 <!-- Header -->
 									 <div class="header-container">
@@ -167,12 +173,6 @@
 									</a>
 								</li>
 
-								<li class="checkout">
-									<a href="http://prestashop.flytheme.net/sp_market/es/order" title="Revisa" >
-										<span>Revisa</span>
-									</a>
-								</li>
-
 											<li class="logout">
 										<a href="http://prestashop.flytheme.net/sp_market/es/?mylogout=" rel="nofollow" title="Cerrar sesión">
 											<span>Desconectar</span>
@@ -192,7 +192,7 @@
 							<div class="row">
 								<div id="header_logo" class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 									<a class="logo" href="{{url('Tienda')}}" title="POCKETSHOT">
-										<img  src="img/sp-g3shop-logo-1472003784.jpg" alt="SP Market" width="250" height="70"/>
+										<img  src="http://localhost/TiendaPocket/public/img/sp-g3shop-logo-1472003784.jpg" alt="SP Market" width="250" height="70"/>
 									</a>
 								</div>
 								<div id="header_search" class="col-lg-7 col-md-6 col-sm-6 col-xs-12 hidden-xs">
@@ -266,45 +266,52 @@
 																$totalCarrito += $carrito->cantidad * $carrito->almacena->precio;
 															}
 
-														echo '<span class="ajax_cart_total">$'.$totalCarrito.'</span>
+														echo '<span class="ajax_cart_total">$'.$totalCarrito.'</span>';
+														?>
 												</a>
 												<div class="cart_block block exclusive">
 													<div class="block_content">
 															<!-- block list of products -->
-														<div class="cart_block_list">';
+														<div class="cart_block_list">
 
-															if(count($carritos) == 0){
-																echo '<p class="cart_block_no_products style="display: block">
+															@if(count($carritos) == 0)
+																<p class="cart_block_no_products" style="display: block">
 																			No tienes articulos en el carrito
-																</p>';
-															}
-															else{
-																echo '<p class="recent_items ">Articulos <span>Precio</span></p>';
-																foreach($carritos as $carrito){
-																	echo '<div class="list-products mCustomScrollbar">
-																		<dl class="products ">
-																			<dt data-id="cart_block_product_3_13_0" class="first_item">
-																				<a class="cart-images" href="#">
-																					<img height="50" width="50" src="imgArticulos/'.$carrito->almacena->imagen.'" />
-																				</a>
-																				<div class="cart-info">
-																					<div class="product-name titleFont">
-																						<a class="cart_block_product_name" href="#">'.$carrito->almacena->nombre.'
+																</p>
+															@else
+																<p class="recent_items ">Articulos <span>Precio</span></p>
+																	<div class="list-products mCustomScrollbar">
+
+																				<dl class="products ">
+																					@foreach($carritos as $carrito)
+																					<dt id="articulo{{$carrito->id}}" data-id="cart_block_product{{$carrito->id}}" class="first_item" style="display: block">
+																						<a class="cart-images" href="#">
+																							<img height="60" width="60" src="http://localhost/TiendaPocket/public/imgArticulos/{{$carrito->almacena->imagen}}"/>
 																						</a>
-																					</div>
-																					<span class="price">$'.$carrito->almacena->precio * $carrito->cantidad.'</span>
-																					<span class="quantity-formated titleFont">Cantidad: '.$carrito->cantidad.'</span>
-																				</div>
-																			</dt>
-																		</dl>
-																	</div>';
-																}
-															}
-																	echo '<div class="price-total titleFont">
-																		<span class="price_text">Total : </span>
-																		<span class="price cart_block_total ajax_block_cart_total">$'.$totalCarrito.'</span>
-																	</div>';
-															?>
+																						<div class="cart-info">
+																							<div class="product-name titleFont">
+																								<a class="cart_block_product_name" href="#">{{$carrito->almacena->nombre}}
+																								</a>
+																							</div>
+																							<span class="price">$
+																								<?php
+																									echo $carrito->almacena->precio * $carrito->cantidad;
+																								?>
+																							</span>
+																							<span class="quantity-formated titleFont">Cantidad: {{$carrito->cantidad}}</span>
+																						</div>
+																						<span class="remove_link"><a onclick="eliminar({{$carrito->id}})" rel="nofollow" class="ajax_cart_block_remove_link" href="javascript:void(0)"> <i class="fa fa-trash"></i></a></span>
+																					</dt>
+																					@endforeach
+																				</dl>
+
+																</div>
+															@endif
+																<div class="price-total titleFont">
+																	<span class="price_text">Total : </span>
+																	<span id="valorCarrito" class="price cart_block_total ajax_block_cart_total"></span>
+																	</div>
+
 															<div class="buttons">
 																<a id="button_order_cart" class="btn btn-default button button-small titleFont" href="{{url('Carrito')}}" rel="nofollow">
 																	Ver carrito
@@ -316,99 +323,6 @@
 										</div>
 									</div>
 								</div>
-								<script>
-								      	function eliminar(idCarrito){
-								      		if(confirm('¿Desea descartar este articulo del carrito?')){
-								      			$.ajax({
-								      				url: "Carrito/eliminar",
-								      				type: 'GET',
-								      				data: {
-								      					id: idCarrito
-								      				},
-								      				success: function(){
-								      						location.reload();
-								      				},
-								      				error: function(data){
-								      					alert('No se puede eliminar el articulo del carrito');
-								      				}
-								      			});
-								      		}
-								      	}
-								</script>
-
-									<div id="layer_cart" class="layer_box">
-										<div class="layer_inner_box">
-											<div class="layer_product clearfix mar_b10">
-												<span class="cross" title="Close window"></span>
-												<div class="product-image-container layer_cart_img">
-												</div>
-												<div class="layer_product_info">
-													<h3 id="layer_cart_product_title" class="product-name"></h3>
-													<span id="layer_cart_product_attributes"></span>
-													<div id="layer_cart_product_quantity_wrap" class="hidden">
-														<span class="layer_cart_label">Quantity</span>
-														<span id="layer_cart_product_quantity"></span>
-													</div>
-													<div id="layer_cart_product_price_wrap" class="hidden">
-														<span class="layer_cart_label">Total</span>
-														<span id="layer_cart_product_price"></span>
-													</div>
-												</div>
-											</div>
-
-											<div id="pro_added_success" class="alert alert-success">Product successfully added to your shopping cart</div>
-											<div class="layer_details">
-												<div class="layer_cart_row">
-													<!-- Plural Case [both cases are needed because page may be updated in Javascript] -->
-													<span class="ajax_cart_product_txt_s  unvisible">
-														There are <span class="ajax_cart_quantity">1</span> items in your cart.
-													</span>
-													<!-- Singular Case [both cases are needed because page may be updated in Javascript] -->
-													<span class="ajax_cart_product_txt ">
-														There is 1 item in your cart.
-													</span>
-												</div>
-
-												<div id="layer_cart_ajax_block_products_total" class="layer_cart_row hidden">
-													<span class="layer_cart_label">
-														Total products
-																					(tax excl.)
-																			</span>
-													<span class="ajax_block_products_total">
-																					$26.00
-																			</span>
-												</div>
-
-																<div id="layer_cart_ajax_cart_shipping_cost" class="layer_cart_row hidden">
-													<span class="layer_cart_label">
-														Total shipping&nbsp;(tax excl.)
-													</span>
-													<span class="ajax_cart_shipping_cost">
-																					$2.00
-																			</span>
-												</div>
-																<div id="layer_cart_ajax_block_cart_total" class="layer_cart_row">
-													<span class="layer_cart_label">
-														Total
-																					(tax excl.)
-																			</span>
-													<span class="ajax_block_cart_total price">
-																													$28.00
-																										</span>
-												</div>
-												<div class="button-container clearfix">
-													<span class="continue button pull-left" title="Continue shopping">
-														Continue shopping
-													</span>
-													<a class="button pull-right" href="../order.html" title="Proceed to checkout" rel="nofollow">
-														Proceed to checkout
-													</a>
-												</div>
-											</div>
-										</div>
-										<div class="crossseling"></div>
-									</div> <!-- #layer_cart -->
-									<div class="layer_cart_overlay"></div>
 
 <!-- /MODULE Block cart -->
 					    </div>
@@ -742,6 +656,7 @@
 		</div>
 
 
+
 			 <!-- Footer -->
 			 <div class="footer-container">
 			 	<footer id="footer"  class="container">
@@ -849,6 +764,37 @@
 
 			 				</div><!-- #footer -->
 			 					</div><!-- #page -->
+
+
+								<script>
+									window.onload=function() {
+										var totalArticulos = 0 ;
+										JSONCarritos = eval(<?php echo json_encode($carritos);?>);
+										JSONCarritos.forEach(function(currentValue,index,arr) {
+											totalArticulos += eval(currentValue.almacena.precio * currentValue.cantidad);
+										});
+										$('#valorCarrito').html("$"+totalArticulos);
+									}
+
+									function eliminar(idCarrito){
+
+											$.ajax({
+												url: baseDir+"Carrito/eliminar",
+												type: 'GET',
+												data: {
+													id: idCarrito
+												},
+												success: function(){
+													$('#articulo'+idCarrito).fadeOut('slow', function() {
+								                $.scrollTo(this, 2000);
+								          });
+												},
+												error: function(data){
+													alert('No se puede eliminar el articulo del carrito');
+												}
+											});
+									}
+								</script>
 
 
 	</body>

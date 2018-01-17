@@ -17,17 +17,17 @@
 			 					<div class="sp-homeslider sphomeslider-inner-1">
 									<div class="item ">
 										<a href="#" title="1">
-											<img class="responsive" src="modules/sphomeslider/images/sample-1.jpg"  alt="sample-1" />
+											<img class="responsive" src="http://localhost/TiendaPocket/public/modules/sphomeslider/images/sample-1.jpg"  alt="sample-1" />
 										</a>
 									</div>
 									<div class="item " align="center">
 										<a href="#" title="2">
-											<img class="responsive" src="modules/sphomeslider/images/sample-2.jpg"  alt="sample-2" />
+											<img class="responsive" src="http://localhost/TiendaPocket/public/modules/sphomeslider/images/sample-2.jpg"  alt="sample-2" />
 										</a>
 									</div>
 									<div class="item ">
 										<a href="#" title="3">
-											<img class="responsive" src="modules/sphomeslider/images/sample-3.jpg"  alt="sample-3" />
+											<img class="responsive" src="http://localhost/TiendaPocket/public/modules/sphomeslider/images/sample-3.jpg"  alt="sample-3" />
 										</a>
 									</div>
 								</div>
@@ -76,17 +76,17 @@
 						 					<div class="sp-homeslider sphomeslider-inner-2">
 												<div class="item ">
 													<a href="#" title="1">
-														<img class="responsive" src="themes/sp_market/img/cms/banner01.jpg"  alt="sample-1" />
+														<img class="responsive" src="http://localhost/TiendaPocket/public/themes/sp_market/img/cms/banner01.jpg"  alt="sample-1" />
 													</a>
 												</div>
 												<div class="item">
 													<a href="#" title="2">
-														<img class="responsive" src="themes/sp_market/img/cms/banner02.jpg"  alt="sample-2" />
+														<img class="responsive" src="http://localhost/TiendaPocket/public/themes/sp_market/img/cms/banner02.jpg"  alt="sample-2" />
 													</a>
 												</div>
 												<div class="item ">
 													<a href="#" title="3">
-														<img class="responsive" src="themes/sp_market/img/cms/banner03.jpg"  alt="sample-3" />
+														<img class="responsive" src="http://localhost/TiendaPocket/public/themes/sp_market/img/cms/banner03.jpg"  alt="sample-3" />
 													</a>
 												</div>
 											</div>
@@ -124,10 +124,10 @@
 
 									</div>
 									<a href="#" class="img img2">
-										<img src="themes/sp_market/img/cms/banner02.jpg" alt="#" />
+										<img src="http://localhost/TiendaPocket/public/themes/sp_market/img/cms/banner02.jpg" alt="#" />
 									</a>
 									<a href="#" class="img img3">
-										<img src="themes/sp_market/img/cms/banner03.jpg" alt="#" />
+										<img src="http://localhost/TiendaPocket/public/themes/sp_market/img/cms/banner03.jpg" alt="#" />
 									</a>
 								</div>
 							</div>

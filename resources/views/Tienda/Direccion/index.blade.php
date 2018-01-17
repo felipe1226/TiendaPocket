@@ -1,47 +1,6 @@
 @extends('Tienda.Layout.app')
 @section('content')
 
-    <script type="text/javascript">
-    var CUSTOMIZE_TEXTFIELD = 1;
-    var FancyboxI18nClose = 'Close';
-    var FancyboxI18nNext = 'Next';
-    var FancyboxI18nPrev = 'Previous';
-    var added_to_wishlist = 'El producto se ha añadido con éxito a su lista de deseos.';
-    var ajax_allowed = true;
-    var ajaxsearch = false;
-    var baseDir = '/';
-    var baseUri = '/';
-    var comparator_max_item = 3;
-    var comparedProductsIds = [22];
-    var contentOnly = false;
-    var currency = {"id":1,"name":"USD","iso_code":"USD","iso_code_num":"840","sign":"$","blank":"0","conversion_rate":"1.000000",,"format":"1","decimals":"1","active":"1","prefix":"$ ","suffix":"","id_shop_list":null,"force_id":false};
-    var currencyBlank = 0;
-    var currencyFormat = 1;
-    var currencyRate = 1;
-    var currencySign = '$';
-    var customizationIdMessage = 'Customization #';
-    var displayList = false;
-    var freeProductTranslation = 'Free!';
-    var freeShippingTranslation = 'Free shipping!';
-    var generated_date = 1513833335;
-    var id_lang = 4;
-    var img_dir = '../themes/sp_market/img/';
-    var instantsearch = false;
-    var isGuest = 0;
-    var isLogged = 1;
-    var isMobile = false;
-    var loggin_required = 'Debe identificarse para administrar su lista de deseos.';
-    var page_name = 'index';
-    var priceDisplayMethod = 1;
-    var priceDisplayPrecision = 2;
-    var quickView = true;
-    var roundMode = 2;
-    var static_token = '37dab0cd8f57363d790bac16e0dd0e45';
-    var token = 'e7a94a67a2d06ed0af03a2d1f4e4a2fb';
-    var usingSecureMode = false;
-    var wishlistProductsIds = false;
-    </script>
-
 
 			<!-- Breadcrumb Column -->
     <div class="breadcrumb-container">
@@ -108,7 +67,7 @@
                           <li class="address_update">
                             <a class="btn btn-default button button-small" href="#"><span>Actualizar<i class="fa fa-chevron-right right"></i></span></a>
                             @if($direccion->estado == 0)
-                              <a class="btn btn-default button button-small" onclick="eliminar({{$direccion->id}})" data-id="addresses_confirm" title="Eliminar direccion"><span>Eliminar<i class="fa fa-remove right"></i></span></a>
+                              <a class="btn btn-default button button-small" onclick="eliminar({{$direccion->id}})" data-id="addresses_confirm" title="Eliminar direccion"><i class="fa fa-remove"></i></a>
                             @endif
                           </li>
                         </ul>

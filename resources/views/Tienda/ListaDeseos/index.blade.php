@@ -1,31 +1,7 @@
 @extends('Tienda.layout.app')
 @section('content')
 
-<script>
-function eliminar(idCarrito){
-  if(confirm('¿Desea descartar este articulo de la lista de deseos?')){
-    $.ajax({
-      url: "Carrito/eliminar",
-      type: 'GET',
-      data: {
-        id: idCarrito
-      },
-      success: function(){
-          location.reload();
-      },
-      error: function(data){
-        alert('No se puede eliminar el articulo del carrito, ya que existe historial de ventas del mismo.');
-      }
-    });
-  }
-}
-</script>
-<!--     --->
 
-
-
-
-<!--       -->
 			<!-- Breadcrumb Column -->
 							 <div class="breadcrumb-container">
 					<div class="container">
@@ -33,12 +9,10 @@ function eliminar(idCarrito){
 <!-- Breadcrumb -->
 <div class="breadcrumb clearfix">
 	<ul>
-		<li class="home"><a href="http://prestashop.flytheme.net/sp_market/" title="Return to Home">Home</a></li>
-									        <li class="depth1"><a href="http://prestashop.flytheme.net/sp_market/es/my-account">Mi cuenta</a></li>
-
-        <li class="depth2"><a href="http://prestashop.flytheme.net/sp_market/es/module/blockwishlist/mywishlist">Deseados</a></li>
-
-						</ul>
+    <li class="home"><a href="{{url('Tienda/')}}">Inicio</a></li>
+		<li class="depth1"><a href="{{url('Cuenta')}}">Cuenta</a></li>
+    <li class="depth2"><a href="{{url('ListaDeseos')}}">Lista de deseos</a></li>
+	</ul>
 
 </div>
 <!-- /Breadcrumb -->
@@ -143,4 +117,27 @@ function eliminar(idCarrito){
 					</div><!-- .row -->
 				</div><!-- #columns -->
 			</div><!-- .columns-container -->
+    </div>
+
+
+
+      <script>
+      function eliminar(idCarrito){
+        if(confirm('¿Desea descartar este articulo de la lista de deseos?')){
+          $.ajax({
+            url: "Carrito/eliminar",
+            type: 'GET',
+            data: {
+              id: idCarrito
+            },
+            success: function(){
+                location.reload();
+            },
+            error: function(data){
+              alert('Error al eliminar el articulo de la lista de deseos');
+            }
+          });
+        }
+      }
+      </script>
 	@endsection

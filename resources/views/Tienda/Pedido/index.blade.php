@@ -49,6 +49,7 @@
 												<th class="item">Estado</th>
 												<th data-sort-ignore="true" data-hide="phone,tablet" class="item">Factura</th>
 												<th data-sort-ignore="true" data-hide="phone,tablet" class="last_item">&nbsp;</th>
+
 										</tr>
 									</thead>
 								<tbody>
@@ -283,15 +284,12 @@
                 $('#estado').html(currentValue.estado);
                 $('#costoTotal').html("$"+currentValue.costoTotal);
 
-
                 $('#comentario').html(currentValue.comentario);
 
 								costoArticulo = eval(currentValue.cantidad_articulo*currentValue.precio_articulo);
 								totalArticulos = eval(totalArticulos + costoArticulo);
 
 								$('#pedidos').append('<tr class="item"><td><label>'+currentValue.nombre_articulo+'</label></td><td class="bold"><label>'+currentValue.proveedor+'</label></td><td class="price"><label>$'+currentValue.precio_articulo+'</label></td><td class="return_quantity"><span>'+currentValue.cantidad_articulo+'</span></td><td class="price"><label>$'+costoArticulo+'</label></td></tr>');
-
-
 
                 $('#articulos').append($('<option>', {
                   value: currentValue.id_articulo,
@@ -303,14 +301,10 @@
 
           });
 
-
           $('#block-order-detail').fadeIn('slow', function() {
                 $.scrollTo(this, 2000);
           });
-
         }
-
       </script>
-
 
 @endsection

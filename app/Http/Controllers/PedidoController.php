@@ -19,11 +19,10 @@ class PedidoController extends Controller
 
 
   public function index(){
-    $carritos = Carrito::ConsultaCarrito($id_empresa)->get();
+    $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
 
-    $id_empresa = Auth::user()->idEmpresa;
-    $pedidosGroup = Pedido::ListarxGroup($id_empresa)->get();
-    $pedidos = Pedido::Listar($id_empresa)->get();
+    $pedidosGroup = Pedido::ListarxGroup(Auth::user()->idEmpresa)->get();
+    $pedidos = Pedido::Listar(Auth::user()->idEmpresa)->get();
     return view('Tienda/Pedido/index')->with('carritos', $carritos)->with('pedidosGroup', $pedidosGroup)->with('pedidos', $pedidos);
   }
 }

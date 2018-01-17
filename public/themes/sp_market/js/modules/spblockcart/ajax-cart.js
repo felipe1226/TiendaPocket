@@ -63,6 +63,28 @@ $(document).ready(function(){
 	// });
 
 
+
+
+
+	$(document).on('click', '.delete_voucher', function(e){
+		e.preventDefault();
+		$.ajax({
+			type: 'POST',
+			headers: { "cache-control": "no-cache" },
+			async: true,
+			cache: false,
+			url:$(this).attr('href') + '?rand=' + new Date().getTime()
+		});
+		$(this).parent().parent().remove();
+		if ($('body').attr('id') == 'order' || $('body').attr('id') == 'order-opc')
+		{
+			if (typeof(updateAddressSelection) != 'undefined')
+				updateAddressSelection();
+			else
+				location.reload();
+		}
+	});
+
 	$(document).on('click', '#cart_navigation input', function(e){
 		$(this).prop('disabled', 'disabled').addClass('disabled');
 		$(this).closest("form").get(0).submit();
@@ -76,6 +98,7 @@ $(document).ready(function(){
 
 	$('#columns #layer_cart, #columns .layer_cart_overlay').detach().prependTo('#columns');
 });
+
 
 
 	// try to expand the cart
