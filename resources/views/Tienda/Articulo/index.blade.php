@@ -572,6 +572,7 @@
                           <i class="fa fa-check">-</i>
 											    <link itemprop="availability" href="http://schema.org/InStock" />In stock</span>
 											</div>
+<<<<<<< HEAD
                           <div class="button-container">
                             <a onclick="addCompra({{$articulo->id}})" class="cart_button ajax_add_to_cart_button" href="javascript:void(0)">
 											                   Carro
@@ -580,6 +581,28 @@
                               <i class="fa fa-heart"></i>
                             </a>
                           </div>
+=======
+                      {!!Form::open(array('url'=>'Tienda/Carrito','method'=>'POST',))!!}
+                        <div class="form-group">
+                          <input class="form-control grey" type="hidden" name="vista" value="articulos"/>
+                        </div>
+                        <div class="form-group">
+                          <input class="form-control grey" type="hidden" name="id_articulo" value="{{$articulo->id}}"/>
+                        </div>
+                        <div class="form-group">
+                          <input class="form-control grey" type="hidden" name="categoria" value="{{$articulo->categoria}}" hidden />
+                        </div>
+                        <div class="button-container">
+                          <button  class="cart_button" type="submit">
+														Carro
+												  </button>
+
+                            <a class="addToWishlist" type="submit" title="Añadir a la lista de deseos" onclick="AddDeseos({{$articulo->id}})" href="javascript:void(0);">
+                            <i class="fa fa-heart"></i></a>
+                        </div>
+
+                      {!!Form::close()!!}
+>>>>>>> origin/master
 				            </div>
                   </div><!-- .product-container> -->
                 </li>
@@ -598,15 +621,15 @@
               	<div class="select selector1">
               		<label for="selectProductSort">Ordenar</label>
               		<select id="selectProductSort" class="selectProductSort form-control">
-              			<option value="name:asc" >Product Name: A to Z</option>
-              			<option value="name:desc" >Product Name: Z to A</option>
-              							<option value="price:asc" >Lowest Price</option>
-              				<option value="price:desc" >Highest Price</option>
+              			<option value="name:asc" >Nombre del producto: A a Z</option>
+              			<option value="name:desc" >Nombre del producto: Z a A</option>
+              							<option value="price:asc" >Precio mas bajo</option>
+              				<option value="price:desc" >Precio mas alto</option>
               						<!--<option value="position:asc" selected="selected">Product Sort</option>-->
-              							<option value="quantity:desc" >Product In Stock</option>
+              							<option value="quantity:desc" >Productos en existencia</option>
 
-              			<option value="reference:asc" >Lowest Reference</option>
-              			<option value="reference:desc" >Highest Reference</option>
+              			<option value="reference:asc" >Referencia mas baja</option>
+              			<option value="reference:desc" >Referencia mas alta</option>
               		</select>
               	</div>
               </form>
@@ -629,7 +652,13 @@
     </div><!-- #columns -->
   </div><!-- .columns-container -->
 
-
+  <script>
+  function AddDeseos(id){
+    $('#MsgDeseo').fadeIn('slow',fuction(){
+      $.scrollTo(this,2000);
+    }))
+  }
+  </script>
 
   <div id="layer_cart" class="layer_box" style="display: none">
 		<div class="layer_inner_box">
@@ -701,11 +730,17 @@
   <div id="msgDeseo" class="fancybox-overlay fancybox-overlay-fixed" style="display:none; width: auto; height: auto;">
     <div class="fancybox-wrap fancybox-desktop fancybox-type-html fancybox-opened" tabindex="-1" style="opacity: 1; overflow: visible; height: auto; width: 384px; position: absolute; top: 286px; left: 400px;">
       <div class="fancybox-skin" style="padding: 0px; width: auto; height: auto;">
+<<<<<<< HEAD
         <div class="fancybox-outer">
           <div class="fancybox-inner" style="overflow: auto; width: 384px; height: auto;">
             <p class="fancybox-error">El producto se ha añadido con éxito a su lista de deseos.</p>
             <a href="http://prestashop.flytheme.net/sp_market/module/blockwishlist/mywishlist" class="wishlist_product_view button"> View all </a>
           </div>
+=======
+        <div class="fancybox-outer"><div class="fancybox-inner" style="overflow: auto; width: 384px; height: auto;">
+          <p class="fancybox-error">El producto se ha añadido con éxito a su lista de deseos.</p>
+          <a href="{{url('ListaDeseos')}}" class="wishlist_product_view button"> Ver Todo </a>
+>>>>>>> origin/master
         </div>
         <a title="Cerrar" class="fancybox-item fancybox-close" onclick="cerrarDeseo()" href="javascript:void(0);"></a>
       </div>
@@ -757,6 +792,7 @@
         data: {
           id_articulo: id
 
+<<<<<<< HEAD
         },
         success: function(){
           $('#msgDeseo').fadeIn('slow', function() {
@@ -776,6 +812,8 @@
     });
   }
   </script>
+=======
+>>>>>>> origin/master
 
 
 @endsection

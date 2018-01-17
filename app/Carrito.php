@@ -8,7 +8,7 @@ class Carrito extends Model
 {
   protected $table = 'carrito';
 
-  protected $fillable = ['id', 'id_empresa', 'id_articulo', 'cantidad'];
+  protected $fillable = ['id', 'id_empresa', 'id_articulo', 'cantidad','estado'];
 
   public function pertenece(){
     return $this->hasOne('PocketByR\Empresa', 'id', 'id_empresa');
@@ -32,5 +32,4 @@ class Carrito extends Model
 
     return $resultado;
   }
-
 }

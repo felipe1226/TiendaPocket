@@ -120,10 +120,6 @@ Route::resource('Salario','SalarioController');
 
 Route::resource('Tienda', 'TiendaController');
 
-
-
-
-
 Route::get('Articulos/{categoria}','ArticuloController@ArtsxCategoria');
 
 Route::get('Detalles/{id}','ArticuloController@verArticulo');
@@ -163,3 +159,5 @@ Route::resource('Pedidos', 'PedidoController');
 Route::resource('ListaDeseos', 'CarritoController@listaDeseos');
 
 Route::resource('InformacionPersonal', 'InformacionPersonalController');
+
+Route::resource('Mensajes', 'MensajeriaController');

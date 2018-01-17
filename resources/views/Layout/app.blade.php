@@ -210,6 +210,11 @@
                   <li><a href="{{url('Auth/usuario/'.Auth::id().'/edit')}}">
                     <i class="fa fa-user-circle"></i>Perfil</a>
                   </li>
+                  <!--MENSAJES-->
+                  <li><a href="{{url('Mensajes')}}">
+                    <i class="fa fa-gear"></i>Mensajes</a>
+                  </li>
+
                   <li><a href="{{url('Auth/modificarEmpresa')}}">
                     <i class="fa fa-gear"></i>Ajustes</a>
                   </li>
