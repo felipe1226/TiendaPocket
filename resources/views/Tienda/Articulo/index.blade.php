@@ -628,14 +628,9 @@
       </div><!-- .row -->
     </div><!-- #columns -->
   </div><!-- .columns-container -->
+</div>
 
-  <script>
-  function AddDeseos(id){
-    $('#MsgDeseo').fadeIn('slow',fuction(){
-      $.scrollTo(this,2000);
-    }))
-  }
-  </script>
+
 
   <div id="layer_cart" class="layer_box" style="display: none">
 		<div class="layer_inner_box">
@@ -707,17 +702,11 @@
   <div id="msgDeseo" class="fancybox-overlay fancybox-overlay-fixed" style="display:none; width: auto; height: auto;">
     <div class="fancybox-wrap fancybox-desktop fancybox-type-html fancybox-opened" tabindex="-1" style="opacity: 1; overflow: visible; height: auto; width: 384px; position: absolute; top: 286px; left: 400px;">
       <div class="fancybox-skin" style="padding: 0px; width: auto; height: auto;">
-<<<<<<< HEAD
-        <div class="fancybox-outer">
-          <div class="fancybox-inner" style="overflow: auto; width: 384px; height: auto;">
-            <p class="fancybox-error">El producto se ha añadido con éxito a su lista de deseos.</p>
-            <a href="http://prestashop.flytheme.net/sp_market/module/blockwishlist/mywishlist" class="wishlist_product_view button"> View all </a>
-          </div>
-=======
+
         <div class="fancybox-outer"><div class="fancybox-inner" style="overflow: auto; width: 384px; height: auto;">
           <p class="fancybox-error">El producto se ha añadido con éxito a su lista de deseos.</p>
           <a href="{{url('ListaDeseos')}}" class="wishlist_product_view button"> Ver Todo </a>
->>>>>>> origin/master
+
         </div>
         <a title="Cerrar" class="fancybox-item fancybox-close" onclick="cerrarDeseo()" href="javascript:void(0);"></a>
       </div>
