@@ -387,45 +387,75 @@
 
                              <div class="testimonials">
            <div class="list-items owl-carousel owl-theme owl-loaded">
-
-
-
-           <div class="owl-stage-outer"><div class="owl-stage" style="width: 1197px; transform: translate3d(-342px, 0px, 0px); transition: 0s;"><div class="owl-item cloned" style="width: 171px; margin-right: 0px;"><div class="item">
-           <div class="text">Aliquam ut tellus dignissim, cursus erat ultricies tellus. Nulla tempus sollicitudin mauris cursus dictum. Etiam id diam diam.</div>
-           <div class="img"><img src="../themes/sp_market/img/cms/testimonials.jpg" alt="#"></div>
-           <div class="name">Aliquam Tellus</div>
-           <div class="job">Vitae Ornare Mauris</div>
-           </div></div><div class="owl-item cloned" style="width: 171px; margin-right: 0px;"><div class="item">
-           <div class="text">Aliquam ut tellus dignissim, cursus erat ultricies tellus. Nulla tempus sollicitudin mauris cursus dictum. Etiam id diam diam.</div>
-           <div class="img"><img src="../themes/sp_market/img/cms/testimonials.jpg" alt="#"></div>
-           <div class="name">Aliquam Tellus</div>
-           <div class="job">Vitae Ornare Mauris</div>
-           </div></div><div class="owl-item active" style="width: 171px; margin-right: 0px;"><div class="item">
-           <div class="text">Aliquam ut tellus dignissim, cursus erat ultricies tellus. Nulla tempus sollicitudin mauris cursus dictum. Etiam id diam diam.</div>
-           <div class="img"><img src="../themes/sp_market/img/cms/testimonials.jpg" alt="#"></div>
-           <div class="name">Aliquam Tellus</div>
-           <div class="job">Vitae Ornare Mauris</div>
-           </div></div><div class="owl-item" style="width: 171px; margin-right: 0px;"><div class="item">
-           <div class="text">Aliquam ut tellus dignissim, cursus erat ultricies tellus. Nulla tempus sollicitudin mauris cursus dictum. Etiam id diam diam.</div>
-           <div class="img"><img src="../themes/sp_market/img/cms/testimonials.jpg" alt="#"></div>
-           <div class="name">Aliquam Tellus</div>
-           <div class="job">Vitae Ornare Mauris</div>
-           </div></div><div class="owl-item" style="width: 171px; margin-right: 0px;"><div class="item">
-           <div class="text">Aliquam ut tellus dignissim, cursus erat ultricies tellus. Nulla tempus sollicitudin mauris cursus dictum. Etiam id diam diam.</div>
-           <div class="img"><img src="../themes/sp_market/img/cms/testimonials.jpg" alt="#"></div>
-           <div class="name">Aliquam Tellus</div>
-           <div class="job">Vitae Ornare Mauris</div>
-           </div></div><div class="owl-item cloned" style="width: 171px; margin-right: 0px;"><div class="item">
-           <div class="text">Aliquam ut tellus dignissim, cursus erat ultricies tellus. Nulla tempus sollicitudin mauris cursus dictum. Etiam id diam diam.</div>
-           <div class="img"><img src="../themes/sp_market/img/cms/testimonials.jpg" alt="#"></div>
-           <div class="name">Aliquam Tellus</div>
-           <div class="job">Vitae Ornare Mauris</div>
-           </div></div><div class="owl-item cloned" style="width: 171px; margin-right: 0px;"><div class="item">
-           <div class="text">Aliquam ut tellus dignissim, cursus erat ultricies tellus. Nulla tempus sollicitudin mauris cursus dictum. Etiam id diam diam.</div>
-           <div class="img"><img src="../themes/sp_market/img/cms/testimonials.jpg" alt="#"></div>
-           <div class="name">Aliquam Tellus</div>
-           <div class="job">Vitae Ornare Mauris</div>
-           </div></div></div></div><div class="owl-controls"><div class="owl-nav"><div class="owl-prev" style="">prev</div><div class="owl-next" style="">next</div></div><div class="owl-dots" style="display: none;"></div></div></div>
+						 <div class="owl-stage-outer">
+							 <div class="owl-stage" style="width: 1197px; transform: translate3d(-342px, 0px, 0px); transition: 0s;">
+								 <div class="owl-item cloned" style="width: 171px; margin-right: 0px;">
+									 <div class="item">
+										 <div class="text">Aliquam ut tellus dignissim, cursus erat ultricies tellus. Nulla tempus sollicitudin mauris cursus dictum. Etiam id diam diam.</div>
+										 <div class="img"><img src="../themes/sp_market/img/cms/testimonials.jpg" alt="#"></div>
+										 <div class="name">Aliquam Tellus</div>
+										  <div class="job">Vitae Ornare Mauris</div>
+										</div>
+									</div>
+									<div class="owl-item cloned" style="width: 171px; margin-right: 0px;">
+										<div class="item">
+											<div class="text">Aliquam ut tellus dignissim, cursus erat ultricies tellus. Nulla tempus sollicitudin mauris cursus dictum. Etiam id diam diam.</div>
+											<div class="img"><img src="../themes/sp_market/img/cms/testimonials.jpg" alt="#"></div>
+											<div class="name">Aliquam Tellus</div>
+											<div class="job">Vitae Ornare Mauris</div>
+										</div>
+									</div>
+									<div class="owl-item active" style="width: 171px; margin-right: 0px;">
+										<div class="item">
+											<div class="text">Aliquam ut tellus dignissim, cursus erat ultricies tellus. Nulla tempus sollicitudin mauris cursus dictum. Etiam id diam diam.</div>
+											<div class="img"><img src="../themes/sp_market/img/cms/testimonials.jpg" alt="#"></div>
+											<div class="name">Aliquam Tellus</div>
+											<div class="job">Vitae Ornare Mauris</div>
+										</div>
+									</div>
+									<div class="owl-item" style="width: 171px; margin-right: 0px;">
+										<div class="item">
+											<div class="text">Aliquam ut tellus dignissim, cursus erat ultricies tellus. Nulla tempus sollicitudin mauris cursus dictum. Etiam id diam diam.</div>
+											<div class="img"><img src="../themes/sp_market/img/cms/testimonials.jpg" alt="#"></div>
+											<div class="name">Aliquam Tellus</div>
+											<div class="job">Vitae Ornare Mauris</div>
+										</div>
+									</div>
+									<div class="owl-item" style="width: 171px; margin-right: 0px;">
+										<div class="item">
+											<div class="text">Aliquam ut tellus dignissim, cursus erat ultricies tellus. Nulla tempus sollicitudin mauris cursus dictum. Etiam id diam diam.</div>
+											<div class="img"><img src="../themes/sp_market/img/cms/testimonials.jpg" alt="#"></div>
+											<div class="name">Aliquam Tellus</div>
+											<div class="job">Vitae Ornare Mauris</div>
+										</div>
+									</div>
+									<div class="owl-item cloned" style="width: 171px; margin-right: 0px;">
+										<div class="item">
+											<div class="text">Aliquam ut tellus dignissim, cursus erat ultricies tellus. Nulla tempus sollicitudin mauris cursus dictum. Etiam id diam diam.</div>
+											 <div class="img"><img src="../themes/sp_market/img/cms/testimonials.jpg" alt="#"></div>
+											 <div class="name">Aliquam Tellus</div>
+											 <div class="job">Vitae Ornare Mauris</div>
+										 </div>
+									 </div>
+									 <div class="owl-item cloned" style="width: 171px; margin-right: 0px;">
+										 <div class="item">
+											 <div class="text">Aliquam ut tellus dignissim, cursus erat ultricies tellus. Nulla tempus sollicitudin mauris cursus dictum. Etiam id diam diam.</div>
+											 <div class="img"><img src="../themes/sp_market/img/cms/testimonials.jpg" alt="#"></div>
+											 <div class="name">Aliquam Tellus</div>
+											 <div class="job">Vitae Ornare Mauris</div>
+										 </div>
+									 </div>
+								 </div>
+							 </div>
+							 <div class="owl-controls">
+								 <div class="owl-nav">
+									 <div class="owl-prev" style="">prev</div>
+									 <div class="owl-next" style="">next</div>
+								 </div>
+								 <div class="owl-dots" style="display: none;">
+								 </div>
+							 </div>
+						 </div>
            </div>
 
                                </div>
@@ -483,17 +513,17 @@
               </div>
               <form id="productsSortForm" action="http://prestashop.flytheme.net/sp_market/es/153-healthy-beauty" class="productsSortForm ">
 
-              	<div class="select selector1">
+								<div class="select selector1">
               		<label for="selectProductSort">Ordenar</label>
               		<select id="selectProductSort" class="selectProductSort form-control">
-              			<option value="name:asc" >Product Name: A to Z</option>
-              			<option value="name:desc" >Product Name: Z to A</option>
-              			<option value="price:asc" >Lowest Price</option>
-              			<option value="price:desc" >Highest Price</option>
+              			<option value="name:asc" >Nombre del producto: A a Z</option>
+              			<option value="name:desc" >Nombre del producto: Z a A</option>
+              			<option value="price:asc" >Precio mas bajo</option>
+              			<option value="price:desc" >Precio mas alto</option>
               						<!--<option value="position:asc" selected="selected">Product Sort</option>-->
-              			<option value="quantity:desc" >Product In Stock</option>
-              			<option value="reference:asc" >Lowest Reference</option>
-              			<option value="reference:desc" >Highest Reference</option>
+              			<option value="quantity:desc" >Productos en existencia</option>
+              			<option value="reference:asc" >Referencia mas baja</option>
+              			<option value="reference:desc" >Referencia mas alta</option>
               		</select>
               	</div>
               </form>
