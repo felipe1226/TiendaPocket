@@ -117,7 +117,9 @@
 						<ul id="ul_layered_price_0" class="col-lg-12 layered_filter_ul">
 
               <div class="layered_slider_container">
-                <div class="layered_slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" id="layered_price_slider" data-type="price" data-format="1" data-unit="$" aria-disabled="false"><div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 0%; width: 100%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 0%;"></a><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 100%;"></a></div>
+                <div class="layered_slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" id="layered_price_slider" data-type="price" data-format="1" data-unit="$" aria-disabled="false">
+									<div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 0%; width: 100%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 0%;"></a><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 100%;"></a>
+								</div>
               </div>
 									<label for="price">
 										Rango:
@@ -457,8 +459,7 @@
 							 </div>
 						 </div>
            </div>
-
-                               </div>
+				 </div>
                <!-- /SP Custom Html -->
 
            	<script type="text/javascript">
@@ -557,7 +558,9 @@
 														  <span class="sale-box">Agotado!</span>
                             @endif
 													</div>
-                          <a class="quick-view" href="{{url('vistaRapida')}}" data-rel="{{url('vistaRapida')}}">Vista rápida
+
+
+                          <a class="quick-view" href="../verArticulo/{{$articulo->id}}" data-rel="../verArticulo/{{$articulo->id}}">Vista rápida
 							            </a>
                         </div>
                       </div>

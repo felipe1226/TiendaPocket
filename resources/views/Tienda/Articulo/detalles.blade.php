@@ -1439,38 +1439,24 @@ var moderation_active = 1;
 		<span class="nb-comments"><span itemprop="reviewCount">0</span> Comentario(s)</span>
 	</div>
 
-
-						<!--Product Prices-->
-												<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="price-box">
-															<span itemprop="price" class="price product-price">
-									$70.00								</span>
-								<meta itemprop="priceCurrency" content="USD" />
-
-
-													</div>
+	<!--Product Prices-->
+	<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="price-box">
+		<span itemprop="price" class="price product-price">$70.00								</span>
+		<meta itemprop="priceCurrency" content="USD" />
+	</div>
 
 
 						<!--Product Buttons-->
 							<div class="button-container">
+								<a class=" cart_button ajax_add_to_cart_button" href="../order2e06.html?add=1&amp;id_product=55&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f" rel="nofollow"  title="Añadir al carrito" data-id-product="55">COMPRAR</a>
 
-																																						<a class=" cart_button ajax_add_to_cart_button" href="../order2e06.html?add=1&amp;id_product=55&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f" rel="nofollow"  title="Añadir al carrito" data-id-product="55">
-												COMPRAR
-											</a>
+								<a class="addToWishlist wishlistProd_55" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '55', false, 1); return false;">
+									<i class="fa fa-heart"></i></a>
 
-
-	<a class="addToWishlist wishlistProd_55" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '55', false, 1); return false;">
-		<i class="fa fa-heart"></i>
-	</a>
-
-
-
-																	<a class="add_to_compare" href="55-faded-short-sleeves-tshirt.html" data-tooltip-remove="Remove from compare" title="Add to compare" data-id-product="55">
-										<i class="fa fa-bar-chart"></i></a>
+								<a class="add_to_compare" href="55-faded-short-sleeves-tshirt.html" data-tooltip-remove="Remove from compare" title="Add to compare" data-id-product="55"><i class="fa fa-bar-chart"></i></a>
 									</a>
-
-
+								</div>
 							</div>
-					</div>
 
 
 			</li>
@@ -1483,19 +1469,12 @@ var moderation_active = 1;
 							<div class="product-image">
 								<a href="56-faded-short-sleeves-tshirt.html" title="Oausage consectet">
 									<img class="img_1" src="../../279-home_default/faded-short-sleeves-tshirt.jpg"  alt="Oausage consectet" />
-										<img
-		class="img_0"
-		src="../../278-home_default/faded-short-sleeves-tshirt.jpg"
-		alt=""
-		itemprop="image" />
-
-								</a>
+										<img class="img_0" src="../../278-home_default/faded-short-sleeves-tshirt.jpg" alt="" itemprop="image" />
+									</a>
 							</div>
-
-															<div class="label-box">
-																			<span class="new-box">New</span>
-
-																	</div>
+							<div class="label-box">
+								<span class="new-box">New</span>
+							</div>
 
 							<!--   Enable quick view   -->
 							<a class="quick-view" href="56-faded-short-sleeves-tshirt.html" title="Quick view" data-rel="56-faded-short-sleeves-tshirt.html">
@@ -1543,10 +1522,7 @@ var moderation_active = 1;
 
 						<!--Product Buttons-->
 							<div class="button-container">
-
-																																						<a class=" cart_button ajax_add_to_cart_button" href="../orderc99b.html?add=1&amp;id_product=56&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f" rel="nofollow"  title="Añadir al carrito" data-id-product="56">
-												COMPRAR
-											</a>
+								<a class=" cart_button ajax_add_to_cart_button" href="../orderc99b.html?add=1&amp;id_product=56&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f" rel="nofollow"  title="Añadir al carrito" data-id-product="56">COMPRAR</a>
 
 
 	<a class="addToWishlist wishlistProd_56" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '56', false, 1); return false;">
@@ -1626,25 +1602,15 @@ var moderation_active = 1;
 
 						<!--Product Buttons-->
 							<div class="button-container">
+								<a class=" cart_button ajax_add_to_cart_button" href="../order61d1.html?add=1&amp;id_product=57&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f" rel="nofollow"  title="Añadir al carrito" data-id-product="57">COMPRAR</a>
 
-																																						<a class=" cart_button ajax_add_to_cart_button" href="../order61d1.html?add=1&amp;id_product=57&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f" rel="nofollow"  title="Añadir al carrito" data-id-product="57">
-												COMPRAR
-											</a>
+								<a class="addToWishlist wishlistProd_57" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '57', false, 1); return false;">
+									<i class="fa fa-heart"></i></a>
 
-
-	<a class="addToWishlist wishlistProd_57" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '57', false, 1); return false;">
-		<i class="fa fa-heart"></i>
-	</a>
-
-
-
-																	<a class="add_to_compare" href="57-faded-short-sleeves-tshirt.html" data-tooltip-remove="Remove from compare" title="Add to compare" data-id-product="57">
-										<i class="fa fa-bar-chart"></i></a>
+									<a class="add_to_compare" href="57-faded-short-sleeves-tshirt.html" data-tooltip-remove="Remove from compare" title="Add to compare" data-id-product="57"><i class="fa fa-bar-chart"></i></a>
 									</a>
-
-
+								</div>
 							</div>
-					</div>
 
 
 			</li>
@@ -1717,45 +1683,28 @@ var moderation_active = 1;
 
 						<!--Product Buttons-->
 							<div class="button-container">
+								<a class=" cart_button ajax_add_to_cart_button" href="../orderc321.html?add=1&amp;id_product=58&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f" rel="nofollow"  title="Añadir al carrito" data-id-product="58">COMPRAR</a>
 
-																																						<a class=" cart_button ajax_add_to_cart_button" href="../orderc321.html?add=1&amp;id_product=58&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f" rel="nofollow"  title="Añadir al carrito" data-id-product="58">
-												COMPRAR
-											</a>
+								<a class="addToWishlist wishlistProd_58" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '58', false, 1); return false;">
+									<i class="fa fa-heart"></i>
+								</a>
 
-
-	<a class="addToWishlist wishlistProd_58" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '58', false, 1); return false;">
-		<i class="fa fa-heart"></i>
-	</a>
-
-
-
-																	<a class="add_to_compare" href="58-faded-short-sleeves-tshirt.html" data-tooltip-remove="Remove from compare" title="Add to compare" data-id-product="58">
-										<i class="fa fa-bar-chart"></i></a>
+								<a class="add_to_compare" href="58-faded-short-sleeves-tshirt.html" data-tooltip-remove="Remove from compare" title="Add to compare" data-id-product="58"><i class="fa fa-bar-chart"></i></a>
 									</a>
-
-
+								</div>
 							</div>
-					</div>
-
-
-			</li>
-					<li class="product-box item">
-				<div class="product-container">
-
-					<div class="left-block">
-						<div class="product-image-container">
+						</li>
+						<li class="product-box item">
+							<div class="product-container">
+								<div class="left-block">
+									<div class="product-image-container">
 							<!--   Slider Images Product   -->
 							<div class="product-image">
 								<a href="59-faded-short-sleeves-tshirt.html" title="Cillum eiusmod">
 									<img class="img_1" src="../../293-home_default/faded-short-sleeves-tshirt.jpg"  alt="Cillum eiusmod" />
-										<img
-		class="img_0"
-		src="../../294-home_default/faded-short-sleeves-tshirt.jpg"
-		alt=""
-		itemprop="image" />
-
-								</a>
-							</div>
+										<img class="img_0" src="../../294-home_default/faded-short-sleeves-tshirt.jpg" alt="" itemprop="image" />
+									</a>
+								</div>
 
 															<div class="label-box">
 																			<span class="new-box">New</span>

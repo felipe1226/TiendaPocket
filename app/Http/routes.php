@@ -161,3 +161,5 @@ Route::resource('ListaDeseos', 'CarritoController@listaDeseos');
 Route::resource('InformacionPersonal', 'InformacionPersonalController');
 
 Route::resource('Mensajes', 'MensajeriaController');
+
+Route::get('verArticulo/{id}','ArticuloController@verVistaArticulo');
