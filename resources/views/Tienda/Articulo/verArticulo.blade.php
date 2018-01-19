@@ -1,9 +1,7 @@
-
 @section('content')
 
-
-		<link href="../themes/sp_market/css/fonts/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
-									<link rel="stylesheet" href="../themes/sp_market/css/global.css" type="text/css" media="all" />
+	<link href="../themes/sp_market/css/fonts/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
+	<link rel="stylesheet" href="../themes/sp_market/css/global.css" type="text/css" media="all" />
 									<link rel="stylesheet" href="../themes/sp_market/css/autoload/jquery.mCustomScrollbar.css" type="text/css" media="all" />
 									<link rel="stylesheet" href="../themes/sp_market/css/autoload/uniform.default.css" type="text/css" media="all" />
 									<link rel="stylesheet" href="../js/jquery/plugins/fancybox/jquery.fancybox.css" type="text/css" media="all" />

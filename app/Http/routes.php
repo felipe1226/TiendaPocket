@@ -163,3 +163,5 @@ Route::resource('InformacionPersonal', 'InformacionPersonalController');
 Route::resource('Mensajes', 'MensajeriaController');
 
 Route::get('verArticulo/{id}','ArticuloController@verVistaArticulo');
+
+Route::resource('Comentario', 'DetallesController@Comentario');

@@ -531,7 +531,9 @@ var moderation_active = 1;
 				</div>
 			</div>
 					        		<p class="align_center">
-			<a id="new_comment_tab_btn" class="open-comment-form" href="#new_comment_form">Escriba su comentario !</a>
+												<a class="quick-view" href="{{url('Comentarios')}}" data-rel="{{url('Comentarios')}}">Escriba su comentario !
+												</a>
+			
 		</p>
 
 	</div>
