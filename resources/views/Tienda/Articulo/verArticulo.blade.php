@@ -2,7 +2,7 @@
 @section('content')
 
 
-		<link href="http://prestashop.flytheme.net/sp_market/themes/sp_market/css/fonts/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="../themes/sp_market/css/fonts/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
 									<link rel="stylesheet" href="../themes/sp_market/css/global.css" type="text/css" media="all" />
 									<link rel="stylesheet" href="../themes/sp_market/css/autoload/jquery.mCustomScrollbar.css" type="text/css" media="all" />
 									<link rel="stylesheet" href="../themes/sp_market/css/autoload/uniform.default.css" type="text/css" media="all" />
@@ -51,8 +51,8 @@
 		var added_to_wishlist = 'El producto se ha añadido con éxito a su lista de deseos.';
 		var ajax_allowed = true;
 		var ajaxsearch = true;
-		var baseDir = 'http://prestashop.flytheme.net/sp_market/';
-		var baseUri = 'http://prestashop.flytheme.net/sp_market/';
+		var baseDir = '../';
+		var baseUri = '../';
 		var comparator_max_item = 3;
 		var comparedProductsIds = [];
 		var contentOnly = false;
@@ -90,39 +90,39 @@
 		var wishlistProductsIds = [{"id_product":"1","quantity":"3","product_quantity":"0","name":"Aliquam Leberkas","id_product_attribute":"0","priority":"1","link_rewrite":"faded-short-sleeves-tshirt","category_rewrite":"electronics","attributes_small":""},{"id_product":"2","quantity":"3","product_quantity":"0","name":"Aliquam lobortis","id_product_attribute":"0","priority":"1","link_rewrite":"blouse","category_rewrite":"electronics","attributes_small":""},{"id_product":"3","quantity":"2","product_quantity":"0","name":"Maecenas Sirloin","id_product_attribute":"0","priority":"1","link_rewrite":"printed-dress","category_rewrite":"electronics","attributes_small":""}];
 		</script>
 
-									<script type="text/javascript" src="/sp_market/js/jquery/jquery-1.11.0.min.js"></script>
-									<script type="text/javascript" src="/sp_market/js/jquery/jquery-migrate-1.2.1.min.js"></script>
-									<script type="text/javascript" src="/sp_market/js/jquery/plugins/jquery.easing.js"></script>
-									<script type="text/javascript" src="/sp_market/js/tools.js"></script>
-									<script type="text/javascript" src="/sp_market/themes/sp_market/js/global.js"></script>
-									<script type="text/javascript" src="/sp_market/themes/sp_market/js/autoload/10-bootstrap.min.js"></script>
-									<script type="text/javascript" src="/sp_market/themes/sp_market/js/autoload/15-jquery.total-storage.min.js"></script>
-									<script type="text/javascript" src="/sp_market/themes/sp_market/js/autoload/15-jquery.uniform-modified.js"></script>
-									<script type="text/javascript" src="/sp_market/themes/sp_market/js/autoload/jquery.mCustomScrollbar.concat.min.js"></script>
-									<script type="text/javascript" src="/sp_market/themes/sp_market/js/autoload/slick.min.js"></script>
-									<script type="text/javascript" src="/sp_market/js/jquery/plugins/fancybox/jquery.fancybox.js"></script>
-									<script type="text/javascript" src="/sp_market/themes/sp_market/js/products-comparison.js"></script>
-									<script type="text/javascript" src="/sp_market/modules/spthemeconfigurator/views/js/front/jquery.miniColors.min.js"></script>
-									<script type="text/javascript" src="/sp_market/modules/spthemeconfigurator/views/js/front/sp-cpanel.js"></script>
-									<script type="text/javascript" src="/sp_market/themes/sp_market/js/sp_lib/jquery.backtotop.js"></script>
-									<script type="text/javascript" src="/sp_market/themes/sp_market/js/sp_lib/jquery.global.js"></script>
-									<script type="text/javascript" src="/sp_market/themes/sp_market/js/sp_lib/jquery.ui.touch-punch.min.js"></script>
-									<script type="text/javascript" src="/sp_market/themes/sp_market/js/sp_lib/jquery.elevatezoom.js"></script>
-									<script type="text/javascript" src="/sp_market/themes/sp_market/js/modules/blockwishlist/js/ajax-wishlist.js"></script>
-									<script type="text/javascript" src="/sp_market/themes/sp_market/js/tools/treeManagement.js"></script>
-									<script type="text/javascript" src="/sp_market/modules/spextraslider/views/js/owl.carousel.js"></script>
-									<script type="text/javascript" src="/sp_market/modules/spdeal/views/js/deal.js"></script>
-									<script type="text/javascript" src="/sp_market/modules/spdeal/views/js/jquery.cj-swipe.js"></script>
-									<script type="text/javascript" src="/sp_market/modules/spcategories/views/js/jquery.imagesloaded.js"></script>
-									<script type="text/javascript" src="/sp_market/modules/spcategories/views/js/jquery.sj_accordion.js"></script>
-									<script type="text/javascript" src="/sp_market/modules/spsearchpro/views/js/jquery.autocomplete.js"></script>
-									<script type="text/javascript" src="/sp_market/themes/sp_market/js/modules/spblockcart/ajax-cart.js"></script>
-									<script type="text/javascript" src="/sp_market/js/jquery/plugins/jquery.scrollTo.js"></script>
-									<script type="text/javascript" src="/sp_market/js/jquery/plugins/jquery.serialScroll.js"></script>
-									<script type="text/javascript" src="/sp_market/js/jquery/plugins/bxslider/jquery.bxslider.js"></script>
-									<script type="text/javascript" src="/sp_market/modules/sphomeslider/js/owl.carousel.js"></script>
-									<script type="text/javascript" src="/sp_market/modules/spblocknewsletter/jquery.cookie.min.js"></script>
-									<script type="text/javascript" src="/sp_market/themes/sp_market/js/index.js"></script>
+									<script type="text/javascript" src="../js/jquery/jquery-1.11.0.min.js"></script>
+									<script type="text/javascript" src="../js/jquery/jquery-migrate-1.2.1.min.js"></script>
+									<script type="text/javascript" src="../js/jquery/plugins/jquery.easing.js"></script>
+									<script type="text/javascript" src="../js/tools.js"></script>
+									<script type="text/javascript" src="../themes/sp_market/js/global.js"></script>
+									<script type="text/javascript" src="../themes/sp_market/js/autoload/10-bootstrap.min.js"></script>
+									<script type="text/javascript" src="../themes/sp_market/js/autoload/15-jquery.total-storage.min.js"></script>
+									<script type="text/javascript" src="../themes/sp_market/js/autoload/15-jquery.uniform-modified.js"></script>
+									<script type="text/javascript" src="../themes/sp_market/js/autoload/jquery.mCustomScrollbar.concat.min.js"></script>
+									<script type="text/javascript" src="../themes/sp_market/js/autoload/slick.min.js"></script>
+									<script type="text/javascript" src="../js/jquery/plugins/fancybox/jquery.fancybox.js"></script>
+									<script type="text/javascript" src="../themes/sp_market/js/products-comparison.js"></script>
+									<script type="text/javascript" src="../modules/spthemeconfigurator/views/js/front/jquery.miniColors.min.js"></script>
+									<script type="text/javascript" src="../modules/spthemeconfigurator/views/js/front/sp-cpanel.js"></script>
+									<script type="text/javascript" src="../themes/sp_market/js/sp_lib/jquery.backtotop.js"></script>
+									<script type="text/javascript" src="../themes/sp_market/js/sp_lib/jquery.global.js"></script>
+									<script type="text/javascript" src="../themes/sp_market/js/sp_lib/jquery.ui.touch-punch.min.js"></script>
+									<script type="text/javascript" src="../themes/sp_market/js/sp_lib/jquery.elevatezoom.js"></script>
+									<script type="text/javascript" src="../themes/sp_market/js/modules/blockwishlist/js/ajax-wishlist.js"></script>
+									<script type="text/javascript" src="../themes/sp_market/js/tools/treeManagement.js"></script>
+									<script type="text/javascript" src="../modules/spextraslider/views/js/owl.carousel.js"></script>
+									<script type="text/javascript" src="../modules/spdeal/views/js/deal.js"></script>
+									<script type="text/javascript" src="../modules/spdeal/views/js/jquery.cj-swipe.js"></script>
+									<script type="text/javascript" src="../modules/spcategories/views/js/jquery.imagesloaded.js"></script>
+									<script type="text/javascript" src="../modules/spcategories/views/js/jquery.sj_accordion.js"></script>
+									<script type="text/javascript" src="../modules/spsearchpro/views/js/jquery.autocomplete.js"></script>
+									<script type="text/javascript" src="../themes/sp_market/js/modules/spblockcart/ajax-cart.js"></script>
+									<script type="text/javascript" src="../js/jquery/plugins/jquery.scrollTo.js"></script>
+									<script type="text/javascript" src="../js/jquery/plugins/jquery.serialScroll.js"></script>
+									<script type="text/javascript" src="../js/jquery/plugins/bxslider/jquery.bxslider.js"></script>
+									<script type="text/javascript" src="../modules/sphomeslider/js/owl.carousel.js"></script>
+									<script type="text/javascript" src="../modules/spblocknewsletter/jquery.cookie.min.js"></script>
+									<script type="text/javascript" src="../themes/sp_market/js/index.js"></script>
 
 
 
@@ -146,28 +146,16 @@
 		    var listdeal = [];
 		    //]]>
 		</script>
-		<body id="index" itemscope="" itemtype="http://schema.org/WebPage" class="blog-small_image content-v1  index   lang_es patternnone layout-full slider-imgpr-0  secondImage-0" data-content="content-v1" style="">
-			<div class="fancybox-wrap fancybox-desktop fancybox-type-iframe fancybox-opened" tabindex="-1" style="opacity: 1; overflow: visible; height: auto; width: auto; position: absolute; top: 20px; left: 20px;">
-				<div class="fancybox-skin" style="padding: 0px; width: auto; height: auto;">
-					<div class="row">
 
+		<body id="product" itemscope="" itemtype="http://schema.org/WebPage" class="blog-small_image content-v1  product   content_only lang_es patternnone layout-full slider-imgpr-0  secondImage-0" data-content="content-v1" style="overflow-x: hidden;">
 
-
-			<!-- Sidebar -->
-			<div id="sidebar" class="column hidden">
-			</div>
-			<!-- End of Sidebar -->
-			<!-- Center Column -->
-			<div id="center_column" class="column col-sm-12">
 				<div itemscope="" itemtype="http://schema.org/Product" class="product-wrap">
 					<div class="row">
 						<div class="col-sm-12" id="product_full">
 							<div class="row">
 								<!-- left infos-->
 								<div class="primary_block">
-									<div class="pb-left-column col-lg-5 col-md-5 col-sm-12 col-xs-12">
-
-										<!-- product img-->
+									<div class="pb-left-column col-lg-5 col-md-5 col-sm-14 col-xs-12"><!-- product img-->
 										<div id="image-block">
 											<div class="label-box">
 												<span class="new-box">
@@ -281,18 +269,16 @@
 				<!-- h=displayRightColumnProduct / Product Comments -->
 									<div class="socials">
 						<div class="footer-social">
-<h3 class="title">Siguenos:</h3>
-<div class="socials">
-	  <a href="https://www.facebook.com/MagenTech" class="facebook" target="_blank"><i class="fa fa-facebook"></i></a>	   <a href="https://twitter.com/magentech" class="twitter" target="_blank"><i class="fa fa-twitter"></i></a>		   <a href="https://plus.google.com/u/0/+SmartAddons-Joomla-Magento-WordPress/posts" class="google" target="_blank">
-			<i class="fa fa-google-plus"></i></a>
-		<a href="https://www.pinterest.com/magentech" class="pinterest" target="_blank"><i class="fa fa-pinterest"></i></a>
+							<h3 class="title">Siguenos:</h3>
+							<div class="socials">
+								<a href="https://www.facebook.com/MagenTech" class="facebook" target="_blank"><i class="fa fa-facebook"></i></a>	   <a href="https://twitter.com/magentech" class="twitter" target="_blank"><i class="fa fa-twitter"></i></a>		   <a href="https://plus.google.com/u/0/+SmartAddons-Joomla-Magento-WordPress/posts" class="google" target="_blank">
+									<i class="fa fa-google-plus"></i></a>
+									<a href="https://www.pinterest.com/magentech" class="pinterest" target="_blank"><i class="fa fa-pinterest"></i></a>
 
-</div>
-</div>
-
+								</div>
+							</div>
+						</div>
 					</div>
-
-				</div>
 
 			</div>
 			<!-- end Center infos-->
