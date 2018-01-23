@@ -28,7 +28,6 @@ class MensajeController extends Controller
 
     $mensaje->save();
 
-
     Flash::success("El mensaje se ha enviado satisfactoriamente")->important();
     return redirect()->route('Auth.usuario.index');
   }
