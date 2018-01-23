@@ -17,4 +17,11 @@ class Articulo extends Model
 
       return $resultado;
     }
+
+    public function scopeBuscarxProveedor($query, $proveedor){
+
+      $resultado = $query->where('id_proveedor','=',$proveedor)->orderBy('nombre', 'asc');
+
+      return $resultado;
+    }
 }

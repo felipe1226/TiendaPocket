@@ -89,13 +89,11 @@
 								<td class="history_invoice">
 																	{{$pedidoGroup->factura}}
 															</td>
-								<td class="history_detail">
-									<a onclick="infoPedido({{$pedidoGroup->referencia}})" class="btn btn-default button button-small" href="javascript:void(0);">
-										<span>
-											Detalles<i class="fa fa-chevron-right right"></i>
-										</span>
-									</a>
-								</td>
+									<td class="cart_delete text-center" data-title="Delete">
+                        <div>
+                          <a onclick="infoPedido({{$pedidoGroup->referencia}})" class="cart_quantity_delete" href="javascript:void(0)" title="Ver detalles"><i class="fa fa-fw fa-search"></i></a>
+                        </div>
+                  </td>
 								</tr>
 							@endforeach
 						@endif
@@ -143,7 +141,8 @@
 	</div>
 </div>
 
-<form action="http://prestashop.flytheme.net/sp_market/es/order-follow" method="post"><div id="order-detail-content" class="table_block table-responsive">
+
+	<div id="order-detail-content" class="table_block table-responsive">
 	<table class="table table-bordered">
 		<thead>
 			<tr>
@@ -186,7 +185,6 @@
 		</tbody>
 	</table>
 </div>
-</form>
 		<h3 class="page-heading">Mensaje</h3>
 	 <div class="table_block">
 		<table class="detail_step_by_step table table-bordered">
@@ -197,15 +195,14 @@
 				</tr>
 			</thead>
 			<tbody>
-							<tr class="first_item item">
+				<tr class="first_item item">
 					<td>
-						<strong class="dark">
-															Felipe Bedoya
-													</strong>
-						<br>
-						2017-12-21 20:45:09
+						<strong id="nombre_comentario" class="dark">
+
+						</strong>
+						<br><div id="fecha_comentario"></div>
 					</td>
-					<td>hola</td>
+					<td><div id= "comentario"></div></td>
 				</tr>
 						</tbody>
 		</table>
@@ -214,10 +211,10 @@
 		<h3 class="page-heading bottom-indent">Agrega un mensaje</h3>
 		<p>Si desea agregar un comentario sobre su pedido, escríbalo en el campo a continuación.</p>
 		<p class="form-group">
-		<label for="id_product">Product</label>
+		<label for="id_product">Articulos</label>
 			<select id="articulos" name="id_product" class="form-control">
 				<option></option>
-							</select>
+			</select>
 		</p>
 		<p class="form-group">
 			<textarea class="form-control" cols="67" rows="3" name="msgText"></textarea>
@@ -230,20 +227,14 @@
 	</form>
 </div>
 	</div>
-<ul class="footer_links clearfix">
-	<li>
-		<a class="btn btn-default button button-small" href="{{url('Cuenta')}}">
-			<span>
-				<i class="fa fa-chevron-left left"></i> Regresar
-			</span>
-		</a>
-	</li>
-	<li>
-		<a class="btn btn-default button button-small" href="{{url('Tienda')}}">
-			<span><i class="fa fa-chevron-left left"></i> Inicio</span>
-		</a>
-	</li>
-</ul>
+
+	<ul class="footer_links">
+											<li class="f_right"><a class="button" href="http://localhost/TiendaPocket/public/Tienda" title="Ir al inicio"> <i class="fa fa-home"></i></a></li>
+											<li><a class="button" href="http://localhost/TiendaPocket/public/Cuenta" title="Regresar a mi cuenta"><i class="fa fa-user"></i> </a></li>
+
+										</ul>
+
+<div class="clear"></div>
 					</div><!-- #center_column -->
 					</div><!-- .row -->
 				</div><!-- #columns -->
@@ -284,13 +275,20 @@
                 $('#estado').html(currentValue.estado);
                 $('#costoTotal').html("$"+currentValue.costoTotal);
 
-                $('#comentario').html(currentValue.comentario);
-
 								costoArticulo = eval(currentValue.cantidad_articulo*currentValue.precio_articulo);
 								totalArticulos = eval(totalArticulos + costoArticulo);
 
 								$('#pedidos').append('<tr class="item"><td><label>'+currentValue.nombre_articulo+'</label></td><td class="bold"><label>'+currentValue.proveedor+'</label></td><td class="price"><label>$'+currentValue.precio_articulo+'</label></td><td class="return_quantity"><span>'+currentValue.cantidad_articulo+'</span></td><td class="price"><label>$'+costoArticulo+'</label></td></tr>');
 
+								$('#nombre_comentario').html(currentValue.nombre);
+								$('#fecha_comentario').html(currentValue.created_at);
+								$('#comentario').html(currentValue.comentario);
+
+								$('#articulos').empty();
+								$('#articulos').append($('<option>', {
+			                value: 0,
+			                text: 'Elija un articulo'
+			            }));
                 $('#articulos').append($('<option>', {
                   value: currentValue.id_articulo,
                   text: currentValue.nombre_articulo

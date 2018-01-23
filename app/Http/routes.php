@@ -120,7 +120,7 @@ Route::resource('Salario','SalarioController');
 
 Route::resource('Tienda', 'TiendaController');
 
-Route::get('Articulos/{categoria}','ArticuloController@ArtsxCategoria');
+Route::get('Articulos/{categoria}','ArticuloController@ArtsCategoria');
 
 Route::get('Detalles/{id}','ArticuloController@verArticulo');
 
@@ -131,6 +131,7 @@ Route::resource('RegistrarArticulo', 'ArticuloController@registrarArticulo');
 Route::resource('vistaRapida', 'ArticuloController@vistaRapida');
 
 Route::get('Deseo/agregar', 'CarritoController@agregarDeseo');
+Route::get('Deseo/carrito', 'CarritoController@DeseoCarrito');
 Route::get('Carrito/agregar', 'CarritoController@agregarCarrito');
 Route::get('Carrito/eliminar', 'CarritoController@eliminar');
 
@@ -161,3 +162,5 @@ Route::resource('ListaDeseos', 'CarritoController@listaDeseos');
 Route::resource('InformacionPersonal', 'InformacionPersonalController');
 
 Route::resource('Mensajes', 'MensajeriaController');
+
+Route::resource('ArticulosProveedor', 'ArticuloController@ArtsProveedor');

@@ -63,6 +63,12 @@ class CarritoController extends Controller
         $carrito->save();
     }
 
+    public function DeseoCarrito(Request $request){
+      $carrito = Carrito::find($request->id);
+      $carrito->estado = 1;
+      $carrito->save();
+    }
+
 
     public function direcciones(){
       $direcciones = Direccion::Listar(Auth::user()->idEmpresa)->get();
@@ -93,8 +99,9 @@ class CarritoController extends Controller
 
 
     public function ListaDeseos(){
-      $carritos = Carrito::ConsultaDeseo(Auth::user()->idEmpresa)->get();
-      return view('Tienda/ListaDeseos/index')->with('carritos', $carritos);
+      $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
+      $deseos = Carrito::ConsultaDeseo(Auth::user()->idEmpresa)->get();
+      return view('Tienda/ListaDeseos/index')->with('carritos', $carritos)->with('deseos', $deseos);
 
     }
 }

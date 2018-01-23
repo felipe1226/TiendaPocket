@@ -29,10 +29,14 @@
           <!-- Center Column -->
           <div id="center_column" class="column col-sm-12">
             <h1 class="page-heading">Mis direcciones</h1>
-            <p>Please configure your default billing and delivery addresses when placing an order. You may also add additional addresses, which can be useful for sending gifts or receiving an order at your office.</p>
+            <p>Configure sus direcciones predeterminadas de facturación y entrega al realizar un pedido. También puede agregar direcciones adicionales, que pueden ser útiles para enviar regalos o recibir un pedido en su oficina.</p>
             <div class="addresses">
-	            <p><strong class="dark">Your addresses are listed below.</strong></p>
-	            <p class="p-indent">Be sure to update your personal information if it has changed.</p>
+              <p><strong class="dark">Asegúrese de actualizar su información.</strong></p>
+              <div class="clearfix main-page-indent">
+  	            <a href="{{url('RegistrarDireccion')}}" class="btn btn-default button button-medium" title="Agregar una nueva dirección">Nueva direccion <i class="fa fa-fw fa-plus"></i>
+                </a>
+              </div>
+
               <div class="bloc_adresses row">
                 @if(isset($direcciones))
                   @if(count($direcciones) == 0)
@@ -65,7 +69,7 @@
                             <span  class="address_phone_mobile">  {{$direccion->movil}}</span>
                           </li>
                           <li class="address_update">
-                            <a class="btn btn-default button button-small" href="#"><span>Actualizar<i class="fa fa-chevron-right right"></i></span></a>
+                            <a class="btn btn-default button button-small" href="#">Actualizar <i class="fa fa-fw fa-refresh"></i> </a>
                             @if($direccion->estado == 0)
                               <a class="btn btn-default button button-small" onclick="eliminar({{$direccion->id}})" data-id="addresses_confirm" title="Eliminar direccion"><i class="fa fa-remove"></i></a>
                             @endif
@@ -77,20 +81,13 @@
                 @endif
 			        </div>
             </div>
-            <div class="clearfix main-page-indent">
-	            <a href="{{url('RegistrarDireccion')}}" class="btn btn-default button button-medium">
-                <span>Agregar nueva dirección<i class="fa fa-chevron-right right"></i></span>
-              </a>
-            </div>
 
-            <ul class="footer_links clearfix">
-	            <li><a class="btn btn-default button button-small" href="{{url('Cuenta')}}">
-                <span><i class="fa fa-chevron-left left"></i> Regresar</span></a>
-              </li>
-	            <li><a class="btn btn-default button button-small" href="{{url('Tienda')}}">
-                <span><i class="fa fa-chevron-left left"></i> Inicio</span></a>
-              </li>
-            </ul>
+
+            <ul class="footer_links">
+										<li class="f_right"><a class="button" href="http://localhost/TiendaPocket/public/Tienda" title="Ir al inicio"> <i class="fa fa-home"></i></a></li>
+										<li><a class="button" href="http://localhost/TiendaPocket/public/Cuenta" title="Regresar a mi cuenta"><i class="fa fa-user"></i> </a></li>
+
+									</ul>
 					</div><!-- #center_column -->
 				</div><!-- .row -->
 			</div><!-- #columns -->

@@ -1,6 +1,74 @@
 @extends('Tienda.Layout.app')
 @section('content')
 
+<div id="layer_cart" class="layer_box" style="display: 'none'; position:fixed; top: 50px;">
+	<div class="layer_inner_box">
+		<div class="layer_product clearfix mar_b10">
+			<a onclick="cerrarCompra()" rel="nofollow" href="javascript:void(0)"><span class="cross" title="Close window"></span>
+			</a>
+			<div class="product-image-container layer_cart_img"><img class="layer_cart_img img-responsive" src="http://prestashop.flytheme.net/sp_market/11-home_default/blouse.jpg" alt="Aliquam lobortis" title="Aliquam lobortis"></div>
+			<div class="layer_product_info">
+				<h3 id="layer_cart_product_title" class="product-name">Aliquam lobortis</h3>
+				<span id="layer_cart_product_attributes">S, Black</span>
+				<div id="layer_cart_product_quantity_wrap" class="hidden">
+					<span class="layer_cart_label">Quantity</span>
+					<span id="layer_cart_product_quantity">3</span>
+				</div>
+				<div id="layer_cart_product_price_wrap" class="hidden">
+					<span class="layer_cart_label">Total</span>
+					<span id="layer_cart_product_price">$81.00</span>
+				</div>
+			</div>
+		</div>
+
+		<div id="pro_added_success" class="alert alert-success">Product successfully added to your shopping cart</div>
+		<div class="layer_details">
+			<div class="layer_cart_row">
+				<!-- Plural Case [both cases are needed because page may be updated in Javascript] -->
+				<span class="ajax_cart_product_txt_s ">
+					There are <span class="ajax_cart_quantity">5</span> items in your cart.
+				</span>
+				<!-- Singular Case [both cases are needed because page may be updated in Javascript] -->
+				<span class="ajax_cart_product_txt  unvisible" style="display: none;">
+					There is 1 item in your cart.
+				</span>
+			</div>
+
+			<div id="layer_cart_ajax_block_products_total" class="layer_cart_row hidden">
+				<span class="layer_cart_label">
+					Total products
+												(tax excl.)
+										</span>
+				<span class="ajax_block_products_total">$114.02</span>
+			</div>
+
+							<div id="layer_cart_ajax_cart_shipping_cost" class="layer_cart_row hidden">
+				<span class="layer_cart_label">
+					Total shipping&nbsp;(tax excl.)
+				</span>
+				<span class="ajax_cart_shipping_cost">$2.00</span>
+			</div>
+							<div id="layer_cart_ajax_block_cart_total" class="layer_cart_row">
+				<span class="layer_cart_label">
+					Total
+												(tax excl.)
+										</span>
+				<span class="ajax_block_cart_total price">$116.02</span>
+			</div>
+			<div class="button-container clearfix">
+				<span class="continue button pull-left" title="Continue shopping">
+					Continue shopping
+				</span>
+				<a class="button pull-right" href="http://prestashop.flytheme.net/sp_market/es/order" title="Proceed to checkout" rel="nofollow">
+					Proceed to checkout
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="crossseling"></div>
+</div>
+<div class="layer_cart_overlay" style="display: none; width: 100%; height: 100%; overflow:auto;"></div>
+
 <!-- Breadcrumb Column -->
 	<div class="breadcrumb-container">
 		<div class="container">
@@ -10,7 +78,7 @@
 	      <ul>
 		      <li class="home"><a href="http://prestashop.flytheme.net/sp_market/" title="Return to Home">Inicio  </a>
           </li>
-          <li class="depht1"><a href="#">{{$categoria}}  </a>
+          <li class="depht1"><a href="#">{{$articulos[0]->categoria}}  </a>
           </li>
 				</ul>
       </div>
@@ -522,7 +590,13 @@
             								</a>
             						  </div>
                           <div class="label-box">
-														<span class="new-box">Nuevo</span>
+														<?php
+															$date1 = $articulo->created_at;
+															$date2 = new DateTime("now");
+															$diff = $date1->diff($date2);
+															if($diff->days < 37){echo '<span class="new-box">NUEVO</span>';}
+
+														?>
                             @if($articulo->cantidad == 0)
 														  <span class="sale-box">Agotado!</span>
                             @endif
@@ -628,101 +702,22 @@
       </div><!-- .row -->
     </div><!-- #columns -->
   </div><!-- .columns-container -->
+</div>
 
-  <script>
-  function AddDeseos(id){
-    $('#MsgDeseo').fadeIn('slow',fuction(){
-      $.scrollTo(this,2000);
-    }))
-  }
-  </script>
-
-  <div id="layer_cart" class="layer_box" style="display: none">
-		<div class="layer_inner_box">
-			<div class="layer_product clearfix mar_b10">
-				<span class="cross" title="Close window"></span>
-				<div class="product-image-container layer_cart_img"><img class="layer_cart_img img-responsive" src="http://prestashop.flytheme.net/sp_market/11-home_default/blouse.jpg" alt="Aliquam lobortis" title="Aliquam lobortis"></div>
-				<div class="layer_product_info">
-					<h3 id="layer_cart_product_title" class="product-name">Aliquam lobortis</h3>
-					<span id="layer_cart_product_attributes">S, Black</span>
-					<div id="layer_cart_product_quantity_wrap" class="hidden">
-						<span class="layer_cart_label">Quantity</span>
-						<span id="layer_cart_product_quantity">3</span>
-					</div>
-					<div id="layer_cart_product_price_wrap" class="hidden">
-						<span class="layer_cart_label">Total</span>
-						<span id="layer_cart_product_price">$81.00</span>
-					</div>
-				</div>
-			</div>
-
-			<div id="pro_added_success" class="alert alert-success">Product successfully added to your shopping cart</div>
-			<div class="layer_details">
-				<div class="layer_cart_row">
-					<!-- Plural Case [both cases are needed because page may be updated in Javascript] -->
-					<span class="ajax_cart_product_txt_s ">
-						There are <span class="ajax_cart_quantity">5</span> items in your cart.
-					</span>
-					<!-- Singular Case [both cases are needed because page may be updated in Javascript] -->
-					<span class="ajax_cart_product_txt  unvisible" style="display: none;">
-						There is 1 item in your cart.
-					</span>
-				</div>
-
-				<div id="layer_cart_ajax_block_products_total" class="layer_cart_row hidden">
-					<span class="layer_cart_label">
-						Total products
-													(tax excl.)
-											</span>
-					<span class="ajax_block_products_total">$114.02</span>
-				</div>
-
-								<div id="layer_cart_ajax_cart_shipping_cost" class="layer_cart_row hidden">
-					<span class="layer_cart_label">
-						Total shipping&nbsp;(tax excl.)
-					</span>
-					<span class="ajax_cart_shipping_cost">$2.00</span>
-				</div>
-								<div id="layer_cart_ajax_block_cart_total" class="layer_cart_row">
-					<span class="layer_cart_label">
-						Total
-													(tax excl.)
-											</span>
-					<span class="ajax_block_cart_total price">$116.02</span>
-				</div>
-				<div class="button-container clearfix">
-					<span class="continue button pull-left" title="Continue shopping">
-						Continue shopping
-					</span>
-					<a class="button pull-right" href="http://prestashop.flytheme.net/sp_market/es/order" title="Proceed to checkout" rel="nofollow">
-						Proceed to checkout
-					</a>
-				</div>
-			</div>
-		</div>
-		<div class="crossseling"></div>
-	</div>
-  <div class="layer_cart_overlay" style="display: none; width: 100%; height: 100%;"></div>
 
   <div id="msgDeseo" class="fancybox-overlay fancybox-overlay-fixed" style="display:none; width: auto; height: auto;">
     <div class="fancybox-wrap fancybox-desktop fancybox-type-html fancybox-opened" tabindex="-1" style="opacity: 1; overflow: visible; height: auto; width: 384px; position: absolute; top: 286px; left: 400px;">
       <div class="fancybox-skin" style="padding: 0px; width: auto; height: auto;">
-<<<<<<< HEAD
         <div class="fancybox-outer">
-          <div class="fancybox-inner" style="overflow: auto; width: 384px; height: auto;">
-            <p class="fancybox-error">El producto se ha añadido con éxito a su lista de deseos.</p>
-            <a href="http://prestashop.flytheme.net/sp_market/module/blockwishlist/mywishlist" class="wishlist_product_view button"> View all </a>
-          </div>
-=======
-        <div class="fancybox-outer"><div class="fancybox-inner" style="overflow: auto; width: 384px; height: auto;">
-          <p class="fancybox-error">El producto se ha añadido con éxito a su lista de deseos.</p>
-          <a href="{{url('ListaDeseos')}}" class="wishlist_product_view button"> Ver Todo </a>
->>>>>>> origin/master
-        </div>
-        <a title="Cerrar" class="fancybox-item fancybox-close" onclick="cerrarDeseo()" href="javascript:void(0);"></a>
-      </div>
-    </div>
-  </div>
+					<div class="fancybox-inner" style="overflow: auto; width: 384px; height: auto;">
+	          <p class="fancybox-error">El articulo se ha añadido con éxito a su lista de deseos.</p>
+	          <a href="{{url('ListaDeseos')}}" class="wishlist_product_view button"> Ver Todo </a>
+        	</div>
+        	<a title="Cerrar" class="fancybox-item fancybox-close" onclick="cerrarDeseo()" href="javascript:void(0);"></a>
+      	</div>
+    	</div>
+  	</div>
+	</div>
 
 
 <script>
@@ -736,31 +731,26 @@
 
         },
         success: function(id){
-
+					$('.layer_cart_overlay').fadeIn('slow', function() {
+						$.scrollTo(this, 2000);
+					});
           $('#layer_cart').fadeIn('slow', function() {
+						$.scrollTo(this, 2000);
             JSONArticulos = eval(<?php echo json_encode($articulos);?>);
             JSONArticulos.forEach(function(currentValue,index,arr) {
               if(currentValue.id == id){
-                /*$('#referenciaDireccion').html(currentValue.referencia_direccion);
+                $('#referenciaDireccion').html(currentValue.referencia_direccion);
                 $('#nombre').html(currentValue.nombre);
-                $('#direccion').html(currentValue.direccion);
-                $('#localidad').html(currentValue.localidad);
-                $('#telefono').html(currentValue.telefono);
-                $('#movil').html(currentValue.movil);*/
               }
             });
           });
-      		$('.layer_cart_overlay').hide();
-      		$('#layer_cart').fadeOut('fast');
         },
+
         error: function(data){
           alert('Error en la compra');
         }
       });
   }
-
-
-
 
   function addDeseo(id){
       $.ajax({
@@ -769,7 +759,6 @@
         data: {
           id_articulo: id
 
-<<<<<<< HEAD
         },
         success: function(){
           $('#msgDeseo').fadeIn('slow', function() {
@@ -783,14 +772,18 @@
       });
   }
 
+	function cerrarCompra(){
+		$('.layer_cart_overlay').fadeOut('slow', function() {
+					$.scrollTo(this, 2000);
+		});
+
+	}
   function cerrarDeseo(){
     $('#msgDeseo').fadeOut('slow', function() {
           $.scrollTo(this, 2000);
     });
   }
   </script>
-=======
->>>>>>> origin/master
 
 
 @endsection

@@ -42,11 +42,18 @@ class ArticuloController extends Controller
   }
 
 
-  public function ArtsxCategoria($categoria){
-    $articulos = Articulo::BuscarxCategoria($categoria)->paginate(6);
+  public function ArtsCategoria($categoria){
+    $articulos = Articulo::BuscarxCategoria($categoria)->paginate(20);
     $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
 
-    return view('Tienda/Articulo/index', compact('articulos'))->with(['articulos' => $articulos])->with('carritos', $carritos)->with('categoria', $categoria);
+    return view('Tienda/Articulo/index', compact('articulos'))->with(['articulos' => $articulos])->with('carritos', $carritos);
+  }
+
+  public function ArtsProveedor(){
+    $articulos = Articulo::BuscarxProveedor("35")->paginate(20);
+    $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
+
+    return view('Tienda/Cuenta/articulos', compact('articulos'))->with(['articulos' => $articulos])->with('carritos', $carritos);
   }
 
   public function registrarArticulo(request $request){

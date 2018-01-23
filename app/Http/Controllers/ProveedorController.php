@@ -32,7 +32,7 @@ class ProveedorController extends Controller
     public function eliminar(Request $request){
       $proveedor = Proveedor::find($request->id);
       $proveedor->delete();
-    }    
+    }
 
     public function modificar(Request $request){
       $proveedor = Proveedor::find($request->id);
@@ -40,7 +40,7 @@ class ProveedorController extends Controller
       $proveedor->direccion = $request->direccion;
       $proveedor->telefono = $request->telefono;
       $proveedor->save();
-    }     
+    }
 
     public function listall(Request $request){
       $userActual = Auth::user();
@@ -85,6 +85,6 @@ class ProveedorController extends Controller
 
   	public function update(Request $request, $id){}
 
-  	public function destroy($id){}   
-    
+  	public function destroy($id){}
+
 }

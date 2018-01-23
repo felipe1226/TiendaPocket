@@ -9,7 +9,8 @@
 			<div class="breadcrumb clearfix">
 				<ul>
 					<li class="home"><a href="{{url('Tienda/')}}">Inicio</a></li>
-					<li class="depth1"><a href="{{url('Carrito')}}">Carrito</a></li>
+					<li class="depth1"><a href="{{url('Cuenta')}}">Mi cuenta</a></li>
+					<li class="depth2"><a href="{{url('Carrito')}}">Carrito</a></li>
 				</ul>
 			</div>
 			<!-- /Breadcrumb -->
@@ -46,7 +47,7 @@
 							<!-- /Steps -->
 
 
-						  @include('flash::message')
+
 						  @if(isset($carritos))
 						  	@if(count($carritos) == 0)
 						  		<p class="alert alert-warning">Su carrito de compras está vacio.</p>
@@ -73,9 +74,8 @@
 						  							</td>
 						  							<td class="cart_description">
 						  								<h5 class="product-name">
-						  									<?php
-						  										echo '<h3><a href="Detalles/'.$carrito->id_articulo.'">'.$carrito->almacena->nombre.'</a></h3';
-						  									?>
+																<h3><a href="Detalles/{{$carrito->id_articulo}}">{{$carrito->almacena->nombre}}</a></h3>
+
 						  								</h5>
 						  								<small class="cart_ref">Marca: {{$carrito->almacena->marca}}</small>
 						  								<small class="cart_ref">{{$carrito->almacena->categoria}}</small>
@@ -181,15 +181,16 @@
 						  		@endif
 						  	@endif
 
-								<p class="cart_navigation clearfix">
+								<ul class="footer_links">
+										<li class="f_right"><a class="button" href="http://localhost/TiendaPocket/public/Tienda" title="Ir al inicio"> <i class="fa fa-home"></i></a></li>
+										<li><a class="button" href="http://localhost/TiendaPocket/public/Cuenta" title="Regresar a mi cuenta"><i class="fa fa-user"></i> </a></li>
+										@if(count($carritos) != 0)
+											<li><a id="buttomComprar" class="button" href="{{url('Direccion')}}" title="Proceder con la compra" style="display:block">
+												<span><i class="fa fa-chevron-right right"></i></span>
+											</a></li>
+										@endif
+									</ul>
 
-									<a class="button" href="{{url('Tienda')}}" title="Inicio"> <i class="fa fa-home"></i></a>
-								    @if(count($carritos) != 0)
-								    	<a id="buttomComprar" class="button" href="{{url('Direccion')}}">
-												<span>Proceder con la compra<i class="fa fa-chevron-right right"></i></span>
-											</a>
-								    @endif
-								</p>
 
 								<div class="clear"></div>
 
@@ -201,14 +202,17 @@
 
 
       <script>
-				window.onload=function() {
-							JSONCarritos = eval(<?php echo json_encode($carritos);?>);
-							JSONCarritos.forEach(function(currentValue,index,arr) {
-								if(currentValue.almacena.cantidad == 0){
-									document.getElementById("buttomComprar").style.display="none";
-								}
+				$(function() {
+					JSONCarritos = eval(<?php echo json_encode($carritos);?>);
+					JSONCarritos.forEach(function(currentValue,index,arr) {
+						if(currentValue.almacena.cantidad == 0){
+
+							$('#buttomComprar').fadeOut('slow', function() {
+										$.scrollTo(this, 2000);
 							});
-				}
+						}
+					});
+				 });
 
 	      function modificarCantidad(idCarrito, precio, val){
 	        var cant = parseInt($("#cantidad"+idCarrito).val());
@@ -272,7 +276,7 @@
       					id: idCarrito
       				},
       				success: function(){
-      						location.reload();
+								location.reload();
       				},
       				error: function(data){
       					alert('Error al eliminar el articulo del carrito!');

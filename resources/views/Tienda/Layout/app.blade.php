@@ -62,8 +62,8 @@ var add_compare_item = 'Product successfully added to the product comparison';
 var added_to_wishlist = 'El producto se ha añadido con éxito a su lista de deseos.';
 var ajax_allowed = true;
 var ajaxsearch = true;
-var baseDir = 'http://prestashop.flytheme.net/sp_market/';
-var baseUri = 'http://prestashop.flytheme.net/sp_market/';
+var baseDir = 'http://localhost/TiendaPocket/public/';
+var baseUri = 'http://localhost/TiendaPocket/public/';
 var comparator_max_item = 3;
 var comparedProductsIds = [22];
 var contentOnly = false;
@@ -138,7 +138,7 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"
 
 	</head>
 
-	<body id="my-account" itemscope="" itemtype="http://schema.org/WebPage" class="blog-small_image content-v1  my-account   lang_es patternnone layout-full slider-imgpr-0  secondImage-0" data-content="content-v1" style="">
+	<body id="my-account"   itemscope itemtype="http://schema.org/WebPage" class="blog-small_image content-v1  index   lang_es patternnone layout-full slider-imgpr-0  secondImage-0" data-content="content-v1">
 		<div id="wrapper" >
 									 <!-- Header -->
 									 <div class="header-container">
@@ -166,19 +166,17 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"
 										<span>Mi cuenta</span>
 									</a>
 								</li>
-
 								<li class="wishlist">
 									<a href="{{url('ListaDeseos')}}" rel="nofollow">
 										<span>Mis deseos</span>
 									</a>
 								</li>
-
-											<li class="logout">
-										<a href="http://prestashop.flytheme.net/sp_market/es/?mylogout=" rel="nofollow" title="Cerrar sesión">
-											<span>Desconectar</span>
-										</a>
-									</li>
-									</ul>
+								<li class="logout">
+									<a href="http://prestashop.flytheme.net/sp_market/es/?mylogout=" rel="nofollow" title="Cerrar sesión">
+										<span>Desconectar</span>
+									</a>
+								</li>
+							</ul>
 						</div>
 
 						<!-- /SP Block usmodule NAV -->
@@ -256,7 +254,7 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"
 														<span class="text-cart4">Carrito</span>
 														<span class="line line4"> - </span>
 														<span class="ajax_cart_empty">0</span>
-														<span class="ajax_cart_quantity">{{count($carritos)}}</span>
+														<span id="cantArticulos" value="{{count($carritos)}}" class="ajax_cart_quantity">{{count($carritos)}}</span>
 														<span class="ajax_cart_quantity_text">Artículos</span>
 														<span class="line line4 arrow"><i class="fa fa-caret-down"></i></span>
 														<span class="line"> - </span>
@@ -266,7 +264,7 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"
 																$totalCarrito += $carrito->cantidad * $carrito->almacena->precio;
 															}
 
-														echo '<span class="ajax_cart_total">$'.$totalCarrito.'</span>';
+														echo '<span id="totalCarrito" value="'.$totalCarrito.'" class="ajax_cart_total">$'.$totalCarrito.'</span>';
 														?>
 												</a>
 												<div class="cart_block block exclusive">
@@ -285,7 +283,7 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"
 																				<dl class="products ">
 																					@foreach($carritos as $carrito)
 																					<dt id="articulo{{$carrito->id}}" data-id="cart_block_product{{$carrito->id}}" class="first_item" style="display: block">
-																						<a class="cart-images" href="#">
+																						<a class="cart-images" href="Detalles/{{$carrito->id_articulo}}">
 																							<img height="60" width="60" src="http://localhost/TiendaPocket/public/imgArticulos/{{$carrito->almacena->imagen}}"/>
 																						</a>
 																						<div class="cart-info">
@@ -300,7 +298,7 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"
 																							</span>
 																							<span class="quantity-formated titleFont">Cantidad: {{$carrito->cantidad}}</span>
 																						</div>
-																						<span class="remove_link"><a onclick="eliminar({{$carrito->id}})" rel="nofollow" class="ajax_cart_block_remove_link" href="javascript:void(0)"> <i class="fa fa-trash"></i></a></span>
+																						<span class="remove_link"><a onclick="eliminardeLayout({{$carrito->id}})" rel="nofollow" class="ajax_cart_block_remove_link" href="javascript:void(0)"> <i class="fa fa-trash"></i></a></span>
 																					</dt>
 																					@endforeach
 																				</dl>
@@ -309,12 +307,11 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"
 															@endif
 																<div class="price-total titleFont">
 																	<span class="price_text">Total : </span>
-																	<span id="valorCarrito" class="price cart_block_total ajax_block_cart_total"></span>
+																	<span id="totalCarrito" class="price cart_block_total ajax_block_cart_total"></span>
 																	</div>
 
 															<div class="buttons">
-																<a id="button_order_cart" class="btn btn-default button button-small titleFont" href="{{url('Carrito')}}" rel="nofollow">
-																	Ver carrito
+																<a id="button_order_cart" class="btn btn-default button button-small titleFont" href="{{url('Carrito')}}" rel="nofollow" title="Ver carrito"> <i class="fa fa-fw fa-shopping-cart"> </i>
 																</a>
 															</div>
 														</div>
@@ -565,19 +562,10 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"
 											<span class="label-menu">Menu</span>
 											<div class="sp-megamenu-container">
 												<div class="home">
-													<a href="http://prestashop.flytheme.net/sp_market/">Barman</a>
+													<a href="http://prestashop.flytheme.net/sp_market/">Nuevo</a>
 												</div>
 												<ul class="nav navbar-nav  menu sp_lesp level-1">
-													<li class="item-1 newarrival" >
-														<a href="../new-products.html"><p><span class="hot">Nuevas</span></p> Copas</a>
-													</li>
-													<li class="item-1 promotions" >
-														<a href="#">Tecnologia</a>
-													</li>
-													<li class="item-1 css_type specials" >
-														<a href="../prices-drop.html">Promociones</a>
-													</li>
-													<li class="item-1 contactus" ><a href="{{url('Contactenos/')}}"> Contáctenos</a>
+													<li class="item-1 contactus" ><a href="{{url('Contactenos/')}}"><p><span class="hot">Nuevo</span></p> Contáctenos</a>
 													</li>
 													<li class="item-1 aboutus" ><a href="content/4-about-us.html"> Nosotros</a>
 													</li>
@@ -586,7 +574,6 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"
 										</div>
 									</nav>
 								</div>
-
 
 								<script type="text/javascript">
 
@@ -767,16 +754,19 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"
 
 
 								<script>
-									window.onload=function() {
-										var totalArticulos = 0 ;
+
+									$(function() {
+										var totalCarrito = 0;
 										JSONCarritos = eval(<?php echo json_encode($carritos);?>);
 										JSONCarritos.forEach(function(currentValue,index,arr) {
-											totalArticulos += eval(currentValue.almacena.precio * currentValue.cantidad);
-										});
-										$('#valorCarrito').html("$"+totalArticulos);
-									}
+											totalCarrito += eval(currentValue.precio * currentValue.cantidad);
 
-									function eliminar(idCarrito){
+										});
+										$('#totalCarrito').html(totalCarrito);
+
+									 });
+
+									function eliminardeLayout(idCarrito){
 
 											$.ajax({
 												url: baseDir+"Carrito/eliminar",
@@ -788,6 +778,7 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"
 													$('#articulo'+idCarrito).fadeOut('slow', function() {
 								                $.scrollTo(this, 2000);
 								          });
+
 												},
 												error: function(data){
 													alert('No se puede eliminar el articulo del carrito');

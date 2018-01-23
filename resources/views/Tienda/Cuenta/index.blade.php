@@ -32,12 +32,27 @@
 						<div class="col-xs-12 col-sm-6 col-lg-4">
 							<ul class="myaccount-link-list">
 								<li><a href="{{url('Pedidos')}}" title="Mis Pedidos"><i class="fa fa-list-ol"></i><span>Historial de Pedidos y Detalles</span></a></li>
+								<li><a href="{{url('InformacionPersonal')}}"><i class="fa fa-user"></i><span>Mi Informacion Personal</span></a></li>
             		<li><a href="{{url('MisDirecciones')}}"><i class="fa fa-building"></i><span>Mis Direcciones</span></a></li>
-            		<li><a href="{{url('InformacionPersonal')}}"><i class="fa fa-user"></i><span>Mi Informacion Personal</span></a></li>
+
         			</ul>
 						</div>
 						<div class="col-xs-12 col-sm-6 col-lg-4">
         			<ul class="myaccount-link-list">
+								<li class="lnk_wishlist">
+									<!--<a 	href="#">-->
+									<a 	href="{{url('ArticulosProveedor')}}">
+										<i class="fa fa-fw fa-shopping-cart"></i>
+										<span>Mi articulos</span>
+									</a>
+								</li>
+								<li class="lnk_wishlist">
+									<!--<a 	href="#">-->
+									<a 	href="{{url('Carrito')}}">
+										<i class="fa fa-fw fa-shopping-cart"></i>
+										<span>Mi carrito</span>
+									</a>
+								</li>
 <!-- MODULE WishList -->
 								<li class="lnk_wishlist">
 									<!--<a 	href="#">-->
@@ -50,10 +65,8 @@
         			</ul>
     				</div>
 					</div>
-					<ul class="footer_links clearfix">
-						<li><a class="btn btn-default button button-small" href="{{url('Tienda')}}" title="Home">
-							<span><i class="fa fa-chevron-left left"></i> Regresar</span></a>
-						</li>
+					<ul class="footer_links">
+										<li class="f_right"><a class="button" href="http://localhost/TiendaPocket/public/Tienda" title="Ir al inicio"> <i class="fa fa-home"></i></a></li>
 					</ul>
 				</div><!-- #center_column -->
 			</div><!-- .row -->

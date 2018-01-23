@@ -2190,8 +2190,8 @@ input[type="button"].btn-block {
     background-color: #2174f0; }
 
 .label-warning {
-  background-color: #fe9126;
-  border: 1px solid #e4752b; }
+  background-color: ##908888;
+  border: 1px solid ##6b6b6b; }
   .label-warning[href]:hover, .label-warning[href]:focus {
     background-color: #f07701; }
 

@@ -20,5 +20,7 @@ class Proveedor extends Model
     	               orderBy('nombre','ASC');
     }
 
+    
+
 
 }
