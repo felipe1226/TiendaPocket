@@ -643,7 +643,7 @@
 															$date1 = $articulo->created_at;
 															$date2 = new DateTime("now");
 															$diff = $date1->diff($date2);
-															if($diff->days < 37){echo '<span class="new-box">NUEVO</span>';}
+															if($diff->days < 31){echo '<span class="new-box">NUEVO</span>';}
 
 														?>
                             @if($articulo->cantidad == 0)
@@ -754,9 +754,6 @@
     </div><!-- #columns -->
   </div><!-- .columns-container -->
 </div>
-<<<<<<< HEAD
-
-=======
 
 
 
@@ -826,23 +823,10 @@
 		<div class="crossseling"></div>
 	</div>
   <div class="layer_cart_overlay" style="display: none; width: 100%; height: 100%;"></div>
->>>>>>> origin/master
 
   <div id="msgDeseo" class="fancybox-overlay fancybox-overlay-fixed" style="display:none; width: auto; height: auto;">
     <div class="fancybox-wrap fancybox-desktop fancybox-type-html fancybox-opened" tabindex="-1" style="opacity: 1; overflow: visible; height: auto; width: 384px; position: absolute; top: 286px; left: 400px;">
       <div class="fancybox-skin" style="padding: 0px; width: auto; height: auto;">
-<<<<<<< HEAD
-        <div class="fancybox-outer">
-					<div class="fancybox-inner" style="overflow: auto; width: 384px; height: auto;">
-	          <p class="fancybox-error">El articulo se ha añadido con éxito a su lista de deseos.</p>
-	          <a href="{{url('ListaDeseos')}}" class="wishlist_product_view button"> Ver Todo </a>
-        	</div>
-        	<a title="Cerrar" class="fancybox-item fancybox-close" onclick="cerrarDeseo()" href="javascript:void(0);"></a>
-      	</div>
-    	</div>
-  	</div>
-	</div>
-=======
 
         <div class="fancybox-outer"><div class="fancybox-inner" style="overflow: auto; width: 384px; height: auto;">
           <p class="fancybox-error">El producto se ha añadido con éxito a su lista de deseos.</p>
@@ -853,7 +837,6 @@
       </div>
     </div>
   </div>
->>>>>>> origin/master
 
 
 <script>

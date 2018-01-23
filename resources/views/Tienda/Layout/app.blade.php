@@ -134,8 +134,6 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"
 							<script type="text/javascript" src="http://localhost/TiendaPocket/public/modules/sphomeslider/js/owl.carousel.js"></script>
 							<script type="text/javascript" src="http://localhost/TiendaPocket/public/modules/spblocknewsletter/jquery.cookie.min.js"></script>
 
-
-
 	</head>
 
 	<body id="my-account"   itemscope itemtype="http://schema.org/WebPage" class="blog-small_image content-v1  index   lang_es patternnone layout-full slider-imgpr-0  secondImage-0" data-content="content-v1">
