@@ -201,8 +201,8 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"
 														<option value="PocketClub">PocketClub</option>
 														<option value="licores">Licores</option>
 														<option value="electronicos">Electronicos</option>
-														<option value="utensilios">Cocteleria</option>
-														<option value="utensilios">Cocina</option>
+														<option value="Cocteleria">Cocteleria</option>
+														<option value="Cocina">Cocina</option>
 														<option value="publicitarios">Publicitarios</option>
 														<option value="Herramientas">Herramientas y Decoracion</option>
 													</select>
@@ -252,18 +252,11 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"
 														<span class="text-cart4">Carrito</span>
 														<span class="line line4"> - </span>
 														<span class="ajax_cart_empty">0</span>
-														<span id="cantArticulos" value="{{count($carritos)}}" class="ajax_cart_quantity">{{count($carritos)}}</span>
+														<span id="cantArticulos" class="ajax_cart_quantity">{{count($carritos)}}</span>
 														<span class="ajax_cart_quantity_text">Artículos</span>
 														<span class="line line4 arrow"><i class="fa fa-caret-down"></i></span>
 														<span class="line"> - </span>
-														<?php
-															$totalCarrito = 0;
-															foreach($carritos as $carrito){
-																$totalCarrito += $carrito->cantidad * $carrito->almacena->precio;
-															}
-
-														echo '<span id="totalCarrito" value="'.$totalCarrito.'" class="ajax_cart_total">$'.$totalCarrito.'</span>';
-														?>
+														<span id="totalCarrito1" value="0" class="ajax_cart_total"></span>
 												</a>
 												<div class="cart_block block exclusive">
 													<div class="block_content">
@@ -305,7 +298,7 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"
 															@endif
 																<div class="price-total titleFont">
 																	<span class="price_text">Total : </span>
-																	<span id="totalCarrito" class="price cart_block_total ajax_block_cart_total"></span>
+																	<span id="totalCarrito2" class="price cart_block_total ajax_block_cart_total"></span>
 																	</div>
 
 															<div class="buttons">
@@ -729,13 +722,14 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"
 
 									$(function() {
 										var totalCarrito = 0;
+
 										JSONCarritos = eval(<?php echo json_encode($carritos);?>);
 										JSONCarritos.forEach(function(currentValue,index,arr) {
-											totalCarrito += eval(currentValue.precio * currentValue.cantidad);
-
+											totalCarrito += eval(currentValue.almacena.precio * currentValue.cantidad);
 										});
-										$('#totalCarrito').html(totalCarrito);
-
+										$('#totalCarrito1').html("$"+totalCarrito);
+                    $('#totalCarrito1').val(totalCarrito);
+                    $('#totalCarrito2').html("$"+totalCarrito);
 									 });
 
 									function eliminardeLayout(idCarrito){
@@ -749,6 +743,20 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"
 												success: function(){
 													$('#articulo'+idCarrito).fadeOut('slow', function() {
 								                $.scrollTo(this, 2000);
+                                var totalCarrito = 0;
+                                var cantidad = parseInt($('#cantArticulos').html())-1;
+                                JSONCarritos = eval(<?php echo json_encode($carritos);?>);
+            										JSONCarritos.forEach(function(currentValue,index,arr) {
+                                  if(currentValue.id == idCarrito){
+                                    totalCarrito = parseInt($('#totalCarrito1').val()) - eval(currentValue.almacena.precio * currentValue.cantidad);
+                                  }
+            										});
+                                $('#cantArticulos').html(cantidad);
+                                $('#cantArticulos').val(cantidad);
+
+            										$('#totalCarrito1').html("$"+totalCarrito);
+                                $('#totalCarrito1').val(totalCarrito);
+                                $('#totalCarrito2').html("$"+totalCarrito);
 								          });
 
 												},

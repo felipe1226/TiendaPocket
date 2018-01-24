@@ -8,7 +8,7 @@ class Articulo extends Model
 {
     protected $table = 'articulo';
 
-    protected $fillable = ['id', 'id_proveedor', 'nombre', 'categoria', 'marca', 'cantidad', 'precio', 'impuesto', 'imagen',  'descripcion'];
+    protected $fillable = ['id', 'id_proveedor', 'nombre', 'categoria', 'marca', 'cantidad', 'precio', 'imagen',  'descripcion'];
 
 
     public function scopeBuscarxCategoria($query, $categoria){
