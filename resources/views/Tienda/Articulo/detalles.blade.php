@@ -317,39 +317,57 @@
 				<div id="new_comment_form_error" class="error" style="display:none;padding:15px 25px">
 					<ul></ul>
 				</div>
-									<ul id="criterions_list">
-											<li>
-							<label>Calificación</label>
+				<ul id="criterions_list">
+					<li>
+						<label>Calificación</label>
+
+
+
 							<div class="star_content">
-								<input class="star" type="radio" name="criterion[1]" value="1" />
-								<input class="star" type="radio" name="criterion[1]" value="2" />
-								<input class="star" type="radio" name="criterion[1]" value="3" />
-								<input class="star" type="radio" name="criterion[1]" value="4" />
-								<input class="star" type="radio" name="criterion[1]" value="5" checked="checked" />
+								<input class="star" type="radio" name="cal" value="1" />
+								<input class="star" type="radio" name="cal" value="2" />
+								<input class="star" type="radio" name="cal" value="3" />
+								<input class="star" type="radio" name="cal" value="4" />
+								<input class="star" type="radio" name="cal" value="5" checked="checked" />
 							</div>
 							<div class="clearfix"></div>
 						</li>
 										</ul>
 								<label for="comment_title">Título de su comentario<sup class="required">*</sup></label>
-				<input id="comment_title" name="title" type="text" value=""/>
+				<input id="titulo" name="title" type="text" value=""/>
 
 				<label for="content">Su comentario<sup class="required">*</sup></label>
-				<textarea id="content" name="content"></textarea>
-
-								<label>Su nombre<sup class="required">*</sup></label>
-				<input id="commentCustomerName" name="customer_name" type="text" value=""/>
+				<textarea id="comentario" name="content"></textarea>
 
 				<div id="new_comment_form_footer">
-					<input id="id_product_comment_send" name="id_product" type="hidden" value='1' />
-					<p class="fl required"><sup>*</sup> Campos obligatorios</p>
+
 					<p class="fr">
-						<button id="submitNewMessage" name="submitMessage" type="submit">Enviar</button>&nbsp;
+						<a onclick="addComentario({{$articulos[0]->id}})" href="javascript:void(0)" class="btn btn-default">Enviar
+						</a>
 						<a href="#" onclick="$.fancybox.close();">Cancelar</a>
 					</p>
 					<div class="clearfix"></div>
 				</div>
 			</div>
 		</form><!-- /end new_comment_form_content -->
+	</div>
+</div>
+
+
+<div class="fancybox-wrap fancybox-desktop fancybox-type-html fancybox-opened" tabindex="-1" style="display: none;opacity: 1; overflow: visible; height: auto; width: 550px; position: fixed; top: 222px; left: 22px;">
+	<div class="fancybox-skin" style="padding: 15px; width: auto; height: auto;">
+		<div class="fancybox-outer">
+			<div class="fancybox-inner" style="overflow: auto; width: 520px; height: auto;">
+				<h2>Nuevo comentario</h2>
+				<p>Tu comentario ha sido añadido y estará disponible una vez lo apruebe un moderador.</p>
+				<br><p class="submit" style="text-align:right; padding-bottom: 0">
+					<button type="submit" class="button btn-default button-medium" style="margin-right: 5px;" value="true" onclick="$.fancybox.close();window['productcommentRefreshPage'](JSON.parse(unescape('0')), 0)">
+						<span>ok</span>
+					</button>
+				</p>
+			</div>
+		</div>
+		<a title="Close" class="fancybox-item fancybox-close" href="javascript:;"></a>
 	</div>
 </div>
 
@@ -365,6 +383,8 @@
 
 											</div>
 		</div>
+
+
 
 
 
@@ -1780,6 +1800,38 @@
 	});
 </script>
 
+<script>
+
+  function addComentario(id){
+		var calificacion = 0;
+		var x = document.getElementsByName("cal");
+
+		var calificacion =x[0].value;
+		var titulo =$('#titulo').val();
+		var comentario =$('#comentario').val();
+      $.ajax({
+        url: "../Comentario/agregar",
+        type: 'GET',
+        data: {
+          id_articulo: id,
+					calificacion: calificacion,
+					titulo: titulo,
+					comentario: comentario
+        },
+        success: function(id){
+					alert("Agregado");
+
+
+        },
+
+        error: function(data){
+          alert('Error en la compra');
+        }
+      });
+  }
+
+</script>
+
 
 
 
@@ -1805,5 +1857,4 @@
 
 							</div>
 						</div>
-
-										@endsection
+					@endsection

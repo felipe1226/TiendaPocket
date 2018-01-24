@@ -8,6 +8,7 @@ use PocketByR\Http\Controllers\Controller;
 
 use PocketByR\Articulo;
 use PocketByR\Carrito;
+use PocketByR\Comentario;
 use Laracasts\Flash\Flash;
 use Auth;
 use Storage;
@@ -74,6 +75,18 @@ class ArticuloController extends Controller
 
   public function vistaRapida(){
     return view('Tienda/Articulo/verArticulo');
+  }
+
+  public function agregarComentario(Request $request){
+    $comentarios = new Comentario;
+    $comentarios->id_empresa = Auth::user()->idEmpresa;
+    $comentarios->id_articulo = $request->id_articulo;
+    $comentarios->calificacion = $request->calificacion;
+    $comentarios->titulo = $request->titulo;
+    $comentarios->comentario = $request->comentario;
+
+    $comentarios->save();
+
   }
 
 }
