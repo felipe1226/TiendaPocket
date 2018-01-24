@@ -1,8 +1,7 @@
 @extends('Tienda.Layout.app')
 @section('content')
 
-
-			<div class="breadcrumb-container">
+<div class="breadcrumb-container">
 				<div class="container">
 
 			<!-- Breadcrumb -->
@@ -276,95 +275,51 @@
 				<!--end Data sheet -->
 
 				<!--HOOK_PRODUCT_TAB -->
-					<section id="idTab3" class="page-product-box">
-
-						<script type="text/javascript">
-var productcomments_controller_url = '../module/productcomments/default.html';
-var confirm_report_message = '¿Seguro que quieres denunciar este comentario?';
-var secure_key = 'e52bc577064e334121cf82375ad5fce9';
-var productcomments_url_rewrite = '1';
-var productcomment_added = '¡Tu comentario ha sido añadido!';
-var productcomment_added_moderation = 'Tu comentario ha sido añadido y estará disponible una vez lo apruebe un moderador.';
-var productcomment_title = 'Nuevo comentario';
-var productcomment_ok = 'ok';
-var moderation_active = 1;
+<section id="idTab3" class="page-product-box">
+	<script type="text/javascript">
+	var productcomments_controller_url ='../module/productcomments/default.html';
+	var confirm_report_message = '¿Seguro que quieres denunciar este comentario?';
+	var secure_key = 'e52bc577064e334121cf82375ad5fce9';
+	var productcomments_url_rewrite = '1';
+	var productcomment_added = '¡Tu comentario ha sido añadido!';
+	var productcomment_added_moderation = 'Tu comentario ha sido añadido y estará disponible una vez lo apruebe un moderador.';
+	var productcomment_title = 'Nuevo comentario';
+	var productcomment_ok = 'ok';
+	var moderation_active = 1;
 </script>
+
+
+
 
 <div id="idTab5">
 	<div id="product_comments_block_tab">
-									<div class="comment clearfix">
-				<div class="comment_author">
-					<span>grado&nbsp</span>
-					<div class="star_content clearfix">
-																		<div class="star star_on"></div>
-																								<div class="star star_on"></div>
-																								<div class="star star_on"></div>
-																								<div class="star star_on"></div>
-																								<div class="star"></div>
-																</div>
-					<div class="comment_author_infos">
-						<strong>jjhkjl</strong><br/>
-						<em>2015-12-15</em>
-					</div>
-				</div>
-				<div class="comment_details">
-					<h4 class="title_block">n,bn,</h4>
-					<p>vgjhgjk</p>
-					<ul>
-																	</ul>
-				</div>
-			</div>
-											<div class="comment clearfix">
-				<div class="comment_author">
-					<span>grado&nbsp</span>
-					<div class="star_content clearfix">
-																		<div class="star star_on"></div>
-																								<div class="star star_on"></div>
-																								<div class="star star_on"></div>
-																								<div class="star"></div>
-																								<div class="star"></div>
-																</div>
-					<div class="comment_author_infos">
-						<strong>etretert</strong><br/>
-						<em>2015-12-15</em>
-					</div>
-				</div>
-				<div class="comment_details">
-					<h4 class="title_block">dfsgdfh</h4>
-					<p>ssdgsdfgsgsđjhgkjgkluyiytu</p>
-					<ul>
-																	</ul>
-				</div>
-			</div>
-					        		<p class="align_center">
-												<a class="quick-view" href="{{url('Comentarios')}}" data-rel="{{url('Comentarios')}}">Escriba su comentario !
-												</a>
-			
+		<p class="align_center">
+			<a id="new_comment_tab_btn" class="open-comment-form" href="#new_comment_form">Escriba su comentario! </a>
 		</p>
-
 	</div>
 </div>
 
+
+
 <!-- Fancybox -->
 <div style="display:none">
-	<div id="new_comment_form">
+	<div id="new_comment_form" style="display: none;">
 		<form id="id_new_comment_form" action="#">
 			<h2 class="title">Escriba su comentario</h2>
-						<div class="product clearfix">
+			<div class="product clearfix">
 				<img src="../../6-medium_default/faded-short-sleeves-tshirt.jpg" height="150" width="150" alt="" />
 				<div class="product_desc">
 					<p class="product_name"><strong></strong></p>
-
 				</div>
 			</div>
-						<div class="new_comment_form_content">
+			<div class="new_comment_form_content">
 				<h2>Escriba su comentario</h2>
 				<div id="new_comment_form_error" class="error" style="display:none;padding:15px 25px">
 					<ul></ul>
 				</div>
 									<ul id="criterions_list">
 											<li>
-							<label>Quality</label>
+							<label>Calificación</label>
 							<div class="star_content">
 								<input class="star" type="radio" name="criterion[1]" value="1" />
 								<input class="star" type="radio" name="criterion[1]" value="2" />
@@ -389,7 +344,7 @@ var moderation_active = 1;
 					<p class="fl required"><sup>*</sup> Campos obligatorios</p>
 					<p class="fr">
 						<button id="submitNewMessage" name="submitMessage" type="submit">Enviar</button>&nbsp;
-						total&nbsp;<a href="#" onclick="$.fancybox.close();">Cancelar</a>
+						<a href="#" onclick="$.fancybox.close();">Cancelar</a>
 					</p>
 					<div class="clearfix"></div>
 				</div>
@@ -397,6 +352,8 @@ var moderation_active = 1;
 		</form><!-- /end new_comment_form_content -->
 	</div>
 </div>
+
+
 <!-- End fancybox -->
 					</section>
 				<!--end HOOK_PRODUCT_TAB -->

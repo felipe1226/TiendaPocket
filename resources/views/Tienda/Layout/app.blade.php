@@ -133,6 +133,8 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"
 							<script type="text/javascript" src="http://localhost/TiendaPocket/public/js/jquery/plugins/bxslider/jquery.bxslider.js"></script>
 							<script type="text/javascript" src="http://localhost/TiendaPocket/public/modules/sphomeslider/js/owl.carousel.js"></script>
 							<script type="text/javascript" src="http://localhost/TiendaPocket/public/modules/spblocknewsletter/jquery.cookie.min.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/modules/productcomments/js/jquery.rating.pack.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/modules/productcomments/js/productcomments.js"></script>
 
 
 

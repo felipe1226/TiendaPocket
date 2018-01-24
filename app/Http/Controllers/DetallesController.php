@@ -28,6 +28,5 @@ class DetallesController extends Controller
   public function show(){
 
   }
-  public function Comentario(){
-    return view('Tienda/Articulo/Comentarios');
+  
 }
