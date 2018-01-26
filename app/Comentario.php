@@ -4,7 +4,7 @@ namespace PocketByR;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Detalles extends Model
+class Comentario extends Model
 {
   protected $table = 'comentarios';
 

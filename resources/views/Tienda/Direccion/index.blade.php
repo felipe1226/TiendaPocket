@@ -38,12 +38,10 @@
               </div>
 
               <div class="bloc_adresses row">
-                @if(isset($direcciones))
                   @if(count($direcciones) == 0)
                     <p class="alert alert-warning">No tienes direcciones registradas!.</p>
                   @else
                     @foreach($direcciones as $direccion)
-
       	    	        <div class="col-xs-12 col-sm-6 address">
       			            <ul class="last_item item box">
                           <li><h3 class="page-subheading">{{$direccion->referencia}}</h3></li>
@@ -78,7 +76,6 @@
                       </div>
                     @endforeach
                   @endif
-                @endif
 			        </div>
             </div>
 

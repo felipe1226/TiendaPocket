@@ -121,6 +121,7 @@ Route::resource('Salario','SalarioController');
 Route::resource('Tienda', 'TiendaController');
 
 Route::get('Articulos/{categoria}','ArticuloController@ArtsCategoria');
+Route::get('Articulos/{categoria}/{articulo}','ArticuloController@busquedaAvanzada');
 
 Route::get('Detalles/{id}','ArticuloController@verArticulo');
 
@@ -167,4 +168,4 @@ Route::resource('ArticulosProveedor', 'ArticuloController@ArtsProveedor');
 
 Route::get('verArticulo/{id}','ArticuloController@verVistaArticulo');
 
-Route::resource('Comentario', 'DetallesController@Comentario');
+Route::get('Comentario/agregar', 'ArticuloController@AgregarComentario');

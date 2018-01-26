@@ -81,34 +81,29 @@
 						  								<small class="cart_ref">{{$carrito->almacena->categoria}}</small>
 						  							</td>
 						  							<td class="cart_avail">
-
-
 																@if(($carrito->almacena->cantidad) == 0)
 																	<span class="label label-warning" title="Estará disponible proximamente!">Agotado</span>
-
 																@else
 																	<span class="label label-success">Adquirir</span>
 																@endif
-
 						  							</td>
 						  							<td class="cart_unit" data-title="Unit price">
 						  								<ul class="price text-right" id="cantidad">
 						  					        <li class="price">${{$carrito->almacena->precio}}</li>
 						  								</ul>
 						  							</td>
-
 						  							<td class="cart_quantity text-center" data-title="Quantity">
 
 						  								<input type="hidden" value="1" name="quantity_17_108_0_0_hidden" />
-						  								<input id="cantidad{{$carrito->id}}" size="2"  type="text" autocomplete="off" class="cart_quantity_input form-control grey" value="{{$carrito->cantidad}}" name="quantity_17_108_0_0" onblur="modificarCantidad({{$carrito->id}}, {{$carrito->almacena->precio}}, 2)"/>
+						  								<input id="cantidad{{$carrito->id}}" size="2"  type="text" autocomplete="off" class="cart_quantity_input form-control grey" value="{{$carrito->cantidad}}" name="quantity_17_108_0_0" onblur="modificarCantidad({{$carrito->id}}, {{$carrito->almacena->precio}}, 2, {{$carrito->id_articulo}})"/>
 
 						  								<div class="cart_quantity_button clearfix">
-						  									<a class="cart_quantity_down btn btn-default button-minus" href="javascript:void(0);" title="Sustraer" onclick="modificarCantidad({{$carrito->id}}, {{$carrito->almacena->precio}}, 0)">
+						  									<a class="cart_quantity_down btn btn-default button-minus" href="javascript:void(0);" title="Sustraer" onclick="modificarCantidad({{$carrito->id}}, {{$carrito->almacena->precio}}, 0, {{$carrito->id_articulo}})">
 						  										<span>
 						  											<i class="fa fa-minus"></i>
 						  										</span>
 						  									</a>
-						  									<a  class="cart_quantity_up btn btn-default button-plus" href="javascript:void(0);" title="Agregar" onclick="modificarCantidad({{$carrito->id}}, {{$carrito->almacena->precio}}, 1)"><span><i class="fa fa-plus"></i></span></a>
+						  									<a  class="cart_quantity_up btn btn-default button-plus" href="javascript:void(0);" title="Agregar" onclick="modificarCantidad({{$carrito->id}}, {{$carrito->almacena->precio}}, 1, {{$carrito->id_articulo}})"><span><i class="fa fa-plus"></i></span></a>
 						  								</div>
 						  							</td>
 						  							<td class="cart_delete text-center" data-title="Delete">
@@ -119,8 +114,6 @@
 						  							<td class="cart_total" data-title="Total">
 						  								<span>$</span>
 						  								<?php
-
-
 						  									echo '<span id="cantidadTotal'.$carrito->id.'">'.$carrito->almacena->precio * $carrito->cantidad.'</span>';
 						  								 ?>
 						  							</td>
@@ -136,11 +129,9 @@
 						  								foreach($carritos as $carrito){
 						  									$totalArticulos += $carrito->cantidad * $carrito->almacena->precio;
 						  								}
-
 						  									echo '<td colspan="2" class="price"><span>$</span>
 						  													<span id="totalArticulos" value="'.$totalArticulos.'">'.$totalArticulos.'</span>
 						  												</td>';
-
 						  							?>
 						  					</tr>
 						  					<tr style="display: none;">
@@ -172,7 +163,6 @@
 
 						  									echo '<input readonly="readonly" style="border:0" class="total_price" id="totalCarrito" value="'.$totalArticulos.'"/>';
 						  							?>
-
 						  						</td>
 						  					</tr>
 						  				</tfoot>
@@ -190,8 +180,6 @@
 											</a></li>
 										@endif
 									</ul>
-
-
 								<div class="clear"></div>
 
 							</div><!-- #center_column -->
@@ -206,7 +194,6 @@
 					JSONCarritos = eval(<?php echo json_encode($carritos);?>);
 					JSONCarritos.forEach(function(currentValue,index,arr) {
 						if(currentValue.almacena.cantidad == 0){
-
 							$('#buttomComprar').fadeOut('slow', function() {
 										$.scrollTo(this, 2000);
 							});
@@ -214,7 +201,7 @@
 					});
 				 });
 
-	      function modificarCantidad(idCarrito, precio, val){
+	      function modificarCantidad(idCarrito, precio, val, id_articulo){
 	        var cant = parseInt($("#cantidad"+idCarrito).val());
 					var auxTotal = parseInt($("#totalArticulos").html());
 					var costoArticulo = parseInt($("#cantidadTotal"+idCarrito).html());
@@ -253,13 +240,17 @@
 	            },
 	            success: function(){
 	              $("#cantidad"+idCarrito).val(cant);
+								$("#cantidadArticulo"+id_articulo).html("Cantidad: "+cant);
 
 	              $("#cantidadTotal"+idCarrito).html(valor);
+								$("#precioArticulo"+id_articulo).html("$"+valor);
 
 								$("#totalArticulos").html(TotalArticulos);
 								$("#totalArticulos").val(TotalArticulos);
 	              $("#totalCarrito").val(eval(TotalArticulos+2));
 
+								$("#totalCarrito1").html("$"+TotalArticulos);
+								$("#totalCarrito2").html("$"+TotalArticulos);
 	            },
 	            error: function(data){
 	              alert('Error al modificar la cantidad');

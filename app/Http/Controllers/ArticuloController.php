@@ -8,6 +8,7 @@ use PocketByR\Http\Controllers\Controller;
 
 use PocketByR\Articulo;
 use PocketByR\Carrito;
+use PocketByR\Comentario;
 use Laracasts\Flash\Flash;
 use Auth;
 use Storage;
@@ -18,7 +19,6 @@ class ArticuloController extends Controller
   {
 
   }
-
 
   public function store(Request $request){
     $articulo = new Articulo;
@@ -43,17 +43,43 @@ class ArticuloController extends Controller
 
 
   public function ArtsCategoria($categoria){
-    $arts = Articulo::BuscarxCategoria($categoria)->get();
-    $articulos = Articulo::BuscarxCategoria($categoria)->paginate(5);
-
+    if($categoria == "Nuevos"){
+      $arts = Articulo::BuscarNuevos()->get();
+      $articulos = Articulo::BuscarNuevos()->paginate(10);
+    }
+    else{
+      $arts = Articulo::BuscarxCategoria($categoria)->get();
+      $articulos = Articulo::BuscarxCategoria($categoria)->paginate(20);
+    }
     $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
     $allCarritos = Carrito::where('id_empresa', Auth::user()->idEmpresa)->get();
 
     return view('Tienda/Articulo/index')->with('articulos', $articulos)->with('arts', $arts)->with('carritos', $carritos)->with('allCarritos', $allCarritos)->with('categoria', $categoria);
   }
 
+  public function busquedaAvanzada($categoria, $articulo){
+    $arts = Articulo::BusquedaArticulo($categoria,$articulo)->get();
+    $articulos = Articulo::BusquedaArticulo($categoria,$articulo)->paginate(20);
+
+    $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
+    $allCarritos = Carrito::where('id_empresa', Auth::user()->idEmpresa)->get();
+
+    return view('Tienda/Articulo/index')->with('articulos', $articulos)->with('arts', $arts)->with('carritos', $carritos)->with('allCarritos', $allCarritos)->with('categoria', $categoria)->with('art', $articulo);
+  }
+
+
+  public function articulosNuevos(){
+
+
+    $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
+    $allCarritos = Carrito::where('id_empresa', Auth::user()->idEmpresa)->get();
+
+    return view('Tienda/Articulo/index')->with('articulos', $articulos)->with('arts', $arts)->with('carritos', $carritos)->with('allCarritos', $allCarritos)->with('art', $articulo);
+  }
+
+
   public function ArtsProveedor(){
-    $articulos = Articulo::BuscarxProveedor("35")->paginate(20);
+    $articulos = Articulo::BuscarxProveedor("35")->paginate(4);
     $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
 
     return view('Tienda/Cuenta/articulos', compact('articulos'))->with(['articulos' => $articulos])->with('carritos', $carritos);
@@ -77,6 +103,18 @@ class ArticuloController extends Controller
 
   public function vistaRapida(){
     return view('Tienda/Articulo/verArticulo');
+  }
+
+  public function agregarComentario(Request $request){
+    $comentarios = new Comentario;
+    $comentarios->id_empresa = Auth::user()->idEmpresa;
+    $comentarios->id_articulo = $request->id_articulo;
+    $comentarios->calificacion = $request->calificacion;
+    $comentarios->titulo = $request->titulo;
+    $comentarios->comentario = $request->comentario;
+
+    $comentarios->save();
+
   }
 
 }
