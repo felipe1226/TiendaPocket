@@ -8,7 +8,7 @@ class Comentario extends Model
 {
   protected $table = 'comentarios';
 
-  protected $fillable = ['id', 'id_empresa', 'id_articulo', 'calificacion', 'titulo_comentario', 'comentario'];
+  protected $fillable = ['id', 'id_empresa', 'id_articulo', 'calificacion', 'titulo', 'comentario'];
 
 
 }

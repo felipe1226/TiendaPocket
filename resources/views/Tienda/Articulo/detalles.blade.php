@@ -294,14 +294,18 @@
 <div id="idTab5">
 	<div id="product_comments_block_tab">
 		<p class="align_center">
-			<a id="new_comment_tab_btn" class="open-comment-form" href="#new_comment_form">Escriba su comentario! </a>
+			<a id="new_comment_tab_btn" class="open-comment-form" href="#confirmacion">Escriba su comentario! </a>
 		</p>
 	</div>
 </div>
 
 
 
+
+
+
 <!-- Fancybox -->
+
 <div style="display:none">
 	<div id="new_comment_form" style="display: none;">
 		<form id="id_new_comment_form" action="#">
@@ -347,17 +351,17 @@
 						<a href="#" onclick="$.fancybox.close();">Cancelar</a>
 					</p>
 					<div class="clearfix"></div>
+
 				</div>
 			</div>
 		</form><!-- /end new_comment_form_content -->
 	</div>
 </div>
 
-
-<div class="fancybox-wrap fancybox-desktop fancybox-type-html fancybox-opened" tabindex="-1" style="display: none;opacity: 1; overflow: visible; height: auto; width: 550px; position: fixed; top: 222px; left: 22px;">
-	<div class="fancybox-skin" style="padding: 15px; width: auto; height: auto;">
+<div id="confirmacion" class="fancybox-wrap fancybox-desktop fancybox-type-html fancybox-opened" tabindex="-1" style="display: none; opacity: 1; overflow: visible; height: auto; width: 550px; position: fixed; top: 222px; left: 22px;">
+	<div class="fancybox-skin" style="display: none; padding: 15px; width: auto; height: auto;">
 		<div class="fancybox-outer">
-			<div class="fancybox-inner" style="overflow: auto; width: 520px; height: auto;">
+			<div class="fancybox-inner" style="display: none; overflow: auto; width: 520px; height: auto;">
 				<h2>Nuevo comentario</h2>
 				<p>Tu comentario ha sido añadido y estará disponible una vez lo apruebe un moderador.</p>
 				<br><p class="submit" style="text-align:right; padding-bottom: 0">
@@ -370,6 +374,10 @@
 		<a title="Close" class="fancybox-item fancybox-close" href="javascript:;"></a>
 	</div>
 </div>
+
+
+<div class="fancybox-overlay fancybox-overlay-fixed" style="display: none; width: auto; height: auto;"></div>
+
 
 
 <!-- End fancybox -->
@@ -1803,7 +1811,6 @@
 <script>
 
   function addComentario(id){
-		var calificacion = 0;
 		var x = document.getElementsByName("cal");
 
 		var calificacion =x[0].value;
@@ -1818,14 +1825,16 @@
 					titulo: titulo,
 					comentario: comentario
         },
-        success: function(id){
-					alert("Agregado");
+        success: function(){
+					$("#new_comment_form").hide("fast");
+					$(".fancybox-overlay").show("fast");
+					$("#confirmacion").show("fast");
 
 
         },
 
         error: function(data){
-          alert('Error en la compra');
+          alert('Error al registrar el comentario');
         }
       });
   }
