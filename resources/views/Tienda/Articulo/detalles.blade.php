@@ -321,7 +321,6 @@ var moderation_active = 1;
 		<p class="align_center">
 			<a id="new_comment_tab_btn" class="open-comment-form" href="#new_comment_form">Escriba su comentario! </a>
 		</p>
-
 	</div>
 </div>
 
@@ -352,32 +351,31 @@ var moderation_active = 1;
 				<div id="new_comment_form_error" class="error" style="display:none;padding:15px 25px">
 					<ul></ul>
 				</div>
-									<ul id="criterions_list">
-											<li>
-							<label>Quality</label>
+				<ul id="criterions_list">
+					<li>
+						<label>Calificación</label>
 							<div class="star_content">
-								<input class="star" type="radio" name="criterion[1]" value="1" />
-								<input class="star" type="radio" name="criterion[1]" value="2" />
-								<input class="star" type="radio" name="criterion[1]" value="3" />
-								<input class="star" type="radio" name="criterion[1]" value="4" />
-								<input class="star" type="radio" name="criterion[1]" value="5" checked="checked" />
+								<input class="star" type="radio" name="cal" value="1" />
+								<input class="star" type="radio" name="cal" value="2" />
+								<input class="star" type="radio" name="cal" value="3" />
+								<input class="star" type="radio" name="cal" value="4" />
+								<input class="star" type="radio" name="cal" value="5" checked="checked" />
 							</div>
 							<div class="clearfix"></div>
 						</li>
 										</ul>
 
-				<label for="content">Su comentario<sup class="required">*</sup></label>
-				<textarea id="content" name="content"></textarea>
 
-								<label>Su nombre<sup class="required">*</sup></label>
-				<input id="commentCustomerName" name="customer_name" type="text" value=""/>
+				<label for="content">Su comentario<sup class="required">*</sup></label>
+				<textarea id="comentario" name="content"></textarea>
+
+
 
 				<div id="new_comment_form_footer">
-					<input id="id_product_comment_send" name="id_product" type="hidden" value='1' />
-					<p class="fl required"><sup>*</sup> Campos obligatorios</p>
+					
 					<p class="fr">
-						<button id="submitNewMessage" name="submitMessage" type="submit">Enviar</button>&nbsp;
-						total&nbsp;<a href="#" onclick="$.fancybox.close();">Cancelar</a>
+						<a onclick="addComentario({{$articulos[0]->id}})" href="javascript:void(0)" class="btn btn-default">Enviar
+						</a><a href="#" onclick="$.fancybox.close();">Cancelar</a>
 					</p>
 					<div class="clearfix"></div>
 
