@@ -292,9 +292,35 @@
 
 
 <div id="idTab5">
+	<div class="content_sortPagiBar_top">
+		<div id="pagination" class="pagination clearfix">
+			<ul class="pagination">
+					{!!$comentariosPag->render()!!}
+
+			</ul>
+		</div>
+	</div>
 	<div id="product_comments_block_tab">
+		@foreach($comentariosPag as $comentario)
+		<div class="comment clearfix">
+			<div class="comment_author">
+
+				<div class="comment_author_infos">
+					<strong>{{$comentario->califica->nombreEstablecimiento}} <em>{{$comentario->created_at}}</em></strong>
+
+				</div>
+				<div id="stars{{$comentario->id}}" class="star_content clearfix">
+				</div>
+			</div>
+			<div class="comment_details">
+				<h4 class="title_block"></h4>
+				<p>{{$comentario->comentario}}</p>
+			</div>
+		</div>
+	@endforeach
+
 		<p class="align_center">
-			<a id="new_comment_tab_btn" class="open-comment-form" href="#confirmacion">Escriba su comentario! </a>
+			<a id="new_comment_tab_btn" class="open-comment-form" href="#new_comment_form">Escriba su comentario! </a>
 		</p>
 	</div>
 </div>
@@ -305,6 +331,10 @@
 
 
 <!-- Fancybox -->
+
+
+
+
 
 <div style="display:none">
 	<div id="new_comment_form" style="display: none;">
@@ -358,22 +388,11 @@
 	</div>
 </div>
 
-<div id="confirmacion" class="fancybox-wrap fancybox-desktop fancybox-type-html fancybox-opened" tabindex="-1" style="display: none; opacity: 1; overflow: visible; height: auto; width: 550px; position: fixed; top: 222px; left: 22px;">
-	<div class="fancybox-skin" style="display: none; padding: 15px; width: auto; height: auto;">
-		<div class="fancybox-outer">
-			<div class="fancybox-inner" style="display: none; overflow: auto; width: 520px; height: auto;">
-				<h2>Nuevo comentario</h2>
-				<p>Tu comentario ha sido añadido y estará disponible una vez lo apruebe un moderador.</p>
-				<br><p class="submit" style="text-align:right; padding-bottom: 0">
-					<button type="submit" class="button btn-default button-medium" style="margin-right: 5px;" value="true" onclick="$.fancybox.close();window['productcommentRefreshPage'](JSON.parse(unescape('0')), 0)">
-						<span>ok</span>
-					</button>
-				</p>
-			</div>
-		</div>
-		<a title="Close" class="fancybox-item fancybox-close" href="javascript:;"></a>
-	</div>
-</div>
+
+
+
+
+
 
 
 <div class="fancybox-overlay fancybox-overlay-fixed" style="display: none; width: auto; height: auto;"></div>
@@ -1809,6 +1828,24 @@
 </script>
 
 <script>
+
+	$(function(){
+		var i;
+		JSONComentarios = eval(<?php echo json_encode($comentarios);?>);
+		JSONComentarios.forEach(function(currentValue,index,arr) {
+			i=1;
+			for(i; i<=5 ;i++){
+				if(i<=currentValue.calificacion){
+					$('#stars'+currentValue.id).append('<div class="star star_on"></div>');
+				}
+				else{
+					$('#stars'+currentValue.id).append('<div class="star"></div>');
+				}
+			}
+		});
+	});
+
+
 
   function addComentario(id){
 		var x = document.getElementsByName("cal");

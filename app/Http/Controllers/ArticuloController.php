@@ -65,7 +65,11 @@ class ArticuloController extends Controller
   public function verArticulo($id_articulo){
     $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
     $articulo = Articulo::where('id',$id_articulo)->get();
-    return view('Tienda/Articulo/detalles')->with('carritos',$carritos)->with('articulos', $articulo);
+
+    $comentariosPag=Comentario::ListarComentarios($id_articulo)->paginate(5);
+    $comentarios=Comentario::ListarComentarios($id_articulo)->get();
+
+    return view('Tienda/Articulo/detalles')->with('carritos',$carritos)->with('articulos', $articulo)->with('comentarios', $comentarios)->with('comentariosPag', $comentariosPag);
   }
   public function verVistaArticulo($id_articulo){
     $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
