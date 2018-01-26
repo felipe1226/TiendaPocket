@@ -367,8 +367,6 @@
 							<div class="clearfix"></div>
 						</li>
 										</ul>
-								<label for="comment_title">Título de su comentario<sup class="required">*</sup></label>
-				<input id="titulo" name="title" type="text" value=""/>
 
 				<label for="content">Su comentario<sup class="required">*</sup></label>
 				<textarea id="comentario" name="content"></textarea>
@@ -1859,7 +1857,6 @@
         data: {
           id_articulo: id,
 					calificacion: calificacion,
-					titulo: titulo,
 					comentario: comentario
         },
         success: function(){

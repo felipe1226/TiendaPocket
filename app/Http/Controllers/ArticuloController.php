@@ -86,7 +86,6 @@ class ArticuloController extends Controller
     $comentarios->id_empresa = Auth::user()->idEmpresa;
     $comentarios->id_articulo = $request->id_articulo;
     $comentarios->calificacion = $request->calificacion;
-    $comentarios->titulo = $request->titulo;
     $comentarios->comentario = $request->comentario;
 
     $comentarios->save();
