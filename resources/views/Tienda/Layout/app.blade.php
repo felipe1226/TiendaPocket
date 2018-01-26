@@ -54,51 +54,51 @@
 
 
 						<script type="text/javascript">
-var CUSTOMIZE_TEXTFIELD = 1;
-var FancyboxI18nClose = 'Close';
-var FancyboxI18nNext = 'Next';
-var FancyboxI18nPrev = 'Previous';
-var add_compare_item = 'Product successfully added to the product comparison';
-var added_to_wishlist = 'El producto se ha añadido con éxito a su lista de deseos.';
-var ajax_allowed = true;
-var ajaxsearch = true;
-var baseDir = 'http://localhost/TiendaPocket/public/';
-var baseUri = 'http://localhost/TiendaPocket/public/';
-var comparator_max_item = 3;
-var comparedProductsIds = [22];
-var contentOnly = false;
-var currency = {"id":1,"name":"USD","iso_code":"USD","iso_code_num":"840","sign":"$","blank":"0","conversion_rate":"1.000000","deleted":"0","format":"1","decimals":"1","active":"1","prefix":"$ ","suffix":"","id_shop_list":null,"force_id":false};
-var currencyBlank = 0;
-var currencyFormat = 1;
-var currencyRate = 1;
-var currencySign = '$';
-var customizationIdMessage = 'Customization #';
-var delete_txt = 'Delete';
-var displayList = false;
-var freeProductTranslation = 'Free!';
-var freeShippingTranslation = 'Free shipping!';
-var generated_date = 1516121359;
-var id_lang = 4;
-var img_dir = 'http://prestashop.flytheme.net/sp_market/themes/sp_market/img/';
-var instantsearch = false;
-var isGuest = 0;
-var isLogged = 1;
-var isMobile = false;
-var loggin_required = 'Debe identificarse para administrar su lista de deseos.';
-var max_item = 'You cannot add more than 3 product(s) to the product comparison';
-var min_item = 'Please select at least one product';
-var mywishlist_url = 'http://prestashop.flytheme.net/sp_market/es/module/blockwishlist/mywishlist';
-var page_name = 'my-account';
-var priceDisplayMethod = 1;
-var priceDisplayPrecision = 2;
-var quickView = true;
-var remove_compare_item = 'Product successfully removed from the product comparison';
-var removingLinkText = 'remove this product from my cart';
-var roundMode = 2;
-var static_token = '37dab0cd8f57363d790bac16e0dd0e45';
-var token = 'e7a94a67a2d06ed0af03a2d1f4e4a2fb';
-var usingSecureMode = false;
-var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"0","name":"Aliquam Leberkas","id_product_attribute":"0","priority":"1","link_rewrite":"faded-short-sleeves-tshirt","category_rewrite":"electronics","attributes_small":""},{"id_product":"2","quantity":"14","product_quantity":"0","name":"Aliquam lobortis","id_product_attribute":"0","priority":"0","link_rewrite":"blouse","category_rewrite":"electronics","attributes_small":""},{"id_product":"4","quantity":"5","product_quantity":"0","name":"Nulla tenderloin","id_product_attribute":"0","priority":"1","link_rewrite":"printed-dress","category_rewrite":"electronics","attributes_small":""},{"id_product":"5","quantity":"2","product_quantity":"0","name":"Cauris venenatis","id_product_attribute":"0","priority":"1","link_rewrite":"printed-summer-dress","category_rewrite":"electronics","attributes_small":""},{"id_product":"8","quantity":"4","product_quantity":"0","name":"Etiam Andouille","id_product_attribute":"0","priority":"1","link_rewrite":"printed-dress","category_rewrite":"electronics","attributes_small":""},{"id_product":"59","quantity":"1","product_quantity":"0","name":"Cillum eiusmod","id_product_attribute":"0","priority":"1","link_rewrite":"faded-short-sleeves-tshirt","category_rewrite":"electronics","attributes_small":""}];
+						var CUSTOMIZE_TEXTFIELD = 1;
+						var FancyboxI18nClose = 'Close';
+						var FancyboxI18nNext = 'Next';
+						var FancyboxI18nPrev = 'Previous';
+						var add_compare_item = 'Product successfully added to the product comparison';
+						var added_to_wishlist = 'El producto se ha añadido con éxito a su lista de deseos.';
+						var ajax_allowed = true;
+						var ajaxsearch = true;
+						var baseDir = 'http://localhost/TiendaPocket/public/';
+						var baseUri = 'http://localhost/TiendaPocket/public/';
+						var comparator_max_item = 3;
+						var comparedProductsIds = [22];
+						var contentOnly = false;
+						var currency = {"id":1,"name":"USD","iso_code":"USD","iso_code_num":"840","sign":"$","blank":"0","conversion_rate":"1.000000","deleted":"0","format":"1","decimals":"1","active":"1","prefix":"$ ","suffix":"","id_shop_list":null,"force_id":false};
+						var currencyBlank = 0;
+						var currencyFormat = 1;
+						var currencyRate = 1;
+						var currencySign = '$';
+						var customizationIdMessage = 'Customization #';
+						var delete_txt = 'Delete';
+						var displayList = false;
+						var freeProductTranslation = 'Free!';
+						var freeShippingTranslation = 'Free shipping!';
+						var generated_date = 1516121359;
+						var id_lang = 4;
+						var img_dir = 'http://prestashop.flytheme.net/sp_market/themes/sp_market/img/';
+						var instantsearch = false;
+						var isGuest = 0;
+						var isLogged = 1;
+						var isMobile = false;
+						var loggin_required = 'Debe identificarse para administrar su lista de deseos.';
+						var max_item = 'You cannot add more than 3 product(s) to the product comparison';
+						var min_item = 'Please select at least one product';
+						var mywishlist_url = 'http://prestashop.flytheme.net/sp_market/es/module/blockwishlist/mywishlist';
+						var page_name = 'my-account';
+						var priceDisplayMethod = 1;
+						var priceDisplayPrecision = 2;
+						var quickView = true;
+						var remove_compare_item = 'Product successfully removed from the product comparison';
+						var removingLinkText = 'remove this product from my cart';
+						var roundMode = 2;
+						var static_token = '37dab0cd8f57363d790bac16e0dd0e45';
+						var token = 'e7a94a67a2d06ed0af03a2d1f4e4a2fb';
+						var usingSecureMode = false;
+						var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"0","name":"Aliquam Leberkas","id_product_attribute":"0","priority":"1","link_rewrite":"faded-short-sleeves-tshirt","category_rewrite":"electronics","attributes_small":""},{"id_product":"2","quantity":"14","product_quantity":"0","name":"Aliquam lobortis","id_product_attribute":"0","priority":"0","link_rewrite":"blouse","category_rewrite":"electronics","attributes_small":""},{"id_product":"4","quantity":"5","product_quantity":"0","name":"Nulla tenderloin","id_product_attribute":"0","priority":"1","link_rewrite":"printed-dress","category_rewrite":"electronics","attributes_small":""},{"id_product":"5","quantity":"2","product_quantity":"0","name":"Cauris venenatis","id_product_attribute":"0","priority":"1","link_rewrite":"printed-summer-dress","category_rewrite":"electronics","attributes_small":""},{"id_product":"8","quantity":"4","product_quantity":"0","name":"Etiam Andouille","id_product_attribute":"0","priority":"1","link_rewrite":"printed-dress","category_rewrite":"electronics","attributes_small":""},{"id_product":"59","quantity":"1","product_quantity":"0","name":"Cillum eiusmod","id_product_attribute":"0","priority":"1","link_rewrite":"faded-short-sleeves-tshirt","category_rewrite":"electronics","attributes_small":""}];
 </script>
 
 						<script type="text/javascript" src="http://localhost/TiendaPocket/public/js/jquery/jquery-1.11.0.min.js"></script>
@@ -106,6 +106,7 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"
 							<script type="text/javascript" src="http://localhost/TiendaPocket/public/js/jquery/plugins/jquery.easing.js"></script>
 							<script type="text/javascript" src="http://localhost/TiendaPocket/public/js/tools.js"></script>
 							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/global.js"></script>
+							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/alerta.js"></script>
 							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/autoload/10-bootstrap.min.js"></script>
 							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/autoload/15-jquery.total-storage.min.js"></script>
 							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/autoload/15-jquery.uniform-modified.js"></script>
@@ -136,11 +137,9 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"
 							<script type="text/javascript" src="http://localhost/TiendaPocket/public/modules/productcomments/js/jquery.rating.pack.js"></script>
 							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/modules/productcomments/js/productcomments.js"></script>
 
-
-
 	</head>
 
-	<body id="my-account"   itemscope itemtype="http://schema.org/WebPage" class="blog-small_image content-v1  index   lang_es patternnone layout-full slider-imgpr-0  secondImage-0" data-content="content-v1">
+	<body id="my-account" itemscope itemtype="http://schema.org/WebPage" class="blog-small_image content-v1  index   lang_es patternnone layout-full slider-imgpr-0  secondImage-0" data-content="content-v1">
 		<div id="wrapper" >
 									 <!-- Header -->
 									 <div class="header-container">
@@ -192,32 +191,33 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"
 							<div class="row">
 								<div id="header_logo" class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 									<a class="logo" href="{{url('Tienda')}}" title="POCKETSHOT">
-										<img  src="http://localhost/TiendaPocket/public/img/sp-g3shop-logo-1472003784.jpg" alt="SP Market" width="250" height="70"/>
+										<img  src="http://localhost/TiendaPocket/public/img/sp-g3shop-logo-1472003784.jpg" alt="SmartShop" width="250" height="70"/>
 									</a>
 								</div>
 								<div id="header_search" class="col-lg-7 col-md-6 col-sm-6 col-xs-12 hidden-xs">
 									<div class="sp_searchpro ">
 										<div id="sp_search_pro_1" class="spr-container spr-preload"><!--<![endif]-->
-											<form class="sprsearch-form  show-box" method="get" action="http://prestashop.flytheme.net/sp_market/es/module/spsearchpro/catesearch">
+											<form class="sprsearch-form">
 												<div class="spr_selector">
-													<select class="spr_select">
-														<option>Categorias</option>
+													<select id="selectCategoria" class="spr_select">
+														<option value="Categorias">Categorias</option>
 														<option value="PocketClub">PocketClub</option>
 														<option value="licores">Licores</option>
 														<option value="electronicos">Electronicos</option>
-														<option value="utensilios">Cocteleria</option>
-														<option value="utensilios">Cocina</option>
+														<option value="Cocteleria">Cocteleria</option>
+														<option value="Cocina">Cocina</option>
 														<option value="publicitarios">Publicitarios</option>
 														<option value="Herramientas">Herramientas y Decoracion</option>
 													</select>
 												</div>
 												<div class="text-search">
-													<input class="spr-query" type="text" name="search_query" value="" placeholder="¿Que buscas?"/>
+													<input id="campoArticulo" class="spr-query" type="text" name="search_query" value="" placeholder="¿Que buscas?" required/>
 												</div>
-												<button value="Buscar" class="spr-search-button" type="submit" name="spr_submit_search">
+												<a href="javascript:void(0)" onclick="buscarArticulo()" class="spr-search-button" >
 													<i class="fa fa-search" aria-hidden="true"></i>
-												</button>
+												</a>
 											</form>
+
 										</div>
 
                 		<script type="text/javascript">
@@ -256,18 +256,11 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"
 														<span class="text-cart4">Carrito</span>
 														<span class="line line4"> - </span>
 														<span class="ajax_cart_empty">0</span>
-														<span id="cantArticulos" value="{{count($carritos)}}" class="ajax_cart_quantity">{{count($carritos)}}</span>
+														<span id="cantArticulos" class="ajax_cart_quantity">{{count($carritos)}}</span>
 														<span class="ajax_cart_quantity_text">Artículos</span>
 														<span class="line line4 arrow"><i class="fa fa-caret-down"></i></span>
 														<span class="line"> - </span>
-														<?php
-															$totalCarrito = 0;
-															foreach($carritos as $carrito){
-																$totalCarrito += $carrito->cantidad * $carrito->almacena->precio;
-															}
-
-														echo '<span id="totalCarrito" value="'.$totalCarrito.'" class="ajax_cart_total">$'.$totalCarrito.'</span>';
-														?>
+														<span id="totalCarrito1" value="0" class="ajax_cart_total"></span>
 												</a>
 												<div class="cart_block block exclusive">
 													<div class="block_content">
@@ -293,12 +286,9 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"
 																								<a class="cart_block_product_name" href="#">{{$carrito->almacena->nombre}}
 																								</a>
 																							</div>
-																							<span class="price">$
-																								<?php
-																									echo $carrito->almacena->precio * $carrito->cantidad;
-																								?>
+																							<span id="precioArticulo{{$carrito->id_articulo}}" class="price">
 																							</span>
-																							<span class="quantity-formated titleFont">Cantidad: {{$carrito->cantidad}}</span>
+																							<span id="cantidadArticulo{{$carrito->id_articulo}}" class="quantity-formated titleFont">Cantidad: {{$carrito->cantidad}}</span>
 																						</div>
 																						<span class="remove_link"><a onclick="eliminardeLayout({{$carrito->id}})" rel="nofollow" class="ajax_cart_block_remove_link" href="javascript:void(0)"> <i class="fa fa-trash"></i></a></span>
 																					</dt>
@@ -309,7 +299,7 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"
 															@endif
 																<div class="price-total titleFont">
 																	<span class="price_text">Total : </span>
-																	<span id="totalCarrito" class="price cart_block_total ajax_block_cart_total"></span>
+																	<span id="totalCarrito2" class="price cart_block_total ajax_block_cart_total"></span>
 																	</div>
 
 															<div class="buttons">
@@ -564,7 +554,7 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"
 											<span class="label-menu">Menu</span>
 											<div class="sp-megamenu-container">
 												<div class="home">
-													<a href="http://prestashop.flytheme.net/sp_market/">Nuevo</a>
+													<a href="{{url('Articulos/Nuevos')}}">Nuevo</a>
 												</div>
 												<ul class="nav navbar-nav  menu sp_lesp level-1">
 													<li class="item-1 contactus" ><a href="{{url('Contactenos/')}}"><p><span class="hot">Nuevo</span></p> Contáctenos</a>
@@ -729,39 +719,72 @@ var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"
 			 					</div><!-- #page -->
 
 
-								<script>
+	<script>
+		$(function() {
+			var totalCarrito = 0;
 
-									$(function() {
-										var totalCarrito = 0;
-										JSONCarritos = eval(<?php echo json_encode($carritos);?>);
-										JSONCarritos.forEach(function(currentValue,index,arr) {
-											totalCarrito += eval(currentValue.precio * currentValue.cantidad);
+			JSONCarritos = eval(<?php echo json_encode($carritos);?>);
+			JSONCarritos.forEach(function(currentValue,index,arr) {
+				$('#precioArticulo'+currentValue.id_articulo).html("$"+eval(currentValue.almacena.precio * currentValue.cantidad));
+				totalCarrito += eval(currentValue.almacena.precio * currentValue.cantidad);
+			});
+			$('#totalCarrito1').html("$"+totalCarrito);
+			$('#totalCarrito1').val(totalCarrito);
+			$('#totalCarrito2').html("$"+totalCarrito);
+		 });
 
-										});
-										$('#totalCarrito').html(totalCarrito);
+		function eliminardeLayout(idCarrito){
 
-									 });
+				$.ajax({
+					url: baseDir+"Carrito/eliminar",
+					type: 'GET',
+					data: {
+						id: idCarrito
+					},
+					success: function(){
+						$('#articulo'+idCarrito).fadeOut('slow', function() {
+									$.scrollTo(this, 2000);
+									var totalCarrito = 0;
+									var cantidad = parseInt($('#cantArticulos').html())-1;
+									JSONCarritos = eval(<?php echo json_encode($carritos);?>);
+									JSONCarritos.forEach(function(currentValue,index,arr) {
+										if(currentValue.id == idCarrito){
+											totalCarrito = parseInt($('#totalCarrito1').val()) - eval(currentValue.almacena.precio * currentValue.cantidad);
+										}
+									});
+									$('#cantArticulos').html(cantidad);
+									$('#cantArticulos').val(cantidad);
 
-									function eliminardeLayout(idCarrito){
+									$('#totalCarrito1').html("$"+totalCarrito);
+									$('#totalCarrito1').val(totalCarrito);
+									$('#totalCarrito2').html("$"+totalCarrito);
+						});
 
-											$.ajax({
-												url: baseDir+"Carrito/eliminar",
-												type: 'GET',
-												data: {
-													id: idCarrito
-												},
-												success: function(){
-													$('#articulo'+idCarrito).fadeOut('slow', function() {
-								                $.scrollTo(this, 2000);
-								          });
+					},
+					error: function(data){
+						alert('No se puede eliminar el articulo del carrito');
+					}
+				});
+		}
 
-												},
-												error: function(data){
-													alert('No se puede eliminar el articulo del carrito');
-												}
-											});
-									}
-								</script>
+		function buscarArticulo(){
+			var categoria = $('#selectCategoria').val();
+			var articulo = ($('#campoArticulo').val()).trim();
+			if(categoria == "Categorias" && articulo == ""){
+				alert("No hay parametros de busqueda");
+			}
+			else{
+				if(articulo == ""){
+					location.href=baseDir+"Articulos/"+categoria;
+				}
+				else{
+					location.href=baseDir+"Articulos/"+categoria+"/"+articulo;
+				}
+			}
+
+
+		}
+	</script>
 
 
 	</body>

@@ -69,7 +69,7 @@
                						    </select>
                						</div>
                               <div class="form-group" style="margin:0;">
-                   							<label for="imagenArticulo">Imagen</label>
+                   							<label for="imagenArticulo">Imagen 1(Principal)</label>
                    						</div>
                               <input type="hidden" name="MAX_FILE_SIZE" value="2097152000" />
                               <input type="file" name="imagenArticulo" class="form-control" />

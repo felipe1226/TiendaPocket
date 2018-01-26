@@ -1,7 +1,8 @@
 @extends('Tienda.Layout.app')
 @section('content')
 
-<div class="breadcrumb-container">
+
+			<div class="breadcrumb-container">
 				<div class="container">
 
 			<!-- Breadcrumb -->
@@ -275,21 +276,19 @@
 				<!--end Data sheet -->
 
 				<!--HOOK_PRODUCT_TAB -->
-<section id="idTab3" class="page-product-box">
-	<script type="text/javascript">
-	var productcomments_controller_url ='../module/productcomments/default.html';
-	var confirm_report_message = '¿Seguro que quieres denunciar este comentario?';
-	var secure_key = 'e52bc577064e334121cf82375ad5fce9';
-	var productcomments_url_rewrite = '1';
-	var productcomment_added = '¡Tu comentario ha sido añadido!';
-	var productcomment_added_moderation = 'Tu comentario ha sido añadido y estará disponible una vez lo apruebe un moderador.';
-	var productcomment_title = 'Nuevo comentario';
-	var productcomment_ok = 'ok';
-	var moderation_active = 1;
+					<section id="idTab3" class="page-product-box">
+
+						<script type="text/javascript">
+var productcomments_controller_url = '../module/productcomments/default.html';
+var confirm_report_message = '¿Seguro que quieres denunciar este comentario?';
+var secure_key = 'e52bc577064e334121cf82375ad5fce9';
+var productcomments_url_rewrite = '1';
+var productcomment_added = '¡Tu comentario ha sido añadido!';
+var productcomment_added_moderation = 'Tu comentario ha sido añadido y estará disponible una vez lo apruebe un moderador.';
+var productcomment_title = 'Nuevo comentario';
+var productcomment_ok = 'ok';
+var moderation_active = 1;
 </script>
-
-
-
 
 <div id="idTab5">
 	<div class="content_sortPagiBar_top">
@@ -322,6 +321,7 @@
 		<p class="align_center">
 			<a id="new_comment_tab_btn" class="open-comment-form" href="#new_comment_form">Escriba su comentario! </a>
 		</p>
+
 	</div>
 </div>
 
@@ -337,46 +337,47 @@
 
 
 <div style="display:none">
-	<div id="new_comment_form" style="display: none;">
+	<div id="new_comment_form">
 		<form id="id_new_comment_form" action="#">
 			<h2 class="title">Escriba su comentario</h2>
-			<div class="product clearfix">
+						<div class="product clearfix">
 				<img src="../../6-medium_default/faded-short-sleeves-tshirt.jpg" height="150" width="150" alt="" />
 				<div class="product_desc">
 					<p class="product_name"><strong></strong></p>
+
 				</div>
 			</div>
-			<div class="new_comment_form_content">
+						<div class="new_comment_form_content">
 				<h2>Escriba su comentario</h2>
 				<div id="new_comment_form_error" class="error" style="display:none;padding:15px 25px">
 					<ul></ul>
 				</div>
-				<ul id="criterions_list">
-					<li>
-						<label>Calificación</label>
-
-
-
+									<ul id="criterions_list">
+											<li>
+							<label>Quality</label>
 							<div class="star_content">
-								<input class="star" type="radio" name="cal" value="1" />
-								<input class="star" type="radio" name="cal" value="2" />
-								<input class="star" type="radio" name="cal" value="3" />
-								<input class="star" type="radio" name="cal" value="4" />
-								<input class="star" type="radio" name="cal" value="5" checked="checked" />
+								<input class="star" type="radio" name="criterion[1]" value="1" />
+								<input class="star" type="radio" name="criterion[1]" value="2" />
+								<input class="star" type="radio" name="criterion[1]" value="3" />
+								<input class="star" type="radio" name="criterion[1]" value="4" />
+								<input class="star" type="radio" name="criterion[1]" value="5" checked="checked" />
 							</div>
 							<div class="clearfix"></div>
 						</li>
 										</ul>
 
 				<label for="content">Su comentario<sup class="required">*</sup></label>
-				<textarea id="comentario" name="content"></textarea>
+				<textarea id="content" name="content"></textarea>
+
+								<label>Su nombre<sup class="required">*</sup></label>
+				<input id="commentCustomerName" name="customer_name" type="text" value=""/>
 
 				<div id="new_comment_form_footer">
-
+					<input id="id_product_comment_send" name="id_product" type="hidden" value='1' />
+					<p class="fl required"><sup>*</sup> Campos obligatorios</p>
 					<p class="fr">
-						<a onclick="addComentario({{$articulos[0]->id}})" href="javascript:void(0)" class="btn btn-default">Enviar
-						</a>
-						<a href="#" onclick="$.fancybox.close();">Cancelar</a>
+						<button id="submitNewMessage" name="submitMessage" type="submit">Enviar</button>&nbsp;
+						total&nbsp;<a href="#" onclick="$.fancybox.close();">Cancelar</a>
 					</p>
 					<div class="clearfix"></div>
 
@@ -408,8 +409,6 @@
 
 											</div>
 		</div>
-
-
 
 
 
@@ -1249,24 +1248,38 @@
 		<span class="nb-comments"><span itemprop="reviewCount">0</span> Comentario(s)</span>
 	</div>
 
-	<!--Product Prices-->
-	<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="price-box">
-		<span itemprop="price" class="price product-price">$70.00								</span>
-		<meta itemprop="priceCurrency" content="USD" />
-	</div>
+
+						<!--Product Prices-->
+												<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="price-box">
+															<span itemprop="price" class="price product-price">
+									$70.00								</span>
+								<meta itemprop="priceCurrency" content="USD" />
+
+
+													</div>
 
 
 						<!--Product Buttons-->
 							<div class="button-container">
-								<a class=" cart_button ajax_add_to_cart_button" href="../order2e06.html?add=1&amp;id_product=55&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f" rel="nofollow"  title="Añadir al carrito" data-id-product="55">COMPRAR</a>
 
-								<a class="addToWishlist wishlistProd_55" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '55', false, 1); return false;">
-									<i class="fa fa-heart"></i></a>
+																																						<a class=" cart_button ajax_add_to_cart_button" href="../order2e06.html?add=1&amp;id_product=55&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f" rel="nofollow"  title="Añadir al carrito" data-id-product="55">
+												COMPRAR
+											</a>
 
-								<a class="add_to_compare" href="55-faded-short-sleeves-tshirt.html" data-tooltip-remove="Remove from compare" title="Add to compare" data-id-product="55"><i class="fa fa-bar-chart"></i></a>
+
+	<a class="addToWishlist wishlistProd_55" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '55', false, 1); return false;">
+		<i class="fa fa-heart"></i>
+	</a>
+
+
+
+																	<a class="add_to_compare" href="55-faded-short-sleeves-tshirt.html" data-tooltip-remove="Remove from compare" title="Add to compare" data-id-product="55">
+										<i class="fa fa-bar-chart"></i></a>
 									</a>
-								</div>
+
+
 							</div>
+					</div>
 
 
 			</li>
@@ -1279,12 +1292,19 @@
 							<div class="product-image">
 								<a href="56-faded-short-sleeves-tshirt.html" title="Oausage consectet">
 									<img class="img_1" src="../../279-home_default/faded-short-sleeves-tshirt.jpg"  alt="Oausage consectet" />
-										<img class="img_0" src="../../278-home_default/faded-short-sleeves-tshirt.jpg" alt="" itemprop="image" />
-									</a>
+										<img
+		class="img_0"
+		src="../../278-home_default/faded-short-sleeves-tshirt.jpg"
+		alt=""
+		itemprop="image" />
+
+								</a>
 							</div>
-							<div class="label-box">
-								<span class="new-box">New</span>
-							</div>
+
+															<div class="label-box">
+																			<span class="new-box">New</span>
+
+																	</div>
 
 							<!--   Enable quick view   -->
 							<a class="quick-view" href="56-faded-short-sleeves-tshirt.html" title="Quick view" data-rel="56-faded-short-sleeves-tshirt.html">
@@ -1332,7 +1352,10 @@
 
 						<!--Product Buttons-->
 							<div class="button-container">
-								<a class=" cart_button ajax_add_to_cart_button" href="../orderc99b.html?add=1&amp;id_product=56&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f" rel="nofollow"  title="Añadir al carrito" data-id-product="56">COMPRAR</a>
+
+																																						<a class=" cart_button ajax_add_to_cart_button" href="../orderc99b.html?add=1&amp;id_product=56&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f" rel="nofollow"  title="Añadir al carrito" data-id-product="56">
+												COMPRAR
+											</a>
 
 
 	<a class="addToWishlist wishlistProd_56" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '56', false, 1); return false;">
@@ -1412,15 +1435,25 @@
 
 						<!--Product Buttons-->
 							<div class="button-container">
-								<a class=" cart_button ajax_add_to_cart_button" href="../order61d1.html?add=1&amp;id_product=57&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f" rel="nofollow"  title="Añadir al carrito" data-id-product="57">COMPRAR</a>
 
-								<a class="addToWishlist wishlistProd_57" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '57', false, 1); return false;">
-									<i class="fa fa-heart"></i></a>
+																																						<a class=" cart_button ajax_add_to_cart_button" href="../order61d1.html?add=1&amp;id_product=57&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f" rel="nofollow"  title="Añadir al carrito" data-id-product="57">
+												COMPRAR
+											</a>
 
-									<a class="add_to_compare" href="57-faded-short-sleeves-tshirt.html" data-tooltip-remove="Remove from compare" title="Add to compare" data-id-product="57"><i class="fa fa-bar-chart"></i></a>
+
+	<a class="addToWishlist wishlistProd_57" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '57', false, 1); return false;">
+		<i class="fa fa-heart"></i>
+	</a>
+
+
+
+																	<a class="add_to_compare" href="57-faded-short-sleeves-tshirt.html" data-tooltip-remove="Remove from compare" title="Add to compare" data-id-product="57">
+										<i class="fa fa-bar-chart"></i></a>
 									</a>
-								</div>
+
+
 							</div>
+					</div>
 
 
 			</li>
@@ -1493,28 +1526,45 @@
 
 						<!--Product Buttons-->
 							<div class="button-container">
-								<a class=" cart_button ajax_add_to_cart_button" href="../orderc321.html?add=1&amp;id_product=58&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f" rel="nofollow"  title="Añadir al carrito" data-id-product="58">COMPRAR</a>
 
-								<a class="addToWishlist wishlistProd_58" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '58', false, 1); return false;">
-									<i class="fa fa-heart"></i>
-								</a>
+																																						<a class=" cart_button ajax_add_to_cart_button" href="../orderc321.html?add=1&amp;id_product=58&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f" rel="nofollow"  title="Añadir al carrito" data-id-product="58">
+												COMPRAR
+											</a>
 
-								<a class="add_to_compare" href="58-faded-short-sleeves-tshirt.html" data-tooltip-remove="Remove from compare" title="Add to compare" data-id-product="58"><i class="fa fa-bar-chart"></i></a>
+
+	<a class="addToWishlist wishlistProd_58" title="Añadir a la lista de deseos" href="#"  onclick="WishlistCart('wishlist_block_list', 'add', '58', false, 1); return false;">
+		<i class="fa fa-heart"></i>
+	</a>
+
+
+
+																	<a class="add_to_compare" href="58-faded-short-sleeves-tshirt.html" data-tooltip-remove="Remove from compare" title="Add to compare" data-id-product="58">
+										<i class="fa fa-bar-chart"></i></a>
 									</a>
-								</div>
+
+
 							</div>
-						</li>
-						<li class="product-box item">
-							<div class="product-container">
-								<div class="left-block">
-									<div class="product-image-container">
+					</div>
+
+
+			</li>
+					<li class="product-box item">
+				<div class="product-container">
+
+					<div class="left-block">
+						<div class="product-image-container">
 							<!--   Slider Images Product   -->
 							<div class="product-image">
 								<a href="59-faded-short-sleeves-tshirt.html" title="Cillum eiusmod">
 									<img class="img_1" src="../../293-home_default/faded-short-sleeves-tshirt.jpg"  alt="Cillum eiusmod" />
-										<img class="img_0" src="../../294-home_default/faded-short-sleeves-tshirt.jpg" alt="" itemprop="image" />
-									</a>
-								</div>
+										<img
+		class="img_0"
+		src="../../294-home_default/faded-short-sleeves-tshirt.jpg"
+		alt=""
+		itemprop="image" />
+
+								</a>
+							</div>
 
 															<div class="label-box">
 																			<span class="new-box">New</span>
@@ -1900,4 +1950,5 @@
 
 							</div>
 						</div>
-					@endsection
+
+										@endsection

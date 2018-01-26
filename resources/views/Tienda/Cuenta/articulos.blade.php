@@ -39,9 +39,7 @@
             <div class="content_sortPagiBar_top">
               <div id="pagination" class="pagination clearfix">
                 <ul class="pagination">
-                  <ul class="pagination">
                     {!!$articulos->render()!!}
-                  </ul>
                 </ul>
               </div>
             </div>
