@@ -168,4 +168,4 @@ Route::resource('ArticulosProveedor', 'ArticuloController@ArtsProveedor');
 
 Route::get('verArticulo/{id}','ArticuloController@verVistaArticulo');
 
-Route::get('Comentario/agregar', 'ArticuloController@AgregarComentario');
+Route::get('Comentario/agregar', 'ArticuloController@agregarComentario');

@@ -291,59 +291,51 @@ var moderation_active = 1;
 </script>
 
 <div id="idTab5">
+	<div class="content_sortPagiBar_top">
+		<div id="pagination" class="pagination clearfix">
+			<ul class="pagination">
+					{!!$comentariosPag->render()!!}
+
+			</ul>
+		</div>
+	</div>
 	<div id="product_comments_block_tab">
-									<div class="comment clearfix">
-				<div class="comment_author">
-					<span>grado&nbsp</span>
-					<div class="star_content clearfix">
-																		<div class="star star_on"></div>
-																								<div class="star star_on"></div>
-																								<div class="star star_on"></div>
-																								<div class="star star_on"></div>
-																								<div class="star"></div>
-																</div>
-					<div class="comment_author_infos">
-						<strong>jjhkjl</strong><br/>
-						<em>2015-12-15</em>
-					</div>
+		@foreach($comentariosPag as $comentario)
+		<div class="comment clearfix">
+			<div class="comment_author">
+
+				<div class="comment_author_infos">
+					<strong>{{$comentario->califica->nombreEstablecimiento}} <em>{{$comentario->created_at}}</em></strong>
+
 				</div>
-				<div class="comment_details">
-					<h4 class="title_block">n,bn,</h4>
-					<p>vgjhgjk</p>
-					<ul>
-																	</ul>
+				<div id="stars{{$comentario->id}}" class="star_content clearfix">
 				</div>
 			</div>
-											<div class="comment clearfix">
-				<div class="comment_author">
-					<span>grado&nbsp</span>
-					<div class="star_content clearfix">
-																		<div class="star star_on"></div>
-																								<div class="star star_on"></div>
-																								<div class="star star_on"></div>
-																								<div class="star"></div>
-																								<div class="star"></div>
-																</div>
-					<div class="comment_author_infos">
-						<strong>etretert</strong><br/>
-						<em>2015-12-15</em>
-					</div>
-				</div>
-				<div class="comment_details">
-					<h4 class="title_block">dfsgdfh</h4>
-					<p>ssdgsdfgsgsđjhgkjgkluyiytu</p>
-					<ul>
-																	</ul>
-				</div>
+			<div class="comment_details">
+				<h4 class="title_block"></h4>
+				<p>{{$comentario->comentario}}</p>
 			</div>
-					        		<p class="align_center">
-			<a id="new_comment_tab_btn" class="open-comment-form" href="#new_comment_form">Escriba su comentario !</a>
+		</div>
+	@endforeach
+
+		<p class="align_center">
+			<a id="new_comment_tab_btn" class="open-comment-form" href="#new_comment_form">Escriba su comentario! </a>
 		</p>
 
 	</div>
 </div>
 
+
+
+
+
+
 <!-- Fancybox -->
+
+
+
+
+
 <div style="display:none">
 	<div id="new_comment_form">
 		<form id="id_new_comment_form" action="#">
@@ -390,11 +382,24 @@ var moderation_active = 1;
 						total&nbsp;<a href="#" onclick="$.fancybox.close();">Cancelar</a>
 					</p>
 					<div class="clearfix"></div>
+
 				</div>
 			</div>
 		</form><!-- /end new_comment_form_content -->
 	</div>
 </div>
+
+
+
+
+
+
+
+
+<div class="fancybox-overlay fancybox-overlay-fixed" style="display: none; width: auto; height: auto;"></div>
+
+
+
 <!-- End fancybox -->
 					</section>
 				<!--end HOOK_PRODUCT_TAB -->
@@ -1870,6 +1875,57 @@ var moderation_active = 1;
 		zoomWindowFadeIn: 500,
 		zoomWindowFadeOut: 750
 	});
+</script>
+
+<script>
+
+	$(function(){
+		var i;
+		JSONComentarios = eval(<?php echo json_encode($comentarios);?>);
+		JSONComentarios.forEach(function(currentValue,index,arr) {
+			i=1;
+			for(i; i<=5 ;i++){
+				if(i<=currentValue.calificacion){
+					$('#stars'+currentValue.id).append('<div class="star star_on"></div>');
+				}
+				else{
+					$('#stars'+currentValue.id).append('<div class="star"></div>');
+				}
+			}
+		});
+	});
+
+
+
+  function addComentario(id){
+		var x = document.getElementsByName("cal");
+
+		var calificacion =x[0].value;
+		var titulo =$('#titulo').val();
+		var comentario =$('#comentario').val();
+      $.ajax({
+        url: "../Comentario/agregar",
+        type: 'GET',
+        data: {
+          id_articulo: id,
+					calificacion: calificacion,
+					titulo: titulo,
+					comentario: comentario
+        },
+        success: function(){
+					$("#new_comment_form").hide("fast");
+					$(".fancybox-overlay").show("fast");
+					$("#confirmacion").show("fast");
+
+
+        },
+
+        error: function(data){
+          alert('Error al registrar el comentario');
+        }
+      });
+  }
+
 </script>
 
 
