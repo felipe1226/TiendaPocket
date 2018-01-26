@@ -318,6 +318,15 @@ var moderation_active = 1;
 		</div>
 	@endforeach
 
+
+
+
+
+
+
+
+
+
 		<p class="align_center">
 			<a id="new_comment_tab_btn" class="open-comment-form" href="#new_comment_form">Escriba su comentario! </a>
 		</p>
@@ -335,7 +344,26 @@ var moderation_active = 1;
 
 
 
+
 <div style="display:none">
+	<div id="confirmacion" class="fancybox-wrap fancybox-desktop fancybox-type-html fancybox-opened" tabindex="-1" style="opacity: 1; overflow: visible; height: auto; width: 550px; position: fixed; top: 222px; left: 22px;">
+		<div class="fancybox-skin" style=" padding: 15px; width: auto; height: auto;">
+			<div class="fancybox-outer">
+				<div class="fancybox-inner" style="overflow: auto; width: 520px; height: auto;">
+					<h2>Nuevo comentario</h2>
+					<p class="fancybox-error">Tu comentario ha sido añadido y estará disponible una vez lo apruebe un moderador.</p>
+					<br><p class="submit" style="text-align:right; padding-bottom: 0">
+						<button type="submit" class="fancybox-item fancybox-close" style="margin-right: 5px;"  onclick="$.fancybox.close()">
+							<span>ok</span>
+						</button>
+					</p>
+				</div>
+			</div>
+			<a title="Close" class="fancybox-item fancybox-close" href="javascript:;"></a>
+		</div>
+		</div>
+
+
 	<div id="new_comment_form">
 		<form id="id_new_comment_form" action="#">
 			<h2 class="title">Escriba su comentario</h2>
@@ -372,7 +400,7 @@ var moderation_active = 1;
 
 
 				<div id="new_comment_form_footer">
-					
+
 					<p class="fr">
 						<a onclick="addComentario({{$articulos[0]->id}})" href="javascript:void(0)" class="btn btn-default">Enviar
 						</a><a href="#" onclick="$.fancybox.close();">Cancelar</a>
@@ -384,8 +412,6 @@ var moderation_active = 1;
 		</form><!-- /end new_comment_form_content -->
 	</div>
 </div>
-
-
 
 
 
