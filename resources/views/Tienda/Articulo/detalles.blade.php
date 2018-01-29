@@ -1894,16 +1894,9 @@ var moderation_active = 1;
 					nuevacalificacion: nuevacalificacion
         },
         success: function(){
-<<<<<<< HEAD
 					location.reload();
 					$("#new_comment_form").hide("fast");
 				},
-=======
-
-					$("#new_comment_form").hide("fast");
-					$(".fancybox-overlay").hide("fast");
-        },
->>>>>>> origin/master
 
         error: function(data){
           alert('Error al registrar el comentario');
