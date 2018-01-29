@@ -82,28 +82,28 @@
 				-->
 				<!-- h=displayRightColumnProduct / Product Comments -->
 									<div class="comments_note" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-
-						<div class="star_content">
-																								<div class="star star_on"></div>
-																																<div class="star star_on"></div>
-																																<div class="star star_on"></div>
-																																<div class="star star_on"></div>
-																																<div class="star"></div>
-																						<meta itemprop="worstRating" content = "0" />
-							<meta itemprop="ratingValue" content = "3.5" />
-							<meta itemprop="bestRating" content = "5" />
+										<input id="calificacion" type="hidden" value="{{$articulos[0]->calificacion}}">
+						<div id="starsArt" class="star_content">
 						</div>
-
 						<ul class="comments_advices">
 							<li class="nb-comments">
 								<a href="#idTab5" class="reviews">
-									 <span itemprop="reviewCount">
-									  											2 Vistas
-									  </span>
-								</a>
-							</li>
-						</ul>
-					</div>
+									<ul class="comments_advices">
+										<li class="nb-comments">
+											<a href="#idTab5" class="reviews">
+												<span itemprop="reviewCount">
+													Comentarios.
+												</span>
+											</a>
+										</li>
+										<li class="write-comments">
+											<a class="open-comment-form" href="#new_comment_form">
+												Agrega tu comentario.
+											</a>
+										</li>
+									</ul>
+
+								</div>
 
 				<div class="content_prices">
 											<!-- prices -->
@@ -362,6 +362,7 @@ var moderation_active = 1;
 			<a title="Close" class="fancybox-item fancybox-close" href="javascript:;"></a>
 		</div>
 		</div>
+
 
 
 	<div id="new_comment_form">
@@ -1902,7 +1903,18 @@ var moderation_active = 1;
 <script>
 
 	$(function(){
-		var i;
+		var i=1;
+		var cal = parseInt($('#calificacion').val());
+
+		for(i; i<=5 ;i++){
+			if(i<=cal){
+				$('#starsArt').append('<div class="star star_on"></div>');
+			}
+			else{
+				$('#starsArt').append('<div class="star"></div>');
+			}
+		}
+
 		JSONComentarios = eval(<?php echo json_encode($comentarios);?>);
 		JSONComentarios.forEach(function(currentValue,index,arr) {
 			i=1;
@@ -1922,18 +1934,32 @@ var moderation_active = 1;
   function addComentario(id){
 		var x = document.getElementsByName("cal");
 
-		var calificacion =x[0].value;
+		var calificacion = x[0].value;
 		var titulo =$('#titulo').val();
 		var comentario =$('#comentario').val();
+		var nuevacalificacion=0;
+		var cont=0;
+		JSONComentarios = eval(<?php echo json_encode($comentarios);?>);
+		JSONComentarios.forEach(function(currentValue,index,arr) {
+			nuevacalificacion+=currentValue.calificacion;
+			cont++;
+		});
+		nuevacalificacion=(nuevacalificacion+ parseInt(calificacion));
+
+		nuevacalificacion=Math.round(nuevacalificacion/(cont+1));
+
       $.ajax({
         url: "../Comentario/agregar",
         type: 'GET',
         data: {
           id_articulo: id,
 					calificacion: calificacion,
-					comentario: comentario
+					comentario: comentario,
+					nuevacalificacion: nuevacalificacion
         },
         success: function(){
+
+
 					$("#new_comment_form").hide("fast");
 					$(".fancybox-overlay").show("fast");
 					$("#confirmacion").show("fast");
