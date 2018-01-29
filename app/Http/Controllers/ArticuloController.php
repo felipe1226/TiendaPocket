@@ -30,7 +30,7 @@ class ArticuloController extends Controller
     $articulo->precio = $request->precio;
     $articulo->impuesto = $request->impuesto;
     $articulo->descripcion = $request->descripcion;
-    $articulo->calificacion=0;
+    $articulo->calificacion=3;
     $img = $request->file('imagenArticulo');
 
     $file_route = time().'_'.$img->getClientOriginalName();

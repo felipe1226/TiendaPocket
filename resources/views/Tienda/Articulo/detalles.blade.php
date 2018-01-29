@@ -87,21 +87,17 @@
 						</div>
 						<ul class="comments_advices">
 							<li class="nb-comments">
-								<a href="#idTab5" class="reviews">
-									<ul class="comments_advices">
-										<li class="nb-comments">
-											<a href="#idTab5" class="reviews">
-												<span itemprop="reviewCount">
-													Comentarios.
-												</span>
-											</a>
-										</li>
-										<li class="write-comments">
-											<a class="open-comment-form" href="#new_comment_form">
-												Agrega tu comentario.
-											</a>
-										</li>
-									</ul>
+									 <span itemprop="reviewCount">
+										{{count($comentarios)}} Comentarios
+									  </span>
+							</li>
+
+															<li class="write-comments">
+									<a class="open-comment-form" href="#new_comment_form">
+										Agregar Comentario.
+									</a>
+								</li>
+													</ul>
 
 								</div>
 
