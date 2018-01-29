@@ -49,7 +49,7 @@ class ArticuloController extends Controller
     }
     else{
       $arts = Articulo::BuscarxCategoria($categoria)->get();
-      $articulos = Articulo::BuscarxCategoria($categoria)->paginate(20);
+      $articulos = Articulo::BuscarxCategoria($categoria)->paginate(3);
     }
     $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
     $allCarritos = Carrito::where('id_empresa', Auth::user()->idEmpresa)->get();

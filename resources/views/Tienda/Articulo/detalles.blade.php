@@ -1,201 +1,198 @@
 @extends('Tienda.Layout.app')
 @section('content')
 
-
-			<div class="breadcrumb-container">
-				<div class="container">
-
-			<!-- Breadcrumb -->
-					<div class="breadcrumb clearfix">
-						<ul>
-							<li class="home"><a href="{{url('Tienda')}}">Inicio</a></li>
-							<li class="depth1"><a href="#">{{$articulos[0]->nombre}}</a></li>
-						</ul>
-					</div>
-			<!-- /Breadcrumb -->
-				</div>
-			</div>
-
-
+<div class="breadcrumb-container">
+	<div class="container">
+		<!-- Breadcrumb -->
+		<div class="breadcrumb clearfix">
+			<ul>
+				<li class="home"><a href="{{url('Tienda')}}">Inicio</a></li>
+				<li class="depth1"><a href="#">{{$articulos[0]->nombre}}</a></li>
+			</ul>
 		</div>
-				</div>
-			<div class="columns-container">
-			  <div id="columns" class="container">
-					<div class="row">
-
-														 <!-- Sidebar -->
-								<div id="sidebar" class="column hidden">
-
-								</div>
-								 <!-- End of Sidebar -->
-
-						<!-- Center Column -->
-						<div id="center_column" class="column col-sm-12">
-
-<div itemscope itemtype="http://schema.org/Product" class="product-wrap">
-	<div class="row">
-					    				<div class="col-sm-12" id="product_full">
+		<!-- /Breadcrumb -->
+	</div>
+</div>
+<div class="columns-container">
+	<div id="columns" class="container">
 		<div class="row">
-									<!-- left infos-->
-		<div class="primary_block">
-			<div class="pb-left-column col-lg-5 col-md-5 col-sm-12 col-xs-12">
-
-				<!-- product img-->
-				<div id="image-block">
-											<div class="label-box">
-															<span class="new-box">
-									<span class="new-label">Nuevo</span>
-								</span>
-						</div>
-
-					<span id="view_full_size">
-
-								<img id="bigpic" itemprop="image" data-src="url:(../imgArticulos/{{$articulos[0]->imagen}})" data-zoom-image="../imgArticulos/{{$articulos[0]->imagen}}"  src="../imgArticulos/{{$articulos[0]->imagen}}" title="Aliquam Leberkas" alt="Aliquam Leberkas" width="570" height="570"/>
-
-
-						</span>
-
-
-
-
-				</div> <!-- end image-block -->
-				<!-- thumbnails -->
-									<!-- end views-block -->
-					<!-- end thumbnails -->
-
-					</div> <!-- end pb-left-column -->
-			<!-- end left infos-->
-
-			<!-- Right infos -->
-			<div class="pb-right-column col-lg-5 col-md-5 col-sm-8 col-xs-12">
-
-				<div class="product-info">
-
-
-
-				<h1 class="product_name" itemprop="name">{{$articulos[0]->nombre}}</h1>
-
-				<!--<div class="product-code">
-					<label>Product code : </label>
-					<span>demo_1</span>
-				</div>
-				-->
-				<!-- h=displayRightColumnProduct / Product Comments -->
-									<div class="comments_note" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-
-						<div class="star_content">
-																								<div class="star star_on"></div>
-																																<div class="star star_on"></div>
-																																<div class="star star_on"></div>
-																																<div class="star star_on"></div>
-																																<div class="star"></div>
-																						<meta itemprop="worstRating" content = "0" />
-							<meta itemprop="ratingValue" content = "3.5" />
-							<meta itemprop="bestRating" content = "5" />
-						</div>
-
-						<ul class="comments_advices">
-							<li class="nb-comments">
-								<a href="#idTab5" class="reviews">
-									 <span itemprop="reviewCount">
-									  											2 Vistas
-									  </span>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-				<div class="content_prices">
-											<!-- prices -->
-						<div class="price">
-							<p class="our_price_display" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-								<link itemprop="availability" href="http://schema.org/InStock"/>																	<span id="our_price_display" itemprop="price">${{$articulos[0]->precio}}</span>
-									 										Cop.
-							  <meta itemprop="priceCurrency" content="USD" />
-
-															</p>
-
-							<p id="reduction_amount"  style="display:none">
-								<span id="reduction_amount_display">
-																</span>
-							</p>
-							<p id="old_price" class="hidden">
-
-									<span id="old_price_display"></span>
-									 tax excl.
-															</p>
-							<p id="reduction_percent"  style="display:none;">
-								<span id="reduction_percent_display">
-																	</span>
-
-													</div>
-					</div>
-					<p id="availability_statut">
-						<span id="availability_label">Disponible:</span>
-						<span id="availability_value">Ok</span>
-					</p>
-
-					<p class="warning_inline" id="last_quantities" style="display: none" >Warning: Last items in stock!</p>
-								<p id="availability_date" style="display: none;">
-					<span id="availability_date_label">Availability date:</span>
-					<span id="availability_date_value"></span>
-				</p>
-				<!-- Out of stock hook -->
-				<div id="oosHook" style="display: none;">
-
-				</div>
-				-->
-
-									<div id="short_description_block">
-						<label>DESCRIPCIÓN</label>
-													<div id="short_description_content" class="rte align_justify" itemprop="description"><p>{{$articulos[0]->descripcion}}</p></div>
-
-
-											</div> <!-- end short_description_block -->
-
-
-				<!--
-					<p id="pQuantityAvailable">Availability:
-						<span id="quantityAvailable"> 1796</span>
-						<span  style="display: none;" id="quantityAvailableTxt">Item</span>
-						<span  id="quantityAvailableTxtMultiple">Items</span>
-					</p>
-								-->
-
-								<!-- COMPRAR form-->
-				<form id="buy_block" action="http://prestashop.flytheme.net/sp_market/es/cart" method="post">
-					<!-- hidden datas -->
-					<p class="hidden">
-						<input type="hidden" name="token" value="c4995744c9bff2e8158c3c8bf59fbd5f" />
-						<input type="hidden" name="id_product" value="1" id="product_page_product_id" />
-						<input type="hidden" name="add" value="1" />
-						<input type="hidden" name="id_product_attribute" id="idCombination" value="" />
-					</p>
-					<div class="box-info-product"> <!-- end box-cart-bottom -->
-					</div> <!-- end box-info-product -->
-				</form>
-
-
-				<!-- h=displayRightColumnProduct / Product Comments -->
-									<div class="socials">
-						<div class="footer-social">
-<h3 class="title">Follow us :</h3>
-<div class="socials">
-	  <a href="https://www.facebook.com/MagenTech" class="facebook" target="_blank" ><i class="fa fa-facebook"></i></a>	   <a href="https://twitter.com/magentech" class="twitter" target="_blank" ><i class="fa fa-twitter"></i></a>		   <a href="https://plus.google.com/u/0/+SmartAddons-Joomla-Magento-WordPress/posts" class="google" target="_blank">
-			<i class="fa fa-google-plus"></i></a>
-		<a href="https://www.pinterest.com/magentech" class="pinterest" target="_blank" ><i class="fa fa-pinterest"></i></a>
-
-</div>
-</div>
-
-					</div>
-
-				</div>
-
+			<!-- Sidebar -->
+			<div id="sidebar" class="column hidden">
 			</div>
-			<!-- end Center infos-->
-										<div class="col-md-2 col-sm-4 col-xs-12 custom-column">
-					<div class="block-customize">
+			<!-- End of Sidebar -->
+			<!-- Center Column -->
+			<div id="center_column" class="column col-sm-12">
+				<div itemscope itemtype="http://schema.org/Product" class="product-wrap">
+					<div class="row">
+						<div class="col-sm-12" id="product_full">
+							<div class="row">
+								<!-- left infos-->
+								<div class="primary_block">
+									<div class="pb-left-column col-lg-5 col-md-5 col-sm-12 col-xs-12">
+										<!-- product img-->
+										<div id="image-block">
+											<div class="label-box">
+												<span class="new-box">
+													<span class="new-label">Nuevo</span>
+												</span>
+											</div>
+											<span id="view_full_size">
+												<img id="bigpic" itemprop="image" data-src="url:(../imgArticulos/{{$articulos[0]->imagen}})" data-zoom-image="../imgArticulos/{{$articulos[0]->imagen}}"  src="../imgArticulos/{{$articulos[0]->imagen}}" title="Aliquam Leberkas" alt="Aliquam Leberkas" width="570" height="570"/>
+											</span>
+										</div>
+										<!-- end image-block -->
+										<!-- thumbnails -->
+										<div id="views_block" class="clearfix">
+											<div id="thumbs_list" class="clearfix slick-initialized slick-slider">
+												<button type="button" data-role="none" class="slick-prev slick-arrow slick-disabled" aria-label="Previous" role="button" aria-disabled="true" style="display: block;">Previous</button>
+												<div aria-live="polite" class="slick-list draggable">
+													<div class="slick-track" style="opacity: 1; width: 740px; transform: translate3d(0px, 0px, 0px);" role="listbox">
+														<div id="thumbnail_6" class="thumbnail_image slick-slide slick-current slick-active" style="width: 138px;" tabindex="0" role="option" aria-describedby="slick-slide00" data-slick-index="0" aria-hidden="false">
+															<a href="http://prestashop.flytheme.net/sp_market/6-thickbox_default/faded-short-sleeves-tshirt.jpg" data-fancybox-group="gallery" class="fancybox" title="Aliquam Leberkas" tabindex="0">
+																<img class="img-responsive" id="thumb_6" src="http://prestashop.flytheme.net/sp_market/6-medium_default/faded-short-sleeves-tshirt.jpg" alt="Aliquam Leberkas" title="Aliquam Leberkas" itemprop="image">
+															</a>
+														</div><div id="thumbnail_7" class="thumbnail_image slick-slide slick-active" style="width: 138px;" tabindex="0" role="option" aria-describedby="slick-slide01" data-slick-index="1" aria-hidden="false">
+															<a href="http://prestashop.flytheme.net/sp_market/7-thickbox_default/faded-short-sleeves-tshirt.jpg" data-fancybox-group="gallery" class="fancybox shown" title="Aliquam Leberkas" tabindex="0">
+																<img class="img-responsive" id="thumb_7" src="http://prestashop.flytheme.net/sp_market/7-medium_default/faded-short-sleeves-tshirt.jpg" alt="Aliquam Leberkas" title="Aliquam Leberkas" itemprop="image">
+															</a>
+														</div>
+														<div id="thumbnail_8" class="thumbnail_image slick-slide slick-active" style="width: 138px;" tabindex="0" role="option" aria-describedby="slick-slide02" data-slick-index="2" aria-hidden="false">
+															<a href="http://prestashop.flytheme.net/sp_market/8-thickbox_default/faded-short-sleeves-tshirt.jpg" data-fancybox-group="gallery" class="fancybox" title="Aliquam Leberkas" tabindex="0">
+																<img class="img-responsive" id="thumb_8" src="http://prestashop.flytheme.net/sp_market/8-medium_default/faded-short-sleeves-tshirt.jpg" alt="Aliquam Leberkas" title="Aliquam Leberkas" itemprop="image">
+															</a>
+														</div>
+														<div id="thumbnail_9" class="thumbnail_image slick-slide slick-active" style="width: 138px;" tabindex="0" role="option" aria-describedby="slick-slide03" data-slick-index="3" aria-hidden="false">
+															<a href="http://prestashop.flytheme.net/sp_market/9-thickbox_default/faded-short-sleeves-tshirt.jpg" data-fancybox-group="gallery" class="fancybox" title="Aliquam Leberkas" tabindex="0">
+																<img class="img-responsive" id="thumb_9" src="http://prestashop.flytheme.net/sp_market/9-medium_default/faded-short-sleeves-tshirt.jpg" alt="Aliquam Leberkas" title="Aliquam Leberkas" itemprop="image">
+															</a>
+														</div>
+														<div id="thumbnail_10" class="thumbnail_image  last slick-slide" style="width: 138px;" tabindex="-1" role="option" aria-describedby="slick-slide04" data-slick-index="4" aria-hidden="true">
+															<a href="http://prestashop.flytheme.net/sp_market/10-thickbox_default/faded-short-sleeves-tshirt.jpg" data-fancybox-group="gallery" class="fancybox" title="Aliquam Leberkas" tabindex="-1">
+																<img class="img-responsive" id="thumb_10" src="http://prestashop.flytheme.net/sp_market/10-medium_default/faded-short-sleeves-tshirt.jpg" alt="Aliquam Leberkas" title="Aliquam Leberkas" itemprop="image">
+															</a>
+														</div>
+													</div>
+												</div>
+												<button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;" aria-disabled="false">Next</button>
+											</div>
+										</div>
+									</div>
+
+									<div class="pb-right-column col-lg-5 col-md-5 col-sm-8 col-xs-12">
+										<div class="product-info">
+											<h1 class="product_name" itemprop="name">{{$articulos[0]->nombre}}</h1>
+											<div class="comments_note" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
+
+												<div class="star_content">
+													<div class="star star_on"></div>
+													<div class="star star_on"></div>
+													<div class="star star_on"></div>
+													<div class="star star_on"></div>
+													<div class="star"></div>
+													<meta itemprop="worstRating" content="0">
+													<meta itemprop="ratingValue" content="3.5">
+													<meta itemprop="bestRating" content="5">
+												</div>
+												<ul class="comments_advices">
+													<li class="nb-comments">
+														<a href="#idTab5" class="reviews selected">
+															 <span itemprop="reviewCount">Comentarios
+															  </span>
+														</a>
+													</li>
+													<li class="write-comments">
+														<a class="open-comment-form" href="#new_comment_form">
+															Agrega tu comentario
+														</a>
+													</li>
+												</ul>
+											</div>
+
+											<div class="content_prices">
+											<!-- prices -->
+												<div class="price">
+													<p class="our_price_display" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+														<link itemprop="availability" href="http://schema.org/InStock">
+															<span id="our_price_display" itemprop="price">${{$articulos[0]->precio}}</span> Cop.
+																<meta itemprop="priceCurrency" content="USD">
+													</p>
+
+													<p id="reduction_amount" style="display:none">
+														<span id="reduction_amount_display">
+														</span>
+													</p>
+													<p id="old_price" class="hidden" style="display: none;">
+															<span id="old_price_display" style="display: none;"></span>
+															 tax excl.
+													</p>
+												</div> <!-- end prices -->
+												<div class="clear"></div>
+											</div> <!-- end content_prices -->
+
+									<!-- availability -->
+											<p id="availability_statut">
+												<span id="availability_label">Disponibilidad:</span>
+												<span id="availability_value" class="label-success"></span>
+											</p>
+										<!-- Out of stock hook -->
+										<div id="oosHook" style="display: block;"></div>
+										<div id="short_description_block">
+											<label>Descripcion</label>
+											<div id="short_description_content" class="rte align_justify" itemprop="description">
+												<p>{{$articulos[0]->descripcion}}</p>
+											</div>
+
+
+										</div>
+										<form id="buy_block" action="http://prestashop.flytheme.net/sp_market/es/cart" method="post">
+											<!-- hidden datas -->
+
+											<div class="box-info-product">
+												<div class="product_attributes clearfix">
+																					<!-- attributes -->
+													<div id="attributes">
+
+
+													</div> <!-- end attributes -->
+													<!-- quantity wanted -->
+													<div id="quantity_wanted_p">
+														<label>Cant.</label>
+														<div class="qty">
+															<input type="text" name="qty" id="quantity_wanted" class="text" value="1">
+															<div class="qty_buttons">
+																<a href="#" data-field-qty="qty" class="button-plus product_quantity_up">
+																	<span>+</span>
+																</a>
+																<a href="#" data-field-qty="qty" class="button-minus product_quantity_down">
+																	<span>-</span>
+																</a>
+															</div>
+														</div>
+													</div>
+													<div class="box-cart-bottom">
+														<div>
+															<p id="add_to_cart" class="buttons_bottom_block no-print">
+																<button class="exclusive added" title="Add to Cart">
+																	Add to Cart
+																</button>
+															</p>
+															<div class="wishlist_button">
+																<a class="addToWishlist wishlistProd_59" data-toggle="tooltip" title="Añadir a la lista de deseos" href="#" rel="nofollow" onclick="WishlistCart('wishlist_block_list', 'add', '59', false, 1); return false;">
+																	<i class="fa fa-heart"></i>
+																</a>
+															</div>
+														</div>
+													</div>
+											  </div>
+											</div>
+									  </form>
+
+									</div>
+								</div>
+
+
+									<div class="col-md-2 col-sm-4 col-xs-12 custom-column">
+										<div class="block-customize">
 
 <!-- SP Custom Html -->
 
@@ -291,49 +288,32 @@ var moderation_active = 1;
 </script>
 
 <div id="idTab5">
-	<div class="content_sortPagiBar_top">
-		<div id="pagination" class="pagination clearfix">
-			<ul class="pagination">
-					{!!$comentariosPag->render()!!}
+		<div id="product_comments_block_tab">
+			@foreach($comentariosPag as $comentario)
+			<div class="comment clearfix">
+				<div class="comment_author">
 
-			</ul>
-		</div>
-	</div>
-	<div id="product_comments_block_tab">
-		@foreach($comentariosPag as $comentario)
-		<div class="comment clearfix">
-			<div class="comment_author">
+					<div class="comment_author_infos">
+						<strong>{{$comentario->califica->nombreEstablecimiento}} <em>{{$comentario->created_at}}</em></strong>
 
-				<div class="comment_author_infos">
-					<strong>{{$comentario->califica->nombreEstablecimiento}} <em>{{$comentario->created_at}}</em></strong>
-
+					</div>
+					<div id="stars{{$comentario->id}}" class="star_content clearfix">
+					</div>
 				</div>
-				<div id="stars{{$comentario->id}}" class="star_content clearfix">
+				<div class="comment_details">
+					<h4 class="title_block"></h4>
+					<p>{{$comentario->comentario}}</p>
 				</div>
 			</div>
-			<div class="comment_details">
-				<h4 class="title_block"></h4>
-				<p>{{$comentario->comentario}}</p>
-			</div>
-		</div>
-	@endforeach
+		@endforeach
 
-		<p class="align_center">
-			<a id="new_comment_tab_btn" class="open-comment-form" href="#new_comment_form">Escriba su comentario! </a>
-		</p>
-	</div>
+			<p class="align_center">
+				<a id="new_comment_tab_btn" class="open-comment-form" href="#new_comment_form">Escriba su comentario! </a>
+			</p>
+		</div>
 </div>
 
-
-
-
-
-
 <!-- Fancybox -->
-
-
-
-
 
 <div style="display:none">
 	<div id="new_comment_form">
@@ -372,7 +352,7 @@ var moderation_active = 1;
 
 
 				<div id="new_comment_form_footer">
-					
+
 					<p class="fr">
 						<a onclick="addComentario({{$articulos[0]->id}})" href="javascript:void(0)" class="btn btn-default">Enviar
 						</a><a href="#" onclick="$.fancybox.close();">Cancelar</a>
@@ -1909,10 +1889,7 @@ var moderation_active = 1;
         },
         success: function(){
 					$("#new_comment_form").hide("fast");
-					$(".fancybox-overlay").show("fast");
-					$("#confirmacion").show("fast");
-
-
+					$(".fancybox-overlay").hide("fast");
         },
 
         error: function(data){

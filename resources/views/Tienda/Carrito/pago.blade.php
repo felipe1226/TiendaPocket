@@ -57,8 +57,8 @@
 									</thead>
                     <tfoot>
 											<tr class="cart_total_price">
-												<td colspan="4" class="text-right">Total products</td>
-												 <td colspan="2" class="price" id="total_product">$99.00</td>
+												<td colspan="4" class="text-right">	Costo de articulos</td>
+												 <td colspan="2" class="price"><span>$</span><span id="totalArticulos" value="'.$totalArticulos.'">'.$totalArticulos.'</span></td>
                       </tr>
 											<tr class="cart_total_voucher" style="display:none">
 												<td colspan="4" class="text-right">
@@ -69,7 +69,7 @@
 												</td>
 											</tr>
 											<tr class="cart_total_delivery">
-												<td colspan="4" class="text-right">Total shipping</td>
+												<td colspan="4" class="text-right">Costo de envio</td>
 												<td colspan="2" class="price" id="total_shipping" >$2.00</td>
 											</tr>
 											<tr class="cart_total_voucher" style="display:none">
@@ -85,7 +85,7 @@
 													<span>Total</span>
 												</td>
                         <td colspan="2" class="price" id="total_price_container">
-                          <span id="total_price" data-selenium-total-price="101">$101.00</span>
+                          <span>$</span><span  id="totalCarrito" class="total_price"/>
                         </td>
                       </tr>
 										</tfoot>
@@ -97,16 +97,15 @@
 					  							</td>
 					  							<td class="cart_description">
 					  								<h5 class="product-name">
-					  									<?php
-					  										echo '<h3><a href="Detalles/'.$carrito->id_articulo.'">'.$carrito->almacena->nombre.'</a></h3';
-					  									?>
+					  									<h3><a href="Detalles/{{$carrito->id_articulo}}'">{{$carrito->almacena->nombre}}</a></h3>
+
 					  								</h5>
 					  								<small class="cart_ref">Marca: {{$carrito->almacena->marca}}</small>
 					  								<small class="cart_ref">{{$carrito->almacena->categoria}}</small>
 
 					  							</td>
 					  							<td class="cart_avail">
-					  								<span class="label label-success">In stock</span>
+					  								<span class="label label-success">Adquirir</span>
 					  							</td>
 					  							<td class="cart_unit" data-title="Unit price">
 					  								<ul class="price text-right" id="cantidad">
@@ -118,12 +117,7 @@
 					  								{{$carrito->cantidad}}
 					  							</td>
 					  							<td class="cart_total" data-title="Total">
-					  								<span>$</span>
-					  								<?php
-
-					  									echo '<input id="cantidadTotal'.$carrito->id.'" readonly="readonly" style="border:0" class="price"  value="'.$carrito->almacena->precio * $carrito->cantidad.'"/>';
-					  								 ?>
-
+					  								<span>$</span><span id="cantidadTotal{{$carrito->id}}" class="price"></span>
 					  							</td>
 					  						</tr>
 					  						@endforeach
@@ -160,23 +154,9 @@
 													</div><!-- .cheque-box -->
 											</form>
 
-												<div class="col-xs-12">
-													<p class="payment_module">
-														<a class="bankwire" href="http://prestashop.flytheme.net/sp_market/es/module/bankwire/payment" title="Pago por transferencia bancaria">
-															Pago por transferencia bancaria <span>(el procesamiento del pedido tomará más tiempo)</span>
-														</a>
-													</p>
-												</div>
+
 											</div>
-											<div class="row">
-												<div class="col-xs-12">
-											        <p class="payment_module">
-											            <a class="cheque" href="http://prestashop.flytheme.net/sp_market/es/module/cheque/payment" title="Pagar por cheque">
-											                Pagar por cheque <span>(el procesamiento del pedido tomará más tiempo)</span>
-											            </a>
-											        </p>
-											    </div>
-											</div>
+
 										</div>
 
 										<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -198,17 +178,62 @@
         <a href="{{url('Direccion')}}" title="Regresar" class="button-exclusive btn btn-default">
             <i class="fa fa-chevron-left left"></i>
         </a>
-            <button class="button btn btn-default button-medium" type="submit">
-                <span>Confirmo mi pedido<i class="fa fa-chevron-right right"></i></span>
-            </button>
+            <a class="button btn btn-default button-medium" onclick="confirmarPedido()" href="javascript:void(0)">
+                <span>Confirmar pedido<i class="fa fa-chevron-right right"></i></span>
+            </a>
     </p>
     </div> <!-- end HOOK_TOP_PAYMENT -->
 
 					</div><!-- #center_column -->
 					</div><!-- .row -->
 				</div><!-- #columns -->
-
-
-
 			</div><!-- .columns-container -->
+
+		<script>
+			$(function() {
+					var totalArticulos = 0;
+					JSONCarritos = eval(<?php echo json_encode($carritos);?>);
+					JSONCarritos.forEach(function(currentValue,index,arr) {
+						$('#cantidadTotal'+currentValue.id).html(eval(currentValue.almacena.precio * currentValue.cantidad));
+						totalArticulos += eval(currentValue.almacena.precio * currentValue.cantidad);
+
+					});
+					$('#totalArticulos').val(totalArticulos);
+					$('#totalArticulos').html(totalArticulos);
+					$('#totalCarrito').html(totalArticulos + 2);
+			 });
+
+
+
+			function confirmarPedido(){
+
+		      $.ajax({
+		        url: "Pedido/agregar",
+		        type: 'GET',
+		        data: {
+		          proveedor: id,
+							costoTotal: id,
+							estado: id,
+							referencia_direccion: id,
+							nombre: id,
+							direccion: id,
+							localidad: id,
+							telefono: id,
+							movil: id,
+							id_articulo: id,
+							nombre_articulo: id,
+							precio_articulo: id,
+							cantidad_articulo: id,
+							tipoPago: id,
+							comentario: id
+		        },
+		        success: function(){
+							alert("Agregado");
+		        },
+		        error: function(data){
+		          alert('Error en la compra');
+		        }
+		      });
+		  }
+		</script>
 @endsection
