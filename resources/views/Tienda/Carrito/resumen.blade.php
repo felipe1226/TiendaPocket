@@ -46,8 +46,6 @@
 						  </ul>
 							<!-- /Steps -->
 
-
-
 						  @if(isset($carritos))
 						  	@if(count($carritos) == 0)
 						  		<p class="alert alert-warning">Su carrito de compras está vacio.</p>
@@ -112,10 +110,7 @@
 						  								</div>
 						  							</td>
 						  							<td class="cart_total" data-title="Total">
-						  								<span>$</span>
-						  								<?php
-						  									echo '<span id="cantidadTotal'.$carrito->id.'">'.$carrito->almacena->precio * $carrito->cantidad.'</span>';
-						  								 ?>
+						  								<span>$</span><span id="cantidadTotal{{$carrito->id}}"></span>
 						  							</td>
 						  						</tr>
 						  						@endforeach
@@ -123,16 +118,10 @@
 						  				<tfoot>
 						  					<tr class="cart_total_price">
 						  						<td rowspan="4" colspan="3" id="cart_voucher" class="cart_voucher"></td>
-						  						<td colspan="3" class="text-right">costo articulos</td>
-						  							<?php
-						  								$totalArticulos = 0;
-						  								foreach($carritos as $carrito){
-						  									$totalArticulos += $carrito->cantidad * $carrito->almacena->precio;
-						  								}
-						  									echo '<td colspan="2" class="price"><span>$</span>
-						  													<span id="totalArticulos" value="'.$totalArticulos.'">'.$totalArticulos.'</span>
-						  												</td>';
-						  							?>
+						  						<td colspan="3" class="text-right">Costo de articulos</td>
+													<td colspan="2" class="price">
+														<span>$</span><span id="totalArticulos" value="'.$totalArticulos.'">'.$totalArticulos.'</span>
+													</td>
 						  					</tr>
 						  					<tr style="display: none;">
 						  						<td colspan="3" class="text-right">Total gift-wrapping cost</td>
@@ -153,16 +142,7 @@
 						  							</div>
 						  						</td>
 						  						<td colspan="2" class="price" id="total_price_container">
-						  							<span>$</span>
-						  							<?php
-						  								$totalArticulos = 0;
-						  								foreach($carritos as $carrito){
-						  									$totalArticulos += $carrito->cantidad * $carrito->almacena->precio;
-						  								}
-						  								$totalArticulos += 2;
-
-						  									echo '<input readonly="readonly" style="border:0" class="total_price" id="totalCarrito" value="'.$totalArticulos.'"/>';
-						  							?>
+						  							<span>$</span><span  id="totalCarrito" class="total_price"/>
 						  						</td>
 						  					</tr>
 						  				</tfoot>
@@ -174,11 +154,9 @@
 								<ul class="footer_links">
 										<li class="f_right"><a class="button" href="http://localhost/TiendaPocket/public/Tienda" title="Ir al inicio"> <i class="fa fa-home"></i></a></li>
 										<li><a class="button" href="http://localhost/TiendaPocket/public/Cuenta" title="Regresar a mi cuenta"><i class="fa fa-user"></i> </a></li>
-										@if(count($carritos) != 0)
-											<li><a id="buttomComprar" class="button" href="{{url('Direccion')}}" title="Proceder con la compra" style="display:block">
-												<span><i class="fa fa-chevron-right right"></i></span>
-											</a></li>
-										@endif
+										<li><a id="buttomComprar" class="button" href="{{url('Direccion')}}" title="Proceder con la compra" style="display:block">
+											<span><i class="fa fa-chevron-right right"></i></span>
+										</a></li>
 									</ul>
 								<div class="clear"></div>
 
@@ -191,14 +169,19 @@
 
       <script>
 				$(function() {
-					JSONCarritos = eval(<?php echo json_encode($carritos);?>);
-					JSONCarritos.forEach(function(currentValue,index,arr) {
-						if(currentValue.almacena.cantidad == 0){
-							$('#buttomComprar').fadeOut('slow', function() {
-										$.scrollTo(this, 2000);
-							});
-						}
-					});
+						var totalArticulos = 0;
+						JSONCarritos = eval(<?php echo json_encode($carritos);?>);
+						JSONCarritos.forEach(function(currentValue,index,arr) {
+							if(currentValue.almacena.cantidad == 0){
+								$('#buttomComprar').hide();
+							}
+							$('#cantidadTotal'+currentValue.id).html(eval(currentValue.almacena.precio * currentValue.cantidad));
+							totalArticulos += eval(currentValue.almacena.precio * currentValue.cantidad);
+
+						});
+						$('#totalArticulos').val(totalArticulos);
+						$('#totalArticulos').html(totalArticulos);
+						$('#totalCarrito').html(totalArticulos + 2);
 				 });
 
 	      function modificarCantidad(idCarrito, precio, val, id_articulo){
@@ -231,6 +214,8 @@
 						else{
 							TotalArticulos = auxTotal-costoArticulo+valor;
 						}
+
+
 	          $.ajax({
 	            url: "Carrito/modificar",
 	            type: 'GET',
@@ -247,7 +232,9 @@
 
 								$("#totalArticulos").html(TotalArticulos);
 								$("#totalArticulos").val(TotalArticulos);
+
 	              $("#totalCarrito").val(eval(TotalArticulos+2));
+								$("#totalCarrito").html(eval(TotalArticulos+2));
 
 								$("#totalCarrito1").html("$"+TotalArticulos);
 								$("#totalCarrito2").html("$"+TotalArticulos);

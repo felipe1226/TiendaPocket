@@ -2807,7 +2807,7 @@ ul.products li:hover .products-block-image {
   margin: 0;
   padding: 0;
   float: left;
-  background: #2f0033;
+  background: #999;
 }
 .box-cart-bottom .buttons_bottom_block button {
   font-size: 12px;
@@ -2821,7 +2821,7 @@ ul.products li:hover .products-block-image {
   text-transform: uppercase;
 }
 .box-cart-bottom .buttons_bottom_block:hover {
-  background: #eb8a0d;
+  background: #2f0330;
 }
 .box-cart-bottom .wishlist_button, .box-cart-bottom .compare {
   float: left;

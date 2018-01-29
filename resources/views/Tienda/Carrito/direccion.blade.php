@@ -42,7 +42,7 @@
           </ul>
 <!-- /Steps -->
 
-		<form action="http://prestashop.flytheme.net/sp_market/es/order" method="post">
+		<form action="{{url('Pago')}}" method="get">
 			<div class="addresses clearfix">
 				<div class="row">
 					<div class="col-xs-12 col-sm-6">
@@ -52,11 +52,13 @@
 								@foreach($direcciones as $direccion)
 									<option value="{{$direccion->id}}">{{$direccion->referencia}}</option>
 								@endforeach
-												</select><span class="waitimage"></span>
+							</select>
+							<span class="waitimage" style="display: none;"></span>
 						</div>
 
 					</div>
 				</div> <!-- end row -->
+				<br>
 				<div class="row">
 			<div class="col-xs-12 col-sm-6">
 				<ul id="block-address" class="last_item item box">
@@ -86,19 +88,19 @@
 				</ul>
 			</div>
 	</div> <!-- end row -->
-			<div id="comentario" class="form-group">
+			<div class="form-group">
 			<label>Si desea agregar un comentario sobre su pedido, escríbalo en el campo a continuación.</label>
-			<textarea class="form-control" cols="60" rows="6" name="message"></textarea>
+			<textarea class="form-control" cols="60" rows="6" name="message" value=""></textarea>
 		</div>
 	</div> <!-- end addresses -->
 			<p class="cart_navigation clearfix">
-				<input type="hidden" class="hidden" name="step" value="2" />
-				<input type="hidden" name="back" value="" />
-				<a href="{{url('Carrito')}}" title="Previous" class="button-exclusive btn btn-default">
+				<a href="{{url('Carrito')}}" title="Regresar" class="button-exclusive btn btn-default">
 					<i class="fa fa-chevron-left left"></i>
-					Regresar
 				</a>
-        <a class="button btn btn-default standard-checkout button-medium" href="{{url('Pago')}}" class="button btn btn-default standard-checkout button-medium"><span>Proceder con la compra<i class="fa fa-chevron-right right"></i></span>
+				<button type="submit" class="button btn btn-default button-medium right">
+					<span>Proceder<i class="fa fa-chevron-right right"></i></span>
+				</button>
+        <!--<a class="button btn btn-default standard-checkout button-medium" href="{{url('Pago')}}" class="button btn btn-default standard-checkout button-medium" title="Proceder con la compra"><span><i class="fa fa-chevron-right right"></i></span>-->
         </a>
 			</p>
 		</form>
@@ -112,13 +114,14 @@
 
 			<script>
 				$('#id_address_delivery').on('change', function (event) {
-
+						$('.waitimage').show();
 						var id = $(this).find('option:selected').val();
 						JSONDirecciones = eval(<?php echo json_encode($direcciones);?>);
 						JSONDirecciones.forEach(function(currentValue,index,arr) {
 							if(currentValue.id == id){
 								$('#block-address').fadeOut('slow', function() {
 			            $.scrollTo(this, 1000);
+									$('#idDireccion').val(currentValue.id);
 									$('#referencia').html("<span>"+currentValue.referencia+"</span>");
 									$('#nombres').html(currentValue.nombres);
 									$('#apellidos').html(currentValue.apellidos);
@@ -127,10 +130,13 @@
 									$('#departamento').html(currentValue.departamento);
 									$('#telefono').html(currentValue.telefono);
 									$('#movil').html(currentValue.movil);
+
+
 								});
 								$('#block-address').fadeIn('slow', function() {
 			            $.scrollTo(this, 1000);
-									});
+									$('.waitimage').hide();
+								});
 
 
 							}

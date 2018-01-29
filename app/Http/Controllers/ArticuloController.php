@@ -50,7 +50,7 @@ class ArticuloController extends Controller
     }
     else{
       $arts = Articulo::BuscarxCategoria($categoria)->get();
-      $articulos = Articulo::BuscarxCategoria($categoria)->paginate(20);
+      $articulos = Articulo::BuscarxCategoria($categoria)->paginate(18);
     }
     $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
     $allCarritos = Carrito::where('id_empresa', Auth::user()->idEmpresa)->get();
@@ -60,7 +60,7 @@ class ArticuloController extends Controller
 
   public function busquedaAvanzada($categoria, $articulo){
     $arts = Articulo::BusquedaArticulo($categoria,$articulo)->get();
-    $articulos = Articulo::BusquedaArticulo($categoria,$articulo)->paginate(20);
+    $articulos = Articulo::BusquedaArticulo($categoria,$articulo)->paginate(18);
 
     $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
     $allCarritos = Carrito::where('id_empresa', Auth::user()->idEmpresa)->get();
@@ -80,7 +80,7 @@ class ArticuloController extends Controller
 
 
   public function ArtsProveedor(){
-    $articulos = Articulo::BuscarxProveedor("35")->paginate(4);
+    $articulos = Articulo::BuscarxProveedor("35")->paginate(15);
     $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
 
     return view('Tienda/Cuenta/articulos', compact('articulos'))->with(['articulos' => $articulos])->with('carritos', $carritos);
@@ -125,5 +125,8 @@ class ArticuloController extends Controller
 
 
   }
+
+
+
 
 }

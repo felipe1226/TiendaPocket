@@ -59,258 +59,6 @@
 			<!-- Sidebar -->
 			<div id="sidebar" class="column  col-lg-3 col-md-3 col-sm-4 sidebar-left">
 
-				<script type="text/javascript">
-				current_friendly_url = '#';
-        param_product_url = '#';
-				</script>
-				<div id="layered_block_left" class="block">
-					<h3 class="title_block">Comprar por</h3>
-					<div class="block_content">
-						<div>
-							<div class="layered_filter">
-								<div class="layered_subtitle_heading">
-									<span class="layered_subtitle titleFont">Categorías</span>
-								</div>
-								<ul id="ul_layered_category_0" class="col-lg-12 layered_filter_ul">
-									<li class="nomargin hiddable col-lg-12">
-										<span class="checker">
-											<div class="checker" id="uniform-layered_category_4">
-												<span><input type="checkbox" class="checkbox" name="layered_category_4" id="layered_category_4" value="4"></span>
-											</div></span>
-											<label for="layered_category_4">
-												<a href="http://prestashop.flytheme.net/sp_market/es/3-electronics#categorias-smartphones_tablets" data-rel="nofollow">Smartphones &amp; Tablets<span> (15)</span></a></label>
-											</li>
-
-											<li class="nomargin hiddable col-lg-12">
-												<span class="checker">
-													<div class="checker" id="uniform-layered_category_8">
-														<span><input type="checkbox" class="checkbox" name="layered_category_8" id="layered_category_8" value="8"></span>
-													</div>
-												</span>
-												<label for="layered_category_8">
-													<a href="http://prestashop.flytheme.net/sp_market/es/3-electronics#categorias-sports_outdoor" data-rel="nofollow">Sports &amp; Outdoor<span> (15)</span></a>
-												</label>
-											</li>
-
-											<li class="nomargin hiddable col-lg-12">
-											<span class="checker">
-												<div class="checker" id="uniform-layered_category_12">
-													<span><input type="checkbox" class="checkbox" name="layered_category_12" id="layered_category_12" value="12"></span>
-												</div>
-											</span>
-											<label for="layered_category_12">
-												<a href="http://prestashop.flytheme.net/sp_market/es/3-electronics#categorias-automotive_motorcycle" data-rel="nofollow">Automotive &amp; Motorcycle<span> (15)</span></a>
-											</label>
-										</li>
-
-										<li class="nomargin hiddable col-lg-12">
-											<span class="checker">
-												<div class="checker" id="uniform-layered_category_13"><span><input type="checkbox" class="checkbox" name="layered_category_13" id="layered_category_13" value="13"></span></div>
-											</span>
-											<label for="layered_category_13">
-												<a href="http://prestashop.flytheme.net/sp_market/es/3-electronics#categorias-electronics" data-rel="nofollow">Electronics<span> (14)</span></a>
-											</label>
-										</li>
-
-										<li class="nomargin hiddable col-lg-12">
-											<span class="checker">
-												<div class="checker" id="uniform-layered_category_40"><span><input type="checkbox" class="checkbox" name="layered_category_40" id="layered_category_40" value="40"></span></div>
-											</span>
-											<label for="layered_category_40">
-												<a href="http://prestashop.flytheme.net/sp_market/es/3-electronics#categorias-toys_hobbies" data-rel="nofollow">Toys &amp; Hobbies<span> (15)</span></a>
-											</label>
-										</li>
-
-										<li class="nomargin hiddable col-lg-12">
-											<span class="checker">
-												<div class="checker" id="uniform-layered_category_65"><span><input type="checkbox" class="checkbox" name="layered_category_65" id="layered_category_65" value="65"></span></div>
-											</span>
-											<label for="layered_category_65">
-												<a href="http://prestashop.flytheme.net/sp_market/es/3-electronics#categorias-holiday_supplies_gifts" data-rel="nofollow">Holiday Supplies &amp; Gifts<span> (15)</span></a>
-											</label>
-										</li>
-
-										<li class="nomargin hiddable col-lg-12">
-											<span class="checker">
-												<div class="checker" id="uniform-layered_category_66"><span><input type="checkbox" class="checkbox" name="layered_category_66" id="layered_category_66" value="66"></span></div>
-											</span>
-											<label for="layered_category_66">
-												<a href="http://prestashop.flytheme.net/sp_market/es/3-electronics#categorias-health_beauty" data-rel="nofollow">Health &amp; Beauty<span> (15)</span></a>
-											</label>
-										</li>
-
-										<li class="nomargin hiddable col-lg-12">
-											<span class="checker">
-												<div class="checker" id="uniform-layered_category_173"><span><input type="checkbox" class="checkbox" name="layered_category_173" id="layered_category_173" value="173"></span></div>
-											</span>
-											<label for="layered_category_173">
-												<a href="http://prestashop.flytheme.net/sp_market/es/3-electronics#categorias-jewelry_watches" data-rel="nofollow">Jewelry &amp; Watches<span> (12)</span></a>
-											</label>
-										</li>
-							</div>
-							<div class="layered_price" style="">
-								<div class="layered_subtitle_heading">
-									<span class="layered_subtitle titleFont">Precio</span>
-									<!--<span class="layered_close">
-									<a href="#" data-rel="ul_layered_price_0"></a>
-								</span>-->
-							</div>
-							<ul id="ul_layered_price_0" class="col-lg-12 layered_filter_ul">
-
-              <div class="layered_slider_container">
-                <div class="layered_slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" id="layered_price_slider" data-type="price" data-format="1" data-unit="$" aria-disabled="false">
-									<div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 0%; width: 100%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 0%;"></a><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 100%;"></a>
-								</div>
-              </div>
-									<label for="price">
-										Rango:
-									</label>
-									<span id="layered_price_range"></span>
-																												</ul>
-					</div>
-					<div class="layered_filter">
-						<div class="layered_subtitle_heading">
-							<span class="layered_subtitle titleFont">Fabricante</span>
-							<!--<span class="layered_close">
-							<a href="#" data-rel="ul_layered_manufacturer_0"></a>
-						</span>-->
-					</div>
-					<ul id="ul_layered_manufacturer_0" class="col-lg-12 layered_filter_ul">
-						<li class="nomargin hiddable col-lg-12">
-							<span class="checker">
-								<div class="checker" id="uniform-layered_manufacturer_4">
-									<span><input type="checkbox" class="checkbox" name="layered_manufacturer_4" id="layered_manufacturer_4" value="4"></span>
-								</div>
-							</span>
-							<label for="layered_manufacturer_4">
-								<a href="http://prestashop.flytheme.net/sp_market/es/3-electronics#fabricante-collins_hayes" data-rel="nofollow">Collins &amp; Hayes <span> (1)</span></a>
-							</label>
-						</li>
-						<li class="nomargin hiddable col-lg-12">
-							<span class="checker">
-								<div class="checker" id="uniform-layered_manufacturer_2">
-									<span><input type="checkbox" class="checkbox" name="layered_manufacturer_2" id="layered_manufacturer_2" value="2"></span>
-								</div>
-							</span>
-							<label for="layered_manufacturer_2">
-								<a href="http://prestashop.flytheme.net/sp_market/es/3-electronics#fabricante-duresta" data-rel="nofollow">Duresta<span> (1)</span></a>
-							</label>
-						</li>
-						<li class="nomargin hiddable col-lg-12">
-							<span class="checker">
-								<div class="checker" id="uniform-layered_manufacturer_5"><span>
-									<input type="checkbox" class="checkbox" name="layered_manufacturer_5" id="layered_manufacturer_5" value="5"></span>
-								</div>
-							</span>
-							<label for="layered_manufacturer_5">
-								<a href="http://prestashop.flytheme.net/sp_market/es/3-electronics#fabricante-ercol" data-rel="nofollow">Ercol<span> (1)</span></a>
-							</label>
-						</li>
-						<li class="nomargin hiddable col-lg-12">
-							<span class="checker">
-								<div class="checker" id="uniform-layered_manufacturer_1">
-									<span><input type="checkbox" class="checkbox" name="layered_manufacturer_1" id="layered_manufacturer_1" value="1"></span>
-								</div>
-							</span>
-							<label for="layered_manufacturer_1">
-								<a href="http://prestashop.flytheme.net/sp_market/es/3-electronics#fabricante-g_plan" data-rel="nofollow">G Plan<span> (11)</span></a>
-							</label>
-						</li>
-						<li class="nomargin hiddable col-lg-12">
-							<span class="checker">
-								<div class="checker" id="uniform-layered_manufacturer_6">
-									<span><input type="checkbox" class="checkbox" name="layered_manufacturer_6" id="layered_manufacturer_6" value="6"></span>
-								</div>
-							</span>
-							<label for="layered_manufacturer_6">
-								<a href="http://prestashop.flytheme.net/sp_market/es/3-electronics#fabricante-nike" data-rel="nofollow">Nike<span> (1)</span></a>
-							</label>
-						</li>
-					</ul>
-				</div>
-				<div class="layered_filter">
-					<div class="layered_subtitle_heading">
-						<span class="layered_subtitle titleFont">Color</span>
-						<!--<span class="layered_close">
-						<a href="#" data-rel="ul_layered_id_attribute_group_3"></a>
-					</span>-->
-				</div>
-				<ul id="ul_layered_id_attribute_group_3" class="col-lg-12 layered_filter_ul color-group">
-					<li class="nomargin hiddable  color col-lg-12">
-						<span class="checker">
-							<input class="color-option  " type="button" name="layered_id_attribute_group_7" data-rel="7_3" id="layered_id_attribute_group_7" style="background-color: #f5f5dc;">
-						</span>
-						<label for="layered_id_attribute_group_7" name="layered_id_attribute_group_7" class="layered_color" data-rel="7_3">
-							<a href="http://prestashop.flytheme.net/sp_market/es/3-electronics#color-beige">Beige<span> (3)</span></a>
-						</label>
-					</li>
-					<li class="nomargin hiddable  color col-lg-12">
-						<span class="checker">
-							<input class="color-option  " type="button" name="layered_id_attribute_group_8" data-rel="8_3" id="layered_id_attribute_group_8" style="background-color: #ffffff;">
-						</span>
-						<label for="layered_id_attribute_group_8" name="layered_id_attribute_group_8" class="layered_color" data-rel="8_3">
-							<a href="http://prestashop.flytheme.net/sp_market/es/3-electronics#color-white">White<span> (2)</span></a>
-						</label>
-					</li>
-					<li class="nomargin hiddable  color col-lg-12">
-						<span class="checker">
-							<input class="color-option  " type="button" name="layered_id_attribute_group_11" data-rel="11_3" id="layered_id_attribute_group_11" style="background-color: #434A54;">
-						</span>
-						<label for="layered_id_attribute_group_11" name="layered_id_attribute_group_11" class="layered_color" data-rel="11_3">
-							<a href="http://prestashop.flytheme.net/sp_market/es/3-electronics#color-black">Black<span> (2)</span></a>
-						</label>
-					</li>
-					<li class="nomargin hiddable  color col-lg-12">
-						<span class="checker">
-							<input class="color-option  " type="button" name="layered_id_attribute_group_13" data-rel="13_3" id="layered_id_attribute_group_13" style="background-color: #F39C11;">
-						</span>
-						<label for="layered_id_attribute_group_13" name="layered_id_attribute_group_13" class="layered_color" data-rel="13_3">
-							<a href="http://prestashop.flytheme.net/sp_market/es/3-electronics#color-orange">Orange<span> (8)</span></a>
-						</label>
-					</li>
-					<li class="nomargin hiddable  color col-lg-12">
-						<span class="checker">
-							<input class="color-option  " type="button" name="layered_id_attribute_group_14" data-rel="14_3" id="layered_id_attribute_group_14" style="background-color: #5D9CEC;">
-						</span>
-						<label for="layered_id_attribute_group_14" name="layered_id_attribute_group_14" class="layered_color" data-rel="14_3">
-							<a href="http://prestashop.flytheme.net/sp_market/es/3-electronics#color-blue">Blue<span> (7)</span></a>
-						</label>
-					</li>
-					<li class="nomargin hiddable  color col-lg-12">
-						<span class="checker">
-							<input class="color-option  " type="button" name="layered_id_attribute_group_15" data-rel="15_3" id="layered_id_attribute_group_15" style="background-color: #A0D468;">
-						</span>
-						<label for="layered_id_attribute_group_15" name="layered_id_attribute_group_15" class="layered_color" data-rel="15_3">
-							<a href="http://prestashop.flytheme.net/sp_market/es/3-electronics#color-green">Green<span> (2)</span></a>
-						</label>
-					</li>
-																																							<li class="nomargin hiddable  color col-lg-12">
-											<span class="checker">
-																							<input class="color-option  " type="button" name="layered_id_attribute_group_16" data-rel="16_3" id="layered_id_attribute_group_16" style="background-color: #F1C40F;">
-																																		</span>
-											<label for="layered_id_attribute_group_16" name="layered_id_attribute_group_16" class="layered_color" data-rel="16_3">
-																								<a href="http://prestashop.flytheme.net/sp_market/es/3-electronics#color-yellow">Yellow<span> (4)</span></a>
-																							</label>
-										</li>
-																																							<li class="nomargin hiddable  color col-lg-12">
-											<span class="checker">
-																							<input class="color-option  " type="button" name="layered_id_attribute_group_24" data-rel="24_3" id="layered_id_attribute_group_24" style="background-color: #FCCACD;">
-																																		</span>
-											<label for="layered_id_attribute_group_24" name="layered_id_attribute_group_24" class="layered_color" data-rel="24_3">
-																								<a href="http://prestashop.flytheme.net/sp_market/es/3-electronics#color-pink">Pink<span> (3)</span></a>
-																							</label>
-										</li>
-																																															</ul>
-					</div>
-												</div>
-	</div>
-	<div id="layered_ajax_loader" style="display: none;">
-		<p style="text-align:center;padding:15px;">
-			<img src="http://prestashop.flytheme.net/sp_market/img/loader.gif" alt="">
-			<br>Cargando...
-		</p>
-	</div>
-</div>
            <!-- MODULE Block best sellers -->
            <div id="best-sellers_block_right" class="block products_block">
            	<h3 class="title_block">
@@ -558,9 +306,9 @@
           @else
   					<div class="content_sortPagiBar_top">
   				    <div class="category-view-type hidden-xs">
-                <div id="grid" class="category-view-type-selector"><a rel="nofollow" href="#" title="Cuadricula"></a>
+                <div id="grid" class="category-view-type-selector"><a rel="nofollow" href="#" title="Ver cuadricula"></a>
                 </div>
-                <div id="list" class="category-view-type-selector"><a rel="nofollow" href="#" title="Lista"></a>
+                <div id="list" class="category-view-type-selector"><a rel="nofollow" href="#" title="Ver lista"></a>
                 </div>
               </div>
               <form id="productsSortForm" action="http://prestashop.flytheme.net/sp_market/es/153-healthy-beauty" class="productsSortForm ">
@@ -637,18 +385,8 @@
             						{{$articulo->descripcion}}
             					</p>
 							        <div class="comments_note" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-		                    <div class="star_content">
-												    <div class="star"></div>
-														<div class="star"></div>
-														<div class="star"></div>
-														<div class="star"></div>
-														<div class="star"></div>
-							              <meta itemprop="worstRating" content = "0" />
-                            <meta itemprop="ratingValue" content = "0" />
-                            <meta itemprop="bestRating" content = "5" />
+		                    <div id="star{{$articulo->id}}" class="star_content">
                     		</div>
-                    		<span class="nb-comments">
-                          <span itemprop="reviewCount">0</span> Comentario(s)</span>
                     	</div>
 					<!--Product Prices-->
 										  <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="price-box">
@@ -739,6 +477,22 @@
 
 
 <script>
+	$(function() {
+			var i;
+			JSONArts = eval(<?php echo json_encode($arts);?>);
+			JSONArts.forEach(function(currentValue,index,arr) {
+				i=1;
+				for(i; i<=5 ;i++){
+					if(i<=currentValue.calificacion){
+						$('#star'+currentValue.id).append('<div class="star star_on"></div>');
+					}
+					else{
+						$('#star'+currentValue.id).append('<div class="star"></div>');
+					}
+				}
+			});
+	 });
+
   function addCompra(id){
 		var idArticulo = id;
 		JSONArts = eval(<?php echo json_encode($arts);?>);

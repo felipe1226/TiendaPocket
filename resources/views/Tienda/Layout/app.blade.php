@@ -274,7 +274,6 @@
 															@else
 																<p class="recent_items ">Articulos <span>Precio</span></p>
 																	<div class="list-products mCustomScrollbar">
-
 																				<dl class="products ">
 																					@foreach($carritos as $carrito)
 																					<dt id="articulo{{$carrito->id}}" data-id="cart_block_product{{$carrito->id}}" class="first_item" style="display: block">

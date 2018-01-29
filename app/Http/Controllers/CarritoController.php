@@ -20,8 +20,9 @@ class CarritoController extends Controller
     }
 
     public function index(){
+      $direcciones = Direccion::Listar(Auth::user()->idEmpresa)->get();
       $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
-      return view('Tienda/Carrito/resumen')->with('carritos',$carritos);
+      return view('Tienda/Carrito/resumen')->with('carritos',$carritos)->with('direcciones', $direcciones);
     }
 
 
