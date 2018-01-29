@@ -385,18 +385,8 @@
             						{{$articulo->descripcion}}
             					</p>
 							        <div class="comments_note" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-		                    <div class="star_content">
-												    <div class="star"></div>
-														<div class="star"></div>
-														<div class="star"></div>
-														<div class="star"></div>
-														<div class="star"></div>
-							              <meta itemprop="worstRating" content = "0" />
-                            <meta itemprop="ratingValue" content = "0" />
-                            <meta itemprop="bestRating" content = "5" />
+		                    <div id="star{{$articulo->id}}" class="star_content">
                     		</div>
-                    		<span class="nb-comments">
-                          <span itemprop="reviewCount">0</span> Comentario(s)</span>
                     	</div>
 					<!--Product Prices-->
 										  <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="price-box">
@@ -487,6 +477,22 @@
 
 
 <script>
+	$(function() {
+			var i;
+			JSONArts = eval(<?php echo json_encode($arts);?>);
+			JSONArts.forEach(function(currentValue,index,arr) {
+				i=1;
+				for(i; i<=5 ;i++){
+					if(i<=currentValue.calificacion){
+						$('#star'+currentValue.id).append('<div class="star star_on"></div>');
+					}
+					else{
+						$('#star'+currentValue.id).append('<div class="star"></div>');
+					}
+				}
+			});
+	 });
+
   function addCompra(id){
 		var idArticulo = id;
 		JSONArts = eval(<?php echo json_encode($arts);?>);

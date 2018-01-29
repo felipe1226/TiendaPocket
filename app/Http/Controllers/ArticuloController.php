@@ -30,6 +30,7 @@ class ArticuloController extends Controller
     $articulo->precio = $request->precio;
     $articulo->impuesto = $request->impuesto;
     $articulo->descripcion = $request->descripcion;
+    $articulo->calificacion=3;
     $img = $request->file('imagenArticulo');
 
     $file_route = time().'_'.$img->getClientOriginalName();
@@ -117,6 +118,11 @@ class ArticuloController extends Controller
     $comentarios->comentario = $request->comentario;
 
     $comentarios->save();
+
+    $articulo = Articulo::find($request->id_articulo);
+    $articulo->calificacion = $request->nuevacalificacion;
+    $articulo->save();
+
 
   }
 
