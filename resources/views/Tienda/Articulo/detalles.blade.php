@@ -1297,7 +1297,7 @@ var moderation_active = 1;
             <meta itemprop="ratingValue" content = "0" />
             <meta itemprop="bestRating" content = "5" />
 		</div>
-		<span class="nb-comments"><span itemprop="reviewCount">0</span> Comentario(s)</span>
+		<span class="nb-comments"><span itemprop="reviewCount">{{count($comentarios)}}</span> Comentario(s)</span>
 	</div>
 
 
@@ -1352,7 +1352,7 @@ var moderation_active = 1;
 
 							<!--   Enable quick view   -->
 							<a class="quick-view" href="57-faded-short-sleeves-tshirt.html" title="Quick view" data-rel="57-faded-short-sleeves-tshirt.html">
-								Quick View
+								Vista Rapida
 							</a>
 
 						</div>
@@ -1586,8 +1586,7 @@ var moderation_active = 1;
 
 						<!--Product Buttons-->
 							<div class="button-container">
-
-																																						<a class=" cart_button ajax_add_to_cart_button" href="../order5101.html?add=1&amp;id_product=59&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f" rel="nofollow"  title="Añadir al carrito" data-id-product="59">
+								<a class=" cart_button ajax_add_to_cart_button" href="../order5101.html?add=1&amp;id_product=59&amp;token=c4995744c9bff2e8158c3c8bf59fbd5f" rel="nofollow"  title="Añadir al carrito" data-id-product="59">
 												COMPRAR
 											</a>
 
