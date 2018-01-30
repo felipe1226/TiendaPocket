@@ -46,8 +46,6 @@ class DireccionController extends Controller
     }
 
 
-
-
     public function store(Request $request){
       $direccion = new Direccion;
       $direccion->id_empresa = Auth::user()->idEmpresa;
@@ -71,8 +69,12 @@ class DireccionController extends Controller
 
     }
 
+    public function eliminar(Request $request){
+      $direccion = Direccion::find($request->id);
+      $direccion->delete();
+    }
+
 
   public function update(){
-
   }
 }

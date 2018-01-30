@@ -326,6 +326,7 @@ function display(view)
 			html += '<div class="left-block">' + $(element).find('.left-block').html() + '</div>';
 			html += '<div class="right-block">';
 				//html += '<div class="product-flags">'+ $(element).find('.product-flags').html() + '</div>';
+				html += '<h4 class="product-name" itemprop="name">'+ $(element).find('h4').html() + '</h4>';
 				html += '<h5 itemprop="name" class="product-name">'+ $(element).find('h5').html() + '</h5>';
 
 				html += '<p itemprop="description" class="product-desc">'+ $(element).find('.product-desc').html() + '</p>';

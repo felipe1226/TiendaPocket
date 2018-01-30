@@ -23,15 +23,4 @@ class CuentaController extends Controller
     return view('Tienda/Cuenta/index')->with('carritos', $carritos);
   }
 
-
-  public function pedidos(){
-    $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
-    return view('Tienda/Pedidos/index')->with('carritos', $carritos);
-  }
-
-  public function eliminarDireccion(Request $request){
-    $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
-    $direccion->delete();
-  }
-
 }

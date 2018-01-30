@@ -124,7 +124,5 @@ class ArticuloController extends Controller
     $articulo = Articulo::find($request->id_articulo);
     $articulo->calificacion = $request->nuevacalificacion;
     $articulo->save();
-
-
   }
 }

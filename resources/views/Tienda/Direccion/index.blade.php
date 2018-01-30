@@ -42,7 +42,7 @@
                     <p class="alert alert-warning">No tienes direcciones registradas!.</p>
                   @else
                     @foreach($direcciones as $direccion)
-      	    	        <div class="col-xs-12 col-sm-6 address">
+      	    	        <div id="direccion{{$direccion->id}}" class="col-xs-12 col-sm-6 address">
       			            <ul class="last_item item box">
                           <li><h3 class="page-subheading">{{$direccion->referencia}}</h3></li>
                           <li>
@@ -69,7 +69,7 @@
                           <li class="address_update">
                             <a class="btn btn-default button button-small" href="#">Actualizar <i class="fa fa-fw fa-refresh"></i> </a>
                             @if($direccion->estado == 0)
-                              <a class="btn btn-default button button-small" onclick="eliminar({{$direccion->id}})" data-id="addresses_confirm" title="Eliminar direccion"><i class="fa fa-remove"></i></a>
+                              <a class="btn btn-default button button-small" onclick="eliminarDireccion({{$direccion->id}})" data-id="addresses_confirm" title="Eliminar direccion"><i class="fa fa-remove"></i></a>
                             @endif
                           </li>
                         </ul>
@@ -91,7 +91,7 @@
 		</div><!-- .columns-container -->
 
   <script>
-    function eliminar(idDireccion){
+    function eliminarDireccion(idDireccion){
       if(confirm('¿Desea eliminar esta direccion?')){
         $.ajax({
           url: "Direccion/eliminar",
@@ -100,7 +100,7 @@
             id: idDireccion
           },
           success: function(){
-              location.reload();
+            $('#direccion'+idDireccion).hide("slow");
           },
           error: function(data){
             alert('No se puede eliminar esta direccion!.');

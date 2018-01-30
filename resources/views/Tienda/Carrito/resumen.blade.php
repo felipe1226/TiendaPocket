@@ -150,11 +150,12 @@
 						  		</div> <!-- end order-detail-content -->
 						  		@endif
 						  	@endif
+								<p id="alertaInventario" class="alert alert-warning" style="display: none">*.</p>
 
 								<ul class="footer_links">
 										<li class="f_right"><a class="button" href="http://localhost/TiendaPocket/public/Tienda" title="Ir al inicio"> <i class="fa fa-home"></i></a></li>
 										<li><a class="button" href="http://localhost/TiendaPocket/public/Cuenta" title="Regresar a mi cuenta"><i class="fa fa-user"></i> </a></li>
-										<li><a id="buttomComprar" class="button" href="{{url('Direccion')}}" title="Proceder con la compra" style="display:block">
+										<li><a id="buttomComprar" class="button" onclick="verificarInventario()" title="Proceder con la compra" style="display:block">
 											<span><i class="fa fa-chevron-right right"></i></span>
 										</a></li>
 									</ul>
@@ -262,6 +263,24 @@
       			});
       		}
       	}
+
+				function verificarInventario(){
+					var cantArticulo=0;
+					var inventario = true;
+					JSONCarritos = eval(<?php echo json_encode($carritos);?>);
+					JSONCarritos.forEach(function(currentValue,index,arr) {
+						cantArticulo = $('#cantidad'+currentValue.id).val();
+						if(cantArticulo > currentValue.almacena.cantidad){
+							inventario = false;
+							document.getElementById("cantidad"+currentValue.id).style.color = "red";
+							$('#cantidad'+currentValue.id).val(currentValue.almacena.cantidad);
+						}
+						else{
+							document.getElementById("cantidad"+currentValue.id).style.color = "black";
+						}
+					});
+				}
+
       </script>
 
 @endsection
