@@ -172,7 +172,7 @@
 															</span>
 														</div>
 														<span id="view_full_size">
-															<img id="bigpic" itemprop="image" data-src="url:(../imgArticulos/{{$articulos[0]->imagen}})" data-zoom-image="../imgArticulos/{{$articulos[0]->imagen}}"  src="../imgArticulos/{{$articulos[0]->imagen}}" title="Aliquam Leberkas" alt="Aliquam Leberkas" width="570" height="570"/>
+															<img id="bigpic" itemprop="image" data-src="url:(../imgArticulos/{{$articulo[0]->imagen}})" data-zoom-image="../imgArticulos/{{$articulo[0]->imagen}}"  src="../imgArticulos/{{$articulo[0]->imagen}}" title="Aliquam Leberkas" alt="Aliquam Leberkas" width="570" height="570"/>
 														</span>
 													</div>
 													<!-- end image-block -->
@@ -215,9 +215,9 @@
 
 												<div class="pb-right-column col-lg-5 col-md-5 col-sm-8 col-xs-12">
 													<div class="product-info">
-														<h1 class="product_name" itemprop="name">{{$articulos[0]->nombre}}</h1>
+														<h1 class="product_name" itemprop="name">{{$articulo[0]->nombre}}</h1>
 														<div class="comments_note" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
-															<input id="calificacion" type="hidden" value="{{$articulos[0]->calificacion}}">
+															<input id="calificacion" type="hidden" value="{{$articulo[0]->calificacion}}">
 															<div id="starsArt" class="star_content">
 															</div>
 															<ul class="comments_advices">
@@ -233,7 +233,7 @@
 															<div class="price">
 																<p class="our_price_display" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
 																	<link itemprop="availability" href="http://schema.org/InStock">
-																		<span id="our_price_display" itemprop="price">${{$articulos[0]->precio}}</span> Cop.
+																		<span id="our_price_display" itemprop="price">${{$articulo[0]->precio}}</span> Cop.
 																			<meta itemprop="priceCurrency" content="USD">
 																</p>
 
@@ -259,7 +259,7 @@
 													<div id="short_description_block">
 														<label>Descripcion</label>
 														<div id="short_description_content" class="rte align_justify" itemprop="description">
-															<p>{{$articulos[0]->descripcion}}</p>
+															<p>{{$articulo[0]->descripcion}}</p>
 														</div>
 
 

@@ -103,7 +103,9 @@ class ArticuloController extends Controller
   public function verVistaArticulo($id_articulo){
     $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
     $articulo = Articulo::where('id',$id_articulo)->get();
-    return view('Tienda/Articulo/verArticulo')->with('carritos',$carritos)->with('articulo', $articulo);
+    $comentarios=Comentario::ListarComentarios($id_articulo)->get();
+    return view('Tienda/Articulo/verArticulo')->with('carritos',$carritos)->with('articulo', $articulo)->with('comentarios',$comentarios);
+
   }
 
   public function vistaRapida(){
