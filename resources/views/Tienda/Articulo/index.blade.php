@@ -346,10 +346,7 @@
               				<div class="left-block">
                         <div class="product-image-container">
               						<!--   Slider Images Product   -->
-              						<div class="product-image">
-                            <a href="../Detalles/{{$articulo->id}}">
-              							  <img height="220" class="img_1" src="../imgArticulos/{{$articulo->imagen}}"  alt="{{$articulo->nombre}}"/>
-            								</a>
+              						<div id="imagenArticulo{{$articulo->id}}" class="product-image">
             						  </div>
                           <div class="label-box">
 														<?php
@@ -357,7 +354,6 @@
 															$date2 = new DateTime("now");
 															$diff = $date1->diff($date2);
 															if($diff->days < 31){echo '<span class="new-box">NUEVO</span>';}
-
 														?>
                             @if($articulo->cantidad == 0)
 														  <span class="sale-box">Agotado!</span>
@@ -481,6 +477,9 @@
 			var i;
 			JSONArts = eval(<?php echo json_encode($arts);?>);
 			JSONArts.forEach(function(currentValue,index,arr) {
+
+				$('#imagenArticulo'+currentValue.id).html('<a href="'+baseDir+'Detalles/'+currentValue.id+'"><img height="170" class="img_1" src="'+baseDir+'imgArticulos/'+currentValue.imagen+'"  alt="'+currentValue.nombre+'"/></a>');
+
 				i=1;
 				for(i; i<=5 ;i++){
 					if(i<=currentValue.calificacion){
@@ -533,7 +532,7 @@
 
 					if(carrito || !existe){
 						$.ajax({
-							url: "../Carrito/agregar",
+							url: baseDir+"Carrito/agregar",
 							type: 'GET',
 							data: {
 								id_articulo: id
@@ -573,7 +572,7 @@
 
   function addDeseo(id){
       $.ajax({
-        url: "../Deseo/agregar",
+        url: baseDir+"Deseo/agregar",
         type: 'GET',
         data: {
           id_articulo: id

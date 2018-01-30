@@ -277,6 +277,7 @@ var moderation_active = 1;
 
 <div id="idTab5">
 		<div id="product_comments_block_tab">
+			<div class="list-products mCustomScrollbar">
 			@foreach($comentariosPag as $comentario)
 			<div class="comment clearfix">
 				<div class="comment_author">
@@ -299,6 +300,7 @@ var moderation_active = 1;
 			<a id="new_comment_tab_btn" class="open-comment-form" href="#new_comment_form">Escriba su comentario! </a>
 		</p>
 	</div>
+</div>
 </div>
 
 <!-- Fancybox -->

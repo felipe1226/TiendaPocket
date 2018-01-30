@@ -133,7 +133,7 @@ function _runSlideImage (e) {
 					items:1
 				}
 			},
-			
+
 			autoplay:false,
 			loop:false,
 			nav : true, // Show next and prev buttons
@@ -144,16 +144,16 @@ function _runSlideImage (e) {
 			autoplayHoverPause: true,
 			margin:30,
 
-		});	 
+		});
 
 	}else{
 		e.removeClass('owl-carousel owl-loaded owl-theme');
 		e.find('.owl-stage-outer, .owl-stage, .owl-item, .owl-controls , .owl-nav ').children().unwrap();
 		e.find('.owl-dots ,.owl-prev , .owl-next ').remove();
-			
+
 	}
-		
-}		
+
+}
 
 function highdpiInit()
 {
@@ -220,34 +220,6 @@ function responsiveResize()
 	// blockHover();
 }
 
-// function blockHover(status)
-// {
-	// var screenLg = $('body').find('.container').width() == 1170;
-
-	// if ($('.product_list').is('.grid'))
-		// if (screenLg)
-			// $('.product_list .button-container').hide();
-		// else
-			// $('.product_list .button-container').show();
-
-	// $(document).off('mouseenter').on('mouseenter', '.product_list.grid li.ajax_block_product .product-container', function(e){
-		// if (screenLg)
-		// {
-			// var pcHeight = $(this).parent().outerHeight();
-			// var pcPHeight = $(this).parent().find('.button-container').outerHeight() + $(this).parent().find('.comments_note').outerHeight() + $(this).parent().find('.functional-buttons').outerHeight();
-			// $(this).parent().addClass('hovered').css({'height':pcHeight + pcPHeight, 'margin-bottom':pcPHeight * (-1)});
-			// $(this).find('.button-container').show();
-		// }
-	// });
-
-	// $(document).off('mouseleave').on('mouseleave', '.product_list.grid li.ajax_block_product .product-container', function(e){
-		// if (screenLg)
-		// {
-			// $(this).parent().removeClass('hovered').css({'height':'auto', 'margin-bottom':'0'});
-			// $(this).find('.button-container').hide();
-		// }
-	// });
-// }
 
 function quick_view()
 {
@@ -312,7 +284,8 @@ function display(view)
 			html = '<div class="product-container"><div class="row">';
 				html += '<div class="left-block col-xs-12 col-sm-6 col-md-5">' + $(element).find('.left-block').html() + '</div>';
 				html += '<div class="right-block col-xs-12 col-sm-6 col-md-7">';
-					html += '<h5 class="product-name" itemprop="name">'+ $(element).find('h5').html() + '</h5>';
+					html += '<h4 class="product-name" itemprop="name">'+ $(element).find('h4').html() + '</h4>';
+					html += '<h5 class="product-name" itemprop="marca">'+ $(element).find('h5').html() + '</h5>';
 					var rating = $(element).find('.comments_note').html(); // check : rating
 					if (rating != null) {
 						html += '<div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="comments_note">'+ rating + '</div>';
@@ -321,7 +294,7 @@ function display(view)
 					if (price != null) {
 						html += '<div class="price-box">'+ price + '</div>';
 					}
-					
+
 					html += '<p class="product-desc">'+ $(element).find('.product-desc').html() + '</p>';
 					var colorList = $(element).find('.color-list-container').html();
 					if (colorList != null) {
@@ -331,7 +304,7 @@ function display(view)
 					if (availability != null) {
 						html += '<span class="availability">'+ availability +'</span>';
 					}
-					
+
 					html += '<div class="button-container">'+ $(element).find('.button-container').html() +'</div>';
 				html += '</div>';
 			html += '</div></div>';
@@ -342,7 +315,7 @@ function display(view)
 		$.totalStorage('display', 'list');
 	}
 	else
-	{	
+	{
 		$('.content_product_list ul.product_list').removeClass('list').addClass('grid row');
 		$('.product_list .ajax_block_product').each(function(){
 			$(this).removeClass('col-xs-12').addClass($(this).parents('.content_product_list').data('class'));
@@ -354,7 +327,7 @@ function display(view)
 			html += '<div class="right-block">';
 				//html += '<div class="product-flags">'+ $(element).find('.product-flags').html() + '</div>';
 				html += '<h5 itemprop="name" class="product-name">'+ $(element).find('h5').html() + '</h5>';
-				
+
 				html += '<p itemprop="description" class="product-desc">'+ $(element).find('.product-desc').html() + '</p>';
 				var rating = $(element).find('.comments_note').html(); // check : rating
 					if (rating != null) {
@@ -364,7 +337,7 @@ function display(view)
 					if (price != null) {
 						html += '<div class="price-box">'+ price + '</div>';
 					}
-				
+
 				var colorList = $(element).find('.color-list-container').html();
 				if (colorList != null) {
 					html += '<div class="color-list-container">'+ colorList +'</div>';
@@ -375,7 +348,7 @@ function display(view)
 				}
 				html += '<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="button-container">'+ $(element).find('.button-container').html() +'</div>';
 			html += '</div>';
-			
+
 		html += '</div>';
 		$(element).html(html);
 		});
@@ -383,9 +356,9 @@ function display(view)
 		$('.category-view-type').find('#list').removeClass('selected');
 		$.totalStorage('display', 'grid');
 	}
-		
+
 	_runSlideImage($('.list-primg'));
-		
+
 	$('.wishlist_button_list').each(function() {
 		current = $(this).parent('.button-container');
   		$(this).popover({

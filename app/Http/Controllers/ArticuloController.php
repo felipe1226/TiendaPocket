@@ -46,11 +46,11 @@ class ArticuloController extends Controller
   public function ArtsCategoria($categoria){
     if($categoria == "Nuevos"){
       $arts = Articulo::BuscarNuevos()->get();
-      $articulos = Articulo::BuscarNuevos()->paginate(10);
+      $articulos = Articulo::BuscarNuevos()->paginate(12);
     }
     else{
       $arts = Articulo::BuscarxCategoria($categoria)->get();
-      $articulos = Articulo::BuscarxCategoria($categoria)->paginate(18);
+      $articulos = Articulo::BuscarxCategoria($categoria)->paginate(20);
     }
     $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
     $allCarritos = Carrito::where('id_empresa', Auth::user()->idEmpresa)->get();
@@ -60,7 +60,7 @@ class ArticuloController extends Controller
 
   public function busquedaAvanzada($categoria, $articulo){
     $arts = Articulo::BusquedaArticulo($categoria,$articulo)->get();
-    $articulos = Articulo::BusquedaArticulo($categoria,$articulo)->paginate(18);
+    $articulos = Articulo::BusquedaArticulo($categoria,$articulo)->paginate(20);
 
     $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
     $allCarritos = Carrito::where('id_empresa', Auth::user()->idEmpresa)->get();
@@ -95,7 +95,7 @@ class ArticuloController extends Controller
     $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
     $articulo = Articulo::where('id',$id_articulo)->get();
 
-    $comentariosPag=Comentario::ListarComentarios($id_articulo)->paginate(5);
+    $comentariosPag=Comentario::ListarComentarios($id_articulo)->paginate(10);
     $comentarios=Comentario::ListarComentarios($id_articulo)->get();
 
     return view('Tienda/Articulo/detalles')->with('carritos',$carritos)->with('articulos', $articulo)->with('comentarios', $comentarios)->with('comentariosPag', $comentariosPag);
@@ -127,8 +127,4 @@ class ArticuloController extends Controller
 
 
   }
-
-
-
-
 }
