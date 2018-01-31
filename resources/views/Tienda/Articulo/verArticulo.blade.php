@@ -144,7 +144,7 @@
 		    //]]>
 		</script>
 
-		<body id="product" itemscope="" itemtype="http://schema.org/WebPage" class="blog-small_image content-v1  product   content_only lang_es patternnone layout-full slider-imgpr-0  secondImage-0" data-content="content-v1" style="overflow-x: hidden;">
+		<body id="product"  class="blog-small_image content-v1  product   content_only lang_es patternnone layout-full slider-imgpr-0  secondImage-0" data-content="content-v1" style="overflow-x: hidden;">
 
 
 
@@ -183,22 +183,22 @@
 															<div aria-live="polite" class="slick-list draggable">
 																<div class="slick-track" style="opacity: 1; width: 740px; transform: translate3d(0px, 0px, 0px);" role="listbox">
 																	<div id="thumbnail_6" class="thumbnail_image slick-slide slick-current slick-active" style="width: 138px;" tabindex="0" role="option" aria-describedby="slick-slide00" data-slick-index="0" aria-hidden="false">
-																		<a href="http://prestashop.flytheme.net/sp_market/6-thickbox_default/faded-short-sleeves-tshirt.jpg" data-fancybox-group="gallery" class="fancybox" title="Aliquam Leberkas" tabindex="0">
-																			<img class="img-responsive" id="thumb_6" src="http://prestashop.flytheme.net/sp_market/6-medium_default/faded-short-sleeves-tshirt.jpg" alt="Aliquam Leberkas" title="Aliquam Leberkas" itemprop="image">
+																		<a href="../imgArticulos/{{$articulo[0]->imagen}}" width="570" height="570" data-fancybox-group="gallery" class="fancybox" title="Aliquam Leberkas" tabindex="0">
+																			<img class="img-responsive" id="thumb_6" src="../imgArticulos/{{$articulo[0]->imagen}}" alt="Aliquam Leberkas" title="Aliquam Leberkas" itemprop="image">
 																		</a>
 																	</div><div id="thumbnail_7" class="thumbnail_image slick-slide slick-active" style="width: 138px;" tabindex="0" role="option" aria-describedby="slick-slide01" data-slick-index="1" aria-hidden="false">
 																		<a href="http://prestashop.flytheme.net/sp_market/7-thickbox_default/faded-short-sleeves-tshirt.jpg" data-fancybox-group="gallery" class="fancybox shown" title="Aliquam Leberkas" tabindex="0">
-																			<img class="img-responsive" id="thumb_7" src="http://prestashop.flytheme.net/sp_market/7-medium_default/faded-short-sleeves-tshirt.jpg" alt="Aliquam Leberkas" title="Aliquam Leberkas" itemprop="image">
+																			<img class="img-responsive" id="thumb_7" src="../imgArticulos/{{$articulo[0]->imagen}}" alt="Aliquam Leberkas" title="Aliquam Leberkas" itemprop="image">
 																		</a>
 																	</div>
 																	<div id="thumbnail_8" class="thumbnail_image slick-slide slick-active" style="width: 138px;" tabindex="0" role="option" aria-describedby="slick-slide02" data-slick-index="2" aria-hidden="false">
 																		<a href="http://prestashop.flytheme.net/sp_market/8-thickbox_default/faded-short-sleeves-tshirt.jpg" data-fancybox-group="gallery" class="fancybox" title="Aliquam Leberkas" tabindex="0">
-																			<img class="img-responsive" id="thumb_8" src="http://prestashop.flytheme.net/sp_market/8-medium_default/faded-short-sleeves-tshirt.jpg" alt="Aliquam Leberkas" title="Aliquam Leberkas" itemprop="image">
+																			<img class="img-responsive" id="thumb_8" src="../imgArticulos/{{$articulo[0]->imagen}}" alt="Aliquam Leberkas" title="Aliquam Leberkas" itemprop="image">
 																		</a>
 																	</div>
 																	<div id="thumbnail_9" class="thumbnail_image slick-slide slick-active" style="width: 138px;" tabindex="0" role="option" aria-describedby="slick-slide03" data-slick-index="3" aria-hidden="false">
 																		<a href="http://prestashop.flytheme.net/sp_market/9-thickbox_default/faded-short-sleeves-tshirt.jpg" data-fancybox-group="gallery" class="fancybox" title="Aliquam Leberkas" tabindex="0">
-																			<img class="img-responsive" id="thumb_9" src="http://prestashop.flytheme.net/sp_market/9-medium_default/faded-short-sleeves-tshirt.jpg" alt="Aliquam Leberkas" title="Aliquam Leberkas" itemprop="image">
+																			<img class="img-responsive" id="thumb_9" src="../imgArticulos/{{$articulo[0]->imagen}}" alt="Aliquam Leberkas" title="Aliquam Leberkas" itemprop="image">
 																		</a>
 																	</div>
 																	<div id="thumbnail_10" class="thumbnail_image  last slick-slide" style="width: 138px;" tabindex="-1" role="option" aria-describedby="slick-slide04" data-slick-index="4" aria-hidden="true">

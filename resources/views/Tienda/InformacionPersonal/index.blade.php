@@ -51,63 +51,63 @@
                     <label for="nombre" class="required">
                         Nombre Completo
                     </label>
-                    <input class="is_required validate form-control" data-validate="esNombre" type="text" id="nombre" name="nombre" value="{{$usuario->nombrePersona}}"/>
+                    <input class="is_required validate form-control" data-validate="esNombre" type="text" id="nombre" name="nombre" value="{{$usuario->nombrePersona}}"   style="border:0" readonly/>
                 </div>
 
                 <div class="required form-group">
                     <label for="cedula" class="required">
                         Cedula
                     </label>
-                    <input class="is_required validate form-control" data-validate="esCedula" type="text" name="cedula" id="cedula" value="{{$usuario->cedula}}" />
+                    <input class="is_required validate form-control" data-validate="esCedula" type="text" name="cedula" id="cedula" value="{{$usuario->cedula}}" readonly=”readonly” style="border:none"/>
                 </div>
 
                 <div class="required form-group">
                     <label for="empresa" class="required">
                         Nombre de Establecimiento
                     </label>
-                    <input class="is_required validate form-control" data-validate="esEstablecimiento" type="text" name="establecimiento" id="establecimiento" value="{{$usuario->Empresa->nombreEstablecimiento}}" />
+                    <input class="is_required validate form-control" data-validate="esEstablecimiento" type="text" name="establecimiento" id="establecimiento" value="{{$usuario->Empresa->nombreEstablecimiento}}" readonly=”readonly” style="border:none" />
                 </div>
 
 								<div class="required form-group">
                     <label for="direccion" class="required">
                         Direccion de Establecimiento
                     </label>
-                    <input class="is_required validate form-control" data-validate="esDireccion" type="text" name="direccion" id="direccion" value="{{$usuario->Empresa->direccion}}" />
+                    <input class="is_required validate form-control" data-validate="esDireccion" type="text" name="direccion" id="direccion" value="{{$usuario->Empresa->direccion}}" readonly=”readonly” style="border:none" />
                 </div>
 
 								<div class="required form-group">
                     <label for="ciudad" class="required">
                         Ciudad
                     </label>
-                    <input class="is_required validate form-control" data-validate="esCiudad" type="text" name="ciudad" id="ciudad" value="{{$usuario->Empresa->ciudad}}" />
+                    <input class="is_required validate form-control" data-validate="esCiudad" type="text" name="ciudad" id="ciudad" value="{{$usuario->Empresa->ciudad}}" readonly=”readonly” style="border:none"/>
                 </div>
 
 								<div class="required form-group">
                     <label for="departamento" class="required">
                         Departamento
                     </label>
-                    <input class="is_required validate form-control" data-validate="esDepartamento" type="text" name="departamento" id="departamento" value="{{$usuario->Empresa->departamento}}" />
+                    <input class="is_required validate form-control" data-validate="esDepartamento" type="text" name="departamento" id="departamento" value="{{$usuario->Empresa->departamento}}" readonly=”readonly” style="border:none"/>
                 </div>
 
 								<div class="required form-group">
                     <label for="Pais" class="required">
                         Pais
                     </label>
-                    <input class="is_required validate form-control" data-validate="esPais" type="text" name="pais" id="pais" value="{{$usuario->pais}}" />
+                    <input class="is_required validate form-control" data-validate="esPais" type="text" name="pais" id="pais" value="{{$usuario->pais}}" readonly=”readonly” style="border:none"/>
                 </div>
 
 								<div class="required form-group">
                     <label for="email" class="required">
                         Email
                     </label>
-                    <input class="is_required validate form-control" data-validate="esEmail" type="email" name="email" id="email" value="{{$usuario->email}}" />
+                    <input class="is_required validate form-control" data-validate="esEmail" type="email" name="email" id="email" value="{{$usuario->email}}" readonly=”readonly” style="border:none" />
                 </div>
 
 								<div class="required form-group">
                     <label for="nacimiento" class="required">
                         fecha de Nacimiento
                     </label>
-                    <input class="is_required validate form-control" data-validate="esNacimiento" type="date" name="nacimiento" id="nacimiento" value="{{$usuario->fechaNacimiento}}" />
+                    <input class="is_required validate form-control" data-validate="esNacimiento" type="date" name="nacimiento" id="nacimiento" value="{{$usuario->fechaNacimiento}}" readonly=”readonly” style="border:none"/>
                 </div>
 
 								@endforeach
