@@ -21,6 +21,7 @@ class ArticuloController extends Controller
   }
 
   public function store(Request $request){
+    dd($request);
     $articulo = new Articulo;
     $articulo->id_proveedor = Auth::user()->id;
     $articulo->nombre = $request->nombre;
@@ -28,7 +29,6 @@ class ArticuloController extends Controller
     $articulo->marca = $request->marca;
     $articulo->cantidad = $request->cantidad;
     $articulo->precio = $request->precio;
-    $articulo->impuesto = $request->impuesto;
     $articulo->descripcion = $request->descripcion;
     $articulo->calificacion=3;
     $img = $request->file('imagenArticulo');
@@ -37,6 +37,7 @@ class ArticuloController extends Controller
     Storage::disk('imgArticulos')->put($file_route, file_get_contents( $img->getRealPath()));
 
     $articulo->imagen = $file_route;
+
     $articulo->save();
     Flash::success("El articulo se ha registrado satisfactoriamente!")->important();
     return redirect('RegistrarArticulo/');

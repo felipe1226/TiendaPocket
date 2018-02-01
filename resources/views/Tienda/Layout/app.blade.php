@@ -15,42 +15,42 @@
 		<meta name="apple-mobile-web-app-capable" content="YES" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
+		{!!Html::style('themes/sp_market/css/fonts/font-awesome.css')!!}
 
-				<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/fonts/font-awesome.css"  type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/global.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/autoload/jquery.mCustomScrollbar.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/autoload/uniform.default.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/js/jquery/plugins/fancybox/jquery.fancybox.css" type="text/css" media="all" />
+						{!!Html::style('themes/sp_market/css/global.css')!!}
+						{!!Html::style('themes/sp_market/css/autoload/jquery.mCustomScrollbar.css')!!}
+						{!!Html::style('themes/sp_market/css/autoload/uniform.default.css')!!}
+						{!!Html::style('js/jquery/plugins/fancybox/jquery.fancybox.css')!!}
 
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/modules/spthemeconfigurator/views/css/front/sp-cpanel.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/bootstrap/bootstrap.min.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/modules/spthemeconfigurator/views/css/front/configCss-1.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/theme-2f0033.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/responsive.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/blocktags/blocktags.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/blockwishlist/blockwishlist.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/productcomments/productcomments.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/spblockcurrencies/css/spblockcurrencies.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/spblocklanguages/css/spblocklanguages.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/modules/smartblog/css/smartblogstyle.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/blockcategories/blockcategories.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/spmegamenu/css/spmegamenu.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/spextraslider/views/css/style.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/modules/spextraslider/views/css/owl.carousel.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/splistingtabs/views/css/sp-listing-tabs.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/modules/splistingtabs/views/css/owl.carousel.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/spblockuserinfo/css/spblockuserinfo.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/spdeal/views/css/styles.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/spverticalmenu/css/spverticalmenu.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/spcategories/views/css/sp-categories.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/spsearchpro/views/css/style.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/spblockcart/css/spblockcart.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/js/jquery/plugins/bxslider/jquery.bxslider.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/sphomeslider/css/sphomeslider.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/modules/sphomeslider/css/animate.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/modules/sphomeslider/css/owl.carousel.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/spblocknewsletter/spblocknewsletter.css" type="text/css" media="all" />
-						<link rel="stylesheet" href="http://localhost/TiendaPocket/public/themes/sp_market/css/modules/spcustomhtml/views/css/style.css" type="text/css" media="all" />
+						{!!Html::style('modules/spthemeconfigurator/views/css/front/sp-cpanel.css')!!}
+						{!!Html::style('themes/sp_market/css/bootstrap/bootstrap.min.css')!!}
+						{!!Html::style('modules/spthemeconfigurator/views/css/front/configCss-1.css')!!}
+						{!!Html::style('themes/sp_market/css/theme-2f0033.css')!!}
+						{!!Html::style('themes/sp_market/css/responsive.css')!!}
+						{!!Html::style('themes/sp_market/css/modules/blocktags/blocktags.css')!!}
+						{!!Html::style('themes/sp_market/css/modules/blockwishlist/blockwishlist.css')!!}
+						{!!Html::style('themes/sp_market/css/modules/productcomments/productcomments.css')!!}
+						{!!Html::style('themes/sp_market/css/modules/spblockcurrencies/css/spblockcurrencies.css')!!}
+						{!!Html::style('themes/sp_market/css/modules/spblocklanguages/css/spblocklanguages.css')!!}
+						{!!Html::style('modules/smartblog/css/smartblogstyle.css')!!}
+						{!!Html::style('themes/sp_market/css/modules/blockcategories/blockcategories.css')!!}
+						{!!Html::style('themes/sp_market/css/modules/spmegamenu/css/spmegamenu.css')!!}
+						{!!Html::style('themes/sp_market/css/modules/spextraslider/views/css/style.css')!!}
+						{!!Html::style('modules/spextraslider/views/css/owl.carousel.css')!!}
+						{!!Html::style('themes/sp_market/css/modules/splistingtabs/views/css/sp-listing-tabs.css')!!}
+						{!!Html::style('modules/splistingtabs/views/css/owl.carousel.css')!!}
+						{!!Html::style('themes/sp_market/css/modules/spblockuserinfo/css/spblockuserinfo.css')!!}
+						{!!Html::style('themes/sp_market/css/modules/spdeal/views/css/styles.css')!!}
+						{!!Html::style('themes/sp_market/css/modules/spverticalmenu/css/spverticalmenu.css')!!}
+						{!!Html::style('themes/sp_market/css/modules/spcategories/views/css/sp-categories.css')!!}
+						{!!Html::style('themes/sp_market/css/modules/spsearchpro/views/css/style.css')!!}
+						{!!Html::style('themes/sp_market/css/modules/spblockcart/css/spblockcart.css')!!}
+						{!!Html::style('js/jquery/plugins/bxslider/jquery.bxslider.css')!!}
+						{!!Html::style('themes/sp_market/css/modules/sphomeslider/css/sphomeslider.css')!!}
+						{!!Html::style('modules/sphomeslider/css/animate.css')!!}
+						{!!Html::style('modules/sphomeslider/css/owl.carousel.css')!!}
+						{!!Html::style('themes/sp_market/css/modules/spblocknewsletter/spblocknewsletter.css')!!}
+						{!!Html::style('themes/sp_market/css/modules/spcustomhtml/views/css/style.css')!!}
 
 
 						<script type="text/javascript">
@@ -101,45 +101,45 @@
 						var wishlistProductsIds = [{"id_product":"1","quantity":"2","product_quantity":"0","name":"Aliquam Leberkas","id_product_attribute":"0","priority":"1","link_rewrite":"faded-short-sleeves-tshirt","category_rewrite":"electronics","attributes_small":""},{"id_product":"2","quantity":"14","product_quantity":"0","name":"Aliquam lobortis","id_product_attribute":"0","priority":"0","link_rewrite":"blouse","category_rewrite":"electronics","attributes_small":""},{"id_product":"4","quantity":"5","product_quantity":"0","name":"Nulla tenderloin","id_product_attribute":"0","priority":"1","link_rewrite":"printed-dress","category_rewrite":"electronics","attributes_small":""},{"id_product":"5","quantity":"2","product_quantity":"0","name":"Cauris venenatis","id_product_attribute":"0","priority":"1","link_rewrite":"printed-summer-dress","category_rewrite":"electronics","attributes_small":""},{"id_product":"8","quantity":"4","product_quantity":"0","name":"Etiam Andouille","id_product_attribute":"0","priority":"1","link_rewrite":"printed-dress","category_rewrite":"electronics","attributes_small":""},{"id_product":"59","quantity":"1","product_quantity":"0","name":"Cillum eiusmod","id_product_attribute":"0","priority":"1","link_rewrite":"faded-short-sleeves-tshirt","category_rewrite":"electronics","attributes_small":""}];
 </script>
 
-						<script type="text/javascript" src="http://localhost/TiendaPocket/public/js/jquery/jquery-1.11.0.min.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/js/jquery/jquery-migrate-1.2.1.min.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/js/jquery/plugins/jquery.easing.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/js/tools.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/global.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/alerta.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/autoload/10-bootstrap.min.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/autoload/15-jquery.total-storage.min.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/autoload/15-jquery.uniform-modified.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/autoload/jquery.mCustomScrollbar.concat.min.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/autoload/slick.min.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/js/jquery/plugins/fancybox/jquery.fancybox.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/products-comparison.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/modules/spthemeconfigurator/views/js/front/jquery.miniColors.min.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/modules/spthemeconfigurator/views/js/front/sp-cpanel.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/sp_lib/jquery.backtotop.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/sp_lib/jquery.global.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/sp_lib/jquery.ui.touch-punch.min.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/sp_lib/jquery.elevatezoom.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/modules/blockwishlist/js/ajax-wishlist.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/tools/treeManagement.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/modules/spextraslider/views/js/owl.carousel.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/modules/spdeal/views/js/deal.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/modules/spdeal/views/js/jquery.cj-swipe.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/modules/spcategories/views/js/jquery.imagesloaded.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/modules/spcategories/views/js/jquery.sj_accordion.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/modules/spsearchpro/views/js/jquery.autocomplete.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/modules/spblockcart/ajax-cart.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/js/jquery/plugins/jquery.scrollTo.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/js/jquery/plugins/jquery.serialScroll.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/js/jquery/plugins/bxslider/jquery.bxslider.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/modules/sphomeslider/js/owl.carousel.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/modules/spblocknewsletter/jquery.cookie.min.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/modules/productcomments/js/jquery.rating.pack.js"></script>
-							<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/modules/productcomments/js/productcomments.js"></script>
+						{!!Html::script("js/jquery/jquery-1.11.0.min.js")!!}
+							{!!Html::script("js/jquery/jquery-migrate-1.2.1.min.js")!!}
+							{!!Html::script("js/jquery/plugins/jquery.easing.js")!!}
+							{!!Html::script("js/tools.js")!!}
+							{!!Html::script("themes/sp_market/js/global.js")!!}
+							{!!Html::script("themes/sp_market/js/autoload/10-bootstrap.min.js")!!}
+							{!!Html::script("themes/sp_market/js/autoload/15-jquery.total-storage.min.js")!!}
+							{!!Html::script("themes/sp_market/js/autoload/15-jquery.uniform-modified.js")!!}
+							{!!Html::script("themes/sp_market/js/autoload/jquery.mCustomScrollbar.concat.min.js")!!}
+							{!!Html::script("themes/sp_market/js/autoload/slick.min.js")!!}
+							{!!Html::script("js/jquery/plugins/fancybox/jquery.fancybox.js")!!}
+							{!!Html::script("themes/sp_market/js/products-comparison.js")!!}
+							{!!Html::script("modules/spthemeconfigurator/views/js/front/jquery.miniColors.min.js")!!}
+							{!!Html::script("modules/spthemeconfigurator/views/js/front/sp-cpanel.js")!!}
+							{!!Html::script("themes/sp_market/js/sp_lib/jquery.backtotop.js")!!}
+							{!!Html::script("themes/sp_market/js/sp_lib/jquery.global.js")!!}
+							{!!Html::script("themes/sp_market/js/sp_lib/jquery.ui.touch-punch.min.js")!!}
+							{!!Html::script("themes/sp_market/js/sp_lib/jquery.elevatezoom.js")!!}
+							{!!Html::script("themes/sp_market/js/modules/blockwishlist/js/ajax-wishlist.js")!!}
+							{!!Html::script("themes/sp_market/js/tools/treeManagement.js")!!}
+							{!!Html::script("modules/spextraslider/views/js/owl.carousel.js")!!}
+							{!!Html::script("modules/spdeal/views/js/deal.js")!!}
+							{!!Html::script("modules/spdeal/views/js/jquery.cj-swipe.js")!!}
+							{!!Html::script("modules/spcategories/views/js/jquery.imagesloaded.js")!!}
+							{!!Html::script("modules/spcategories/views/js/jquery.sj_accordion.js")!!}
+							{!!Html::script("modules/spsearchpro/views/js/jquery.autocomplete.js")!!}
+							{!!Html::script("themes/sp_market/js/modules/spblockcart/ajax-cart.js")!!}
+							{!!Html::script("js/jquery/plugins/jquery.scrollTo.js")!!}
+							{!!Html::script("js/jquery/plugins/jquery.serialScroll.js")!!}
+							{!!Html::script("js/jquery/plugins/bxslider/jquery.bxslider.js")!!}
+							{!!Html::script("modules/sphomeslider/js/owl.carousel.js")!!}
+							{!!Html::script("modules/spblocknewsletter/jquery.cookie.min.js")!!}
+							{!!Html::script("modules/productcomments/js/jquery.rating.pack.js")!!}
+							{!!Html::script("javascripts\bootstrap-fileupload.js")!!}
+							{!!Html::script("themes/sp_market/js/modules/productcomments/js/productcomments.js")!!}
 
 	</head>
 
-	<body id="my-account" itemscope itemtype="http://schema.org/WebPage" class="blog-small_image content-v1  index   lang_es patternnone layout-full slider-imgpr-0  secondImage-0" data-content="content-v1">
+	<body id="my-account" itemscope="" itemtype="http://schema.org/WebPage" class="blog-small_image content-v1  index   lang_es patternnone layout-full slider-imgpr-0  secondImage-0" data-content="content-v1" style="">
 		<div id="wrapper" >
 									 <!-- Header -->
 									 <div class="header-container">
@@ -780,11 +780,8 @@
 					location.href=baseDir+"Articulos/"+categoria+"/"+articulo;
 				}
 			}
-
-
 		}
 	</script>
-
 
 	</body>
 </html>

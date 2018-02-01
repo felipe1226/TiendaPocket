@@ -23,7 +23,6 @@ class PedidoController extends Controller
 
     $pedidosGroup = Pedido::ListarxGroup(Auth::user()->idEmpresa)->get();
     $pedidos = Pedido::Listar(Auth::user()->idEmpresa)->get();
-    dd($pedidos);
     return view('Tienda/Pedido/index')->with('carritos', $carritos)->with('pedidosGroup', $pedidosGroup)->with('pedidos', $pedidos);
   }
 
