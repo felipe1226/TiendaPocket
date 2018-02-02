@@ -30,13 +30,13 @@
 			<!-- Center Column -->
 			<div id="center_column" class="column col-sm-12">
 				<div class="box">
-					<h1 class="page-subheading">Actualizar direccion</h1>
+					<h1 class="page-subheading">Actualizar direccion {{$direccion->nombre}}</h1>
 
 
 
 
 					@include('flash::message')
-					{!! Form::open(['method' => 'POST', 'action' => 'DireccionController@store']) !!}
+					{!! Form::open(['method' => 'PATCH', 'action' => 'DireccionController@update','$direccion->id']) !!}
 						<div class="form-group">
 							<label for="nombres">Nombres <sup>*</sup></label>
 							<input class="form-control" type="text" name="nombres" value="{{$direccion->nombre}}" />

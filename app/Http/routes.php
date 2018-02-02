@@ -150,7 +150,7 @@ Route::resource('RegistrarDireccion', 'DireccionController@registrarDireccion');
 Route::get('Direccion/eliminar', 'DireccionController@eliminar');
 
 Route::resource('MisDirecciones', 'DireccionController');
-
+Route::resource('ActualizarDireccion', 'DireccionController@update');
 Route::resource('Cuenta', 'CuentaController');
 
 Route::get('Pedido/agregar', 'PedidoController@store');

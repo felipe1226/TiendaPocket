@@ -19,4 +19,6 @@ class Direccion extends Model
     $resultado = $query->where('id_empresa','=',$idEmpresa);
     return $resultado;
   }
+
+
 }
