@@ -33,7 +33,7 @@
 							<ul class="myaccount-link-list">
 								<li><a href="{{url('Pedidos')}}" title="Mis Pedidos"><i class="fa fa-list-ol"></i><span>Historial de Pedidos y Detalles</span></a></li>
 								<li><a href="{{url('InformacionPersonal')}}"><i class="fa fa-user"></i><span>Mi Informacion Personal</span></a></li>
-            		<li><a href="{{url('MisDirecciones')}}"><i class="fa fa-building"></i><span>Mis Direcciones</span></a></li>
+            		<li><a href="{{url('Direccion')}}"><i class="fa fa-building"></i><span>Mis Direcciones</span></a></li>
 
         			</ul>
 						</div>

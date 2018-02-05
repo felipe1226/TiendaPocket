@@ -34,22 +34,15 @@ class DireccionController extends Controller
       return view('Tienda/Direccion/RegistrarDireccion')->with('carritos', $carritos)->with('departamentos', $departamentos)->with('ciudades', $ciudades);
     }
 
-    public function update(Request $request){
-      $direccion=User::find($id);
-      $direccion->fill($request->all());
-      $direccion->save();
 
-    }
 
-    public function actualizarDireccion($request, $id){
+    public function actualizar($id){
       $departamentos = Departamento::all();
       $ciudades = Ciudad::all();
       $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
+      $direccion = Direccion::find($id);
 
-      $direccion = Direccion::where('id_articulo', $request->id_articulo)->get();
-
-
-      return view('Tienda/Direccion/actualizarDireccion')->with('carritos', $carritos)->with('departamentos', $departamentos)->with('ciudades', $ciudades);
+      return view('Tienda/Direccion/RegistrarDireccion')->with('carritos', $carritos)->with('departamentos', $departamentos)->with('ciudades', $ciudades)->with('direccion',$direccion);
     }
 
 
@@ -81,6 +74,11 @@ class DireccionController extends Controller
       $direccion->delete();
     }
 
+    public function update(Request $request){
+      $direccion = Direccion::find($request->id);
 
+      $direccion->fill($request->all());
+      $direccion->save();
+    }
 
 }

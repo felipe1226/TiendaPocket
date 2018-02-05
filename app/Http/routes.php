@@ -140,8 +140,8 @@ Route::get('Carrito/modificar', 'CarritoController@modificarCant');
 
 Route::resource('Carrito','CarritoController');
 
-Route::resource('Direccion', 'CarritoController@direcciones');
-Route::resource('Pago', 'CarritoController@pago');
+Route::resource('Carrito/Direccion', 'CarritoController@direcciones');
+Route::resource('Carrito/Pago', 'CarritoController@pago');
 
 Route::resource('Tienda/Carrito','CarritoController');
 
@@ -149,8 +149,10 @@ Route::resource('Tienda/Carrito','CarritoController');
 Route::resource('RegistrarDireccion', 'DireccionController@registrarDireccion');
 Route::get('Direccion/eliminar', 'DireccionController@eliminar');
 
-Route::resource('MisDirecciones', 'DireccionController');
-Route::resource('ActualizarDireccion', 'DireccionController@update');
+
+Route::get('Direccion/{id}', 'DireccionController@actualizar');
+Route::resource('Direccion', 'DireccionController');
+
 Route::resource('Cuenta', 'CuentaController');
 
 Route::get('Pedido/agregar', 'PedidoController@store');
