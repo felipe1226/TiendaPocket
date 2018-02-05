@@ -29,39 +29,19 @@
 					<p class="info-account">Administra toda la informacion de tu cuenta, articulos y pedidos.</p>
 
 					<div class="row addresses-lists">
-						<div class="col-xs-12 col-sm-6 col-lg-4">
+						<div class="col-md-4 col-xs-12 col-sm-6">
 							<ul class="myaccount-link-list">
 								<li><a href="{{url('Pedidos')}}" title="Mis Pedidos"><i class="fa fa-list-ol"></i><span>Historial de Pedidos y Detalles</span></a></li>
 								<li><a href="{{url('InformacionPersonal')}}"><i class="fa fa-user"></i><span>Mi Informacion Personal</span></a></li>
             		<li><a href="{{url('MisDirecciones')}}"><i class="fa fa-building"></i><span>Mis Direcciones</span></a></li>
-
         			</ul>
 						</div>
-						<div class="col-xs-12 col-sm-6 col-lg-4">
+						<div class="col-md-4 col-xs-12 col-sm-6">
         			<ul class="myaccount-link-list">
-								<li class="lnk_wishlist">
-									<!--<a 	href="#">-->
-									<a 	href="{{url('ArticulosProveedor')}}">
-										<i class="fa fa-fw fa-shopping-cart"></i>
-										<span>Mi articulos</span>
-									</a>
-								</li>
-								<li class="lnk_wishlist">
-									<!--<a 	href="#">-->
-									<a 	href="{{url('Carrito')}}">
-										<i class="fa fa-fw fa-shopping-cart"></i>
-										<span>Mi carrito</span>
-									</a>
-								</li>
-<!-- MODULE WishList -->
-								<li class="lnk_wishlist">
-									<!--<a 	href="#">-->
-									<a 	href="{{url('ListaDeseos')}}">
-										<i class="fa fa-heart"></i>
-										<span>Mi Lista de Deseos</span>
-									</a>
-								</li>
-<!-- END : MODULE WishList -->
+								<li><a href="{{url('ArticulosProveedor')}}"><i class="fa fa-fw fa-shopping-cart"></i><span>Mi articulos</span></a></li>
+								<li><a href="{{url('RegistrarArticulo')}}"><i class="fa fa-user"></i><span>Registrar articulo</span></a></li>
+								<li><a href="{{url('Carrito')}}"><i class="fa fa-fw fa-shopping-cart"></i><span>Mi carrito</span></a></li>
+								<li><a 	href="{{url('ListaDeseos')}}"><i class="fa fa-heart"></i><span>Mi Lista de Deseos</span></a></li>
         			</ul>
     				</div>
 					</div>

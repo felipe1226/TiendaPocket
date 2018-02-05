@@ -33,48 +33,50 @@
 										<!-- product img-->
 										<div id="image-block">
 											<div class="label-box">
-												<span class="new-box">
-													<span class="new-label">Nuevo</span>
-												</span>
+												<?php
+													$date1 = $articulos[0]->created_at;
+													$date2 = new DateTime("now");
+													$diff = $date1->diff($date2);
+													if($diff->days < 31){
+														echo '<span class="new-box">
+																		<span class="new-label">Nuevo</span>
+																	</span>';
+													}
+												?>
+												<input id="inventario" type="hidden" value="{{$articulos[0]->cantidad}}">
+												<div id="campoEtiqueta" style="display:none">
+													<span id="etiqueta" class="sale-box"></span>
+												</div>
 											</div>
 											<span id="view_full_size">
-												<img id="bigpic" itemprop="image" data-src="url:(../imgArticulos/{{$articulos[0]->imagen}})" data-zoom-image="../imgArticulos/{{$articulos[0]->imagen}}"  src="../imgArticulos/{{$articulos[0]->imagen}}" title="Aliquam Leberkas" alt="Aliquam Leberkas" width="570" height="570"/>
+												<img id="bigpic" itemprop="image" data-src="url:(../imgArticulos/{{$articulos[0]->imagen1}})" data-zoom-image="../imgArticulos/{{$articulos[0]->imagen1}}"  src="../imgArticulos/{{$articulos[0]->imagen1}}" title="Aliquam Leberkas" alt="Aliquam Leberkas" width="570" height="570"/>
 											</span>
 										</div>
 										<!-- end image-block -->
 										<!-- thumbnails -->
 										<div id="views_block" class="clearfix">
 											<div id="thumbs_list" class="clearfix slick-initialized slick-slider">
-												<button type="button" data-role="none" class="slick-prev slick-arrow slick-disabled" aria-label="Previous" role="button" aria-disabled="true" style="display: block;">Previous</button>
 												<div aria-live="polite" class="slick-list draggable">
-													<div class="slick-track" style="opacity: 1; width: 740px; transform: translate3d(0px, 0px, 0px);" role="listbox">
-														<div id="thumbnail_6" class="thumbnail_image slick-slide slick-current slick-active" style="width: 138px;" tabindex="0" role="option" aria-describedby="slick-slide00" data-slick-index="0" aria-hidden="false">
-															<a href="http://prestashop.flytheme.net/sp_market/6-thickbox_default/faded-short-sleeves-tshirt.jpg" data-fancybox-group="gallery" class="fancybox" title="Aliquam Leberkas" tabindex="0">
-																<img class="img-responsive" id="thumb_6" src="http://prestashop.flytheme.net/sp_market/6-medium_default/faded-short-sleeves-tshirt.jpg" alt="Aliquam Leberkas" title="Aliquam Leberkas" itemprop="image">
-															</a>
-														</div><div id="thumbnail_7" class="thumbnail_image slick-slide slick-active" style="width: 138px;" tabindex="0" role="option" aria-describedby="slick-slide01" data-slick-index="1" aria-hidden="false">
-															<a href="http://prestashop.flytheme.net/sp_market/7-thickbox_default/faded-short-sleeves-tshirt.jpg" data-fancybox-group="gallery" class="fancybox shown" title="Aliquam Leberkas" tabindex="0">
-																<img class="img-responsive" id="thumb_7" src="http://prestashop.flytheme.net/sp_market/7-medium_default/faded-short-sleeves-tshirt.jpg" alt="Aliquam Leberkas" title="Aliquam Leberkas" itemprop="image">
+														<div id="imagen1" class="thumbnail_image slick-slide slick-current slick-active" style="width: 138px;" tabindex="0" role="option" aria-describedby="slick-slide00" data-slick-index="0" aria-hidden="false">
+															<a href="http://localhost/TiendaPocket/public/imgArticulos/{{$articulos[0]->imagen1}}" data-fancybox-group="gallery" class="fancybox" tabindex="0">
+																<img class="img-responsive" src="http://localhost/TiendaPocket/public/imgArticulos/{{$articulos[0]->imagen1}}" itemprop="image">
 															</a>
 														</div>
-														<div id="thumbnail_8" class="thumbnail_image slick-slide slick-active" style="width: 138px;" tabindex="0" role="option" aria-describedby="slick-slide02" data-slick-index="2" aria-hidden="false">
-															<a href="http://prestashop.flytheme.net/sp_market/8-thickbox_default/faded-short-sleeves-tshirt.jpg" data-fancybox-group="gallery" class="fancybox" title="Aliquam Leberkas" tabindex="0">
-																<img class="img-responsive" id="thumb_8" src="http://prestashop.flytheme.net/sp_market/8-medium_default/faded-short-sleeves-tshirt.jpg" alt="Aliquam Leberkas" title="Aliquam Leberkas" itemprop="image">
+														@if($articulos[0]->imagen2 != NULL)
+														<div id="imagen2" class="thumbnail_image slick-slide slick-current slick-active" style="width: 138px;" tabindex="0" role="option" aria-describedby="slick-slide00" data-slick-index="0" aria-hidden="false">
+															<a href="http://localhost/TiendaPocket/public/imgArticulos/{{$articulos[0]->imagen2}}" data-fancybox-group="gallery" class="fancybox" tabindex="0">
+																<img class="img-responsive" src="http://localhost/TiendaPocket/public/imgArticulos/{{$articulos[0]->imagen2}}" itemprop="image">
 															</a>
 														</div>
-														<div id="thumbnail_9" class="thumbnail_image slick-slide slick-active" style="width: 138px;" tabindex="0" role="option" aria-describedby="slick-slide03" data-slick-index="3" aria-hidden="false">
-															<a href="http://prestashop.flytheme.net/sp_market/9-thickbox_default/faded-short-sleeves-tshirt.jpg" data-fancybox-group="gallery" class="fancybox" title="Aliquam Leberkas" tabindex="0">
-																<img class="img-responsive" id="thumb_9" src="http://prestashop.flytheme.net/sp_market/9-medium_default/faded-short-sleeves-tshirt.jpg" alt="Aliquam Leberkas" title="Aliquam Leberkas" itemprop="image">
-															</a>
-														</div>
-														<div id="thumbnail_10" class="thumbnail_image  last slick-slide" style="width: 138px;" tabindex="-1" role="option" aria-describedby="slick-slide04" data-slick-index="4" aria-hidden="true">
-															<a href="http://prestashop.flytheme.net/sp_market/10-thickbox_default/faded-short-sleeves-tshirt.jpg" data-fancybox-group="gallery" class="fancybox" title="Aliquam Leberkas" tabindex="-1">
-																<img class="img-responsive" id="thumb_10" src="http://prestashop.flytheme.net/sp_market/10-medium_default/faded-short-sleeves-tshirt.jpg" alt="Aliquam Leberkas" title="Aliquam Leberkas" itemprop="image">
-															</a>
-														</div>
-													</div>
+														@endif
+														@if($articulos[0]->imagen3 != NULL)
+															<div id="imagen3" class="thumbnail_image slick-slide slick-active" style="width: 138px;" tabindex="0" role="option" aria-describedby="slick-slide02" data-slick-index="2" aria-hidden="false">
+																<a href="http://prestashop.flytheme.net/sp_market/8-thickbox_default/faded-short-sleeves-tshirt.jpg" data-fancybox-group="gallery" class="fancybox" tabindex="0">
+																	<img class="img-responsive" src="http://localhost/TiendaPocket/public/imgArticulos/{{$articulos[0]->imagen3}}" itemprop="image" height="100" width="100">
+																</a>
+															</div>
+														@endif
 												</div>
-												<button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;" aria-disabled="false">Next</button>
 											</div>
 										</div>
 									</div>
@@ -104,17 +106,14 @@
 												<div class="price">
 													<p class="our_price_display" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
 														<link itemprop="availability" href="http://schema.org/InStock">
-															<span id="our_price_display" itemprop="price">${{$articulos[0]->precio}}</span> Cop.
-																<meta itemprop="priceCurrency" content="USD">
+
+															<span id="precio" itemprop="price">${{$articulos[0]->precio}}</span> Cop.
 													</p>
 
-													<p id="reduction_amount" style="display:none">
-														<span id="reduction_amount_display">
-														</span>
-													</p>
-													<p id="old_price" class="hidden" style="display: none;">
-															<span id="old_price_display" style="display: none;"></span>
-															 tax excl.
+													<p id="old_price" style="display: none;">
+														<input id="inputPrecio" type="hidden" value="{{$articulos[0]->precio}}">
+														<input id="descuento" type="hidden" value="{{$articulos[0]->descuento}}">
+														<span id="old_price_display"></span>
 													</p>
 												</div> <!-- end prices -->
 												<div class="clear"></div>
@@ -1843,6 +1842,9 @@ var moderation_active = 1;
 		var i=1;
 		var cal = parseInt($('#calificacion').val());
 
+		var precio;
+		var precioOriginal;
+
 		for(i; i<=5 ;i++){
 			if(i<=cal){
 				$('#starsArt').append('<div class="star star_on"></div>');
@@ -1850,6 +1852,20 @@ var moderation_active = 1;
 			else{
 				$('#starsArt').append('<div class="star"></div>');
 			}
+		}
+		var descuento = $('#descuento').val();
+		if(descuento != ""){
+			precioOriginal = $('#inputPrecio').val();
+			$('#old_price_display').html("$"+precioOriginal);
+			precio = precioOriginal-(eval(precioOriginal * descuento)/100);
+			$('#precio').html("$"+precio);
+			$('#old_price').show();
+			$('#campoEtiqueta').show();
+			$('#etiqueta').html(descuento+"% de descuento");
+		}
+		if($('#inventario').val() == "0"){
+			$('#campoEtiqueta').show();
+			$('#etiqueta').html("Agotado!");
 		}
 
 		JSONComentarios = eval(<?php echo json_encode($comentarios);?>);
@@ -1863,6 +1879,8 @@ var moderation_active = 1;
 					$('#stars'+currentValue.id).append('<div class="star"></div>');
 				}
 			}
+
+
 		});
 	});
 

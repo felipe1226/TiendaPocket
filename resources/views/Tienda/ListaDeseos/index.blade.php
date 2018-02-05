@@ -60,7 +60,7 @@
 	                          <tr id="deseo{{$deseo->id}}" class="cart_item first_item address_0 odd">
 
 	                            <td class="cart_product">
-	                              <a href="Detalles/{{$deseo->id_articulo}}"><img src="imgArticulos/{{$deseo->almacena->imagen}}" width="110" height="110"  /></a>
+	                              <a href="Detalles/{{$deseo->id_articulo}}"><img src="imgArticulos/{{$deseo->almacena->imagen1}}" width="110" height="110"  /></a>
 	                            </td>
 
 	                            <td class="cart_description">

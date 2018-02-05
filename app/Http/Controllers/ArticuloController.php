@@ -21,26 +21,46 @@ class ArticuloController extends Controller
   }
 
   public function store(Request $request){
-    dd($request);
-    $articulo = new Articulo;
-    $articulo->id_proveedor = Auth::user()->id;
-    $articulo->nombre = $request->nombre;
-    $articulo->categoria = $request->categoria;
-    $articulo->marca = $request->marca;
-    $articulo->cantidad = $request->cantidad;
-    $articulo->precio = $request->precio;
-    $articulo->descripcion = $request->descripcion;
-    $articulo->calificacion=3;
-    $img = $request->file('imagenArticulo');
+    if($request->id_articulo == "-1"){
+      $articulo = new Articulo;
+      $articulo->id_proveedor = Auth::user()->id;
+      $articulo->nombre = $request->nombre;
+      $articulo->categoria = $request->categoria;
+      $articulo->marca = $request->marca;
+      $articulo->cantidad = $request->cantidad;
+      $articulo->precio = $request->precio;
+      $articulo->descripcion = $request->descripcion;
+      $articulo->descuento = $request->valDescuento;
+      $articulo->color = $request->color;
+      $articulo->calificacion = "3";
 
-    $file_route = time().'_'.$img->getClientOriginalName();
-    Storage::disk('imgArticulos')->put($file_route, file_get_contents( $img->getRealPath()));
+      $img = $request->file('imagen1');
+      $file_route = time().'_'.$img->getClientOriginalName();
+      Storage::disk('imgArticulos')->put($file_route, file_get_contents( $img->getRealPath()));
+      $articulo->imagen1 = $file_route;
 
-    $articulo->imagen = $file_route;
+      $img = $request->file('imagen2');
+      if($img != null){
+        $file_route = time().'_'.$img->getClientOriginalName();
+        Storage::disk('imgArticulos')->put($file_route, file_get_contents( $img->getRealPath()));
+        $articulo->imagen2 = $file_route;
+      }
 
-    $articulo->save();
-    Flash::success("El articulo se ha registrado satisfactoriamente!")->important();
-    return redirect('RegistrarArticulo/');
+
+      $img = $request->file('imagen3');
+      if($img != null){
+        $file_route = time().'_'.$img->getClientOriginalName();
+        Storage::disk('imgArticulos')->put($file_route, file_get_contents( $img->getRealPath()));
+        $articulo->imagen3 = $file_route;
+      }
+
+
+      $articulo->save();
+      Flash::success("El articulo se ha registrado satisfactoriamente!")->important();
+      return redirect('RegistrarArticulo');
+
+    }
+
   }
 
 
@@ -74,7 +94,8 @@ class ArticuloController extends Controller
 
 
     $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
-    $allCarritos = Carrito::where('id_empresa', Auth::user()->idEmpresa)->get();
+    $allCarritos = Articulo::all();
+    dd($allCarritos);
 
     return view('Tienda/Articulo/index')->with('articulos', $articulos)->with('arts', $arts)->with('carritos', $carritos)->with('allCarritos', $allCarritos)->with('art', $articulo);
   }

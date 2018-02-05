@@ -156,10 +156,8 @@
 
 						<!-- /Block currencies module -->
 										</div>
-
 										<div id="block_right" class="col-sm-6 col-xs-6">
 											<!-- SP Block user information module NAV  -->
-
 						<div id="user_infoblock-top" class="header_user_info">
 							<ul>
 								<li class="account">
@@ -278,7 +276,7 @@
 																					@foreach($carritos as $carrito)
 																					<dt id="articulo{{$carrito->id}}" data-id="cart_block_product{{$carrito->id}}" class="first_item" style="display: block">
 																						<a class="cart-images" href="Detalles/{{$carrito->id_articulo}}">
-																							<img height="60" width="60" src="http://localhost/TiendaPocket/public/imgArticulos/{{$carrito->almacena->imagen}}"/>
+																							<img height="60" width="60" src="http://localhost/TiendaPocket/public/imgArticulos/{{$carrito->almacena->imagen1}}"/>
 																						</a>
 																						<div class="cart-info">
 																							<div class="product-name titleFont">
@@ -354,7 +352,7 @@
 														<a href="{{url('Articulos/Publicitarios')}}"><i class="icon-v1"></i>Publicitarios</a>
 													</li>
 													<li class="item-1 vertical-cat"  >
-														<a href="{{url('Articulos/Herramientas')}}"><i class="icon-v1"></i>Herramientas y Decoracion</a>
+														<a href="{{url('Articulos/Herramientas y decoracion')}}"><i class="icon-v1"></i>Herramientas y Decoracion</a>
 													</li>
 												</ul>
 											</div>
