@@ -21,8 +21,8 @@ class CarritoController extends Controller
 
     public function index(){
       $direcciones = Direccion::Listar(Auth::user()->idEmpresa)->get();
-      $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
-      return view('Tienda/Carrito/resumen')->with('carritos',$carritos)->with('direcciones', $direcciones);
+
+      return view('Tienda/Carrito/resumen')->with('direcciones', $direcciones);
     }
 
 
@@ -73,16 +73,13 @@ class CarritoController extends Controller
 
     public function direcciones(){
       $direcciones = Direccion::Listar(Auth::user()->idEmpresa)->get();
-      $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
 
-      return view('Tienda/Carrito/direccion')->with(['carritos' => $carritos])->with('direcciones', $direcciones);
+
+      return view('Tienda/Carrito/direccion')->with('direcciones', $direcciones);
     }
 
     public function pago(){
-
-      $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
-
-      return view('Tienda/Carrito/pago')->with(['carritos' => $carritos]);
+      return view('Tienda/Carrito/pago');
     }
 
 
@@ -100,9 +97,9 @@ class CarritoController extends Controller
 
 
     public function ListaDeseos(){
-      $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
+
       $deseos = Carrito::ConsultaDeseo(Auth::user()->idEmpresa)->get();
-      return view('Tienda/ListaDeseos/index')->with('carritos', $carritos)->with('deseos', $deseos);
+      return view('Tienda/ListaDeseos/index')->with('deseos', $deseos);
 
     }
 }

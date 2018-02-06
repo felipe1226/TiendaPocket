@@ -17,7 +17,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'nombrePersona', 'pais', 'departamento', 'ciudad', 'fechaNacimiento', 'cedula',  'sexo', 'telefono', 'email', 'estado', 'confirmoEmail', 'password',
-        'idEmpresa','esAdmin','esMesero','esBartender','esCajero','provider','provider_id','imagenPerfil','obsequio','imagenNegocio', 'esProveedor'];
+        'idEmpresa','esAdmin','esMesero','esBartender','esCajero','provider','provider_id','imagenPerfil','obsequio','imagenNegocio', 'esProveedor','salario','direccion'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -30,6 +30,14 @@ class User extends Authenticatable
 
     public function Empresa(){
       return $this->belongsTo('PocketByR\Empresa', 'idEmpresa', 'id');
+    }
+
+    public function EmpresaActual(){
+      return $this->belongsTo('PocketByR\Empresa', 'empresaActual', 'id');
+    }
+
+    public function empresas(){
+      return $this->hasmany('PocketByR\Empresa', 'usuario_id', 'id');
     }
 
     public function AgendaTrabajadores(){
@@ -46,5 +54,9 @@ class User extends Authenticatable
 
     public function registros(){
         return $this->hasmany('PocketByR\RegistroLogin','idUsuario');
+    }
+
+    public function scopeSearch($query, $email){
+      return $query->where('email','LIKE',"%$email%");
     }
 }

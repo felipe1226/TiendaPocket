@@ -16,8 +16,7 @@ class ListaDeseosController extends Controller
   }
 
   public function index(){
-    $carritos = Carrito::ConsultaDeseo($id_empresa)->get();
-    return view('Tienda/ListadeDeseos/index')->with('carritos', $carritos);
+    return view('Tienda/ListadeDeseos/index');
   }
 
 }

@@ -161,7 +161,7 @@
 						<div id="user_infoblock-top" class="header_user_info">
 							<ul>
 								<li class="account">
-								 	<a href="{{url('Cuenta')}}">
+								 	<a href="{{url('MiCuenta')}}">
 										<span>Mi cuenta</span>
 									</a>
 								</li>
@@ -254,7 +254,7 @@
 														<span class="text-cart4">Carrito</span>
 														<span class="line line4"> - </span>
 														<span class="ajax_cart_empty">0</span>
-														<span id="cantArticulos" class="ajax_cart_quantity">{{count($carritos)}}</span>
+														<span id="cantArticulos" class="ajax_cart_quantity"></span>
 														<span class="ajax_cart_quantity_text">Artículos</span>
 														<span class="line line4 arrow"><i class="fa fa-caret-down"></i></span>
 														<span class="line"> - </span>
@@ -265,7 +265,7 @@
 															<!-- block list of products -->
 														<div class="cart_block_list">
 
-															@if(count($carritos) == 0)
+															@if(count(Auth::User()->EmpresaActual->carritos) == 0)
 																<p class="cart_block_no_products" style="display: block">
 																			No tienes articulos en el carrito
 																</p>
@@ -273,22 +273,24 @@
 																<p class="recent_items ">Articulos <span>Precio</span></p>
 																	<div class="list-products mCustomScrollbar">
 																				<dl class="products ">
-																					@foreach($carritos as $carrito)
-																					<dt id="articulo{{$carrito->id}}" data-id="cart_block_product{{$carrito->id}}" class="first_item" style="display: block">
-																						<a class="cart-images" href="Detalles/{{$carrito->id_articulo}}">
-																							<img height="60" width="60" src="http://localhost/TiendaPocket/public/imgArticulos/{{$carrito->almacena->imagen1}}"/>
-																						</a>
-																						<div class="cart-info">
-																							<div class="product-name titleFont">
-																								<a class="cart_block_product_name" href="#">{{$carrito->almacena->nombre}}
+																					@foreach(Auth::User()->EmpresaActual->carritos as $carrito)
+																						@if($carritos->estado == 1)
+																							<dt id="articulo{{$carrito->id}}" data-id="cart_block_product{{$carrito->id}}" class="first_item" style="display: block">
+																								<a class="cart-images" href="Detalles/{{$carrito->id_articulo}}">
+																									<img height="60" width="60" src="http://localhost/TiendaPocket/public/imgArticulos/{{$carrito->almacena->imagen1}}"/>
 																								</a>
-																							</div>
-																							<span id="precioArticulo{{$carrito->id_articulo}}" class="price">
-																							</span>
-																							<span id="cantidadArticulo{{$carrito->id_articulo}}" class="quantity-formated titleFont">Cantidad: {{$carrito->cantidad}}</span>
-																						</div>
-																						<span class="remove_link"><a onclick="eliminardeLayout({{$carrito->id}})" rel="nofollow" class="ajax_cart_block_remove_link" href="javascript:void(0)"> <i class="fa fa-trash"></i></a></span>
-																					</dt>
+																								<div class="cart-info">
+																									<div class="product-name titleFont">
+																										<a class="cart_block_product_name" href="#">{{$carrito->almacena->nombre}}
+																										</a>
+																									</div>
+																									<span id="precioArticulo{{$carrito->id_articulo}}" class="price">
+																									</span>
+																									<span id="cantidadArticulo{{$carrito->id_articulo}}" class="quantity-formated titleFont">Cantidad: {{$carrito->cantidad}}</span>
+																								</div>
+																								<span class="remove_link"><a onclick="eliminardeLayout({{$carrito->id}})" rel="nofollow" class="ajax_cart_block_remove_link" href="javascript:void(0)"> <i class="fa fa-trash"></i></a></span>
+																							</dt>
+																							@endif
 																					@endforeach
 																				</dl>
 
@@ -719,12 +721,19 @@
 	<script>
 		$(function() {
 			var totalCarrito = 0;
+			var count = 0;
 
-			JSONCarritos = eval(<?php echo json_encode($carritos);?>);
+			JSONCarritos = eval(<?php echo json_encode(Auth::User()->EmpresaActual->carritos);?>);
 			JSONCarritos.forEach(function(currentValue,index,arr) {
-				$('#precioArticulo'+currentValue.id_articulo).html("$"+eval(currentValue.almacena.precio * currentValue.cantidad));
-				totalCarrito += eval(currentValue.almacena.precio * currentValue.cantidad);
+				if(currentValue.estado == 1){
+					count++;
+
+					$('#precioArticulo'+currentValue.id_articulo).html("$"+eval(currentValue.almacena.precio * currentValue.cantidad));
+					totalCarrito += eval(currentValue.almacena.precio * currentValue.cantidad);
+				}
+
 			});
+			$('#cantArticulos').html(count);
 			$('#totalCarrito1').html("$"+totalCarrito);
 			$('#totalCarrito1').val(totalCarrito);
 			$('#totalCarrito2').html("$"+totalCarrito);
@@ -743,7 +752,7 @@
 									$.scrollTo(this, 2000);
 									var totalCarrito = 0;
 									var cantidad = parseInt($('#cantArticulos').html())-1;
-									JSONCarritos = eval(<?php echo json_encode($carritos);?>);
+									JSONCarritos = eval(<?php echo json_encode(Auth::User()->EmpresaActual->carritos);?>);
 									JSONCarritos.forEach(function(currentValue,index,arr) {
 										if(currentValue.id == idCarrito){
 											totalCarrito = parseInt($('#totalCarrito1').val()) - eval(currentValue.almacena.precio * currentValue.cantidad);

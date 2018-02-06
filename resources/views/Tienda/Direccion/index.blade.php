@@ -9,7 +9,7 @@
         <div class="breadcrumb clearfix">
 	        <ul>
             <li class="home"><a href="{{url('Tienda')}}">Inicio</a></li>
-             <li class="depth1"><a href="{{url('Cuenta')}}">Mi cuenta</a></li>
+             <li class="depth1"><a href="{{url('MiCuenta')}}">Mi cuenta</a></li>
 		         <li class="depth2"><a href="{{url('MisDirecciones')}}">Mis direcciones</a></li>
 	        </ul>
 

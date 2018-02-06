@@ -45,8 +45,6 @@ class ArticuloController extends Controller
         Storage::disk('imgArticulos')->put($file_route, file_get_contents( $img->getRealPath()));
         $articulo->imagen2 = $file_route;
       }
-
-
       $img = $request->file('imagen3');
       if($img != null){
         $file_route = time().'_'.$img->getClientOriginalName();
@@ -54,11 +52,9 @@ class ArticuloController extends Controller
         $articulo->imagen3 = $file_route;
       }
 
-
       $articulo->save();
       Flash::success("El articulo se ha registrado satisfactoriamente!")->important();
       return redirect('RegistrarArticulo');
-
     }
 
   }
@@ -73,61 +69,50 @@ class ArticuloController extends Controller
       $arts = Articulo::BuscarxCategoria($categoria)->get();
       $articulos = Articulo::BuscarxCategoria($categoria)->paginate(20);
     }
-    $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
     $allCarritos = Carrito::where('id_empresa', Auth::user()->idEmpresa)->get();
-
-    return view('Tienda/Articulo/index')->with('articulos', $articulos)->with('arts', $arts)->with('carritos', $carritos)->with('allCarritos', $allCarritos)->with('categoria', $categoria);
+    return view('Tienda/Articulo/index')->with('articulos', $articulos)->with('arts', $arts)->with('allCarritos', $allCarritos)->with('categoria', $categoria);
   }
 
   public function busquedaAvanzada($categoria, $articulo){
     $arts = Articulo::BusquedaArticulo($categoria,$articulo)->get();
     $articulos = Articulo::BusquedaArticulo($categoria,$articulo)->paginate(20);
-
-    $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
     $allCarritos = Carrito::where('id_empresa', Auth::user()->idEmpresa)->get();
-
-    return view('Tienda/Articulo/index')->with('articulos', $articulos)->with('arts', $arts)->with('carritos', $carritos)->with('allCarritos', $allCarritos)->with('categoria', $categoria)->with('art', $articulo);
+    return view('Tienda/Articulo/index')->with('articulos', $articulos)->with('arts', $arts)->with('allCarritos', $allCarritos)->with('categoria', $categoria)->with('art', $articulo);
   }
 
 
   public function articulosNuevos(){
-
-
-    $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
     $allCarritos = Articulo::all();
-    dd($allCarritos);
-
-    return view('Tienda/Articulo/index')->with('articulos', $articulos)->with('arts', $arts)->with('carritos', $carritos)->with('allCarritos', $allCarritos)->with('art', $articulo);
+    return view('Tienda/Articulo/index')->with('articulos', $articulos)->with('arts', $arts)->with('allCarritos', $allCarritos)->with('art', $articulo);
   }
 
 
   public function ArtsProveedor(){
     $articulos = Articulo::BuscarxProveedor("35")->paginate(15);
-    $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
-
-    return view('Tienda/Cuenta/articulos', compact('articulos'))->with(['articulos' => $articulos])->with('carritos', $carritos);
+    return view('Tienda/Cuenta/articulos', compact('articulos'))->with(['articulos' => $articulos]);
   }
 
-  public function registrarArticulo(request $request){
-    $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
-    return view('Tienda/Articulo/RegistrarArticulo')->with('carritos',$carritos);
+  public function registrarArticulo(){
+    return view('Tienda/Articulo/RegistrarArticulo');
   }
+
+  public function actualizar($id){
+    $articulo = Articulo::find($id);
+    return view('Tienda/Articulo/RegistrarArticulo')  ->with('articulo', $articulo);
+  }
+
 
   public function verArticulo($id_articulo){
-    $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
     $articulo = Articulo::where('id',$id_articulo)->get();
-
     $comentariosPag=Comentario::ListarComentarios($id_articulo)->paginate(10);
     $comentarios=Comentario::ListarComentarios($id_articulo)->get();
 
-    return view('Tienda/Articulo/detalles')->with('carritos',$carritos)->with('articulos', $articulo)->with('comentarios', $comentarios)->with('comentariosPag', $comentariosPag);
+    return view('Tienda/Articulo/detalles')  ->with('articulos', $articulo)->with('comentarios', $comentarios)->with('comentariosPag', $comentariosPag);
   }
   public function verVistaArticulo($id_articulo){
-    $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
     $articulo = Articulo::where('id',$id_articulo)->get();
     $comentarios=Comentario::ListarComentarios($id_articulo)->get();
-    return view('Tienda/Articulo/verArticulo')->with('carritos',$carritos)->with('articulo', $articulo)->with('comentarios',$comentarios);
-
+    return view('Tienda/Articulo/verArticulo')  ->with('articulo', $articulo)->with('comentarios',$comentarios);
   }
 
   public function vistaRapida(){

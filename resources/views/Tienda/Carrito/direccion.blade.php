@@ -8,8 +8,9 @@
 <!-- Breadcrumb -->
       <div class="breadcrumb clearfix">
 	      <ul>
-          <li class="home"><a href="{{url('Tienda/')}}">Inicio</a></li>
-      		<li class="depth1"><a href="{{url('Carrito')}}">Carrito</a></li>
+					<li class="home"><a href="{{url('Tienda/')}}">Inicio</a></li>
+					<li class="depth1"><a href="{{url('MiCuenta')}}">Mi cuenta</a></li>
+					<li class="depth2"><a href="{{url('Carrito')}}">Carrito</a></li>
 				</ul>
       </div>
       <!-- /Breadcrumb -->
@@ -42,7 +43,7 @@
           </ul>
 <!-- /Steps -->
 
-		<form action="{{url('Pago')}}" method="get">
+		<form action="{{url('Carrito/Pago')}}" method="get">
 			<div class="addresses clearfix">
 				<div class="row">
 					<div class="col-xs-12 col-sm-6">
@@ -88,7 +89,7 @@
 				</ul>
 			</div>
 	</div> <!-- end row -->
-			<div class="form-group">
+			<div class="form-group col-md-8 col-sm-8">
 			<label>Si desea agregar un comentario sobre su pedido, escríbalo en el campo a continuación.</label>
 			<textarea class="form-control" cols="60" rows="6" name="message" value=""></textarea>
 		</div>
@@ -97,10 +98,9 @@
 				<a href="{{url('Carrito')}}" title="Regresar" class="button-exclusive btn btn-default">
 					<i class="fa fa-chevron-left left"></i>
 				</a>
-				<button type="submit" class="button btn btn-default button-medium right">
-					<span>Proceder<i class="fa fa-chevron-right right"></i></span>
+				<button type="submit" class="btn btn-default col-md-offset-7 col-sm-offset-6 col-xs-offset-9">
+					<span> <i class="fa fa-chevron-right right"></i></span>
 				</button>
-        <!--<a class="button btn btn-default standard-checkout button-medium" href="{{url('Pago')}}" class="button btn btn-default standard-checkout button-medium" title="Proceder con la compra"><span><i class="fa fa-chevron-right right"></i></span>-->
         </a>
 			</p>
 		</form>
@@ -130,8 +130,6 @@
 									$('#departamento').html(currentValue.departamento);
 									$('#telefono').html(currentValue.telefono);
 									$('#movil').html(currentValue.movil);
-
-
 								});
 								$('#block-address').fadeIn('slow', function() {
 			            $.scrollTo(this, 1000);

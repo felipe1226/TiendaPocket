@@ -20,8 +20,8 @@ class ContactenosController extends Controller
     }
 
     public function index(request $request){
-      $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
-      return view('Tienda/Contactenos/index')->with('carritos', $carritos);
+
+      return view('Tienda/Contactenos/index');
     }
 
     public function store(Request $request){

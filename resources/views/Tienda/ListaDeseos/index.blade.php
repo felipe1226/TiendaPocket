@@ -10,7 +10,7 @@
 <div class="breadcrumb clearfix">
 	<ul>
     <li class="home"><a href="{{url('Tienda/')}}">Inicio</a></li>
-		<li class="depth1"><a href="{{url('Cuenta')}}">Cuenta</a></li>
+		<li class="depth1"><a href="{{url('MiCuenta')}}">Cuenta</a></li>
     <li class="depth2"><a href="{{url('ListaDeseos')}}">Lista de deseos</a></li>
 	</ul>
 
@@ -111,7 +111,7 @@
 
 									<ul class="footer_links">
 										<li class="f_right"><a class="button" href="{{url('Tienda')}}" title= "Ir al inicio"> <i class="fa fa-home"></i></a></li>
-										<li><a class="button" href="{{url('Cuenta')}}" title= "Regresar a mi cuenta"><i class="fa fa-user"></i> </a></li>
+										<li><a class="button" href="{{url('MiCuenta')}}" title= "Regresar a mi cuenta"><i class="fa fa-user"></i> </a></li>
 
 									</ul>
 

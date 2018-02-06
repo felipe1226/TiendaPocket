@@ -20,18 +20,18 @@ class DireccionController extends Controller
   }
 
   public function index(){
-    $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
+
     $direcciones = Direccion::Listar(Auth::user()->idEmpresa)->get();
-    return view('Tienda/Direccion/index')->with('direcciones', $direcciones)->with('carritos', $carritos);
+    return view('Tienda/Direccion/index')->with('direcciones', $direcciones);
   }
 
 
     public function registrarDireccion(){
       $departamentos = Departamento::all();
       $ciudades = Ciudad::all();
-      $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
 
-      return view('Tienda/Direccion/RegistrarDireccion')->with('carritos', $carritos)->with('departamentos', $departamentos)->with('ciudades', $ciudades);
+
+      return view('Tienda/Direccion/RegistrarDireccion')->with('departamentos', $departamentos)->with('ciudades', $ciudades);
     }
 
     public function update(Request $request){
@@ -44,12 +44,12 @@ class DireccionController extends Controller
     public function actualizarDireccion($request, $id){
       $departamentos = Departamento::all();
       $ciudades = Ciudad::all();
-      $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
+
 
       $direccion = Direccion::where('id_articulo', $request->id_articulo)->get();
 
 
-      return view('Tienda/Direccion/actualizarDireccion')->with('carritos', $carritos)->with('departamentos', $departamentos)->with('ciudades', $ciudades);
+      return view('Tienda/Direccion/actualizarDireccion')->with('departamentos', $departamentos)->with('ciudades', $ciudades);
     }
 
 

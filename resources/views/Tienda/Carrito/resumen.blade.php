@@ -9,7 +9,7 @@
 			<div class="breadcrumb clearfix">
 				<ul>
 					<li class="home"><a href="{{url('Tienda/')}}">Inicio</a></li>
-					<li class="depth1"><a href="{{url('Cuenta')}}">Mi cuenta</a></li>
+					<li class="depth1"><a href="{{url('MiCuenta')}}">Mi cuenta</a></li>
 					<li class="depth2"><a href="{{url('Carrito')}}">Carrito</a></li>
 				</ul>
 			</div>
@@ -46,8 +46,7 @@
 						  </ul>
 							<!-- /Steps -->
 
-						  @if(isset($carritos))
-						  	@if(count($carritos) == 0)
+						  	@if(count(Auth::User()->EmpresaActual->carritos) == 0)
 						  		<p class="alert alert-warning">Su carrito de compras está vacio.</p>
 						  	@else
 						  		<div id="order-detail-content" class="table_block table-responsive">
@@ -65,7 +64,7 @@
 						  				</thead>
 
 						  				<tbody>
-						  					@foreach($carritos as $carrito)
+						  					@foreach(Auth::User()->EmpresaActual->carritos as $carrito)
 						  						<tr id="articulo{{$carrito->id}}" class="cart_item first_item address_0 odd">
 						  							<td class="cart_product">
 						  								<a href="Detalles/{{$carrito->id_articulo}}"><img src="imgArticulos/{{$carrito->almacena->imagen1}}" width="110" height="110"  /></a>
@@ -148,14 +147,13 @@
 						  				</tfoot>
 						  			</table>
 						  		</div> <!-- end order-detail-content -->
-						  		@endif
 						  	@endif
 								<p id="alertaInventario" class="alert alert-warning" style="display: none">*Se ha resaltado el inventario de los articulos!</p>
 
 								<ul class="footer_links">
 										<li class="f_right"><a class="button" href="http://localhost/TiendaPocket/public/Tienda" title="Ir al inicio"> <i class="fa fa-home"></i></a></li>
 										<li><a class="button" href="http://localhost/TiendaPocket/public/Cuenta" title="Regresar a mi cuenta"><i class="fa fa-user"></i> </a></li>
-										<li><a id="buttomComprar" class="button" onclick="verificarInventario()" title="Proceder con la compra" style="display:block">
+										<li class="col-md-offset-10 col-sm-offset-9 col-xs-offset-8"><a id="buttomComprar" class="button" onclick="verificarInventario()" title="Proceder con la compra" style="display:block">
 											<span><i class="fa fa-chevron-right right"></i></span>
 										</a></li>
 									</ul>
@@ -171,7 +169,7 @@
       <script>
 				$(function() {
 						var totalArticulos = 0;
-						JSONCarritos = eval(<?php echo json_encode($carritos);?>);
+						JSONCarritos = eval(<?php echo json_encode(Auth::User()->EmpresaActual->carritos);?>);
 						JSONCarritos.forEach(function(currentValue,index,arr) {
 							if(currentValue.almacena.cantidad == 0){
 								$('#buttomComprar').hide();
@@ -267,7 +265,7 @@
 				function verificarInventario(){
 					var cantArticulo=0;
 					var inventario = true;
-					JSONCarritos = eval(<?php echo json_encode($carritos);?>);
+					JSONCarritos = eval(<?php echo json_encode(Auth::User()->EmpresaActual->carritos);?>);
 					JSONCarritos.forEach(function(currentValue,index,arr) {
 						cantArticulo = $('#cantidad'+currentValue.id).val();
 						if(cantArticulo > currentValue.almacena.cantidad){
@@ -281,7 +279,7 @@
 						}
 					});
 					if(inventario){
-						location.href="{{url('Direccion')}}"
+						location.href="{{url('Carrito/Direccion')}}"
 					}
 				}
 

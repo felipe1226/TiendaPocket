@@ -9,7 +9,8 @@
        <div class="breadcrumb clearfix">
        	<ul>
        		<li class="home"><a href="{{url('Tienda/')}}" title="Ir al inicio">Inicio</a></li>
-            <li class="depth1"><a href="{{url('RegistrarArticulo')}}">Registrar Articulo</a></li>
+          <li class="depht1"><a href="{{url('MiCuenta')}}">Mi cuenta</a></li>
+          <li class="depth2"><a href="{{url('RegistrarArticulo')}}">Registrar Articulo</a></li>
        	</ul>
 
        </div>
@@ -17,7 +18,8 @@
 
       </div>
     </div>
-       						<!-- End Breadcrumb Column -->
+    <!-- End Breadcrumb Column -->
+
 
        			<!-- Columns -->
     <div class="columns-container">
@@ -30,7 +32,11 @@
               {!!Form::open(array('url'=>'Articulo/registrar','method'=>'POST', 'id' => 'formulario', 'enctype' => 'multipart/form-data'))!!}
         			{{Form::token()}}
                 <h2 class="title">Informacion del articulo</h2>
-                <input id="id_articulo" name="id_articulo" type="hidden" value="-1">
+                @if(isset($articulo))
+                  <input id="id_articulo" name="id_articulo" type="hidden" value="{{$articulo->id}}">
+                @else
+                  <input id="id_articulo" name="id_articulo" type="hidden" value="-1">
+                @endif
                 <input id="color" name="color" type="hidden" value="">
                 <input id="valDescuento" name="valDescuento" type="hidden" value="">
                 <input id="nImg" type="hidden" value="1"/>
@@ -43,7 +49,7 @@
 
                       <label for="fileUpload">Imagen 1 (Principal)</label>
                       <div class="fileupload fileupload-new" data-provides="fileupload">
-                        <div class="fileupload-preview fileupload-exists img-thumbnail" style="width: 170px; max-height: 200px;">
+                        <div id="vistaImagen1" class="fileupload-preview fileupload-exists img-thumbnail" style="width: 170px; max-height: 200px;">
                           <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image">
                         </div>
                         <input type="hidden" name="MAX_FILE_SIZE" value="2097152000">
@@ -59,7 +65,7 @@
                     <div class="form-group">
                       <label for="fileUpload">Imagen 2 (Opcional)</label>
                       <div class="fileupload fileupload-new" data-provides="fileupload">
-                        <div class="fileupload-preview fileupload-exists img-thumbnail" style="width: 170px; max-height: 170px;">
+                        <div id="vistaImagen2" class="fileupload-preview fileupload-exists img-thumbnail" style="width: 170px; max-height: 170px;">
                           <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image">
                         </div>
                         <input type="hidden" name="MAX_FILE_SIZE" value="2097152000">
@@ -75,7 +81,7 @@
                     <div class="form-group">
                       <label for="fileUpload">Imagen 3(Opcional)</label>
                       <div class="fileupload fileupload-new" data-provides="fileupload">
-                        <div class="fileupload-preview fileupload-exists img-thumbnail" style="width: 170px; max-height: 170px;">
+                        <div id="vistaImagen3" class="fileupload-preview fileupload-exists img-thumbnail" style="width: 170px; max-height: 170px;">
                           <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image">
                         </div>
                         <input type="hidden" name="MAX_FILE_SIZE" value="2097152000">
@@ -109,7 +115,7 @@
                         </div>
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
-                              <input id="name" class="form-control grey" type="text" name="nombre"/>
+                              <input id="nombre" class="form-control grey" type="text" name="nombre"/>
                         </div>
 
                           <div class="form-group">
@@ -213,7 +219,54 @@
 
 
 
-     <script>
+    <script>
+
+      $(function() {
+        var id = $('#id_articulo').val();
+        alert(id);
+        if(id != "-1"){
+          articulo = eval(<?php echo json_encode($articulo);?>);
+
+          $('#vistaImagen1').html('<img src="'+baseDir+'imgArticulos/'+articulo.imagen1+'">');
+          if(articulo.imagen2 != null){
+            addImage();
+            $('#vistaImagen2').html('<img src="'+baseDir+'imgArticulos/'+articulo.imagen2+'">');
+          }
+          if(articulo.imagen3 != null){
+            addImage();
+            $('#vistaImagen3').html('<img src="'+baseDir+'imgArticulos/'+articulo.imagen3+'">');
+          }
+
+
+
+          $('#categoria').val(articulo.categoria);
+          $('#nombre').val(articulo.nombre);
+          $('#marca').val(articulo.marca);
+          $('#cantidad').val(articulo.cantidad);
+          $('#precio').val(articulo.precio);
+          $('#descripcion').val(articulo.descripcion);
+          if(articulo.color != ""){
+            document.getElementById("checkColores").checked = true;
+            $('#campoColor').show();
+            var valor;
+            var colores = articulo.color;
+            var i=0;
+            var color = colores.split("/");
+            for(i; i<color.length;i++){
+              $('#val'+color[i]).val("1");
+              $('#check'+color[i]).addClass("fa fa-check-square");
+            }
+          }
+          if(articulo.descuento != ""){
+            document.getElementById("checkDescuento").checked = true;
+            $('#campoDescuento').show();
+            $('#valorDescuento').val(articulo.descuento);
+            aplicarDescuento();
+
+          }
+        }
+
+      });
 
        function validar(){
           var error = false;
@@ -305,7 +358,6 @@
 
        }
 
-
        function addImage(){
          var n = $('#nImg').val();
          if(n==1){
@@ -385,9 +437,6 @@
            $('#check'+color).addClass("fa fa-square");
          }
        }
-
-
-
      </script>
 
 @endsection

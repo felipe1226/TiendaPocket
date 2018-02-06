@@ -9,7 +9,7 @@
 <div class="breadcrumb clearfix">
 <ul>
 <li class="home"><a href="{{url('Tienda/')}}">Inicio</a></li>
-<li class="depth1"><a href="{{url('Cuenta')}}">Cuenta</a></li>
+<li class="depth1"><a href="{{url('MiCuenta')}}">Mi cuenta</a></li>
 <li class="depth2"><a href="{{url('ArticulosProveedor')}}">Mis articulos</a></li>
 </ul>
 
@@ -92,9 +92,10 @@
 
                       <td class="cart_delete text-center" data-title="Delete">
                         <div>
-                          <a onclick="eliminar({{$articulo->id}})" title="Editar" class="cart_quantity_delete" id="33_204_0_23" href="javascript:void(0)"><i class="fa fa-fw fa-pencil-square-o"></i></a>
 
-                          <a onclick="eliminar({{$articulo->id}})" title="Eliminar" class="cart_quantity_delete" id="33_204_0_23" href="javascript:void(0)"><i class="fa fa-trash"></i></a>
+                          <a href="{{url('Articulo/'.$articulo->id.'/edit')}}" title="Editar" class="cart_quantity_delete"><i class="fa fa-fw fa-pencil-square-o"></i></a>
+
+                          <a onclick="eliminar({{$articulo->id}})" title="Eliminar" class="cart_quantity_delete" href="javascript:void(0)"><i class="fa fa-trash"></i></a>
                         </div>
                       </td>
                     </tr>
@@ -114,8 +115,7 @@
 
             <ul class="footer_links">
               <li class="f_right"><a class="button" href="{{url('Tienda')}}" title= "Ir al inicio"> <i class="fa fa-home"></i></a></li>
-              <li><a class="button" href="{{url('Cuenta')}}" title= "Regresar a mi cuenta"><i class="fa fa-user"></i> </a></li>
-
+              <li><a class="button" href="{{url('MiCuenta')}}" title= "Regresar a mi cuenta"><i class="fa fa-user"></i> </a></li>
             </ul>
 
 

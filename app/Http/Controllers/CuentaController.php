@@ -19,8 +19,12 @@ class CuentaController extends Controller
   }
 
   public function index(){
-    $carritos = Carrito::ConsultaCarrito(Auth::user()->idEmpresa)->get();
-    return view('Tienda/Cuenta/index')->with('carritos', $carritos);
+    return view('Tienda/Cuenta/index');
+  }
+
+
+  public function informacionPersonal(){
+    return view('Tienda/InformacionPersonal/index');
   }
 
 }
