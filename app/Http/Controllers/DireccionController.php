@@ -34,14 +34,9 @@ class DireccionController extends Controller
       return view('Tienda/Direccion/RegistrarDireccion')->with('departamentos', $departamentos)->with('ciudades', $ciudades);
     }
 
-    public function update(Request $request){
-      $direccion=User::find($id);
-      $direccion->fill($request->all());
-      $direccion->save();
 
-    }
 
-    public function actualizarDireccion($request, $id){
+    public function actualizar($id){
       $departamentos = Departamento::all();
       $ciudades = Ciudad::all();
 
@@ -81,6 +76,11 @@ class DireccionController extends Controller
       $direccion->delete();
     }
 
+    public function update(Request $request){
+      $direccion = Direccion::find($request->id);
 
+      $direccion->fill($request->all());
+      $direccion->save();
+    }
 
 }

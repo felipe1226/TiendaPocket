@@ -21,6 +21,12 @@
 
 <!-- Columns -->
 <div class="columns-container">
+	@if(isset($direccion))
+		<input id="id_direccion" name="id_direccion" type="hidden" value="{{$direccion->id}}">
+	@else
+		<input id="id_direccion" name="id_direccion" type="hidden" value="-1">
+	@endif
+
 	<div id="columns" class="container">
 		<div class="row">
 			<!-- Sidebar -->
@@ -39,7 +45,7 @@
 					{!! Form::open(['method' => 'POST', 'action' => 'DireccionController@store']) !!}
 						<div class="form-group">
 							<label for="nombres">Nombres <sup>*</sup></label>
-							<input class="form-control" type="text" name="nombres"/>
+							<input class="form-control" type="text" id="nombres"name="nombres"/>
 						</div>
 						<div class="form-group">
 							<label for="apellidos">Apellidos <sup>*</sup></label>
@@ -60,17 +66,12 @@
 							<select name="departamento" id="id_depto" class="form-control">
 								@foreach($departamentos as $departamento)
 									<option value="{{$departamento->id}}">{{$departamento->nombre}}</option>
-
 								@endforeach
 							</select>
 						</div>
 						<div class="form-group">
-							<input id="depto" class="form-control" type="hidden"/>
-						</div>
-						<div class="form-group">
 							<label for="ciudad">Ciudad <sup>*</sup></label>
 							<select name="ciudad" id="id_ciudad" class="form-control">
-								<option></option>
 							</select>
 						</div>
 						<div class="form-group">
@@ -115,6 +116,59 @@
 </div><!-- .columns-container -->
 
 <script>
+	$(function(){
+		var id=$('#id_direccion').val();
+		if(id !='-1'){
+			direccion=eval(<?php echo json_encode($direccion);?>);
+			$('#nombres').val(direccion.nombres);
+			$('#apellidos').val(direccion.apellidos);
+			$('#direccion').val(direccion.direccion);
+			$('#id_depto').val(direccion.departamento);
+			$('#id_ciudad').val(direccion.ciudad);
+			$('#telefono').val(direccion.telefono);
+			$('#movil').val(direccion.movil);
+			$('#informacion').val(direccion.informacion);
+			$('#referencia').val(direccion.referencia);
+
+			JSONDepartamento = eval(<?php echo json_encode($departamentos);?>);
+			JSONDepartamento.forEach(function(currentValue,index,arr) {
+				if(currentValue.nombre == direccion.departamento){
+
+					listarCiudades(currentValue.id, direccion.ciudad);
+					$('#id_depto').val(currentValue.id);
+					$('#id_ciudad').val(currentValue.ciudad);
+				}
+			});
+
+
+		}
+	});
+
+	function listarCiudades(id, ciudad){
+		var cont = 0;
+
+		JSONCiudades = eval(<?php echo json_encode($ciudades);?>);
+		JSONCiudades.forEach(function(currentValue,index,arr) {
+			if(currentValue.idDepartamento == id){
+				if(cont == 0){
+					$('#id_ciudad').append($('<option>', {
+								value: ciudad,
+								text: ciudad
+						}));
+				}
+				else{
+					$('#id_ciudad').append($('<option>', {
+						value: currentValue.nombre,
+						text: currentValue.nombre
+
+					}));
+				}
+				cont++;
+			}
+	  });
+	}
+
+
 	$('#id_depto').on('change', function (event) {
 			var id = $(this).find('option:selected').val();
 			$('#id_ciudad').empty();
@@ -133,6 +187,10 @@
 		});
 
 	});
+
+
+
+
 </script>
 
 
