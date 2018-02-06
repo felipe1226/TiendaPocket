@@ -128,6 +128,7 @@ Route::get('Detalles/{id}','ArticuloController@verArticulo');
 Route::resource('Contactenos', 'ContactenosController');
 
 Route::resource('RegistrarArticulo', 'ArticuloController@registrarArticulo');
+Route::post('Articulo/registrar', 'ArticuloController@store');
 
 Route::resource('vistaRapida', 'ArticuloController@vistaRapida');
 

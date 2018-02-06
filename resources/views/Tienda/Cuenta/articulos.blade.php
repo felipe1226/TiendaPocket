@@ -61,7 +61,7 @@
                     <tr class="cart_item first_item address_0 odd">
 
                       <td class="cart_product">
-                        <a href="Detalles/{{$articulo->id}}"><img src="imgArticulos/{{$articulo->imagen}}" width="80" height="80"  /></a>
+                        <a href="Detalles/{{$articulo->id}}"><img src="imgArticulos/{{$articulo->imagen1}}" width="80" height="80"  /></a>
                       </td>
 
                       <td class="cart_description">

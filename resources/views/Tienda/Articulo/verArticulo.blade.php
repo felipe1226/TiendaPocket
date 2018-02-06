@@ -122,13 +122,6 @@
 				<script type="text/javascript" src="http://localhost/TiendaPocket/public/themes/sp_market/js/modules/productcomments/js/productcomments.js"></script>
 
 
-
-
-
-
-
-
-
 		<script type="text/javascript">
 		    //<![CDATA[
 		    var listdeal = [];
@@ -172,43 +165,34 @@
 															</span>
 														</div>
 														<span id="view_full_size">
-															<img id="bigpic" itemprop="image" data-src="url:(../imgArticulos/{{$articulo[0]->imagen}})" data-zoom-image="../imgArticulos/{{$articulo[0]->imagen}}"  src="../imgArticulos/{{$articulo[0]->imagen}}" title="Aliquam Leberkas" alt="Aliquam Leberkas" width="570" height="570"/>
+															<img id="bigpic" itemprop="image" data-src="url:(../imgArticulos/{{$articulo[0]->imagen1}})" data-zoom-image="../imgArticulos/{{$articulo[0]->imagen1}}"  src="../imgArticulos/{{$articulo[0]->imagen1}}" width="570" height="570"/>
 														</span>
 													</div>
 													<!-- end image-block -->
 													<!-- thumbnails -->
 													<div id="views_block" class="clearfix">
 														<div id="thumbs_list" class="clearfix slick-initialized slick-slider">
-															<button type="button" data-role="none" class="slick-prev slick-arrow slick-disabled" aria-label="Previous" role="button" aria-disabled="true" style="display: block;">Vista</button>
 															<div aria-live="polite" class="slick-list draggable">
-																<div class="slick-track" style="opacity: 1; width: 740px; transform: translate3d(0px, 0px, 0px);" role="listbox">
-																	<div id="thumbnail_6" class="thumbnail_image slick-slide slick-current slick-active" style="width: 138px;" tabindex="0" role="option" aria-describedby="slick-slide00" data-slick-index="0" aria-hidden="false">
-																		<a href="../imgArticulos/{{$articulo[0]->imagen}}" width="570" height="570" data-fancybox-group="gallery" class="fancybox" title="Aliquam Leberkas" tabindex="0">
-																			<img class="img-responsive" id="thumb_6" src="../imgArticulos/{{$articulo[0]->imagen}}" alt="Aliquam Leberkas" title="Aliquam Leberkas" itemprop="image">
-																		</a>
-																	</div><div id="thumbnail_7" class="thumbnail_image slick-slide slick-active" style="width: 138px;" tabindex="0" role="option" aria-describedby="slick-slide01" data-slick-index="1" aria-hidden="false">
-																		<a href="http://prestashop.flytheme.net/sp_market/7-thickbox_default/faded-short-sleeves-tshirt.jpg" data-fancybox-group="gallery" class="fancybox shown" title="Aliquam Leberkas" tabindex="0">
-																			<img class="img-responsive" id="thumb_7" src="../imgArticulos/{{$articulo[0]->imagen}}" alt="Aliquam Leberkas" title="Aliquam Leberkas" itemprop="image">
+																	<div id="imagen1" class="thumbnail_image slick-slide slick-current slick-active" style="width: 138px;" tabindex="0" role="option" aria-describedby="slick-slide00" data-slick-index="0" aria-hidden="false" onmouseover="hoverImage('{{$articulo[0]->imagen1}}')">
+																		<a href="http://localhost/TiendaPocket/public/imgArticulos/{{$articulo[0]->imagen1}}" data-fancybox-group="gallery" class="fancybox" tabindex="0" >
+																			<img class="img-responsive" src="http://localhost/TiendaPocket/public/imgArticulos/{{$articulo[0]->imagen1}}" itemprop="image">
 																		</a>
 																	</div>
-																	<div id="thumbnail_8" class="thumbnail_image slick-slide slick-active" style="width: 138px;" tabindex="0" role="option" aria-describedby="slick-slide02" data-slick-index="2" aria-hidden="false">
-																		<a href="http://prestashop.flytheme.net/sp_market/8-thickbox_default/faded-short-sleeves-tshirt.jpg" data-fancybox-group="gallery" class="fancybox" title="Aliquam Leberkas" tabindex="0">
-																			<img class="img-responsive" id="thumb_8" src="../imgArticulos/{{$articulo[0]->imagen}}" alt="Aliquam Leberkas" title="Aliquam Leberkas" itemprop="image">
+																	@if($articulo[0]->imagen2 != NULL)
+																	<div id="imagen2" class="thumbnail_image slick-slide slick-current slick-active" style="width: 138px;" tabindex="0" role="option" aria-describedby="slick-slide00" data-slick-index="0" aria-hidden="false" onmouseover="hoverImage('{{$articulo[0]->imagen2}}')">
+																		<a href="http://localhost/TiendaPocket/public/imgArticulos/{{$articulo[0]->imagen2}}" data-fancybox-group="gallery" class="fancybox" tabindex="0" >
+																			<img class="img-responsive" src="http://localhost/TiendaPocket/public/imgArticulos/{{$articulo[0]->imagen2}}" itemprop="image">
 																		</a>
 																	</div>
-																	<div id="thumbnail_9" class="thumbnail_image slick-slide slick-active" style="width: 138px;" tabindex="0" role="option" aria-describedby="slick-slide03" data-slick-index="3" aria-hidden="false">
-																		<a href="http://prestashop.flytheme.net/sp_market/9-thickbox_default/faded-short-sleeves-tshirt.jpg" data-fancybox-group="gallery" class="fancybox" title="Aliquam Leberkas" tabindex="0">
-																			<img class="img-responsive" id="thumb_9" src="../imgArticulos/{{$articulo[0]->imagen}}" alt="Aliquam Leberkas" title="Aliquam Leberkas" itemprop="image">
-																		</a>
-																	</div>
-																	<div id="thumbnail_10" class="thumbnail_image  last slick-slide" style="width: 138px;" tabindex="-1" role="option" aria-describedby="slick-slide04" data-slick-index="4" aria-hidden="true">
-																		<a href="http://prestashop.flytheme.net/sp_market/10-thickbox_default/faded-short-sleeves-tshirt.jpg" data-fancybox-group="gallery" class="fancybox" title="Aliquam Leberkas" tabindex="-1">
-																			<img class="img-responsive" id="thumb_10" src="http://prestashop.flytheme.net/sp_market/10-medium_default/faded-short-sleeves-tshirt.jpg" alt="Aliquam Leberkas" title="Aliquam Leberkas" itemprop="image">
-																		</a>
-																	</div>
-																</div>
+																	@endif
+																	@if($articulo[0]->imagen3 != NULL)
+																		<div id="imagen3" class="thumbnail_image slick-slide slick-active" style="width: 138px;" tabindex="0" role="option" aria-describedby="slick-slide02" data-slick-index="2" aria-hidden="false">
+																			<a href="http://localhost/TiendaPocket/public/imgArticulos/{{$articulo[0]->imagen3}}" data-fancybox-group="gallery" class="fancybox" tabindex="0" onmouseover="hoverImage('{{$articulo[0]->imagen3}}')>
+																				<img class="img-responsive" src="http://localhost/TiendaPocket/public/imgArticulos/{{$articulo[0]->imagen3}}" itemprop="image" height="100" width="100">
+																			</a>
+																		</div>
+																	@endif
 															</div>
-															<button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;" aria-disabled="false">Siguiente	</button>
 														</div>
 													</div>
 												</div>
@@ -301,6 +285,7 @@
 																		</div>
 																	</div>
 																</div>
+																<div id="cambiar"></div>
 															</div>
 														</div>
 													</form>
@@ -506,48 +491,6 @@
 
 </div>
 
-<script type="text/javascript">
-// <![CDATA[
-	$('#thumbs_list').slick({
-	  infinite: true,
-	  slidesToShow: 3,
-	  slidesToScroll: 1,
-	  vertical: false,
-	  infinite: false,
-	  arrows: true,
-	  responsive: [
-		{
-		  breakpoint: 1024,
-		  settings: {
-			slidesToShow: 3,
-			slidesToScroll: 3
-		  }
-		},
-		{
-		  breakpoint: 992,
-		  settings: {
-			slidesToShow: 5,
-			slidesToScroll: 1
-		  }
-		},
-		{
-		  breakpoint: 768,
-		  settings: {
-			slidesToShow: 4,
-			slidesToScroll: 1
-		  }
-		},
-		{
-		  breakpoint: 480,
-		  settings: {
-			slidesToShow: 2,
-			slidesToScroll: 1
-		  }
-		}]
-	});
-
-// ]]>
-</script>
 
 <script type="text/javascript">
 
@@ -624,6 +567,15 @@
 			}
 		});
 	});
+
+	function palabra(palabra){
+		$('#cambiar').html('<span>'+palabra+'</span>');
+	}
+
+	function hoverImage(imagen){
+		$('#view_full_size').html('<img id="bigpic" itemprop="image" data-src="url:(../imgArticulos/'+imagen+')" data-zoom-image="../imgArticulos/'+imagen+'" src="../imgArticulos/'+imagen+'" width="570" height="570"/>');
+
+	}
 
 
 	function addComentario(id){

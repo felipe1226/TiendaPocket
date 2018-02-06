@@ -355,9 +355,9 @@
 															$diff = $date1->diff($date2);
 															if($diff->days < 31){echo '<span class="new-box">NUEVO</span>';}
 														?>
-                            @if($articulo->cantidad == 0)
-														  <span class="sale-box">Agotado!</span>
-                            @endif
+                            <div id="campoEtiqueta{{$articulo->id}}" style="display:none">
+															<span id="etiqueta{{$articulo->id}}" class="sale-box"></span>
+														</div>
 													</div>
 
 
@@ -386,7 +386,8 @@
                     	</div>
 					<!--Product Prices-->
 										  <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="price-box">
-												<span itemprop="price" class="price product-price">${{$articulo->precio}}</span>
+												<span id="precio{{$articulo->id}}" itemprop="price" class="price product-price">${{$articulo->precio}}</span>
+												<span id="precioOriginal{{$articulo->id}}" class="old-price product-price"></span>
                       </div>
 
 
@@ -475,10 +476,12 @@
 <script>
 	$(function() {
 			var i;
+			var precio;
+			var precioOriginal;
 			JSONArts = eval(<?php echo json_encode($arts);?>);
 			JSONArts.forEach(function(currentValue,index,arr) {
 
-				$('#imagenArticulo'+currentValue.id).html('<a href="'+baseDir+'Detalles/'+currentValue.id+'"><img height="170" class="img_1" src="'+baseDir+'imgArticulos/'+currentValue.imagen+'"  alt="'+currentValue.nombre+'"/></a>');
+				$('#imagenArticulo'+currentValue.id).html('<a href="'+baseDir+'Detalles/'+currentValue.id+'"><img height="170" class="img_1" src="'+baseDir+'imgArticulos/'+currentValue.imagen1+'"  alt="'+currentValue.nombre+'"/></a>');
 
 				i=1;
 				for(i; i<=5 ;i++){
@@ -488,6 +491,19 @@
 					else{
 						$('#star'+currentValue.id).append('<div class="star"></div>');
 					}
+				}
+
+				if(currentValue.descuento != ""){
+					precioOriginal = currentValue.precio;
+					$('#precioOriginal'+currentValue.id).html("$"+precioOriginal);
+					precio = precioOriginal-((precioOriginal * currentValue.descuento)/100);
+					$('#precio'+currentValue.id).html("$"+precio);
+					$('#campoEtiqueta'+currentValue.id).show();
+					$('#etiqueta'+currentValue.id).html(currentValue.descuento+"%");
+				}
+				if(currentValue.cantidad == 0){
+					$('#campoEtiqueta'+currentValue.id).show();
+					$('#etiqueta'+currentValue.id).html("Agotado!");
 				}
 			});
 	 });
@@ -501,7 +517,7 @@
 				if(currentValueArts.cantidad == 0){
 					$('.layer_cart_overlay').show();
 					$('#layer_cart').show('slow');
-					$('#imagenArticulo').html('<img src="http://localhost/TiendaPocket/public/imgArticulos/'+currentValueArts.imagen+'">');
+					$('#imagenArticulo').html('<img src="http://localhost/TiendaPocket/public/imgArticulos/'+currentValueArts.imagen1+'">');
 					$('#nombreArticulo').text(currentValueArts.nombre);
 					$('#pro_added_success').removeClass();
 					$('#pro_added_success').addClass ("alert alert-warning");
@@ -527,7 +543,7 @@
 					});
 					$('.layer_cart_overlay').show();
 					$('#layer_cart').show('slow');
-					$('#imagenArticulo').html('<img src="http://localhost/TiendaPocket/public/imgArticulos/'+currentValueArts.imagen+'">');
+					$('#imagenArticulo').html('<img src="http://localhost/TiendaPocket/public/imgArticulos/'+currentValueArts.imagen1+'">');
 					$('#nombreArticulo').text(currentValueArts.nombre);
 
 					if(carrito || !existe){

@@ -134,8 +134,8 @@
 			JSONDepartamento.forEach(function(currentValue,index,arr) {
 				if(currentValue.nombre == direccion.departamento){
 
-					$('#id_depto').val(currentValue.id);
 					listarCiudades(currentValue.id, direccion.ciudad);
+					$('#id_depto').val(currentValue.id);
 					$('#id_ciudad').val(currentValue.ciudad);
 				}
 			});

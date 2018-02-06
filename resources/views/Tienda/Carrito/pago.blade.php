@@ -93,7 +93,7 @@
 											@foreach($carritos as $carrito)
 					  						<tr id="carrito{{$carrito->id}}" class="cart_item first_item address_0 odd">
 					  							<td class="cart_product">
-					  								<a href="Detalles/{{$carrito->id_articulo}}"><img src="imgArticulos/{{$carrito->almacena->imagen}}" width="110" height="110"  /></a>
+					  								<a href="Detalles/{{$carrito->id_articulo}}"><img src="imgArticulos/{{$carrito->almacena->imagen1}}" width="110" height="110"  /></a>
 					  							</td>
 					  							<td class="cart_description">
 					  								<h5 class="product-name">

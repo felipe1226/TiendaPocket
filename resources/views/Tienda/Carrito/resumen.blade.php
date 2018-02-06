@@ -68,7 +68,7 @@
 						  					@foreach($carritos as $carrito)
 						  						<tr id="articulo{{$carrito->id}}" class="cart_item first_item address_0 odd">
 						  							<td class="cart_product">
-						  								<a href="Detalles/{{$carrito->id_articulo}}"><img src="imgArticulos/{{$carrito->almacena->imagen}}" width="110" height="110"  /></a>
+						  								<a href="Detalles/{{$carrito->id_articulo}}"><img src="imgArticulos/{{$carrito->almacena->imagen1}}" width="110" height="110"  /></a>
 						  							</td>
 						  							<td class="cart_description">
 						  								<h5 class="product-name">
@@ -150,7 +150,7 @@
 						  		</div> <!-- end order-detail-content -->
 						  		@endif
 						  	@endif
-								<p id="alertaInventario" class="alert alert-warning" style="display: none">*.</p>
+								<p id="alertaInventario" class="alert alert-warning" style="display: none">*Se ha resaltado el inventario de los articulos!</p>
 
 								<ul class="footer_links">
 										<li class="f_right"><a class="button" href="http://localhost/TiendaPocket/public/Tienda" title="Ir al inicio"> <i class="fa fa-home"></i></a></li>
@@ -272,6 +272,7 @@
 						cantArticulo = $('#cantidad'+currentValue.id).val();
 						if(cantArticulo > currentValue.almacena.cantidad){
 							inventario = false;
+							$('#alertaInventario').show();
 							document.getElementById("cantidad"+currentValue.id).style.color = "red";
 							$('#cantidad'+currentValue.id).val(currentValue.almacena.cantidad);
 						}
@@ -279,6 +280,9 @@
 							document.getElementById("cantidad"+currentValue.id).style.color = "black";
 						}
 					});
+					if(inventario){
+						location.href="{{url('Direccion')}}"
+					}
 				}
 
       </script>

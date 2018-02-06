@@ -8,7 +8,7 @@ class Articulo extends Model
 {
     protected $table = 'articulo';
 
-    protected $fillable = ['id', 'id_proveedor', 'nombre', 'categoria', 'marca', 'precio', 'cantidad', 'imagen',  'descripcion', 'calificacion'];
+    protected $fillable = ['id', 'id_proveedor', 'nombre', 'categoria', 'marca', 'color', 'precio', 'cantidad', 'imagen1', 'imagen2', 'imagen3', 'descripcion', 'descuento', 'calificacion'];
 
 
     public function scopeBuscarxCategoria($query, $categoria){
@@ -34,6 +34,8 @@ class Articulo extends Model
 
 
     public function scopeBuscarNuevos($query){
+      $fecha=strftime( "%Y-%m-%d-%H-%M-%S", time() );
+      $resultado = $query->where('created_at','=',$proveedor)->orderBy('nombre', 'asc');
       return $resultado;
     }
 
