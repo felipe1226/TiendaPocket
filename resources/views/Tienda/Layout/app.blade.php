@@ -265,16 +265,14 @@
 															<!-- block list of products -->
 														<div class="cart_block_list">
 
-															@if(count(Auth::User()->EmpresaActual->carritos) == 0)
-																<p class="cart_block_no_products" style="display: block">
+																<p id="noArticulos" class="cart_block_no_products" style="display: none">
 																			No tienes articulos en el carrito
 																</p>
-															@else
-																<p class="recent_items ">Articulos <span>Precio</span></p>
+																<p id="listaArticulos" class="recent_items ">Articulos <span>Precio</span></p>
 																	<div class="list-products mCustomScrollbar">
 																				<dl class="products ">
 																					@foreach(Auth::User()->EmpresaActual->carritos as $carrito)
-																						@if($carritos->estado == 1)
+																						@if($carrito->estado == 1)
 																							<dt id="articulo{{$carrito->id}}" data-id="cart_block_product{{$carrito->id}}" class="first_item" style="display: block">
 																								<a class="cart-images" href="Detalles/{{$carrito->id_articulo}}">
 																									<img height="60" width="60" src="http://localhost/TiendaPocket/public/imgArticulos/{{$carrito->almacena->imagen1}}"/>
@@ -295,7 +293,6 @@
 																				</dl>
 
 																</div>
-															@endif
 																<div class="price-total titleFont">
 																	<span class="price_text">Total : </span>
 																	<span id="totalCarrito2" class="price cart_block_total ajax_block_cart_total"></span>
@@ -734,6 +731,10 @@
 
 			});
 			$('#cantArticulos').html(count);
+			if(count == 0){
+				$('#noArticulos').show();
+				$('#listaArticulos').hide();
+			}
 			$('#totalCarrito1').html("$"+totalCarrito);
 			$('#totalCarrito1').val(totalCarrito);
 			$('#totalCarrito2').html("$"+totalCarrito);

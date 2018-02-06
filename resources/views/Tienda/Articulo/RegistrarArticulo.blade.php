@@ -33,9 +33,9 @@
         			{{Form::token()}}
                 <h2 class="title">Informacion del articulo</h2>
                 @if(isset($articulo))
-                  <input id="id_articulo" name="id_articulo" type="hidden" value="{{$articulo->id}}">
+                  <input id="id_articulo" name="id_articulo" type="text" value="{{$articulo->id}}">
                 @else
-                  <input id="id_articulo" name="id_articulo" type="hidden" value="-1">
+                  <input id="id_articulo" name="id_articulo" type="text" value="0">
                 @endif
                 <input id="color" name="color" type="hidden" value="">
                 <input id="valDescuento" name="valDescuento" type="hidden" value="">
@@ -223,9 +223,9 @@
 
       $(function() {
         var id = $('#id_articulo').val();
-        alert(id);
-        if(id != "-1"){
-          articulo = eval(<?php echo json_encode($articulo);?>);
+
+        if(id != "0"){
+          articulo = eval();
 
           $('#vistaImagen1').html('<img src="'+baseDir+'imgArticulos/'+articulo.imagen1+'">');
           if(articulo.imagen2 != null){
