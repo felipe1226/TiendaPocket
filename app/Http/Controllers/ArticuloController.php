@@ -93,7 +93,8 @@ class ArticuloController extends Controller
   }
 
   public function registrarArticulo(){
-    return view('Tienda/Articulo/RegistrarArticulo');
+    $articulo = null;
+    return view('Tienda/Articulo/RegistrarArticulo')->with('articulo', $articulo);
   }
 
   public function actualizar($id){

@@ -11,7 +11,7 @@
 				<li class="home"><a href="{{url('Tienda')}}">Inicio</a></li>
 				<li class="depth1"><a href="{{url('MiCuenta')}}">Mi cuenta</a></li>
 				<li class="depth2"><a href="{{url('MisDirecciones')}}">Mis direcciones</a></li>
-				<li class="depth3"><a href="{{url('RegistrarDireccion')}}">Nueva direccion</a></li>
+				<li id="enlace" class="depth3"><a href="#">Nueva direccion</a></li>
 			</ul>
 		</div>
 <!-- /Breadcrumb -->
@@ -21,11 +21,7 @@
 
 <!-- Columns -->
 <div class="columns-container">
-	@if(isset($direccion))
-		<input id="id_direccion" name="id_direccion" type="hidden" value="{{$direccion->id}}">
-	@else
-		<input id="id_direccion" name="id_direccion" type="hidden" value="-1">
-	@endif
+
 
 	<div id="columns" class="container">
 		<div class="row">
@@ -34,33 +30,42 @@
 			</div>
 			<!-- End of Sidebar -->
 			<!-- Center Column -->
-			<div id="center_column" class="column col-sm-12">
+			<div id="center_column" class="column col-md-6 col-sm-6">
 				<div class="box">
-					<h1 class="page-subheading">Nueva direccion</h1>
-
-
-
-
+					<h1 id="titulo" class="page-subheading">Nueva direccion</h1>
 					@include('flash::message')
 					{!! Form::open(['method' => 'POST', 'action' => 'DireccionController@store']) !!}
-						<div class="form-group">
-							<label for="nombres">Nombres <sup>*</sup></label>
-							<input class="form-control" type="text" id="nombres"name="nombres"/>
-						</div>
-						<div class="form-group">
-							<label for="apellidos">Apellidos <sup>*</sup></label>
-							<input class="form-control" type="text" id="apellidos" name="apellidos"/>
-						</div>
+					@if($direccion != null)
+						<input id="id_direccion" name="id_direccion" type="hidden" value="{{$direccion->id}}">
+					@else
+						<input id="id_direccion" name="id_direccion" type="hidden" value="0">
+					@endif
+
 						<!--<div class="required dni form-group unvisible">
 							<label for="dni">Identificacion <sup>*</sup></label>
 							<input class="is_required form-control" data-validate="isDniLite" type="text" name="dni" id="dni"/>
 							<span class="form_info">DNI / NIF / NIE</span>
 						</div>-->
-						<div class="form-group">
-							<label for="direccion">Direccion <sup>*</sup></label>
-							<input class="form-control" type="text" id="direccion" name="direccion"/>
+						<div class="form-group col-md-6 col-sm-6">
+							<label for="nombres">Nombres <sup>*</sup></label>
+							<input class="form-control" type="text" id="nombres"name="nombres"/>
 						</div>
-						<div class="form-group">
+						<div class="form-group col-md-6 col-sm-6">
+							<label for="apellidos">Apellidos <sup>*</sup></label>
+							<input class="form-control" type="text" id="apellidos" name="apellidos"/>
+						</div>
+						<div class="clearfix"></div>
+						<div class="form-group col-md-6 col-sm-6">
+								<label for="movil">Movil<sup>*</sup></label>
+								<input class="form-control" type="tel" id="movil" name="movil" />
+						</div>
+
+						<div class="form-group col-md-6 col-sm-6">
+								<label for="telefono">Telefono <sup>*</sup></label>
+								<input class="form-control" type="tel" id="telefono" name="telefono"/>
+						</div>
+						<div class="clearfix"></div>
+						<div class="form-group col-md-6 col-sm-8">
 
 							<label for="departamento">Departamento <sup>*</sup></label>
 							<select name="departamento" id="id_depto" class="form-control">
@@ -69,47 +74,45 @@
 								@endforeach
 							</select>
 						</div>
-						<div class="form-group">
+
+						<div class="form-group col-md-6 col-sm-8">
 							<label for="ciudad">Ciudad <sup>*</sup></label>
 							<select name="ciudad" id="id_ciudad" class="form-control">
 							</select>
 						</div>
-						<div class="form-group">
-								<label for="telefono">Telefono <sup>*</sup></label>
-								<input class="form-control" type="tel" id="telefono" name="telefono"/>
-						</div>
-						<div class="clearfix"></div>
-						<div class="form-group">
-								<label for="movil">Movil<sup>*</sup></label>
-								<input class="form-control" type="tel" id="movil" name="movil" />
+
+
+						<div class="form-group col-md-12 col-sm-12">
+							<label for="direccion">Direccion <sup>*</sup></label>
+							<input class="form-control" type="text" id="direccion" name="direccion"/>
 						</div>
 
-						<div class="form-group">
+
+						<div class="clearfix"></div>
+						<div class="form-group col-md-12 col-sm-12">
 								<label for="informacion">Información adicional</label>
 								<textarea class="form-control" id="info" name="informacion" cols="26" rows="3" ></textarea>
 							</div>
 
 							<div class="clearfix"></div>
-							<div class="form-group" id="referencia_direccion">
+							<div class="form-group col-md-6 col-sm-8" id="referencia_direccion">
 								<label for="referencia">Titulo de referencia para esta direccion. <sup>*</sup></label>
 								<input type="text" id="referencia" class="form-control" name="referencia" placeholder="Mi direccion" />
 							</div>
-								<button type="submit" class="btn btn-default button button-medium">
-									<span>
-										Guardar
-										<i class="fa fa-chevron-right right"></i>
-									</span>
-								</button>
+							<div class="clearfix"></div>
+							<button type="submit" class="btn btn-default col-md-offset-9 col-sm-offset-8 col-xs-offset-8 ">
+								<span>
+									Guardar
+									<i class="fa fa-chevron-right right"></i>
+								</span>
+							</button>
 
 							{!!Form::close()!!}
 						</div>
-						<ul class="footer_links clearfix">
-							<li>
-								<a class="btn btn-defaul button button-small" href="{{url('MisDirecciones')}}">
-									<span><i class="fa fa-chevron-left left"></i> Regresar</span>
-								</a>
-							</li>
-						</ul>
+						<ul class="footer_links">
+              <li class="f_right"><a class="button" href="{{url('Tienda')}}" title= "Ir al inicio"> <i class="fa fa-home"></i></a></li>
+              <li><a class="button" href="{{url('MiCuenta')}}" title= "Regresar a mi cuenta"><i class="fa fa-user"></i> </a></li>
+            </ul>
 			</div><!-- #center_column -->
 		</div><!-- .row -->
 	</div><!-- #columns -->
@@ -118,7 +121,9 @@
 <script>
 	$(function(){
 		var id=$('#id_direccion').val();
-		if(id !='-1'){
+		if(id != "0"){
+			$('#titulo').html("Actualizar informacion");
+			$('#enlace').html('<a href="#">Actualizar direccion</a>');
 			direccion=eval(<?php echo json_encode($direccion);?>);
 			$('#nombres').val(direccion.nombres);
 			$('#apellidos').val(direccion.apellidos);
@@ -145,7 +150,6 @@
 	});
 
 	function listarCiudades(id, ciudad){
-
 		JSONCiudades = eval(<?php echo json_encode($ciudades);?>);
 		JSONCiudades.forEach(function(currentValue,index,arr) {
 			if(currentValue.idDepartamento == id){

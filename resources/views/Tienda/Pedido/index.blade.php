@@ -56,9 +56,7 @@
 							@foreach($pedidosGroup as $pedidoGroup)
 								<tr class="first_item ">
 									<td class="history_link bold">
-										<a class="color-myaccount" href="#">
-										{{$pedidoGroup->factura}}
-										</a>
+										<a class="color-myaccount" href="#">{{$pedidoGroup->factura}}</a>
 									</td>
 									<td data-value="20171221204509" class="history_date bold">
 										@if($pedidoGroup->fecha_envio == "0000-00-00")
@@ -75,9 +73,7 @@
 										@endif
 									</td>
 									<td class="history_price">
-										<span class="price">
-                      {{$pedidoGroup->costoTotal}}
-										</span>
+										<span class="price">${{$pedidoGroup->costoTotal}}</span>
 									</td>
 									<td class="history_method">{{$pedidoGroup->tipoPago}}</td>
 									<td data-value="10" class="history_state">
@@ -96,7 +92,9 @@
 					@endif
 				</tbody>
 		</table>
+
     <div id="block-order-detail" class="unvisible" style="display: none"><div class="box box-small clearfix">
+			<span class="waitimage" style="display: none;"></span>
 		<p class="dark">
 		<strong>Factura de pedido
       <span id="factura"></span> - creado en <span id="created"></span></strong>
@@ -126,7 +124,7 @@
 	<div class="row">
 		<div class="col-xs-12 col-sm-6">
 			<ul class="address alternate_item box">
-				<li><h3 class="page-subheading"><span id="facturaDireccion"></span></h3></li>
+				<li><h3 class="page-subheading"><span id="ReferenciaDireccion"></span></h3></li>
         <li><span id="nombre"class="address_firstname"></span></li>
         <li><span id="direccion" class="address_address1"></span></li>
         <li><span id="localidad" class="address_city"></span>
@@ -244,9 +242,10 @@
       function infoPedido(ref){
 				var costoArticulo = 0 ;
 				var totalArticulos = 0 ;
-
+				$('.waitimage').show();
         $('#block-order-detail').fadeOut('slow', function() {
               $.scrollTo(this, 2000);
+
 
           $('#pedidos').empty();
 					$('#articulos').empty();
@@ -259,7 +258,7 @@
             JSONPedidos.forEach(function(currentValue,index,arr) {
               if(currentValue.factura == ref){
 
-  							$('#facturaDireccion').html(currentValue.factura_direccion);
+  							$('#ReferenciaDireccion').html(currentValue.referencia_direccion);
 								$('#nombre').html(currentValue.nombre);
 								$('#direccion').html(currentValue.direccion);
 								$('#localidad').html(currentValue.localidad);
@@ -299,6 +298,7 @@
 
           $('#block-order-detail').fadeIn('slow', function() {
                 $.scrollTo(this, 2000);
+								$('.waitimage').hide();
           });
         }
       </script>

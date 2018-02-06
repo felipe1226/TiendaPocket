@@ -32,10 +32,10 @@
               {!!Form::open(array('url'=>'Articulo/registrar','method'=>'POST', 'id' => 'formulario', 'enctype' => 'multipart/form-data'))!!}
         			{{Form::token()}}
                 <h2 class="title">Informacion del articulo</h2>
-                @if(isset($articulo))
-                  <input id="id_articulo" name="id_articulo" type="text" value="{{$articulo->id}}">
+                @if($articulo != null)
+                  <input id="id_articulo" name="id_articulo" type="hidden" value="{{$articulo->id}}">
                 @else
-                  <input id="id_articulo" name="id_articulo" type="text" value="0">
+                  <input id="id_articulo" name="id_articulo" type="hideen" value="0">
                 @endif
                 <input id="color" name="color" type="hidden" value="">
                 <input id="valDescuento" name="valDescuento" type="hidden" value="">
@@ -43,7 +43,7 @@
                 <a id="buttonPlus" onclick="addImage()" class="btn btn-default" href="javascript:void(0)" title="Agregar"><i class="fa fa-fw fa-camera"></i><i class="fa fa-fw fa-plus"></i></a>
                 <a id="buttonMinus"  onclick="delImage()" class="btn btn-default" href="javascript:void(0)" title="Sustraer" style="display: none"><i class="fa fa-fw fa-camera"></i><i class="fa fa-fw fa-minus"></i></a>
                 <div class="row">
-                  <div id="imagen1" class="col-md-4">
+                  <div id="imagen1" class="col-md-4 col-sm-6">
 
                     <div class="form-group">
 
@@ -61,7 +61,7 @@
                       </div>
                     </div>
                   </div>
-                  <div id="imagen2" class="col-md-4" style="display: none">
+                  <div id="imagen2" class="col-md-4 col-sm-6" style="display: none">
                     <div class="form-group">
                       <label for="fileUpload">Imagen 2 (Opcional)</label>
                       <div class="fileupload fileupload-new" data-provides="fileupload">
@@ -77,7 +77,7 @@
                       </div>
                     </div>
                   </div>
-                  <div id="imagen3" class="col-md-4" style="display: none">
+                  <div id="imagen3" class="col-md-4 col-sm-12" style="display: none">
                     <div class="form-group">
                       <label for="fileUpload">Imagen 3(Opcional)</label>
                       <div class="fileupload fileupload-new" data-provides="fileupload">
@@ -223,10 +223,8 @@
 
       $(function() {
         var id = $('#id_articulo').val();
-
         if(id != "0"){
-          articulo = eval(<?php echo json_encode($articulo);?>);
-
+          var articulo = eval(<?php echo json_encode($articulo);?>);
           $('#vistaImagen1').html('<img src="'+baseDir+'imgArticulos/'+articulo.imagen1+'">');
           if(articulo.imagen2 != null){
             addImage();

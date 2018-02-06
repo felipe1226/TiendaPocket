@@ -25,16 +25,13 @@ class DireccionController extends Controller
     return view('Tienda/Direccion/index')->with('direcciones', $direcciones);
   }
 
-
     public function registrarDireccion(){
       $departamentos = Departamento::all();
       $ciudades = Ciudad::all();
+      $direccion = null;
 
-
-      return view('Tienda/Direccion/RegistrarDireccion')->with('departamentos', $departamentos)->with('ciudades', $ciudades);
+      return view('Tienda/Direccion/RegistrarDireccion')->with('direccion', $direccion)->with('departamentos', $departamentos)->with('ciudades', $ciudades);
     }
-
-
 
     public function actualizar($id){
       $departamentos = Departamento::all();
@@ -45,7 +42,6 @@ class DireccionController extends Controller
 
       return view('Tienda/Direccion/RegistrarDireccion')->with('direccion', $direccion)->with('departamentos', $departamentos)->with('ciudades', $ciudades);
     }
-
 
     public function store(Request $request){
       $direccion = new Direccion;

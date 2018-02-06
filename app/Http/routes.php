@@ -169,7 +169,9 @@ Route::resource('InformacionPersonal', 'CuentaController@informacionPersonal');
 
 Route::resource('Mensajes', 'MensajeriaController');
 
-Route::resource('ArticulosProveedor', 'ArticuloController@ArtsProveedor');
+Route::get('ArticulosProveedor', 'ArticuloController@ArtsProveedor');
+Route::get('Distribuciones', 'CuentaController@distribuciones');
+
 
 Route::get('verArticulo/{id}','ArticuloController@verVistaArticulo');
 

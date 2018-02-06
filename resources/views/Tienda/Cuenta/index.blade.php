@@ -38,8 +38,9 @@
 						</div>
 						<div class="col-md-4 col-xs-12 col-sm-6">
         			<ul class="myaccount-link-list">
-								<li><a href="{{url('ArticulosProveedor')}}"><i class="fa fa-fw fa-glass"></i><span>Mis articulos</span></a></li>
 								<li><a href="{{url('RegistrarArticulo')}}"><i class="fa fa-fw fa-inbox"></i><span>Registrar articulo</span></a></li>
+								<li><a href="{{url('ArticulosProveedor')}}"><i class="fa fa-fw fa-glass"></i><span>Mis articulos</span></a></li>
+								<li><a href="{{url('Distribuciones')}}"><i class="fa fa-fw fa-truck"></i><span>Distribuciones</span></a></li>
 								<li><a href="{{url('Carrito')}}"><i class="fa fa-fw fa-shopping-cart"></i><span>Mi carrito</span></a></li>
 								<li><a 	href="{{url('ListaDeseos')}}"><i class="fa fa-heart"></i><span>Mi Lista de Deseos</span></a></li>
         			</ul>

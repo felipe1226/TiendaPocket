@@ -10,7 +10,7 @@
 <ul>
 <li class="home"><a href="{{url('Tienda/')}}">Inicio</a></li>
 <li class="depth1"><a href="{{url('MiCuenta')}}">Mi cuenta</a></li>
-<li class="depth2"><a href="{{url('ArticulosProveedor')}}">Mis articulos</a></li>
+<li class="depth2"><a href="{{url('Distribuciones')}}">Distribuciones</a></li>
 </ul>
 
 </div>
@@ -34,8 +34,10 @@
       <div id="center_column" class="column col-sm-12">
 
         <div id="mywishlist">
-          <h1 class="page-heading">Mis articulos</h1>
+          <h1 class="page-heading">Distribuciones de envio</h1>
           <div id="block-history" class="block-center table-responsive">
+
+            <a href="javascript:void(0)" class="btn btn-default" title="Agregar distribucion"> <i class="fa fa-fw fa-truck"></i><i class="fa fa-fw fa-plus"></i></a>
             <div class="content_sortPagiBar_top">
               <div id="pagination" class="pagination clearfix">
                 <ul class="pagination">
@@ -43,17 +45,17 @@
                 </ul>
               </div>
             </div>
+
               <table class="std">
                 <thead>
                   <tr>
                     <th class="cart_product first_item">Articulo</th>
-                    <th class="cart_product">Descripcion</th>
-                    <th class="cart_product">Descripcion</th>
-                    <th class="cart_product">Precio Unitario</th>
-                    <th class="cart_product">Descuento</th>
-                    <th class="cart_product">Inventario</th>
-                    <th class="cart_product">Fecha creado</th>
-                    <th class="last_item cart_product"></th>
+                    <th class="item mywishlist_second">Descripcion</th>
+                    <th class="item mywishlist_second">Descripcion</th>
+                    <th class="item mywishlist_second">Precio Unitario</th>
+                    <th class="item mywishlist_second">Inventario</th>
+                    <th class="item mywishlist_second">Fecha creado</th>
+                    <th class="last_item mywishlist_first"></th>
                   </tr>
                 </thead>
 
@@ -77,16 +79,7 @@
                       </td>
                       <td class="cart_unit" data-title="Unit price">
                         <ul class="price text-right" id="precio">
-                          <li class="price"><strong>${{$articulo->precio}}</strong></li>
-                        </ul>
-                      </td>
-                      <td class="cart_unit" data-title="Unit price">
-                        <ul class="price text-right" id="descuento">
-                          @if($articulo->descuento == "")
-                            <li class="price">0%</li>
-                          @else
-                            <li class="price"><strong>{{$articulo->descuento}}%</strong></li>
-                          @endif
+                          <li class="price">${{$articulo->precio}}</li>
                         </ul>
                       </td>
                       <td class="cart_unit" data-title="Unit price">
@@ -127,8 +120,6 @@
               <li class="f_right"><a class="button" href="{{url('Tienda')}}" title= "Ir al inicio"> <i class="fa fa-home"></i></a></li>
               <li><a class="button" href="{{url('MiCuenta')}}" title= "Regresar a mi cuenta"><i class="fa fa-user"></i> </a></li>
             </ul>
-
-
           </div><!-- #center_column -->
     </div><!-- .row -->
   </div><!-- #columns -->

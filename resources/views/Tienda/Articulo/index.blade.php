@@ -356,7 +356,7 @@
 															if($diff->days < 31){echo '<span class="new-box">NUEVO</span>';}
 														?>
                             <div id="campoEtiqueta{{$articulo->id}}" style="display:none">
-															<span id="etiqueta{{$articulo->id}}" class="sale-box"></span>
+															<span id="etiqueta{{$articulo->id}}"></span>
 														</div>
 													</div>
 
@@ -499,10 +499,15 @@
 					precio = precioOriginal-((precioOriginal * currentValue.descuento)/100);
 					$('#precio'+currentValue.id).html("$"+precio);
 					$('#campoEtiqueta'+currentValue.id).show();
+					$('#etiqueta'+currentValue.id).addClass("inv-box");
 					$('#etiqueta'+currentValue.id).html(currentValue.descuento+"%");
 				}
 				if(currentValue.cantidad == 0){
 					$('#campoEtiqueta'+currentValue.id).show();
+					if(currentValue.descuento != ""){
+						$('#etiqueta'+currentValue.id).removeClass("inv-box");
+					}
+					$('#etiqueta'+currentValue.id).addClass("sale-box");
 					$('#etiqueta'+currentValue.id).html("Agotado!");
 				}
 			});
