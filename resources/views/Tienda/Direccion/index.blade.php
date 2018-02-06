@@ -67,7 +67,7 @@
                             <span  class="address_phone_mobile">  {{$direccion->movil}}</span>
                           </li>
                           <li class="address_update">
-                            <a class="btn btn-default button button-small" href="{{url('Direccion/'.$direccion->id.'')}}">Actualizar <i class="fa fa-fw fa-refresh"></i> </a>
+                            <a class="btn btn-default button button-small" href="{{url('Direccion/'.$direccion->id.'/edit')}}">Actualizar <i class="fa fa-fw fa-refresh"></i> </a>
                             @if($direccion->estado == 0)
                               <a class="btn btn-default button button-small" onclick="eliminarDireccion({{$direccion->id}})" data-id="addresses_confirm" title="Eliminar direccion"><i class="fa fa-remove"></i></a>
                             @endif

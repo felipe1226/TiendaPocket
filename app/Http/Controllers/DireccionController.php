@@ -40,11 +40,10 @@ class DireccionController extends Controller
       $departamentos = Departamento::all();
       $ciudades = Ciudad::all();
 
+      $direccion = Direccion::find($id);
 
-      $direccion = Direccion::where('id_articulo', $request->id_articulo)->get();
 
-
-      return view('Tienda/Direccion/actualizarDireccion')->with('departamentos', $departamentos)->with('ciudades', $ciudades);
+      return view('Tienda/Direccion/RegistrarDireccion')->with('direccion', $direccion)->with('departamentos', $departamentos)->with('ciudades', $ciudades);
     }
 
 

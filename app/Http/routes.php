@@ -155,8 +155,8 @@ Route::resource('RegistrarDireccion', 'DireccionController@registrarDireccion');
 Route::get('Direccion/eliminar', 'DireccionController@eliminar');
 
 
-Route::get('Direccion/{id}', 'DireccionController@actualizar');
-Route::resource('Direccion', 'DireccionController');
+Route::get('Direccion/{id}/edit', 'DireccionController@actualizar');
+Route::resource('MisDirecciones', 'DireccionController');
 
 Route::resource('MiCuenta', 'CuentaController');
 

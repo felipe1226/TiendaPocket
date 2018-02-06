@@ -225,7 +225,7 @@
         var id = $('#id_articulo').val();
 
         if(id != "0"){
-          articulo = eval();
+          articulo = eval(<?php echo json_encode($articulo);?>);
 
           $('#vistaImagen1').html('<img src="'+baseDir+'imgArticulos/'+articulo.imagen1+'">');
           if(articulo.imagen2 != null){

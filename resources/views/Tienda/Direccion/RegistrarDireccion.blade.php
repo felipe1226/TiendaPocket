@@ -145,25 +145,15 @@
 	});
 
 	function listarCiudades(id, ciudad){
-		var cont = 0;
 
 		JSONCiudades = eval(<?php echo json_encode($ciudades);?>);
 		JSONCiudades.forEach(function(currentValue,index,arr) {
 			if(currentValue.idDepartamento == id){
-				if(cont == 0){
-					$('#id_ciudad').append($('<option>', {
-								value: ciudad,
-								text: ciudad
-						}));
-				}
-				else{
 					$('#id_ciudad').append($('<option>', {
 						value: currentValue.nombre,
 						text: currentValue.nombre
 
 					}));
-				}
-				cont++;
 			}
 	  });
 	}

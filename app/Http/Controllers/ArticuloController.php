@@ -98,7 +98,7 @@ class ArticuloController extends Controller
 
   public function actualizar($id){
     $articulo = Articulo::find($id);
-    return view('Tienda/Articulo/RegistrarArticulo')  ->with('articulo', $articulo);
+    return view('Tienda/Articulo/RegistrarArticulo')->with('articulo', $articulo);
   }
 
 
