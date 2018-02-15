@@ -21,7 +21,7 @@ class ArticuloController extends Controller
   }
 
   public function store(Request $request){
-    if($request->id_articulo == "-1"){
+    if($request->id_articulo == "0"){
       $articulo = new Articulo;
       $articulo->id_proveedor = Auth::user()->id;
       $articulo->nombre = $request->nombre;

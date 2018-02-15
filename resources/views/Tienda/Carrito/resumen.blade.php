@@ -65,53 +65,53 @@
 
 						  				<tbody>
 						  					@foreach(Auth::User()->EmpresaActual->carritos as $carrito)
-						  						<tr id="articulo{{$carrito->id}}" class="cart_item first_item address_0 odd">
-						  							<td class="cart_product">
-						  								<a href="Detalles/{{$carrito->id_articulo}}"><img src="imgArticulos/{{$carrito->almacena->imagen1}}" width="110" height="110"  /></a>
-						  							</td>
-						  							<td class="cart_description">
-						  								<h5 class="product-name">
-																<h3><a href="Detalles/{{$carrito->id_articulo}}">{{$carrito->almacena->nombre}}</a></h3>
+													@if($carrito->estado == 1)
+							  						<tr id="articulo{{$carrito->id}}" class="cart_item first_item address_0 odd">
+							  							<td class="cart_product">
+							  								<a href="Detalles/{{$carrito->id_articulo}}"><img src="imgArticulos/{{$carrito->almacena->imagen1}}" width="110" height="110"  /></a>
+							  							</td>
+							  							<td class="cart_description">
+							  								<h5 class="product-name">
+																	<h3><a href="Detalles/{{$carrito->id_articulo}}">{{$carrito->almacena->nombre}}</a></h3>
 
-						  								</h5>
-						  								<small class="cart_ref">Marca: {{$carrito->almacena->marca}}</small>
-						  								<small class="cart_ref">{{$carrito->almacena->categoria}}</small>
-						  							</td>
-						  							<td class="cart_avail">
-																@if(($carrito->almacena->cantidad) == 0)
-																	<span class="label label-warning" title="Estará disponible proximamente!">Agotado</span>
-																@else
-																	<span class="label label-success">Adquirir</span>
-																@endif
-						  							</td>
-						  							<td class="cart_unit" data-title="Unit price">
-						  								<ul class="price text-right" id="cantidad">
-						  					        <li class="price">${{$carrito->almacena->precio}}</li>
-						  								</ul>
-						  							</td>
-						  							<td class="cart_quantity text-center" data-title="Quantity">
+							  								</h5>
+							  								<small class="cart_ref">Marca: {{$carrito->almacena->marca}}</small>
+							  								<small class="cart_ref">{{$carrito->almacena->categoria}}</small>
+							  							</td>
+							  							<td class="cart_avail">
+																	@if(($carrito->almacena->cantidad) == 0)
+																		<span class="label label-warning" title="Estará disponible proximamente!">Agotado</span>
+																	@else
+																		<span class="label label-success">Adquirir</span>
+																	@endif
+							  							</td>
+							  							<td class="cart_unit" data-title="Unit price">
+							  								<ul class="price text-right" id="cantidad">
+							  					        <li class="price">${{$carrito->almacena->precio}}</li>
+							  								</ul>
+							  							</td>
+							  							<td class="cart_quantity text-center" data-title="Quantity">
+							  								<input id="cantidad{{$carrito->id}}" size="2"  type="text" autocomplete="off" class="cart_quantity_input form-control grey" value="{{$carrito->cantidad}}" name="quantity_17_108_0_0" onblur="modificarCantidad({{$carrito->id}}, {{$carrito->almacena->precio}}, 2, {{$carrito->id_articulo}})"/>
 
-						  								<input type="hidden" value="1" name="quantity_17_108_0_0_hidden" />
-						  								<input id="cantidad{{$carrito->id}}" size="2"  type="text" autocomplete="off" class="cart_quantity_input form-control grey" value="{{$carrito->cantidad}}" name="quantity_17_108_0_0" onblur="modificarCantidad({{$carrito->id}}, {{$carrito->almacena->precio}}, 2, {{$carrito->id_articulo}})"/>
-
-						  								<div class="cart_quantity_button clearfix">
-						  									<a class="cart_quantity_down btn btn-default button-minus" href="javascript:void(0);" title="Sustraer" onclick="modificarCantidad({{$carrito->id}}, {{$carrito->almacena->precio}}, 0, {{$carrito->id_articulo}})">
-						  										<span>
-						  											<i class="fa fa-minus"></i>
-						  										</span>
-						  									</a>
-						  									<a  class="cart_quantity_up btn btn-default button-plus" href="javascript:void(0);" title="Agregar" onclick="modificarCantidad({{$carrito->id}}, {{$carrito->almacena->precio}}, 1, {{$carrito->id_articulo}})"><span><i class="fa fa-plus"></i></span></a>
-						  								</div>
-						  							</td>
-						  							<td class="cart_delete text-center" data-title="Delete">
-						  								<div>
-						                    <a onclick="eliminar({{$carrito->id}})" title="Delete" class="cart_quantity_delete" id="33_204_0_23" href="javascript:void(0)"><i class="fa fa-trash"></i></a>
-						  								</div>
-						  							</td>
-						  							<td class="cart_total" data-title="Total">
-						  								<span>$</span><span id="cantidadTotal{{$carrito->id}}"></span>
-						  							</td>
-						  						</tr>
+							  								<div class="cart_quantity_button clearfix">
+							  									<a class="cart_quantity_down btn btn-default button-minus" href="javascript:void(0);" title="Sustraer" onclick="modificarCantidad({{$carrito->id}}, {{$carrito->almacena->precio}}, 0, {{$carrito->id_articulo}})">
+							  										<span>
+							  											<i class="fa fa-minus"></i>
+							  										</span>
+							  									</a>
+							  									<a  class="cart_quantity_up btn btn-default button-plus" href="javascript:void(0);" title="Agregar" onclick="modificarCantidad({{$carrito->id}}, {{$carrito->almacena->precio}}, 1, {{$carrito->id_articulo}})"><span><i class="fa fa-plus"></i></span></a>
+							  								</div>
+							  							</td>
+							  							<td class="cart_delete text-center" data-title="Delete">
+							  								<div>
+							                    <a onclick="eliminar({{$carrito->id}})" title="Delete" class="cart_quantity_delete" id="33_204_0_23" href="javascript:void(0)"><i class="fa fa-trash"></i></a>
+							  								</div>
+							  							</td>
+							  							<td class="cart_total" data-title="Total">
+							  								<span>$</span><span id="cantidadTotal{{$carrito->id}}"></span>
+							  							</td>
+							  						</tr>
+														@endif
 						  						@endforeach
 						  				</tbody>
 						  				<tfoot>
@@ -137,8 +137,6 @@
 						  					<tr class="cart_total_price">
 						  						<td colspan="3" class="total_price_container text-right">
 						  							<span>Total</span>
-						  	            <div id="hookDisplayProductPriceBlock-price">
-						  							</div>
 						  						</td>
 						  						<td colspan="2" class="price" id="total_price_container">
 						  							<span>$</span><span  id="totalCarrito" class="total_price"/>
@@ -148,12 +146,12 @@
 						  			</table>
 						  		</div> <!-- end order-detail-content -->
 						  	@endif
-								<p id="alertaInventario" class="alert alert-warning" style="display: none">*Se ha resaltado el inventario de los articulos!</p>
+								<p id="alertaInventario" class="alert alert-warning" style="display: none">*Se resaltará el inventario disponible de los articulos!</p>
 
 								<ul class="footer_links">
 										<li class="f_right"><a class="button" href="http://localhost/TiendaPocket/public/Tienda" title="Ir al inicio"> <i class="fa fa-home"></i></a></li>
 										<li><a class="button" href="http://localhost/TiendaPocket/public/Cuenta" title="Regresar a mi cuenta"><i class="fa fa-user"></i> </a></li>
-										<li class="col-md-offset-10 col-sm-offset-9 col-xs-offset-8"><a id="buttomComprar" class="button" onclick="verificarInventario()" title="Proceder con la compra" style="display:block">
+										<li class="col-md-offset-10 col-sm-offset-9 col-xs-offset-8"><a id="buttomComprar" href="{{url('Carrito/Direccion')}}" class="button" title="Proceder con la compra" style="display:block">
 											<span><i class="fa fa-chevron-right right"></i></span>
 										</a></li>
 									</ul>
@@ -171,11 +169,13 @@
 						var totalArticulos = 0;
 						JSONCarritos = eval(<?php echo json_encode(Auth::User()->EmpresaActual->carritos);?>);
 						JSONCarritos.forEach(function(currentValue,index,arr) {
-							if(currentValue.almacena.cantidad == 0){
-								$('#buttomComprar').hide();
+							if(currentValue.estado == 1){
+								if(currentValue.almacena.cantidad == 0){
+									$('#buttomComprar').hide();
+								}
+								$('#cantidadTotal'+currentValue.id).html(eval(currentValue.almacena.precio * currentValue.cantidad));
+								totalArticulos += eval(currentValue.almacena.precio * currentValue.cantidad);
 							}
-							$('#cantidadTotal'+currentValue.id).html(eval(currentValue.almacena.precio * currentValue.cantidad));
-							totalArticulos += eval(currentValue.almacena.precio * currentValue.cantidad);
 
 						});
 						$('#totalArticulos').val(totalArticulos);
@@ -200,6 +200,29 @@
 	            cant += 1;
 	          }
 	        }
+
+					var inventario = true;
+					JSONCarritos = eval(<?php echo json_encode(Auth::User()->EmpresaActual->carritos);?>);
+					JSONCarritos.forEach(function(currentValue,index,arr) {
+						if((currentValue.id == idCarrito) && (cant > currentValue.almacena.cantidad)){
+							inventario = false;
+
+
+							$('#cantidad'+currentValue.id).val(currentValue.almacena.cantidad);
+							cant = currentValue.almacena.cantidad;
+							$('#cantidad'+currentValue.id).css('border', '1px solid red');
+							$('#cantidad'+currentValue.id).animate('slow', function() {
+								$('#cantidad'+currentValue.id).css('border', '1px solid #ccc');
+							});
+
+							$('#alertaInventario').fadeIn('slow', function() {
+										$.scrollTo(this, 2000);
+
+							});
+
+						}
+					});
+
 	          var valor = parseInt(precio)*cant;
 						var TotalArticulos = 0;
 						if(val == "2"){
@@ -213,7 +236,6 @@
 						else{
 							TotalArticulos = auxTotal-costoArticulo+valor;
 						}
-
 
 	          $.ajax({
 	            url: "Carrito/modificar",
@@ -261,27 +283,6 @@
       			});
       		}
       	}
-
-				function verificarInventario(){
-					var cantArticulo=0;
-					var inventario = true;
-					JSONCarritos = eval(<?php echo json_encode(Auth::User()->EmpresaActual->carritos);?>);
-					JSONCarritos.forEach(function(currentValue,index,arr) {
-						cantArticulo = $('#cantidad'+currentValue.id).val();
-						if(cantArticulo > currentValue.almacena.cantidad){
-							inventario = false;
-							$('#alertaInventario').show();
-							document.getElementById("cantidad"+currentValue.id).style.color = "red";
-							$('#cantidad'+currentValue.id).val(currentValue.almacena.cantidad);
-						}
-						else{
-							document.getElementById("cantidad"+currentValue.id).style.color = "black";
-						}
-					});
-					if(inventario){
-						location.href="{{url('Carrito/Direccion')}}"
-					}
-				}
 
       </script>
 

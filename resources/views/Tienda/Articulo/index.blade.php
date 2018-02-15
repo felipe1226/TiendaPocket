@@ -398,7 +398,7 @@
 											    <link itemprop="availability" href="http://schema.org/InStock" />In stock</span>
 											</div>
                           <div class="button-container">
-                            <a onclick="addCompra({{$articulo->id}})" class="cart_button ajax_add_to_cart_button" href="javascript:void(0)">
+                            <a onclick="addCompraIndex({{$articulo->id}})" class="cart_button ajax_add_to_cart_button" href="javascript:void(0)">
 											                   Carro
                                        </a>
                             <a onclick="addDeseo({{$articulo->id}})" class="addToWishlist" title="Añadir a la lista de deseos" href="javascript:void(0)"  >
@@ -460,17 +460,16 @@
   <div id="msgDeseo" class="fancybox-overlay fancybox-overlay-fixed" style="display:none; width: auto; height: auto;">
     <div class="fancybox-wrap fancybox-desktop fancybox-type-html fancybox-opened" tabindex="-1" style="opacity: 1; overflow: visible; height: auto; width: 384px; position: absolute; top: 286px; left: 400px;">
       <div class="fancybox-skin" style="padding: 0px; width: auto; height: auto;">
-
-        <div class="fancybox-outer"><div class="fancybox-inner" style="overflow: auto; width: 384px; height: auto;">
-          <p class="fancybox-error">El producto se ha añadido con éxito a su lista de deseos.</p>
-          <a href="{{url('ListaDeseos')}}" class="wishlist_product_view button"> Ver Todo </a>
-
-        </div>
-        <a title="Cerrar" class="fancybox-item fancybox-close" onclick="cerrarDeseo()" href="javascript:void(0);"></a>
-      </div>
-    </div>
-  </div>
-</div>
+        <div class="fancybox-outer">
+					<div id="mensajeDeseo" class="fancybox-inner" style="overflow: auto; width: 384px; height: auto;">
+	          <p class="fancybox-error">El Articulo se ha añadido a su lista de deseos.</p>
+	          <a href="{{url('ListaDeseos')}}" class="wishlist_product_view button"> Ver Todo </a>
+        	</div>
+        	<a title="Cerrar" class="fancybox-item fancybox-close" onclick="cerrarDeseo()" href="javascript:void(0);"></a>
+      	</div>
+    	</div>
+  	</div>
+	</div>
 
 
 <script>
@@ -499,21 +498,21 @@
 					precio = precioOriginal-((precioOriginal * currentValue.descuento)/100);
 					$('#precio'+currentValue.id).html("$"+precio);
 					$('#campoEtiqueta'+currentValue.id).show();
-					$('#etiqueta'+currentValue.id).addClass("inv-box");
+					$('#etiqueta'+currentValue.id).addClass("sale-box");
 					$('#etiqueta'+currentValue.id).html(currentValue.descuento+"%");
 				}
 				if(currentValue.cantidad == 0){
 					$('#campoEtiqueta'+currentValue.id).show();
 					if(currentValue.descuento != ""){
-						$('#etiqueta'+currentValue.id).removeClass("inv-box");
+						$('#etiqueta'+currentValue.id).removeClass("sale-box");
 					}
-					$('#etiqueta'+currentValue.id).addClass("sale-box");
+					$('#etiqueta'+currentValue.id).addClass("inv-box");
 					$('#etiqueta'+currentValue.id).html("Agotado!");
 				}
 			});
 	 });
 
-  function addCompra(id){
+  function addCompraIndex(id){
 		var idArticulo = id;
 		JSONArts = eval(<?php echo json_encode($arts);?>);
 		JSONArts.forEach(function(currentValueArts,index,arr) {
@@ -592,22 +591,52 @@
   }
 
   function addDeseo(id){
-      $.ajax({
-        url: baseDir+"Deseo/agregar",
-        type: 'GET',
-        data: {
-          id_articulo: id
-        },
-        success: function(){
-          $('#msgDeseo').fadeIn('slow', function() {
-                $.scrollTo(this, 2000);
-          });
 
-        },
-        error: function(data){
-          alert('Error en la compra');
-        }
-      });
+		var carrito = false;
+		var deseo = false;
+
+		JSONallCarritos = eval(<?php echo json_encode($allCarritos);?>);
+		JSONallCarritos.forEach(function(currentValue,index,arr) {
+			if(currentValue.id_articulo == id){
+				if(currentValue.estado == 1){
+					carrito = true;
+				}
+				else{
+					deseo = true;
+				}
+			}
+		});
+		alert(carrito+" "+deseo);
+		if(!carrito && !deseo){
+			$.ajax({
+				url: baseDir+"Deseo/agregar",
+				type: 'GET',
+				data: {
+					id_articulo: id
+				},
+				success: function(){
+					$('#mensajeDeseo').html('<p class="fancybox-error">El articulo se ha añadido a su lista de deseos!</p><a href="{{url("ListaDeseos")}}" class="wishlist_product_view button"> Ver deseos </a>');
+					$('#msgDeseo').show('slow');
+				},
+				error: function(data){
+					alert('Error en la compra');
+				}
+			});
+		}
+		else{
+			if(carrito){
+				$('#msgDeseo').show('slow');
+				$('#mensajeDeseo').html('<p class="fancybox-error">El articulo se encuentra en el carrito!</p><a href="{{url("Carrito")}}" class="wishlist_product_view button"> Ver carrito </a>');
+
+			}
+			else{
+				alert(deseo);
+
+				$('#mensajeDeseo').html('<p class="fancybox-error">El articulo ya se encuentra en su lista de deseos!</p><a href="{{url("ListaDeseos")}}" class="wishlist_product_view button"> Ver deseos </a>');
+				$('#msgDeseo').show('slow');
+			}
+		}
+
   }
 
 	$(document).on('click', '#layer_cart .cross, #layer_cart .continue, .layer_cart_overlay', function(){

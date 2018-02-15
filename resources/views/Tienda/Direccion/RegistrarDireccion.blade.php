@@ -30,7 +30,7 @@
 			</div>
 			<!-- End of Sidebar -->
 			<!-- Center Column -->
-			<div id="center_column" class="column col-md-6 col-sm-6">
+			<div id="center_column" class="column col-md-6 col-sm-8">
 				<div class="box">
 					<h1 id="titulo" class="page-subheading">Nueva direccion</h1>
 					@include('flash::message')
@@ -40,12 +40,11 @@
 					@else
 						<input id="id_direccion" name="id_direccion" type="hidden" value="0">
 					@endif
-
-						<!--<div class="required dni form-group unvisible">
-							<label for="dni">Identificacion <sup>*</sup></label>
-							<input class="is_required form-control" data-validate="isDniLite" type="text" name="dni" id="dni"/>
-							<span class="form_info">DNI / NIF / NIE</span>
-						</div>-->
+						<div class="form-group col-md-6 col-sm-6">
+							<label for="nit">Nit</label>
+							<input class="form-control" type="text" id="nit"name="nit" disabled/>
+						</div>
+						<div class="clearfix"></div>
 						<div class="form-group col-md-6 col-sm-6">
 							<label for="nombres">Nombres <sup>*</sup></label>
 							<input class="form-control" type="text" id="nombres"name="nombres"/>
@@ -121,10 +120,12 @@
 <script>
 	$(function(){
 		var id=$('#id_direccion').val();
+
 		if(id != "0"){
 			$('#titulo').html("Actualizar informacion");
 			$('#enlace').html('<a href="#">Actualizar direccion</a>');
 			direccion=eval(<?php echo json_encode($direccion);?>);
+
 			$('#nombres').val(direccion.nombres);
 			$('#apellidos').val(direccion.apellidos);
 			$('#direccion').val(direccion.direccion);
@@ -144,6 +145,7 @@
 					$('#id_ciudad').val(currentValue.ciudad);
 				}
 			});
+
 
 
 		}

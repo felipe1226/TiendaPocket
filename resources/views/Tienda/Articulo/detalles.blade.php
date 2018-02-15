@@ -49,7 +49,7 @@
 												</div>
 											</div>
 											<span id="view_full_size">
-												<img id="bigpic" itemprop="image" data-src="url:(../imgArticulos/{{$articulos[0]->imagen1}})" data-zoom-image="../imgArticulos/{{$articulos[0]->imagen1}}"  src="../imgArticulos/{{$articulos[0]->imagen1}}" title="Aliquam Leberkas" alt="Aliquam Leberkas" width="570" height="570"/>
+												<img id="bigpic" itemprop="image" data-src="url:(../imgArticulos/{{$articulos[0]->imagen1}})" data-zoom-image="../imgArticulos/{{$articulos[0]->imagen1}}"  src="../imgArticulos/{{$articulos[0]->imagen1}}"/>
 											</span>
 										</div>
 										<!-- end image-block -->
@@ -57,22 +57,22 @@
 										<div id="views_block" class="clearfix">
 											<div id="thumbs_list" class="clearfix slick-initialized slick-slider">
 												<div aria-live="polite" class="slick-list draggable">
-														<div id="imagen1" class="thumbnail_image slick-slide slick-current slick-active" style="width: 138px;" tabindex="0" role="option" aria-describedby="slick-slide00" data-slick-index="0" aria-hidden="false">
+														<div id="imagen1" class="thumbnail_image slick-slide slick-current slick-active" style="width: 138px; height: 138px;"  aria-hidden="false">
 															<a href="http://localhost/TiendaPocket/public/imgArticulos/{{$articulos[0]->imagen1}}" data-fancybox-group="gallery" class="fancybox" tabindex="0">
-																<img class="img-responsive" src="http://localhost/TiendaPocket/public/imgArticulos/{{$articulos[0]->imagen1}}" itemprop="image">
+																<img src="http://localhost/TiendaPocket/public/imgArticulos/{{$articulos[0]->imagen1}}" itemprop="image">
 															</a>
 														</div>
 														@if($articulos[0]->imagen2 != NULL)
-														<div id="imagen2" class="thumbnail_image slick-slide slick-current slick-active" style="width: 138px;" tabindex="0" role="option" aria-describedby="slick-slide00" data-slick-index="0" aria-hidden="false">
+														<div id="imagen2" class="thumbnail_image slick-slide slick-active" style="width: 138px; height: 138px;">
 															<a href="http://localhost/TiendaPocket/public/imgArticulos/{{$articulos[0]->imagen2}}" data-fancybox-group="gallery" class="fancybox" tabindex="0">
-																<img class="img-responsive" src="http://localhost/TiendaPocket/public/imgArticulos/{{$articulos[0]->imagen2}}" itemprop="image">
+																<img src="http://localhost/TiendaPocket/public/imgArticulos/{{$articulos[0]->imagen2}}" itemprop="image">
 															</a>
 														</div>
 														@endif
 														@if($articulos[0]->imagen3 != NULL)
-															<div id="imagen3" class="thumbnail_image slick-slide slick-active" style="width: 138px;" tabindex="0" role="option" aria-describedby="slick-slide02" data-slick-index="2" aria-hidden="false">
-																<a href="http://prestashop.flytheme.net/sp_market/8-thickbox_default/faded-short-sleeves-tshirt.jpg" data-fancybox-group="gallery" class="fancybox" tabindex="0">
-																	<img class="img-responsive" src="http://localhost/TiendaPocket/public/imgArticulos/{{$articulos[0]->imagen3}}" itemprop="image" height="100" width="100">
+															<div id="imagen3" class="thumbnail_image slick-slide slick-active" style="width: 138px; height: 138px;" tabindex="0" role="option" aria-describedby="slick-slide02" data-slick-index="2" aria-hidden="false">
+																<a href="http://localhost/TiendaPocket/public/imgArticulos/{{$articulos[0]->imagen3}}" data-fancybox-group="gallery" class="fancybox" tabindex="0">
+																	<img width="auto" height="134" src="http://localhost/TiendaPocket/public/imgArticulos/{{$articulos[0]->imagen3}}" itemprop="image">
 																</a>
 															</div>
 														@endif
@@ -134,7 +134,6 @@
 
 
 										</div>
-										<form id="buy_block" action="http://prestashop.flytheme.net/sp_market/es/cart" method="post">
 											<!-- hidden datas -->
 
 											<div class="box-info-product">
@@ -161,9 +160,11 @@
 													</div>
 													<div class="box-cart-bottom">
 														<div>
-																<a class="exclusive added" title="Añadir al carrito">
+															<p class="buttons_bottom_block no-print">
+																<button href="javascript:void(0)" type="buttom" class="exclusive" title="Añadir al carrito" onclick="addCompraDetalles()">
 																	<i class="fa fa-fw fa-shopping-cart"></i> Añadir
-																</a>
+																</button>
+															</p>
 															<div class="wishlist_button">
 																<a class="addToWishlist wishlistProd_59" data-toggle="tooltip" title="Añadir a la lista de deseos" href="#" rel="nofollow" onclick="WishlistCart('wishlist_block_list', 'add', '59', false, 1); return false;">
 																	<i class="fa fa-heart"></i>
@@ -173,7 +174,6 @@
 													</div>
 											  </div>
 											</div>
-									  </form>
 
 									</div>
 								</div>
@@ -1861,10 +1861,15 @@ var moderation_active = 1;
 			$('#precio').html("$"+precio);
 			$('#old_price').show();
 			$('#campoEtiqueta').show();
+			$('#etiqueta').addClass("sale-box");
 			$('#etiqueta').html(descuento+"% de descuento");
 		}
 		if($('#inventario').val() == "0"){
 			$('#campoEtiqueta').show();
+			if(descuento != ""){
+				$('#etiqueta').removeClass("sale-box");
+			}
+			$('#etiqueta').addClass("inv-box");
 			$('#etiqueta').html("Agotado!");
 		}
 
@@ -1883,6 +1888,10 @@ var moderation_active = 1;
 
 		});
 	});
+
+	function addCompraDetalles(){
+		alert("comprar");
+	}
 
 
 

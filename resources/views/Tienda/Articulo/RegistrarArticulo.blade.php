@@ -10,7 +10,8 @@
        	<ul>
        		<li class="home"><a href="{{url('Tienda/')}}" title="Ir al inicio">Inicio</a></li>
           <li class="depht1"><a href="{{url('MiCuenta')}}">Mi cuenta</a></li>
-          <li class="depth2"><a href="{{url('RegistrarArticulo')}}">Registrar Articulo</a></li>
+          <li class="depth2"><a href="{{url('ArticulosProveedor')}}">Mis articulos</a></li>
+          <li class="depth3"><a href="{{url('RegistrarArticulo')}}"><span id="direccion">Registrar articulo</span></a></li>
        	</ul>
 
        </div>
@@ -35,7 +36,7 @@
                 @if($articulo != null)
                   <input id="id_articulo" name="id_articulo" type="hidden" value="{{$articulo->id}}">
                 @else
-                  <input id="id_articulo" name="id_articulo" type="hideen" value="0">
+                  <input id="id_articulo" name="id_articulo" type="hidden" value="0">
                 @endif
                 <input id="color" name="color" type="hidden" value="">
                 <input id="valDescuento" name="valDescuento" type="hidden" value="">
@@ -49,14 +50,12 @@
 
                       <label for="fileUpload">Imagen 1 (Principal)</label>
                       <div class="fileupload fileupload-new" data-provides="fileupload">
-                        <div id="vistaImagen1" class="fileupload-preview fileupload-exists img-thumbnail" style="width: 170px; max-height: 200px;">
-                          <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image">
+                        <div id="vistaImagen1" class="fileupload-preview fileupload-exists img-thumbnail" style="width: 170px; max-height: 170px;">
+                          <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" height="160">
                         </div>
                         <input type="hidden" name="MAX_FILE_SIZE" value="2097152000">
           							<div class="uploader" id="uniform-fileUpload">
                           <input id="img1" type="file" name="imagen1" class="form-control" value="">
-                          <span  class="filename" >Nombre de archivo</span>
-                          <span class="action" >Imagen 1</span>
                         </div>
                       </div>
                     </div>
@@ -66,13 +65,11 @@
                       <label for="fileUpload">Imagen 2 (Opcional)</label>
                       <div class="fileupload fileupload-new" data-provides="fileupload">
                         <div id="vistaImagen2" class="fileupload-preview fileupload-exists img-thumbnail" style="width: 170px; max-height: 170px;">
-                          <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image">
+                          <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" height="160">
                         </div>
                         <input type="hidden" name="MAX_FILE_SIZE" value="2097152000">
           							<div class="uploader" id="uniform-fileUpload">
                           <input id="img2" type="file" name="imagen2" class="form-control">
-                          <span class="filename" >Nombre de archivo</span>
-                          <span class="action" >Imagen 2</span>
                         </div>
                       </div>
                     </div>
@@ -82,13 +79,11 @@
                       <label for="fileUpload">Imagen 3(Opcional)</label>
                       <div class="fileupload fileupload-new" data-provides="fileupload">
                         <div id="vistaImagen3" class="fileupload-preview fileupload-exists img-thumbnail" style="width: 170px; max-height: 170px;">
-                          <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image">
+                          <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" height="160">
                         </div>
                         <input type="hidden" name="MAX_FILE_SIZE" value="2097152000">
           							<div class="uploader" id="uniform-fileUpload">
                           <input id="img3" type="file" name="imagen3" class="form-control">
-                          <span class="filename" >Nombre de archivo</span>
-                          <span class="action" >Imagen 3</span>
                         </div>
                       </div>
                     </div>
@@ -224,17 +219,18 @@
       $(function() {
         var id = $('#id_articulo').val();
         if(id != "0"){
+          $('#direccion').html("Actualizar articulo");
           var articulo = eval(<?php echo json_encode($articulo);?>);
-          $('#vistaImagen1').html('<img src="'+baseDir+'imgArticulos/'+articulo.imagen1+'">');
+          $('#vistaImagen1').html('<img height="160" width="100%" src="'+baseDir+'imgArticulos/'+articulo.imagen1+'">');
           if(articulo.imagen2 != null){
             addImage();
-            $('#vistaImagen2').html('<img src="'+baseDir+'imgArticulos/'+articulo.imagen2+'">');
+            $('#vistaImagen2').html('<img height="160" width="100%" src="'+baseDir+'imgArticulos/'+articulo.imagen2+'">');
           }
           if(articulo.imagen3 != null){
             addImage();
-            $('#vistaImagen3').html('<img src="'+baseDir+'imgArticulos/'+articulo.imagen3+'">');
+            $('#vistaImagen3').html('<img height="160" width="100%" src="'+baseDir+'imgArticulos/'+articulo.imagen3+'">');
           }
-
+          $('#img1').val("1");
 
 
           $('#categoria').val(articulo.categoria);
@@ -268,8 +264,6 @@
 
        function validar(){
           var error = false;
-
-          var id = -1;
 
           var nombre = $('#name').val();
           var imagen1 = $('#img1').val();
@@ -333,6 +327,7 @@
               }
             }
             if(color == ""){
+              error = true;
               alert("Seleccione al menos un color, por favor!");
             }
           }else{
@@ -351,7 +346,8 @@
           $('#valDescuento').val(descuento);
 
           if(!error){
-            document.getElementById("formulario").submit();
+            //document.getElementById("formulario").submit();
+            alert(imagen1);
           }
 
        }

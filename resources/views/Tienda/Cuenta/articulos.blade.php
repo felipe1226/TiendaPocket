@@ -35,7 +35,9 @@
 
         <div id="mywishlist">
           <h1 class="page-heading">Mis articulos</h1>
+
           <div id="block-history" class="block-center table-responsive">
+            <a href="{{url('RegistrarArticulo')}}" class="btn btn-default" title="Registrar articulo"> <i class="fa fa-fw fa-glass"></i><i class="fa fa-fw fa-plus"></i></a>
             <div class="content_sortPagiBar_top">
               <div id="pagination" class="pagination clearfix">
                 <ul class="pagination">
@@ -59,7 +61,7 @@
 
                 <tbody>
                   @foreach($articulos as $articulo)
-                    <tr class="cart_item first_item address_0 odd">
+                    <tr id="{{$articulo->id}}" class="cart_item first_item select">
 
                       <td class="cart_product">
                         <a href="Detalles/{{$articulo->id}}"><img src="imgArticulos/{{$articulo->imagen1}}" width="80" height="80"  /></a>
@@ -102,9 +104,6 @@
 
                       <td class="cart_delete text-center" data-title="Delete">
                         <div>
-
-                          <a href="{{url('Articulo/'.$articulo->id.'/edit')}}" title="Editar" class="cart_quantity_delete"><i class="fa fa-fw fa-pencil-square-o"></i></a>
-
                           <a onclick="eliminar({{$articulo->id}})" title="Eliminar" class="cart_quantity_delete" href="javascript:void(0)"><i class="fa fa-trash"></i></a>
                         </div>
                       </td>
@@ -134,5 +133,19 @@
   </div><!-- #columns -->
 </div><!-- .columns-container -->
 </div>
+
+
+<script>
+  $(".select").click(function(){
+    var idArticulo = $(this).attr("id");
+    location.href="Articulo/"+idArticulo+"/edit";
+  });
+</script>
+
+<style>
+    .select:hover {
+      background: #eeeeee;
+    }
+</style>
 
 @endsection

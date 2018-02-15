@@ -136,6 +136,7 @@
 							{!!Html::script("modules/productcomments/js/jquery.rating.pack.js")!!}
 							{!!Html::script("javascripts\bootstrap-fileupload.js")!!}
 							{!!Html::script("themes/sp_market/js/modules/productcomments/js/productcomments.js")!!}
+							{!!Html::script("themes/sp_market/js/product.js")!!}
 
 	</head>
 

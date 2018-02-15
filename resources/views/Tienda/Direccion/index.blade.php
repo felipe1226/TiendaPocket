@@ -46,9 +46,11 @@
       			            <ul class="last_item item box">
                           <li><h3 class="page-subheading">{{$direccion->referencia}}</h3></li>
                           <li>
+                            <span  class="address_company">{{$direccion->nit}}
+                            </span>
                             <span  class="address_name">{{$direccion->nombres}}
                             </span>
-                            <span  class="address_name">{{$direccion->apellidos}}
+                            <span  class="address_lastname">{{$direccion->apellidos}}
                             </span>
                           </li>
                           <li>
