@@ -21,8 +21,8 @@ class CarritoController extends Controller
 
     public function index(){
       $direcciones = Direccion::Listar(Auth::user()->idEmpresa)->get();
-
-      return view('Tienda/Carrito/resumen')->with('direcciones', $direcciones);
+      $eliminado = null;
+      return view('Tienda/Carrito/resumen')->with('eliminado', $eliminado);
     }
 
 
@@ -73,8 +73,6 @@ class CarritoController extends Controller
 
     public function direcciones(){
       $direcciones = Direccion::Listar(Auth::user()->idEmpresa)->get();
-
-
       return view('Tienda/Carrito/direccion')->with('direcciones', $direcciones);
     }
 

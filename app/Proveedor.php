@@ -8,8 +8,10 @@ class Proveedor extends Model
 {
     protected $table = 'proveedor';
 
+    protected $fillable = ['id', 'idEmpresa', 'nombre', 'direccion', 'telefono'];
+
     public function surte(){
-      return $this->hasmany('PocketByR\Articulo', 'id_proveedor', 'id_Empresa');
+      return $this->hasmany('PocketByR\Articulo', 'id_proveedor', 'idEmpresa');
     }
 
     public function scopeSearch($query, $arreglo){
@@ -20,7 +22,7 @@ class Proveedor extends Model
     	               orderBy('nombre','ASC');
     }
 
-    
+
 
 
 }

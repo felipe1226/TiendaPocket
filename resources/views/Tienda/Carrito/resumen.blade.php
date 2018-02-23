@@ -66,7 +66,7 @@
 						  				<tbody>
 						  					@foreach(Auth::User()->EmpresaActual->carritos as $carrito)
 													@if($carrito->estado == 1)
-							  						<tr id="articulo{{$carrito->id}}" class="cart_item first_item address_0 odd">
+							  						<tr id="articulo{{$carrito->id}}" class="cart_item first_item odd">
 							  							<td class="cart_product">
 							  								<a href="Detalles/{{$carrito->id_articulo}}"><img src="imgArticulos/{{$carrito->almacena->imagen1}}" width="110" height="110"  /></a>
 							  							</td>
@@ -157,6 +157,11 @@
 									</ul>
 								<div class="clear"></div>
 
+								@if($eliminado == null)
+									<input id="eliminado" type="hidden" value="0">
+								@else
+									<input id="eliminado" type="hidden" value="{{$eliminado->id}}">
+								@endif
 							</div><!-- #center_column -->
 						</div><!-- .row -->
 					</div><!-- #columns -->
@@ -166,6 +171,11 @@
 
       <script>
 				$(function() {
+					var eliminado = $('#eliminado').val();
+						if(eliminado != "0"){
+							mensaje(eliminado);
+						}
+
 						var totalArticulos = 0;
 						JSONCarritos = eval(<?php echo json_encode(Auth::User()->EmpresaActual->carritos);?>);
 						JSONCarritos.forEach(function(currentValue,index,arr) {
@@ -215,10 +225,7 @@
 								$('#cantidad'+currentValue.id).css('border', '1px solid #ccc');
 							});
 
-							$('#alertaInventario').fadeIn('slow', function() {
-										$.scrollTo(this, 2000);
-
-							});
+							$('#alertaInventario').show();
 
 						}
 					});

@@ -51,11 +51,49 @@ class ArticuloController extends Controller
         Storage::disk('imgArticulos')->put($file_route, file_get_contents( $img->getRealPath()));
         $articulo->imagen3 = $file_route;
       }
-
-      $articulo->save();
-      Flash::success("El articulo se ha registrado satisfactoriamente!")->important();
-      return redirect('RegistrarArticulo');
     }
+    else{
+      $articulo = Articulo::find($request->id_articulo);
+      $articulo->nombre = $request->nombre;
+      $articulo->categoria = $request->categoria;
+      $articulo->marca = $request->marca;
+      $articulo->cantidad = $request->cantidad;
+      $articulo->precio = $request->precio;
+      $articulo->descripcion = $request->descripcion;
+      $articulo->descuento = $request->valDescuento;
+      $articulo->color = $request->color;
+
+      if($request->file('imagen1') != ""){
+        $file_route = time().'_'.$img->getClientOriginalName();
+        Storage::disk('imgArticulos')->put($file_route, file_get_contents( $img->getRealPath()));
+        $articulo->imagen1 = $file_route;
+      }
+      if($request->nImg >=2){
+          $img = $request->file('imagen2');
+          if($img != ""){
+            $file_route = time().'_'.$img->getClientOriginalName();
+            Storage::disk('imgArticulos')->put($file_route, file_get_contents( $img->getRealPath()));
+            $articulo->imagen2 = $file_route;
+          }
+      }
+      else{
+        $articulo->imagen2 = null;
+      }
+      if($request->nImg == 3){
+          $img = $request->file('imagen3');
+          if($img != ""){
+            $file_route = time().'_'.$img->getClientOriginalName();
+            Storage::disk('imgArticulos')->put($file_route, file_get_contents( $img->getRealPath()));
+            $articulo->imagen3 = $file_route;
+          }
+      }
+      else{
+        $articulo->imagen3 = null;
+      }
+    }
+    $articulo->save();
+    Flash::success("El articulo se ha registrado satisfactoriamente!")->important();
+    return redirect('RegistrarArticulo');
 
   }
 
@@ -88,7 +126,7 @@ class ArticuloController extends Controller
 
 
   public function ArtsProveedor(){
-    $articulos = Articulo::BuscarxProveedor("35")->paginate(15);
+    $articulos = Articulo::BuscarxProveedor("18")->paginate(15);
     return view('Tienda/Cuenta/articulos', compact('articulos'))->with(['articulos' => $articulos]);
   }
 

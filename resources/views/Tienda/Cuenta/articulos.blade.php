@@ -121,6 +121,7 @@
                 </div>
               </div>
             </div>
+            <a href="#" id="add-regular" class="btn btn-default">Hola</a>
 
             <ul class="footer_links">
               <li class="f_right"><a class="button" href="{{url('Tienda')}}" title= "Ir al inicio"> <i class="fa fa-home"></i></a></li>

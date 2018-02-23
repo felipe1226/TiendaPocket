@@ -40,7 +40,8 @@
                 @endif
                 <input id="color" name="color" type="hidden" value="">
                 <input id="valDescuento" name="valDescuento" type="hidden" value="">
-                <input id="nImg" type="hidden" value="1"/>
+                <input id="nImg" name="nImg" type="hidden" value="1"/>
+                <input id="cantidadImagenes" name="cantidadImagenes" type="hidden" value="0"/>
                 <a id="buttonPlus" onclick="addImage()" class="btn btn-default" href="javascript:void(0)" title="Agregar"><i class="fa fa-fw fa-camera"></i><i class="fa fa-fw fa-plus"></i></a>
                 <a id="buttonMinus"  onclick="delImage()" class="btn btn-default" href="javascript:void(0)" title="Sustraer" style="display: none"><i class="fa fa-fw fa-camera"></i><i class="fa fa-fw fa-minus"></i></a>
                 <div class="row">
@@ -225,12 +226,13 @@
           if(articulo.imagen2 != null){
             addImage();
             $('#vistaImagen2').html('<img height="160" width="100%" src="'+baseDir+'imgArticulos/'+articulo.imagen2+'">');
+            $('#cantidadImagenes').val("2");
           }
           if(articulo.imagen3 != null){
             addImage();
             $('#vistaImagen3').html('<img height="160" width="100%" src="'+baseDir+'imgArticulos/'+articulo.imagen3+'">');
+            $('#cantidadImagenes').val("3");
           }
-          $('#img1').val("1");
 
 
           $('#categoria').val(articulo.categoria);
@@ -263,19 +265,21 @@
       });
 
        function validar(){
+          var id = $('#id_articulo').val();
           var error = false;
 
           var nombre = $('#name').val();
           var imagen1 = $('#img1').val();
           var imagen2 = null;
           var imagen3 = null;
-          if(imagen1 == ""){
+          var cantidadImagenes = $('#cantidadImagenes').val();
+          if((imagen1 == "") && (id == "0")){
             error = true;
             alert("Debe elegir un archivo para la imagen principal!");
           }
           if($('#nImg').val() > 1){
             imagen2 = $('#img2').val();
-            if(imagen2 == ""){
+            if((imagen2 == "") && (cantidadImagenes < 2)){
               error = true;
               alert("Debe elegir un archivo para la imagen 2!");
             }
@@ -286,7 +290,7 @@
           }
           if($('#nImg').val() > 2){
             imagen3 = $('#img3').val();
-            if(imagen3 == ""){
+            if((imagen3 == "") && (cantidadImagenes < 3) ){
               error=true;
               alert("Debe elegir un archivo para la imagen 3!");
             }
@@ -314,7 +318,7 @@
             var i=0;
             var cant=0;
             for(i; i<5;i++){
-              cant++;
+
               valor = $('#val'+colores[i]).val();
               if(valor == "1"){
                 if(cant==0){
@@ -323,8 +327,8 @@
                 else{
                   color+= "/"+colores[i];
                 }
-
               }
+              cant++;
             }
             if(color == ""){
               error = true;
@@ -346,10 +350,8 @@
           $('#valDescuento').val(descuento);
 
           if(!error){
-            //document.getElementById("formulario").submit();
-            alert(imagen1);
+            document.getElementById("formulario").submit();
           }
-
        }
 
        function addImage(){

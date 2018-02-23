@@ -11,6 +11,11 @@ class Articulo extends Model
     protected $fillable = ['id', 'id_proveedor', 'nombre', 'categoria', 'marca', 'color', 'precio', 'cantidad', 'imagen1', 'imagen2', 'imagen3', 'descripcion', 'descuento', 'calificacion'];
 
 
+    public function distribuye(){
+      return $this->hasOne('PocketByR\Proveedor', 'idEmpresa', 'id_proveedor');
+    }
+
+
     public function scopeBuscarxCategoria($query, $categoria){
       $resultado = $query->where('categoria','=',$categoria);
       return $resultado;

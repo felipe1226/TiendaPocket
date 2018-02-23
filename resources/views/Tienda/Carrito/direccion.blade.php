@@ -132,7 +132,6 @@
 									$('#movil').html(currentValue.movil);
 								});
 								$('#block-address').fadeIn('slow', function() {
-			            $.scrollTo(this, 1000);
 									$('.waitimage').hide();
 								});
 

@@ -51,6 +51,7 @@
 						{!!Html::style('modules/sphomeslider/css/owl.carousel.css')!!}
 						{!!Html::style('themes/sp_market/css/modules/spblocknewsletter/spblocknewsletter.css')!!}
 						{!!Html::style('themes/sp_market/css/modules/spcustomhtml/views/css/style.css')!!}
+						{!!Html::style('themes/sp_market/css/jquery.gritter.css')!!}
 
 
 						<script type="text/javascript">
@@ -137,6 +138,8 @@
 							{!!Html::script("javascripts\bootstrap-fileupload.js")!!}
 							{!!Html::script("themes/sp_market/js/modules/productcomments/js/productcomments.js")!!}
 							{!!Html::script("themes/sp_market/js/product.js")!!}
+							{!!Html::script("themes/sp_market/js/jquery.gritter.min.js")!!}
+							{!!Html::script("themes/sp_market/js/jquery.gritter.js")!!}
 
 	</head>
 
@@ -206,7 +209,7 @@
 														<option value="Cocteleria">Cocteleria</option>
 														<option value="Cocina">Cocina</option>
 														<option value="publicitarios">Publicitarios</option>
-														<option value="Herramientas">Herramientas y Decoracion</option>
+														<option value="Herramientas y decoracion">Herramientas y Decoracion</option>
 													</select>
 												</div>
 												<div class="text-search">
@@ -779,7 +782,7 @@
 			var categoria = $('#selectCategoria').val();
 			var articulo = ($('#campoArticulo').val()).trim();
 			if(categoria == "Categorias" && articulo == ""){
-				alert("No hay parametros de busqueda");
+				notificacion("Error!","No hay parametros de busqueda","", false);
 			}
 			else{
 				if(articulo == ""){
@@ -790,6 +793,17 @@
 				}
 			}
 		}
+
+		function notificacion(titulo, mensaje, imagen, sticky){
+			$.gritter.add({
+				title: titulo,
+				text: mensaje,
+				image: imagen,
+				sticky: sticky
+			});
+			return false;
+		}
+
 	</script>
 
 	</body>

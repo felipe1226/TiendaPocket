@@ -346,8 +346,10 @@
               				<div class="left-block">
                         <div class="product-image-container">
               						<!--   Slider Images Product   -->
-              						<div id="imagenArticulo{{$articulo->id}}" class="product-image">
-            						  </div>
+													<center>
+	              						<div id="imagenArticulo{{$articulo->id}}" class="product-image">
+	            						  </div>
+													</center>
                           <div class="label-box">
 														<?php
 															$date1 = $articulo->created_at;
@@ -368,7 +370,7 @@
                       <div class="right-block">
 					<!--  Show Product title  -->
                       <h4 itemprop="name" class="product-name">
-												<a href="../Detalles/{{$articulo->id}}" itemprop="url" >
+												<a href="../Detalles/{{$articulo->id}}" itemprop="url" title="{{$articulo->nombre}}" >
                           {{$articulo->nombre}}
 						            </a>
                       </h4>
@@ -376,6 +378,10 @@
 												<b>Marca: {{$articulo->marca}}
 							          </b>
 						          </h5>
+											<small itemprop="proveedor" class="product-name">
+												<b>Proveedor: {{$articulo->distribuye->nombre}}
+							          </b>
+						          </small>
             					<!--   Show category description   -->
             					<p class="product-desc" itemprop="description">
             						{{$articulo->descripcion}}
@@ -514,12 +520,15 @@
 
   function addCompraIndex(id){
 		var idArticulo = id;
+		var titulo;
+		var imagen;
+		var sticky = false;
 		JSONArts = eval(<?php echo json_encode($arts);?>);
 		JSONArts.forEach(function(currentValueArts,index,arr) {
 			if(currentValueArts.id == idArticulo){
 
 				if(currentValueArts.cantidad == 0){
-					$('.layer_cart_overlay').show();
+					/*$('.layer_cart_overlay').show();
 					$('#layer_cart').show('slow');
 					$('#imagenArticulo').html('<img src="http://localhost/TiendaPocket/public/imgArticulos/'+currentValueArts.imagen1+'">');
 					$('#nombreArticulo').text(currentValueArts.nombre);
@@ -528,7 +537,13 @@
 					$('#pro_added_success').html("El articulo estará disponible proximamente!");
 					$('#cantidadArticulo').html("");
 					$('#carritoButtom').show();
-					$('#deseoButtom').hide();
+					$('#deseoButtom').hide();*/
+
+					var titulo = "Articulo agotado!";
+					mensaje = 'El articulo estará disponible proximamente!!';
+					var imagen = 'http://localhost/TiendaPocket/public/imgArticulos/'+currentValueArts.imagen1;
+					var sticky = false;
+					notificacion(titulo, mensaje, imagen, sticky);
 				}
 				else{
 					var carrito = false;
@@ -545,8 +560,8 @@
 							}
 						}
 					});
-					$('.layer_cart_overlay').show();
-					$('#layer_cart').show('slow');
+					//$('.layer_cart_overlay').show();
+					//$('#layer_cart').show('slow');
 					$('#imagenArticulo').html('<img src="http://localhost/TiendaPocket/public/imgArticulos/'+currentValueArts.imagen1+'">');
 					$('#nombreArticulo').text(currentValueArts.nombre);
 
@@ -558,19 +573,25 @@
 								id_articulo: id
 							},
 							success: function(){
+								var mensaje = "";
 									$('#pro_added_success').removeClass();
 									$('#pro_added_success').addClass("alert alert-success");
 									$('#pro_added_success').html("Articulo agregado al carrito!");
 									if(existe){
 										cant += 1;
 										$('#cantidadArticulo').html('Tienes <span class="ajax_cart_quantity">'+cant+'</span> unidades en el carrito.');
-
+										mensaje = 'Tienes '+cant+' unidades en el carrito. <a class="button" href="'+baseDir+'Carrito">Ver todo</a>';
 									}
 									else{
 										$('#cantidadArticulo').html('Tienes <span class="ajax_cart_quantity">1</span> unidad en el carrito.');
+										mensaje = 'Tienes 1 unidad en el carrito.<br><a href="'+baseDir+'Carrito" >Ver todo</a>.';
 									}
 									$('#carritoButtom').show();
 									$('#deseoButtom').hide();
+									titulo = "Agregado al carrito!";
+									imagen = 'http://localhost/TiendaPocket/public/imgArticulos/'+currentValueArts.imagen1;
+									notificacion(titulo, mensaje, imagen, sticky);
+
 							},
 							error: function(data){
 								alert('Error en la compra!');
@@ -592,12 +613,18 @@
 
   function addDeseo(id){
 
+		var titulo = "Lista de deseos";
+		var imagen;
+		var mensaje;
+		var sticky = false;
+
 		var carrito = false;
 		var deseo = false;
 
 		JSONallCarritos = eval(<?php echo json_encode($allCarritos);?>);
 		JSONallCarritos.forEach(function(currentValue,index,arr) {
 			if(currentValue.id_articulo == id){
+
 				if(currentValue.estado == 1){
 					carrito = true;
 				}
@@ -606,8 +633,14 @@
 				}
 			}
 		});
-		alert(carrito+" "+deseo);
+		JSONArts = eval(<?php echo json_encode($arts);?>);
+		JSONArts.forEach(function(currentValueArts,index,arr) {
+			if(currentValueArts.id == id){
+				imagen = 'http://localhost/TiendaPocket/public/imgArticulos/'+currentValueArts.imagen1;
+			}
+		});
 		if(!carrito && !deseo){
+			mensaje = 'El articulo se ha añadido a su lista de deseos!<br><a class="button" href="'+baseDir+'ListaDeseos">Ver deseos</a>';
 			$.ajax({
 				url: baseDir+"Deseo/agregar",
 				type: 'GET',
@@ -615,8 +648,9 @@
 					id_articulo: id
 				},
 				success: function(){
-					$('#mensajeDeseo').html('<p class="fancybox-error">El articulo se ha añadido a su lista de deseos!</p><a href="{{url("ListaDeseos")}}" class="wishlist_product_view button"> Ver deseos </a>');
-					$('#msgDeseo').show('slow');
+					/*$('#mensajeDeseo').html('<p class="fancybox-error">El articulo se ha añadido a su lista de deseos!</p><a href="{{url("ListaDeseos")}}" class="wishlist_product_view button"> Ver deseos </a>');
+					$('#msgDeseo').show('slow');*/
+
 				},
 				error: function(data){
 					alert('Error en la compra');
@@ -625,17 +659,19 @@
 		}
 		else{
 			if(carrito){
-				$('#msgDeseo').show('slow');
-				$('#mensajeDeseo').html('<p class="fancybox-error">El articulo se encuentra en el carrito!</p><a href="{{url("Carrito")}}" class="wishlist_product_view button"> Ver carrito </a>');
+				/*$('#msgDeseo').show('slow');
+				$('#mensajeDeseo').html('<p class="fancybox-error">El articulo se encuentra en el carrito!</p><a href="{{url("Carrito")}}" class="wishlist_product_view button"> Ver carrito </a>');*/
+				mensaje = 'El articulo se encuentra en el carrito!<br><a class="button" href="'+baseDir+'Carrito">Ver carrito</a>';
 
 			}
 			else{
-				alert(deseo);
-
-				$('#mensajeDeseo').html('<p class="fancybox-error">El articulo ya se encuentra en su lista de deseos!</p><a href="{{url("ListaDeseos")}}" class="wishlist_product_view button"> Ver deseos </a>');
-				$('#msgDeseo').show('slow');
+				/*$('#mensajeDeseo').html('<p class="fancybox-error">El articulo ya se encuentra en su lista de deseos!</p><a href="{{url("ListaDeseos")}}" class="wishlist_product_view button"> Ver deseos </a>');
+				$('#msgDeseo').show('slow');*/
+				mensaje = 'El articulo ya se encuentra en su lista de deseos!<br><a class="button" href="'+baseDir+'ListaDeseos" >Ver deseos</a>';
 			}
 		}
+
+		notificacion(titulo, mensaje, imagen, sticky);
 
   }
 

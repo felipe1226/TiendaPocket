@@ -29,8 +29,11 @@ class CuentaController extends Controller
   }
 
   public function distribuciones(){
-    $articulos = Articulo::BuscarxProveedor("35")->paginate(15);
-    return view('Tienda/Cuenta/distribuciones', compact('articulos'))->with(['articulos' => $articulos]);
+    $articulos = Articulo::BuscarxProveedor("18")->paginate(6);
+    $departamentos = Departamento::all();
+    $departamentos = Departamento::all();
+      $ciudades = Ciudad::all();
+    return view('Tienda/Cuenta/distribuciones')->with('articulos',$articulos)->with('departamentos',$departamentos)->with('ciudades', $ciudades);
   }
 
 }
