@@ -10,6 +10,7 @@ use PocketByR\Ciudad;
 use Laracasts\Flash\Flash;
 use Auth;
 use PocketByR\Http\Requests;
+use PocketByR\Http\Requests\DireccionRequest;
 use PocketByR\Http\Controllers\Controller;
 
 class DireccionController extends Controller
@@ -36,9 +37,7 @@ class DireccionController extends Controller
     public function actualizar($id){
       $departamentos = Departamento::all();
       $ciudades = Ciudad::all();
-
       $direccion = Direccion::find($id);
-
 
       return view('Tienda/Direccion/RegistrarDireccion')->with('direccion', $direccion)->with('departamentos', $departamentos)->with('ciudades', $ciudades);
     }

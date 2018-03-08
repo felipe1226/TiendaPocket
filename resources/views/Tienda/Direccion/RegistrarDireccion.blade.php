@@ -30,16 +30,20 @@
 			</div>
 			<!-- End of Sidebar -->
 			<!-- Center Column -->
+
 			<div id="center_column" class="column col-md-6 col-sm-8">
 				<div class="box">
 					<h1 id="titulo" class="page-subheading">Nueva direccion</h1>
+
 					@include('flash::message')
-					{!! Form::open(['method' => 'POST', 'action' => 'DireccionController@store']) !!}
+					{!!Form::open(array('url'=>'Direccion/registrar','method'=>'POST', 'id' => 'formulario'))!!}
+					{{Form::token()}}
 					@if($direccion != null)
 						<input id="id_direccion" name="id_direccion" type="hidden" value="{{$direccion->id}}">
 					@else
 						<input id="id_direccion" name="id_direccion" type="hidden" value="0">
 					@endif
+					
 						<div class="form-group col-md-6 col-sm-6">
 							<label for="nit">Nit</label>
 							<input class="form-control" type="text" id="nit"name="nit" disabled/>
@@ -99,7 +103,7 @@
 								<input type="text" id="referencia" class="form-control" name="referencia" placeholder="Mi direccion" />
 							</div>
 							<div class="clearfix"></div>
-							<button type="submit" class="btn btn-default col-md-offset-9 col-sm-offset-8 col-xs-offset-8 ">
+							<button type="submit" class="btn btn-default col-md-offset-9 col-sm-offset-8 col-xs-offset-8 " onclick="validar()">
 								<span>
 									Guardar
 									<i class="fa fa-chevron-right right"></i>
@@ -120,7 +124,6 @@
 <script>
 	$(function(){
 		var id=$('#id_direccion').val();
-
 		if(id != "0"){
 			$('#titulo').html("Actualizar informacion");
 			$('#enlace').html('<a href="#">Actualizar direccion</a>');
@@ -183,11 +186,22 @@
 		});
 
 	});
+	function validar(){
+			 var error = false;
+			 var nombre = $('#nombres').val();
+			 var apellidos = $('#apellidos').val();
+			 var direccion = $('#direccion').val();
+			 var id_depto = $('#id_depto').val();
+			 var id_ciudad = $('#id_ciudad').val();
+			 var telefono = $('#telefono').val();
+			 var movil = $('#movil').val();
+			 var informacion = $('#informacion').val();
+			 var referencia = $('#referencia').val();
+		 }
 
 
 
-
-</script>
+ </script>
 
 
 @endsection

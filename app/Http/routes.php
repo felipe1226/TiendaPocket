@@ -144,19 +144,18 @@ Route::get('Carrito/Direccion', 'CarritoController@direcciones');
 Route::get('Carrito/Pago', 'CarritoController@pago');
 
 Route::resource('Carrito','CarritoController');
-
 Route::resource('Carrito/Direccion', 'CarritoController@direcciones');
 Route::resource('Carrito/Pago', 'CarritoController@pago');
 
 Route::resource('Tienda/Carrito','CarritoController');
 
-
-Route::resource('RegistrarDireccion', 'DireccionController@registrarDireccion');
-Route::get('Direccion/eliminar', 'DireccionController@eliminar');
-
-
-Route::get('Direccion/{id}/edit', 'DireccionController@actualizar');
 Route::resource('MisDirecciones', 'DireccionController');
+Route::get('RegistrarDireccion', 'DireccionController@registrarDireccion');
+Route::post('Direccion/registrar', 'DireccionController@store');
+Route::get('Direccion/eliminar', 'DireccionController@eliminar');
+Route::get('Direccion/{id}/edit', 'DireccionController@actualizar');
+
+
 
 Route::resource('MiCuenta', 'CuentaController');
 
