@@ -43,6 +43,7 @@ class DireccionController extends Controller
     }
 
     public function store(Request $request){
+      if($request->id_direccion == "0"){
       $direccion = new Direccion;
       $direccion->id_empresa = Auth::user()->idEmpresa;
       $direccion->referencia = $request->referencia;
@@ -59,11 +60,32 @@ class DireccionController extends Controller
 
       $direccion->informacion = $request->informacion;
       $direccion->estado = 0;
-      $direccion->save();
-      Flash::success("La direccion se ha registrado satisfactoriamente!")->important();
-      return redirect('RegistrarDireccion/');
 
+      Flash::success("La direccion se ha registrado satisfactoriamente!")->important();
+
+
+    }else{
+      $direccion=Direccion::find($request->id_direccion);
+      $direccion->referencia = $request->referencia;
+      $direccion->nombres = $request->nombres;
+      $direccion->apellidos = $request->apellidos;
+      $depto = Departamento::where('id', $request->departamento)->get();
+      $direccion->departamento = $depto[0]->nombre;
+      $direccion->ciudad = $request->ciudad;
+      $direccion->direccion = $request->direccion;
+      $direccion->movil = $request->movil;
+      if($request->telefono != ""){
+          $direccion->telefono = $request->telefono;
+      }
+
+      $direccion->informacion = $request->informacion;
+      $direccion->estado = 0;
+      Flash::success("La direccion se ha Actualizar satisfactoriamente!")->important();
     }
+    $direccion->save();
+    return redirect('RegistrarDireccion/');
+
+  }
 
     public function eliminar(Request $request){
       $direccion = Direccion::find($request->id);

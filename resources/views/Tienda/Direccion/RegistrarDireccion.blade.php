@@ -43,7 +43,7 @@
 					@else
 						<input id="id_direccion" name="id_direccion" type="hidden" value="0">
 					@endif
-					
+
 						<div class="form-group col-md-6 col-sm-6">
 							<label for="nit">Nit</label>
 							<input class="form-control" type="text" id="nit"name="nit" disabled/>
@@ -187,16 +187,7 @@
 
 	});
 	function validar(){
-			 var error = false;
-			 var nombre = $('#nombres').val();
-			 var apellidos = $('#apellidos').val();
-			 var direccion = $('#direccion').val();
-			 var id_depto = $('#id_depto').val();
-			 var id_ciudad = $('#id_ciudad').val();
-			 var telefono = $('#telefono').val();
-			 var movil = $('#movil').val();
-			 var informacion = $('#informacion').val();
-			 var referencia = $('#referencia').val();
+			 document.getElementById("formulario").submit();
 		 }
 
 
