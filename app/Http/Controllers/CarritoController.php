@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use PocketByR\Http\Requests;
 use PocketByR\Carrito;
 use PocketByR\Direccion;
+use PocketByR\Pedido;
 use Laracasts\Flash\Flash;
 use PocketByR\Http\Controllers\Controller;
 use Auth;
@@ -27,6 +28,9 @@ class CarritoController extends Controller
 
 
     public function store(Request $request){
+    }
+
+    public function show(){
     }
 
     public function agregarCarrito(Request $request){
@@ -77,7 +81,9 @@ class CarritoController extends Controller
     }
 
     public function pago(){
-      return view('Tienda/Carrito/pago');
+      $direcciones = Direccion::Listar(Auth::user()->idEmpresa)->get();
+      $pedidos = Pedido::ListarOrden()->get();
+      return view('Tienda/Carrito/pago')->with('pedidos', $pedidos)->with('direcciones', $direcciones);
     }
 
 

@@ -141,7 +141,7 @@ Route::get('Carrito/eliminar', 'CarritoController@eliminar');
 
 Route::get('Carrito/modificar', 'CarritoController@modificarCant');
 Route::get('Carrito/Direccion', 'CarritoController@direcciones');
-Route::get('Carrito/Pago', 'CarritoController@pago');
+Route::post('Carrito/Pago', 'CarritoController@pago');
 
 Route::resource('Carrito','CarritoController');
 Route::resource('Carrito/Direccion', 'CarritoController@direcciones');
@@ -158,18 +158,23 @@ Route::get('Direccion/{id}/edit', 'DireccionController@actualizar');
 
 
 Route::resource('MiCuenta', 'CuentaController');
+Route::resource('InformacionPersonal', 'CuentaController@informacionPersonal');
 
-Route::get('Pedido/agregar', 'PedidoController@store');
 Route::resource('Pedidos', 'PedidoController');
+Route::post('Pedido/agregar', 'PedidoController@store');
+
 
 Route::resource('ListaDeseos', 'CarritoController@listaDeseos');
-
-Route::resource('InformacionPersonal', 'CuentaController@informacionPersonal');
 
 Route::resource('Mensajes', 'MensajeriaController');
 
 Route::get('ArticulosProveedor', 'ArticuloController@ArtsProveedor');
-Route::get('Distribuciones', 'CuentaController@distribuciones');
+
+
+Route::resource('Distribuciones', 'DistribucionController');
+Route::post('Distribucion/registrar', 'DistribucionController@store');
+Route::get('Distribucion/actualizar', 'DistribucionController@actualizar');
+Route::get('Distribucion/eliminar', 'DistribucionController@eliminar');
 
 
 Route::get('verArticulo/{id}','ArticuloController@verVistaArticulo');

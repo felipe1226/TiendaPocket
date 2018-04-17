@@ -14,6 +14,10 @@ class Proveedor extends Model
       return $this->hasmany('PocketByR\Articulo', 'id_proveedor', 'idEmpresa');
     }
 
+    public function distribuye(){
+      return $this->hasmany('PocketByR\Articulo', 'id_proveedor', 'idEmpresa');
+    }
+
     public function scopeSearch($query, $arreglo){
         $nombre = $arreglo[0];
         $idEmpresa = $arreglo[1];

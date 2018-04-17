@@ -37,11 +37,17 @@
 
             <p><strong class="dark">Asegúrese de mantener actualizada su información y la tarifas de envio para cada zona de distribucion.</strong></p><br>
 
+            <input id="idEditado" type="hidden" value="-1">
+            <input id="deptoEditado" type="hidden" value="0">
+            <input id="costoEditado" type="hidden" value="0">
+
             <div class="column col-md-4 col-sm-6 col-xs-12">
       				<div class="box">
+                {!!Form::open(array('url'=>'Distribucion/registrar','method'=>'POST', 'id' => 'formulario'))!!}
+                {{Form::token()}}
                 <h3 class="page-subheading">Nueva zona</h3>
                 <div class="form-group">
-                  <select name="idDepto" class="form-last-name form-control" id="idDepto" required>
+                  <select name="idDepto" class="form-last-name form-control" id="idDepto">
                       @foreach($departamentos as $departamento)
                         <option value="{{$departamento->id}}">{{$departamento->nombre}}</option>
                       @endforeach
@@ -49,13 +55,14 @@
                 </div>
                 <div class="input-group col-md-6">
                   <div class="input-group-addon">$</div>
-                  <input class="form-control grey" type="text" name="envio" placeholder="Costo de envio">
+                  <input id="costo" class="form-control grey" type="text" name="costo" placeholder="Costo de envio">
                 </div>
                 <br><div class="clearfix"></div>
-                <a href="#addPModal" class="btn btn-default" data-toggle="modal" title="Guardar"><i class="fa fa-fw fa-truck"></i><i class="fa fa-fw fa-plus"></i></a>
+                <a onclick="validar()" href="javascript:void(0)" class="btn btn-default" title="Guardar"><i class="fa fa-fw fa-truck"></i><i class="fa fa-fw fa-plus"></i></a>
+                {!! Form::close() !!}
               </div>
             </div>
-            <div id="block-history" class="block-center table-responsive col-md-6">
+            <div id="block-history" class="block-center table-responsive col-md-8">
               <table class="std">
                 <thead>
                   <tr>
@@ -66,24 +73,26 @@
                 </thead>
 
                 <tbody>
-                  @foreach($articulos as $articulo)
+                  @foreach($distribucionesPag as $distribucion)
                     <tr class="cart_item first_item odd">
-                      <td class="cart_description">
-                            {{$articulo->descripcion}}</a>
+                      <td id="departamento{{$distribucion->id}}" class="cart_description">
+                        {{$distribucion->departamento}}</a>
                       </td>
+                      <input id="nombreDept{{$distribucion->id}}" type="hidden" value="{{$distribucion->departamento}}">
                       <td class="cart_unit" data-title="Unit price">
-                        <ul class="price text-right" id="precio">
-                          <li class="price">${{$articulo->precio}}</li>
+                        <ul class="price text-right" id="precio{{$distribucion->id}}">
+                          <li class="price">$<span id="costo{{$distribucion->id}}">{{$distribucion->costo}}</span></li>
                         </ul>
                       </td>
 
                       <td class="cart_delete text-center" data-title="Delete">
-                        <div>
-
-                          <a href="{{url('Articulo/'.$articulo->id.'/edit')}}" title="Editar" class="cart_quantity_delete"><i class="fa fa-fw fa-pencil-square-o"></i></a>
-
-                          <a onclick="eliminar({{$articulo->id}})" title="Eliminar" class="cart_quantity_delete" href="javascript:void(0)"><i class="fa fa-trash"></i></a>
-                        </div>
+                          <div id="buttonEditar{{$distribucion->id}}" style="display:block;">
+                            <a onclick="editar({{$distribucion->id}})" href="javascript:void(0)" title="Editar" class="cart_quantity_delete"><i class="fa fa-fw fa-pencil-square-o"></i></a>
+                          </div>
+                          <div id="buttonActualizar{{$distribucion->id}}" style="display:none;">
+                            <a onclick="actualizar({{$distribucion->id}})" href="javascript:void(0)"  title="Confirmar cambios" class="cart_quantity_delete"><i class="fa fa-fw fa-check-circle-o"></i></a>
+                          </div>
+                          <a onclick="eliminarDistribucion({{$distribucion->id}})" title="Eliminar" class="cart_quantity_delete" href="javascript:void(0)"><i class="fa fa-trash"></i></a>
                       </td>
                     </tr>
                     @endforeach
@@ -95,7 +104,7 @@
   		          <div id="pagination" class="pagination clearfix">
   					      <ul class="pagination">
                     <ul class="pagination">
-                      {!!$articulos->render()!!}
+                      {!!$distribucionesPag->render()!!}
                     </ul>
   								</ul>
                 </div>
@@ -106,49 +115,6 @@
               <li class="f_right"><a class="button" href="{{url('Tienda')}}" title= "Ir al inicio"> <i class="fa fa-home"></i></a></li>
               <li><a class="button" href="{{url('MiCuenta')}}" title= "Regresar a mi cuenta"><i class="fa fa-user"></i> </a></li>
             </ul>
-
-            <div class="modal fade" id="addPModal" >
-              <div class="modal-dialog">
-                <div class="modal-content">
-                {!! Form::open(['method' => 'POST', 'action' => 'ProductoController@store']) !!}
-                  <div class="modal-header" style="BACKGROUND-COLOR: rgb(79,0,85); color:white">
-                    <button aria-hidden="true" type="button" class="close" data-dismiss="modal" style="color:white">&times;</button>
-                    <h4 class="modal-title">
-                      Nuevo Producto
-                    </h4>
-                  </div>
-                  <div class="modal-body">
-                    <div class="" >
-                      <div class="widget-content">
-                        <div class="form-group">
-                          <input type="text" name="nombreProducto" class="form-control" placeholder="Nombre" required="true" />
-                        </div><br>
-                      </div>
-                      <div class="form-group col-md-4">
-                        <select id="idCiudad" name="idCiudad" class="form-email form-control" id="form-email" required>
-                            <option></option>
-                        </select>
-                      </div>
-                      <div class="form-group col-md-4">
-                        <select name="idDepto" class="form-last-name form-control" id="idDepto" required>
-                              @foreach($departamentos as $departamento)
-                                <option value="{{$departamento->id}}">{{$departamento->nombre}}</option>
-                              @endforeach
-                        </select>
-                      </div>
-                      <div class="form-group">
-                          <input id="precio" value="" type="number" min="0" step="any" name="precio" class="form-control" required="true" placeholder="Precio" />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                      <button class="btn btn-default" onclick = "return confirm ('¿Está seguro de registrar el producto?')" style="BACKGROUND-COLOR: rgb(79,0,85); color:white" >Guardar</button>
-
-                  </div>
-                {!! Form::close() !!}
-                </div>
-              </div>
-            </div>
           </div><!-- #center_column -->
         </div><!-- .row -->
     </div><!-- #columns -->
@@ -157,6 +123,83 @@
 
 
 <script>
+
+  function validar(){
+    var error = false;
+    var dept = $('#idDepto option:selected').text();
+    var costo = $('#costo').val();
+    JSONDistribuciones = eval(<?php echo json_encode($distribuciones);?>);
+    JSONDistribuciones.forEach(function(currentValue,index,arr) {
+      if(dept == currentValue.departamento){
+        notificacion("Error de registro", "El departamento del "+$('#idDepto option:selected').text()+" ya se encuentra registrado!","", false);
+        error = true;
+      }
+    });
+    if(costo != "0" && !error){
+      document.getElementById("formulario").submit();
+    }
+  }
+
+  function editar(id){
+    var dept = $('#nombreDept'+id).val();
+    var costo = $('#costo'+id).html();
+    var idEditado = $('#idEditado').val();
+    var deptoEditado = $('#deptoEditado').val();
+    var costoEditado = $('#costoEditado').val();
+
+      if(idEditado != -1){
+        var departamento = $('#idDepto'+idEditado).val();
+        var nuevoCosto = $('#campoCosto'+idEditado).val();
+        var error = false;
+        var confirma = false;
+        if((departamento != deptoEditado) && (nuevoCosto != costoEditado)){
+          if(confirm('¿Desea confirmar los cambios de la distribucion?\n\nDepartamento: '+deptoEditado+' a '+departamento+'\nCosto: $'+costoEditado+' a $'+nuevoCosto)){
+            error = verificarDepartamento(departamento);
+            confirma = true;
+          }
+        }
+        else{
+          if(departamento != deptoEditado){
+            if(confirm('¿Desea confirmar los cambios de la distribucion?\n\nDepartamento: '+deptoEditado+' a '+departamento)){
+              error = verificarDepartamento(departamento);
+              confirma = true;
+            }
+          }
+          else{
+            if(nuevoCosto != costoEditado){
+              if(confirm('¿Desea confirmar los cambios de la distribucion a '+deptoEditado+'?\n\nCosto: $'+costoEditado+' a $'+nuevoCosto)){
+                confirma = true;
+              }
+            }
+          }
+        }
+        if(confirma && !error){
+          actualizar(idEditado,departamento,nuevoCosto);
+        }
+        $('#departamento'+idEditado).html(deptoEditado);
+        $('#precio'+idEditado).html('<li class="price">$<span id="costo'+idEditado+'">'+costoEditado+'</span></li>');
+        $('#buttonActualizar'+idEditado).hide();
+        $('#buttonEditar'+idEditado).show();
+      }
+      $('#idEditado').val(id);
+      $('#deptoEditado').val(dept);
+      $('#costoEditado').val(costo);
+
+      $('#buttonActualizar'+id).show();
+      $('#buttonEditar'+id).hide();
+
+      $('#departamento'+id).html('<div class="form-group"><select name="idDepto" class="form-last-name form-control" id="idDepto'+id+'" required></option></select></div>');
+      JSONDepartamentos = eval(<?php echo json_encode($departamentos);?>);
+      JSONDepartamentos.forEach(function(currentValue,index,arr) {
+        $('#idDepto'+id).append($('<option>', {
+            value: currentValue.nombre,
+            text: currentValue.nombre
+        }));
+      });
+      $('#idDepto'+id+' option[value="' + dept + '"]').attr("selected", true);
+
+      $('#precio'+id).html('<input id="campoCosto'+id+'" type="text" value="'+costo+'"/>');
+  }
 
   $('#idDepto').on('change', function (event) {
       var id = $(this).find('option:selected').val();
@@ -175,6 +218,62 @@
         }
     });
   });
+
+  function actualizar(idDistribucion, departamento, costo){
+      $.ajax({
+        url: "Distribucion/actualizar",
+        type: 'GET',
+        data: {
+          id: idDistribucion,
+          departamento: departamento,
+          costo: costo
+        },
+        success: function(){
+          var idEditado = $('#idEditado').val('-1');
+          var deptoEditado = $('#deptoEditado').val('0');
+          var costoEditado = $('#costoEditado').val('0');
+
+          location.reload();
+          notificacion("Distribucion actualizada","Se han realizado los cambios satisfactoriamente!","", false);
+        },
+        error: function(data){
+          notificacion("Error de registro", "Se ha presentado un error al guardar la distribucion!","", false);
+        }
+      });
+  }
+
+  function  verificarDepartamento(departamento){
+    var error = false;
+    JSONDistribuciones = eval(<?php echo json_encode($distribuciones);?>);
+    JSONDistribuciones.forEach(function(currentValue,index,arr) {
+      if(departamento == currentValue.departamento){
+        notificacion("Error al guardar cambios!", "El departamento "+departamento+" ya se encuentra en tus distribuciones!", "", false);
+        error = true;
+      }
+    });
+    return error;
+  }
+
+
+  function eliminarDistribucion(idDistribucion){
+    if(confirm('¿Desea descartar la distribucion a '+$('#nombreDept'+idDistribucion).val()+'?')){
+      $.ajax({
+        url: "Distribucion/eliminar",
+        type: 'GET',
+        data: {
+          id: idDistribucion
+        },
+        success: function(){
+          location.reload();
+        },
+        error: function(data){
+          alert('Error al eliminar la distribución!');
+        }
+      });
+    }
+  }
+
+
 </script>
 
 @endsection

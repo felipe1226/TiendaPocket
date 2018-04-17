@@ -43,13 +43,14 @@
           </ul>
 <!-- /Steps -->
 
-		<form action="{{url('Carrito/Pago')}}" method="get">
+		<form action="{{url('Carrito/Pago')}}" method="post">
+			{{csrf_field()}}
 			<div class="addresses clearfix">
 				<div class="row">
 					<div class="col-xs-12 col-sm-6">
 						<div class="address_delivery select form-group selector1">
 							<label for="id_address_delivery">Elija una dirección de entrega: </label>
-							<select name="id_address_delivery" id="id_address_delivery" class="address_select form-control">
+							<select id="id_address_delivery" class="address_select form-control">
 								@foreach($direcciones as $direccion)
 									<option value="{{$direccion->id}}">{{$direccion->referencia}}</option>
 								@endforeach
@@ -63,12 +64,14 @@
 				<div class="row">
 			<div class="col-xs-12 col-sm-6">
 				<ul id="block-address" class="last_item item box">
+					<input id="refDireccion" name="referencia_direccion" type="hidden" value="{{$direcciones[0]->id}}">
 					<li><h3 id="referencia" class="page-subheading">{{$direcciones[0]->referencia}}</h3></li>
 					<li>
-						<span id="nombres" class="address_name">{{$direcciones[0]->nombres}}
-						</span>
-						<span id="apellidos" class="address_name">{{$direcciones[0]->apellidos}}
-						</span>
+						<span id="nit" class="address_name">{{$direcciones[0]->nit}}</span>
+					</li>
+					<li>
+						<span id="nombres" class="address_name">{{$direcciones[0]->nombres}}</span>
+						<span id="apellidos" class="address_name">{{$direcciones[0]->apellidos}}</span>
 					</li>
 					<li>
 						<span id="direccion" class="address_address1">
@@ -98,7 +101,7 @@
 				<a href="{{url('Carrito')}}" title="Regresar" class="button-exclusive btn btn-default">
 					<i class="fa fa-chevron-left left"></i>
 				</a>
-				<button type="submit" class="btn btn-default col-md-offset-7 col-sm-offset-6 col-xs-offset-9">
+				<button type="submit" class="btn btn-default col-md-offset-7 col-sm-offset-6 col-xs-offset-9" title="Proceder con la compra">
 					<span> <i class="fa fa-chevron-right right"></i></span>
 				</button>
         </a>
@@ -122,7 +125,9 @@
 								$('#block-address').fadeOut('slow', function() {
 			            $.scrollTo(this, 1000);
 									$('#idDireccion').val(currentValue.id);
+									$('#refDireccion').val(currentValue.id);
 									$('#referencia').html("<span>"+currentValue.referencia+"</span>");
+									$('#nit').html("<span>"+currentValue.nit+"</span>");
 									$('#nombres').html(currentValue.nombres);
 									$('#apellidos').html(currentValue.apellidos);
 									$('#direccion').html(currentValue.direccion);
@@ -134,8 +139,6 @@
 								$('#block-address').fadeIn('slow', function() {
 									$('.waitimage').hide();
 								});
-
-
 							}
 					});
 				});

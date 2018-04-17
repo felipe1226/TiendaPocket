@@ -8,7 +8,7 @@ class Direccion extends Model
 {
   protected $table = 'direccion';
 
-  protected $fillable = ['id', 'id_empresa', 'referencia', 'nombres', 'apellidos', 'departamento', 'ciudad', 'direccion', 'movil',  'telefono', 'informacion'];
+  protected $fillable = ['id', 'id_empresa', 'nit', 'referencia', 'nombres', 'apellidos', 'departamento', 'ciudad', 'direccion', 'movil',  'telefono', 'informacion'];
 
   public function pertenece(){
     return $this->belongsTo('PocketByR\Empresa', 'id', 'id_empresa');

@@ -25,27 +25,30 @@ class PedidoController extends Controller
   }
 
   public function store(Request $request){
-    $pedido = new Pedido;
-    $pedido->id_empresa = Auth::user()->id;
-    $pedido->referencia = $request->nombre;
-    $pedido->proveedor = $request->categoria;
-    $pedido->costoTotal = $request->marca;
-    $pedido->estado = $request->cantidad;
-    $pedido->referencia_direccion = $request->precio;
-    $pedido->nombre = $request->impuesto;
-    $pedido->direccion = $request->descripcion;
-    $pedido->localidad = $request->nombre;
-    $pedido->telefono = $request->categoria;
-    $pedido->movil = $request->marca;
-    $pedido->id_articulo = $request->cantidad;
-    $pedido->nobre_articulo = $request->precio;
-    $pedido->prexio_articulo = $request->impuesto;
-    $pedido->cantidad_articulo = $request->descripcion;
-    $pedido->tipo_pago = $request->impuesto;
-    $pedido->comentario = $request->descripcion;
 
+    $pedido = new Pedido;
+    $pedido->factura = $request->factura;
+    $pedido->id_empresa = Auth::user()->idEmpresa;
+    $proveedor = Proveedor::where('idEmpresa', $request->proveedor)->get();
+    $pedido->proveedor = $proveedor[0]->nombre;
+    $pedido->costoTotal = $request->costoTotal;
+    $pedido->estado = $request->estado;
+    $pedido->fecha_envio = "0000-00-00";
+    $pedido->fecha_entrega = "0000-00-00";
+    $pedido->referencia_direccion = $request->referencia_direccion;
+    $pedido->nit = $request->nit;
+    $pedido->nombre = $request->nombre;
+    $pedido->direccion = $request->direccion;
+    $pedido->localidad = $request->localidad;
+    $pedido->telefono = $request->telefono;
+    $pedido->movil = $request->movil;
+    $pedido->id_articulo = $request->id_articulo;
+    $pedido->nombre_articulo = $request->nombre_articulo;
+    $pedido->precio_articulo = $request->precio_articulo;
+    $pedido->cantidad_articulo = $request->cantidad_articulo;
+    $pedido->tipoPago = $request->tipoPago;
+    $pedido->comentario = $request->comentario;
     $pedido->save();
-    return view('Tienda/Pedido/index');
   }
 
 }

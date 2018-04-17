@@ -51,6 +51,7 @@ class ArticuloController extends Controller
         Storage::disk('imgArticulos')->put($file_route, file_get_contents( $img->getRealPath()));
         $articulo->imagen3 = $file_route;
       }
+      Flash::success("El articulo se ha registrado satisfactoriamente!")->important();
     }
     else{
       $articulo = Articulo::find($request->id_articulo);
@@ -90,9 +91,9 @@ class ArticuloController extends Controller
       else{
         $articulo->imagen3 = null;
       }
+      Flash::success("El articulo se ha actualizado satisfactoriamente!")->important();
     }
     $articulo->save();
-    Flash::success("El articulo se ha registrado satisfactoriamente!")->important();
     return redirect('RegistrarArticulo');
 
   }

@@ -222,7 +222,7 @@
 							cant = currentValue.almacena.cantidad;
 							$('#cantidad'+currentValue.id).css('border', '1px solid red');
 							$('#cantidad'+currentValue.id).animate('slow', function() {
-								$('#cantidad'+currentValue.id).css('border', '1px solid #ccc');
+							$('#cantidad'+currentValue.id).css('border', '1px solid #ccc');
 							});
 
 							$('#alertaInventario').show();

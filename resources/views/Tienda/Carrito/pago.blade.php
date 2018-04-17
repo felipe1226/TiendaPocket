@@ -44,6 +44,13 @@
 					</ul>
 					<!-- /Steps -->
 					<div class="paiement_block">
+						<?php
+							$referencia = $_POST['referencia_direccion'];
+							echo '<input id="referencia_direccion" type="text" value="'.$referencia.'">';
+							$mensaje = $_POST['message'];
+							echo '<input id="comentario" type="text" value="'.$mensaje.'">';
+						 ?>
+
 						<div id="order-detail-content" class="table_block table-responsive">
                 <table id="cart_summary" class="table table-bordered">
 									<thead>
@@ -92,6 +99,7 @@
 										</tfoot>
 										<tbody>
 											@foreach(Auth::User()->EmpresaActual->carritos as $carrito)
+												@if($carrito->estado == 1)
 					  						<tr id="carrito{{$carrito->id}}" class="cart_item first_item address_0 odd">
 					  							<td class="cart_product">
 					  								<a href="../Detalles/{{$carrito->id_articulo}}"><img src="../imgArticulos/{{$carrito->almacena->imagen1}}" width="110" height="110"  /></a>
@@ -121,6 +129,7 @@
 					  								<span>$</span><span id="cantidadTotal{{$carrito->id}}" class="price"></span>
 					  							</td>
 					  						</tr>
+												@endif
 					  						@endforeach
 											</tbody>
 										</table>
@@ -195,8 +204,10 @@
 					var totalArticulos = 0;
 					JSONCarritos = eval(<?php echo json_encode(Auth::User()->EmpresaActual->carritos);?>);
 					JSONCarritos.forEach(function(currentValue,index,arr) {
-						$('#cantidadTotal'+currentValue.id).html(eval(currentValue.almacena.precio * currentValue.cantidad));
-						totalArticulos += eval(currentValue.almacena.precio * currentValue.cantidad);
+						if(currentValue.estado == 1){
+							$('#cantidadTotal'+currentValue.id).html(eval(currentValue.almacena.precio * currentValue.cantidad));
+							totalArticulos += eval(currentValue.almacena.precio * currentValue.cantidad);
+						}
 
 					});
 					$('#totalArticulos').val(totalArticulos);
@@ -208,33 +219,68 @@
 
 			function confirmarPedido(){
 
-		      $.ajax({
-		        url: "Pedido/agregar",
-		        type: 'GET',
-		        data: {
-		          proveedor: id,
-							costoTotal: id,
-							estado: id,
-							referencia_direccion: id,
-							nombre: id,
-							direccion: id,
-							localidad: id,
-							telefono: id,
-							movil: id,
-							id_articulo: id,
-							nombre_articulo: id,
-							precio_articulo: id,
-							cantidad_articulo: id,
-							tipoPago: id,
-							comentario: id
-		        },
-		        success: function(){
-							alert("Agregado");
-		        },
-		        error: function(data){
-		          alert('Error en la compra');
-		        }
-		      });
+				var i = 0;
+				var nFactura = 1;
+				var costoTotal = $('#totalCarrito').html();
+				var estado = "En espera de pago";
+				var tipoPago = "PSE";
+
+				var referencia = $('#referencia_direccion').val();
+				var comentario = $('#comentario').val();
+
+
+
+				JSONPedidos = eval(<?php echo json_encode($pedidos);?>);
+				JSONPedidos.forEach(function(currentValue2,index,arr) {
+
+					if(i==0){
+						nFactura += currentValue2.factura;
+					}
+					i++;
+				});
+				i=0;
+				JSONCarritos = eval(<?php echo json_encode(Auth::User()->EmpresaActual->carritos);?>);
+				JSONCarritos.forEach(function(currentValue,index,arr) {
+					if(currentValue.estado == 1 && i == 0){
+						i++;
+						JSONDirecciones = eval(<?php echo json_encode($direcciones);?>);
+						JSONDirecciones.forEach(function(currentValue1,index,arr) {
+							if(currentValue1.id == referencia){
+								alert(currentValue.almacena.id_proveedor);
+
+								$.ajax({
+								 url: baseDir+"Pedido/agregar",
+								 type: 'post',
+								 data: {
+									 factura: nFactura,
+									 proveedor: currentValue.almacena.id_proveedor,
+									 costoTotal: costoTotal,
+									 estado: estado,
+									 referencia_direccion: currentValue1.referencia,
+									 nit: currentValue1.nit,
+									 nombre: currentValue1.nombres +" "+ currentValue1.apellidos,
+									 direccion: currentValue1.direccion,
+									 localidad: currentValue1.ciudad+", "+currentValue1.departamento,
+									 telefono: currentValue1.telefono ,
+									 movil: currentValue1.movil,
+									 id_articulo: currentValue.id_articulo,
+									 nombre_articulo: currentValue.almacena.nombre,
+									 precio_articulo: currentValue.almacena.precio,
+									 cantidad_articulo: currentValue.cantidad,
+									 tipoPago: tipoPago,
+									 comentario: comentario
+								 },
+								 success: function(){
+									 alert("Pedido realizado satisfactoriamente!");
+								 },
+								 error: function(data){
+									 alert('Error en la compra');
+								 }
+							 });
+							}
+						});
+					}
+				});
 		  }
 		</script>
 @endsection

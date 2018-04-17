@@ -23,17 +23,7 @@ class CuentaController extends Controller
     return view('Tienda/Cuenta/index');
   }
 
-
   public function informacionPersonal(){
     return view('Tienda/InformacionPersonal/index');
   }
-
-  public function distribuciones(){
-    $articulos = Articulo::BuscarxProveedor("18")->paginate(6);
-    $departamentos = Departamento::all();
-    $departamentos = Departamento::all();
-      $ciudades = Ciudad::all();
-    return view('Tienda/Cuenta/distribuciones')->with('articulos',$articulos)->with('departamentos',$departamentos)->with('ciudades', $ciudades);
-  }
-
 }
